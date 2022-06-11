@@ -9,7 +9,7 @@ namespace PRONTU
 
         public Connection ()
         {
-            string connStr = "server=localhost;user=root;database=prontu;port=3306;password=";
+            string connStr = "server=localhost;user=root;database=prontu;port=3306;password=root";
             conn = new MySqlConnection(connStr);
             conn.Open ();
         }
