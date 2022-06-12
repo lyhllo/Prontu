@@ -97,10 +97,8 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\System.Memory.xml
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.SuggestedBindingRedirects.cache
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.EsqueciMinhaSenha.resources
-C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Login.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Properties.Resources.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovaSenha.resources
@@ -109,3 +107,4 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.HomeForm.Home.resources
