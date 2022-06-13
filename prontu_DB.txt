@@ -1,0 +1,86 @@
+USE prontu;
+
+CREATE TABLE IF NOT EXISTS usuario(
+id_usuario INT NOT NULL,
+nome_usuario VARCHAR(90) NOT NULL,
+cpf CHAR(11) NOT NULL UNIQUE,
+registro_prof VARCHAR(90),
+profissao VARCHAR(90),
+especialidade VARCHAR(90),
+senha VARCHAR(90) NOT NULL,
+codigo_recuperacao CHAR(6),
+CONSTRAINT usuario PRIMARY KEY(id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS contato(
+id_usuario INT NOT NULL,
+id_contato INT NOT NULL,
+logradouro VARCHAR(90),
+numero VARCHAR(9),
+bairro VARCHAR(90),
+complemento VARCHAR(90),
+cidade VARCHAR(90),
+uf CHAR(2),
+telefone VARCHAR(30),
+email VARCHAR(90),
+CONSTRAINT usuario_contato PRIMARY KEY (id_usuario, id_contato),
+CONSTRAINT fk_usuario_contato FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS agenda(
+id_usuario INT NOT NULL,
+id_agenda INT NOT NULL,
+data_dia DATE NOT NULL ,
+horario TIME NOT NULL,
+reserva BOOLEAN NOT NULL,
+formato_minutos INT NOT NULL,
+mostrar_valor BOOLEAN NOT NULL,
+marcador_comparecimento BOOLEAN NOT NULL,
+marcador_pagamento BOOLEAN NOT NULL,
+CONSTRAINT usuario_agenda PRIMARY KEY (id_usuario, id_agenda),
+CONSTRAINT fk_usuario_agenda FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS paciente(
+id_usuario INT NOT NULL,
+id_paciente INT NOT NULL,
+id_contato INT,
+nome VARCHAR(90) NOT NULL,
+cpf CHAR(11),
+dt_nasc DATE,
+responsavel_cpf CHAR(11),
+responsavel_nome VARCHAR(90),
+data_cadastro DATE NOT NULL,
+convenio VARCHAR(90),
+convenio_codigo VARCHAR(90),
+observacoes LONG,
+CONSTRAINT usuario_paciente PRIMARY KEY (id_usuario, id_paciente),
+CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_contato_paciente FOREIGN KEY (id_usuario, id_contato) REFERENCES contato(id_usuario, id_contato) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS atendimento(
+id_usuario INT NOT NULL,
+id_atendimento INT NOT NULL,
+id_paciente INT NOT NULL,
+id_agenda INT NOT NULL,
+reg_presenca BOOLEAN NOT NULL,
+pagto BOOLEAN NOT NULL,
+valor_pago FLOAT NOT NULL,
+convenio BOOLEAN NOT NULL,
+CONSTRAINT usuario_atendimento PRIMARY KEY (id_usuario, id_atendimento),
+CONSTRAINT fk_usuario_atendimento FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_paciente_atendimento FOREIGN KEY (id_usuario, id_paciente) REFERENCES paciente(id_usuario, id_paciente) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_agenda_atendimento FOREIGN KEY (id_usuario, id_agenda) REFERENCES agenda(id_usuario, id_agenda) ON DELETE CASCADE ON UPDATE CASCADE
+);
+    
+CREATE TABLE IF NOT EXISTS prontuario(
+id_usuario INT NOT NULL,
+id_prontuario INT NOT NULL,
+id_atendimento INT NOT NULL,
+avaliacao LONG NOT NULL,
+condutas LONG NOT NULL,
+CONSTRAINT usuario_prontuario PRIMARY KEY (id_usuario, id_prontuario),
+CONSTRAINT fk_usuario_prontuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_atendimento_prontuario FOREIGN KEY (id_usuario, id_atendimento) REFERENCES atendimento(id_usuario, id_atendimento) ON DELETE CASCADE ON UPDATE CASCADE
+);
