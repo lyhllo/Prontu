@@ -1,4 +1,4 @@
-﻿namespace PRONTU.HomeForm
+﻿namespace PRONTU
 {
     partial class Home
     {
@@ -45,11 +45,8 @@
             this.btnAgenda = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
             this.panelConteudo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCabecalho.SuspendLayout();
             this.panelMenu.SuspendLayout();
-            this.panelConteudo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCabecalho
@@ -66,8 +63,8 @@
             this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
             this.panelCabecalho.Name = "panelCabecalho";
             this.panelCabecalho.Size = new System.Drawing.Size(1482, 43);
-            this.panelCabecalho.TabIndex = 1;
-            this.panelCabecalho.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCabecalho_Paint);
+            this.panelCabecalho.TabIndex = 2;
+            this.panelCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelCabecalho_MouseMove);
             // 
             // lblData
             // 
@@ -81,7 +78,6 @@
             this.lblData.TabIndex = 8;
             this.lblData.Text = "12/06/2022";
             this.lblData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblData.Click += new System.EventHandler(this.label5_Click);
             // 
             // lblUsuario
             // 
@@ -118,7 +114,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "PRONTU";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnMinimizar
             // 
@@ -177,11 +172,12 @@
             this.panelMenu.Controls.Add(this.btnUsuario);
             this.panelMenu.Controls.Add(this.btnAgenda);
             this.panelMenu.Controls.Add(this.btnPacientes);
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 43);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(308, 1200);
-            this.panelMenu.TabIndex = 2;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            this.panelMenu.Size = new System.Drawing.Size(308, 1012);
+            this.panelMenu.TabIndex = 3;
             // 
             // btnRelatorios
             // 
@@ -242,7 +238,7 @@
             this.btnAjustes.Text = "   AJUSTES";
             this.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAjustes.UseVisualStyleBackColor = false;
-            this.btnAjustes.Click += new System.EventHandler(this.button1_Click_2);
+            this.btnAjustes.Click += new System.EventHandler(this.btnAjustes_Click);
             // 
             // btnUsuario
             // 
@@ -264,6 +260,7 @@
             this.btnUsuario.Text = "   USUÁRIO";
             this.btnUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnAgenda
             // 
@@ -285,7 +282,7 @@
             this.btnAgenda.Text = "   AGENDA";
             this.btnAgenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgenda.UseVisualStyleBackColor = false;
-            this.btnAgenda.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
             // 
             // btnPacientes
             // 
@@ -311,69 +308,50 @@
             // 
             // panelConteudo
             // 
-            this.panelConteudo.AutoSize = true;
-            this.panelConteudo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelConteudo.Controls.Add(this.pictureBox1);
             this.panelConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelConteudo.Location = new System.Drawing.Point(0, 0);
+            this.panelConteudo.Location = new System.Drawing.Point(308, 43);
             this.panelConteudo.Name = "panelConteudo";
-            this.panelConteudo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panelConteudo.Size = new System.Drawing.Size(1482, 1055);
-            this.panelConteudo.TabIndex = 3;
-            this.panelConteudo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelConteudo_Paint);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(429, 310);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(974, 212);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panelConteudo.Size = new System.Drawing.Size(1174, 1012);
+            this.panelConteudo.TabIndex = 4;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 1055);
-            this.Controls.Add(this.panelCabecalho);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelConteudo);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelCabecalho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PRONTU - Home";
+            this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.panelCabecalho.ResumeLayout(false);
             this.panelCabecalho.PerformLayout();
             this.panelMenu.ResumeLayout(false);
-            this.panelConteudo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
         private System.Windows.Forms.Panel panelCabecalho;
-        private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnMinimizar;
-        private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Button btnMaximizar;
+        private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnPacientes;
-        private System.Windows.Forms.Button btnAgenda;
         private System.Windows.Forms.Button btnRelatorios;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnAjustes;
         private System.Windows.Forms.Button btnUsuario;
-        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnAgenda;
+        private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Panel panelConteudo;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

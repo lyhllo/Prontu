@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Threading;
 using PRONTU.Controller;
 using PRONTU.View;
-using PRONTU.HomeForm;
 
 namespace PRONTU
 {
@@ -83,6 +82,11 @@ namespace PRONTU
             nt = new Thread(startEsqueciMinhaSenha);
             nt.SetApartmentState(ApartmentState.STA);
             nt.Start();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

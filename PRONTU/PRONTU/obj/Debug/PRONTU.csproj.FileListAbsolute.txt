@@ -107,4 +107,12 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
-C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.HomeForm.Home.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Agenda.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Ajustes.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Atendimento.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacienteCadastro.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesPesquisar.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Relatorios.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Usuario.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.LogoHome.resources

@@ -93,6 +93,24 @@
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
+    <Compile Include="View\Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ajustes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Ajustes.Designer.cs">
+      <DependentUpon>Ajustes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Atendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Atendimento.Designer.cs">
+      <DependentUpon>Atendimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EsqueciMinhaSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,12 +131,51 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\LogoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogoHome.Designer.cs">
+      <DependentUpon>LogoHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NovaSenha.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\NovaSenha.Designer.cs">
       <DependentUpon>NovaSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PacienteCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PacienteCadastro.Designer.cs">
+      <DependentUpon>PacienteCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PacientesPesquisar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PacientesPesquisar.Designer.cs">
+      <DependentUpon>PacientesPesquisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorios.Designer.cs">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Ajustes.resx">
+      <DependentUpon>Ajustes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Atendimento.resx">
+      <DependentUpon>Atendimento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\EsqueciMinhaSenha.resx">
       <DependentUpon>EsqueciMinhaSenha.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,8 +194,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LogoHome.resx">
+      <DependentUpon>LogoHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NovaSenha.resx">
       <DependentUpon>NovaSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PacienteCadastro.resx">
+      <DependentUpon>PacienteCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PacientesPesquisar.resx">
+      <DependentUpon>PacientesPesquisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorios.resx">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
