@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using PRONTU.View.Agenda;
 using PRONTU.View;
 
-namespace PRONTU
+namespace PRONTU.View.Home
 {
     public partial class Home : Form
     {
@@ -30,7 +31,7 @@ namespace PRONTU
             AbrirFormNoPanel<LogoHome>();
         }
 
-        private void AbrirFormNoPanel<Forms>() where Forms : Form, new()
+        public void AbrirFormNoPanel<Forms>() where Forms : Form, new()
         {
             Form formulario;
             formulario = panelConteudo.Controls.OfType<Forms>().FirstOrDefault();

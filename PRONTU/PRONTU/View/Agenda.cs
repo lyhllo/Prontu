@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRONTU.View
+
+namespace PRONTU.View.Agenda
 {
     public partial class Agenda : Form
     {
@@ -30,6 +31,11 @@ namespace PRONTU.View
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAtender_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPanel<Atendimento>();
         }
     }
 }

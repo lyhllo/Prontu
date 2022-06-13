@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View
+﻿namespace PRONTU.View.Agenda
 {
     partial class Agenda
     {
@@ -153,6 +153,7 @@
             this.btnAtender.TabIndex = 5;
             this.btnAtender.Text = "Atender";
             this.btnAtender.UseVisualStyleBackColor = false;
+            this.btnAtender.Click += new System.EventHandler(this.btnAtender_Click);
             // 
             // btnFalta
             // 

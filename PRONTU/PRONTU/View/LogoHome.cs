@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRONTU.View
+namespace PRONTU.View.LogoHome
 {
     public partial class LogoHome : Form
     {
