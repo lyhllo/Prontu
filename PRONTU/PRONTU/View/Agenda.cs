@@ -8,14 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRONTU.View
+
+namespace PRONTU
 {
     public partial class Agenda : Form
     {
+        
+
         public Agenda()
         {
             InitializeComponent();
         }
+
+        public Form ReferenciaHome { get; set; }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -30,6 +35,17 @@ namespace PRONTU.View
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAtender_Click(object sender, EventArgs e)
+        {
+            Home novo = (Home)ReferenciaHome;
+            novo.AbrirAtendimento(DateTime.Now, 1);            
+        }
+
+        private void teste()
+        {
+            
         }
     }
 }

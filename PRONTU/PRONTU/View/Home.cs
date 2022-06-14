@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using PRONTU.View;
 
 namespace PRONTU
 {
@@ -23,6 +22,8 @@ namespace PRONTU
         public static extern bool RelapseCapture();
 
         private bool telaMax = false;
+        public DateTime diaHora { get; set; }
+        public int id_pcte { get; set; }
 
         public Home()
         {
@@ -30,11 +31,11 @@ namespace PRONTU
             AbrirFormNoPanel<LogoHome>();
         }
 
-        private void AbrirFormNoPanel<Forms>() where Forms : Form, new()
+        protected void AbrirFormNoPanel<Forms>() where Forms : Form, new()
         {
             Form formulario;
             formulario = panelConteudo.Controls.OfType<Forms>().FirstOrDefault();
-
+            
             if (formulario == null)
             {
                 formulario = new Forms();
@@ -54,6 +55,7 @@ namespace PRONTU
             }
         }
 
+
         private void Home_Load(object sender, EventArgs e)
         {
             
@@ -71,7 +73,7 @@ namespace PRONTU
 
         private void btnAgenda_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<Agenda>();
+            AbrirAgenda(this);
         }
 
         private void btnRelatorios_Click(object sender, EventArgs e)
@@ -119,6 +121,57 @@ namespace PRONTU
             {
                 RelapseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        public void AbrirAtendimento(DateTime _diaHora, int _idPcte)
+        {
+            Atendimento formulario = panelConteudo.Controls.OfType<Atendimento>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new Atendimento();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                formulario.CarregaTela(_diaHora, _idPcte);
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
+                formulario.CarregaTela(_diaHora, _idPcte);
+
+            }
+        }
+
+        public void AbrirAgenda(Home _home)
+        {
+            Agenda formulario = panelConteudo.Controls.OfType<Agenda>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new Agenda();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                formulario.ReferenciaHome = _home;
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
+                formulario.ReferenciaHome = _home;
             }
         }
     }
