@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.Usuario
+﻿namespace PRONTU
 {
     partial class Usuario
     {

@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.LogoHome
+﻿namespace PRONTU
 {
     partial class LogoHome
     {

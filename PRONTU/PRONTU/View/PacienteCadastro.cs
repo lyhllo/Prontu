@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRONTU.View.PacienteCadastro
+namespace PRONTU
 {
     public partial class PacienteCadastro : Form
     {

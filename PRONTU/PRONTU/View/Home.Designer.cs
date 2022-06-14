@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.Home
+﻿namespace PRONTU
 {
     partial class Home
     {

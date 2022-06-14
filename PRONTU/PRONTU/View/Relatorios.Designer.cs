@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.Relatorio
+﻿namespace PRONTU
 {
     partial class Relatorios
     {

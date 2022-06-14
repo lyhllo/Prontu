@@ -8,13 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRONTU.View.Atendimento
+namespace PRONTU
 {
     public partial class Atendimento : Form
     {
+        public DateTime diaHora { get; set; }
+        public int id_pcte { get; set; }
         public Atendimento()
         {
             InitializeComponent();
+        }
+
+        public void CarregaTela(DateTime _diaHora, int _idPcte)
+        {
+            txtData.Text = _diaHora.ToString();
+            txtId.Text = _idPcte.ToString();
         }
     }
 }

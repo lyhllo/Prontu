@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.PacientePesquisar
+﻿namespace PRONTU
 {
     partial class PacientesPesquisar
     {

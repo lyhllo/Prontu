@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View.Agenda
+﻿namespace PRONTU
 {
     partial class Agenda
     {
