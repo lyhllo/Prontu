@@ -200,6 +200,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\LogoHome.resx">
       <DependentUpon>LogoHome.cs</DependentUpon>
@@ -236,6 +237,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logo_prontu_cinza_verde %28Pequeno%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_prontu_cinza_verde %28Pequeno%29 %28Telefone%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
