@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\Agenda.cs">
@@ -142,6 +143,12 @@
     </Compile>
     <Compile Include="View\NovaSenha.Designer.cs">
       <DependentUpon>NovaSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NovoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NovoUsuario.Designer.cs">
+      <DependentUpon>NovoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PacienteCadastro.cs">
       <SubType>Form</SubType>
@@ -199,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NovaSenha.resx">
       <DependentUpon>NovaSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NovoUsuario.resx">
+      <DependentUpon>NovoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PacienteCadastro.resx">
       <DependentUpon>PacienteCadastro.cs</DependentUpon>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
+using MySql.Data.MySqlClient;
 
 namespace PRONTU.Controller
 {
@@ -14,7 +15,7 @@ namespace PRONTU.Controller
         {
             Connection c = new Connection();
 
-            string sql = "SELECT * FROM usuario_sistema WHERE usuario='" + u + "' AND senha='" + s + "';";
+            string sql = "SELECT * FROM usuario WHERE cpf='" + u + "' AND senha='" + s + "';";
 
             object result = c.Query(sql);
 
@@ -126,5 +127,91 @@ namespace PRONTU.Controller
                 return false;
             }
         }
+
+        public static bool CadastraUsuario(
+            string Usuario,
+            string Cpf,
+            string Email,
+            string Senha,
+            string Nome,
+            string RegProf,
+            string Profissao,
+            string Especialidade,
+            string Telefone,
+            string Rua,
+            string Numero,
+            string Complemento,
+            string Bairro,
+            string Cidade,
+            string Estado)
+        {
+            try
+            {
+                Connection c = new Connection();
+
+                string sql1 = "INSERT INTO endereco (" +
+                    "telefone," +
+                    "rua," +
+                    "numero," +
+                    "complemento," +
+                    "bairro," +
+                    "cidade," +
+                    "estado)" +
+                    " VALUES ('" + Telefone + "'," +
+                    "'" + Rua + "'," +
+                    "'" + Numero + "'," +
+                    "'" + Complemento + "'," +
+                    "'" + Bairro + "'," +
+                    "'" + Cidade + "'," +
+                    "'" + Estado + "');";
+
+                Console.WriteLine(sql1);
+
+                c.NonQuery(sql1);
+
+                string sql2 = "SELECT MAX(id_endereco) FROM endereco;";
+                MySqlDataReader rdr = c.QueryData(sql2);
+
+                string Endereco = "";
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        Endereco = rdr[0].ToString();
+                    }
+                }
+
+                Console.WriteLine(sql2);
+
+                c.Close();
+                Connection c2 = new Connection();
+
+                string sql3 = "INSERT INTO usuario_sistema (" +
+                    "usuario," +
+                    "cpf," +
+                    "email," +
+                    "senha," +
+                    "nome," +
+                    "registro_prof," +
+                    "profissao," +
+                    "especialidade," +
+                    "endereco)" +
+                    " VALUES ('" + Usuario + "','" + Cpf + "','" + Email + "','" + Senha + "','" + Nome + "','" + RegProf + "','" + Profissao + "','" + Especialidade + "'," + Endereco + ");";
+
+                Console.WriteLine(sql3);
+
+                c2.NonQuery(sql3);
+
+                c2.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
     }
 }

@@ -117,3 +117,12 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.Agenda.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.Ajustes.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.Atendimento.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.LogoHome.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.PacienteCadastro.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.PacientesPesquisar.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovoUsuario.resources

@@ -21,6 +21,13 @@ namespace PRONTU
             return result;
         }
 
+        public MySqlDataReader QueryData(string sql)
+        {
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            return rdr;
+        }
+
         public void NonQuery(string sql)
         {
             MySqlCommand cmd = new MySqlCommand(sql, conn);
