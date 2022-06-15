@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View
+﻿namespace PRONTU
 {
     partial class Atendimento
     {
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.txtData = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -41,11 +43,29 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Janela de registro de atendimento";
             // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(297, 113);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(285, 22);
+            this.txtData.TabIndex = 2;
+            this.txtData.Text = "Data Hora";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(296, 209);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(271, 22);
+            this.txtId.TabIndex = 3;
+            this.txtId.Text = "Id Paciente";
+            // 
             // Atendimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 1012);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtData);
             this.Controls.Add(this.label1);
             this.Name = "Atendimento";
             this.Text = "Atendimento";
@@ -57,5 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

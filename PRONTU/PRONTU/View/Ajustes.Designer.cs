@@ -1,4 +1,4 @@
-﻿namespace PRONTU.View
+﻿namespace PRONTU
 {
     partial class Ajustes
     {
