@@ -117,3 +117,47 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe.config
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.pdb
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\BouncyCastle.Crypto.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Hash.xxHash.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\MySql.Data.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Buffers.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Memory.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Numerics.Vectors.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\Ubiety.Dns.Core.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\ZstdNet.dll
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.pdb
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Hash.xxHash.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\MySql.Data.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Buffers.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Memory.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Numerics.Vectors.xml
+D:\git\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Agenda.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Ajustes.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Atendimento.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.EsqueciMinhaSenha.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Login.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Properties.Resources.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.LogoHome.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovaSenha.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacienteCadastro.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacientesPesquisar.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.GenerateResource.cache
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CoreCompileInputs.cache
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
+D:\git\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
