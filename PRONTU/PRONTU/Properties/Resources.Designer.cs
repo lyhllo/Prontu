@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+//teste
+
 namespace PRONTU.Properties {
     using System;
     
