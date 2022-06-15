@@ -68,7 +68,7 @@ namespace PRONTU
 
         private void btnPacientes_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<PacientesPesquisar>();
+            AbrirFormNoPanel<PacienteCadastro>();
         }
 
         private void btnAgenda_Click(object sender, EventArgs e)
