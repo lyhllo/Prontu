@@ -34,7 +34,7 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
             this.btnFalta = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgHorarios = new System.Windows.Forms.DataGridView();
             this.clHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +42,7 @@
             this.clObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).BeginInit();
             this.SuspendLayout();
             // 
             // calendario
@@ -138,22 +138,22 @@
             this.btnFalta.Text = "Registrar Falta";
             this.btnFalta.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgHorarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clHora,
             this.clPaciente,
             this.clDocumento,
             this.clConvenio,
             this.clObs});
-            this.dataGridView1.Location = new System.Drawing.Point(397, 18);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(750, 954);
-            this.dataGridView1.TabIndex = 7;
+            this.dgHorarios.Location = new System.Drawing.Point(397, 18);
+            this.dgHorarios.Name = "dgHorarios";
+            this.dgHorarios.RowHeadersVisible = false;
+            this.dgHorarios.RowHeadersWidth = 51;
+            this.dgHorarios.RowTemplate.Height = 24;
+            this.dgHorarios.Size = new System.Drawing.Size(750, 954);
+            this.dgHorarios.TabIndex = 7;
             // 
             // clHora
             // 
@@ -215,7 +215,7 @@
             this.ClientSize = new System.Drawing.Size(1174, 1012);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgHorarios);
             this.Controls.Add(this.btnFalta);
             this.Controls.Add(this.btnAtender);
             this.Controls.Add(this.btnPagar);
@@ -224,7 +224,7 @@
             this.Controls.Add(this.calendario);
             this.Name = "Agenda";
             this.Text = "Agenda";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +238,7 @@
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;

@@ -18,6 +18,10 @@ namespace PRONTU
         public Agenda()
         {
             InitializeComponent();
+            for (int i = 0; i < 10; i++)
+            {
+                dgHorarios.Rows.Add(i + 1);
+            }
         }
 
         public Form ReferenciaHome { get; set; }
