@@ -1,3 +1,5 @@
+CREATE SCHEMA PRONTU;
+
 USE prontu;
 
 CREATE TABLE IF NOT EXISTS usuario(
@@ -30,8 +32,7 @@ CONSTRAINT fk_usuario_contato FOREIGN KEY (id_usuario) REFERENCES usuario(id_usu
 CREATE TABLE IF NOT EXISTS agenda(
 id_usuario INT NOT NULL,
 id_agenda INT NOT NULL,
-data_dia DATE NOT NULL ,
-horario TIME NOT NULL,
+horario DATETIME NOT NULL,
 reserva BOOLEAN NOT NULL,
 formato_minutos INT NOT NULL,
 mostrar_valor BOOLEAN NOT NULL,

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -90,10 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="Controller\Agenda.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\Validacao.cs" />
+    <Compile Include="Model\AgendaModel.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
+    <Compile Include="Queries\AgendaQueries.cs" />
     <Compile Include="View\Agenda.cs">
       <SubType>Form</SubType>
     </Compile>

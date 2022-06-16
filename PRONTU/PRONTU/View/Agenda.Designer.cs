@@ -35,13 +35,13 @@
             this.btnAtender = new System.Windows.Forms.Button();
             this.btnFalta = new System.Windows.Forms.Button();
             this.dgHorarios = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.clHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clConvenio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.calendario.TabIndex = 0;
             this.calendario.TitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.calendario.TrailingForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateChanged);
             // 
             // btnCadastro
             // 
@@ -140,6 +141,8 @@
             // 
             // dgHorarios
             // 
+            this.dgHorarios.AllowUserToAddRows = false;
+            this.dgHorarios.AllowUserToDeleteRows = false;
             this.dgHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clHora,
@@ -147,48 +150,17 @@
             this.clDocumento,
             this.clConvenio,
             this.clObs});
+            this.dgHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgHorarios.Location = new System.Drawing.Point(397, 18);
+            this.dgHorarios.MultiSelect = false;
             this.dgHorarios.Name = "dgHorarios";
+            this.dgHorarios.ReadOnly = true;
             this.dgHorarios.RowHeadersVisible = false;
             this.dgHorarios.RowHeadersWidth = 51;
             this.dgHorarios.RowTemplate.Height = 24;
-            this.dgHorarios.Size = new System.Drawing.Size(750, 954);
+            this.dgHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgHorarios.Size = new System.Drawing.Size(750, 835);
             this.dgHorarios.TabIndex = 7;
-            // 
-            // clHora
-            // 
-            this.clHora.HeaderText = "Hora";
-            this.clHora.MinimumWidth = 6;
-            this.clHora.Name = "clHora";
-            this.clHora.Width = 90;
-            // 
-            // clPaciente
-            // 
-            this.clPaciente.HeaderText = "Paciente";
-            this.clPaciente.MinimumWidth = 6;
-            this.clPaciente.Name = "clPaciente";
-            this.clPaciente.Width = 300;
-            // 
-            // clDocumento
-            // 
-            this.clDocumento.HeaderText = "Documento";
-            this.clDocumento.MinimumWidth = 6;
-            this.clDocumento.Name = "clDocumento";
-            this.clDocumento.Width = 90;
-            // 
-            // clConvenio
-            // 
-            this.clConvenio.HeaderText = "Convênio";
-            this.clConvenio.MinimumWidth = 6;
-            this.clConvenio.Name = "clConvenio";
-            this.clConvenio.Width = 90;
-            // 
-            // clObs
-            // 
-            this.clObs.HeaderText = "Observações";
-            this.clObs.MinimumWidth = 6;
-            this.clObs.Name = "clObs";
-            this.clObs.Width = 300;
             // 
             // label1
             // 
@@ -207,6 +179,46 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 42);
             this.textBox1.TabIndex = 9;
+            // 
+            // clHora
+            // 
+            this.clHora.HeaderText = "Hora";
+            this.clHora.MinimumWidth = 6;
+            this.clHora.Name = "clHora";
+            this.clHora.ReadOnly = true;
+            this.clHora.Width = 90;
+            // 
+            // clPaciente
+            // 
+            this.clPaciente.HeaderText = "Paciente";
+            this.clPaciente.MinimumWidth = 6;
+            this.clPaciente.Name = "clPaciente";
+            this.clPaciente.ReadOnly = true;
+            this.clPaciente.Width = 300;
+            // 
+            // clDocumento
+            // 
+            this.clDocumento.HeaderText = "Documento";
+            this.clDocumento.MinimumWidth = 6;
+            this.clDocumento.Name = "clDocumento";
+            this.clDocumento.ReadOnly = true;
+            this.clDocumento.Width = 90;
+            // 
+            // clConvenio
+            // 
+            this.clConvenio.HeaderText = "Convênio";
+            this.clConvenio.MinimumWidth = 6;
+            this.clConvenio.Name = "clConvenio";
+            this.clConvenio.ReadOnly = true;
+            this.clConvenio.Width = 90;
+            // 
+            // clObs
+            // 
+            this.clObs.HeaderText = "Observações";
+            this.clObs.MinimumWidth = 6;
+            this.clObs.Name = "clObs";
+            this.clObs.ReadOnly = true;
+            this.clObs.Width = 300;
             // 
             // Agenda
             // 
@@ -238,13 +250,13 @@
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn clConvenio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clObs;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
