@@ -88,8 +88,8 @@ CREATE TABLE IF NOT EXISTS prontuario(
 id_usuario INT NOT NULL,
 id_prontuario INT NOT NULL,
 id_atendimento INT NOT NULL,
-avaliacao LONG NOT NULL,
-condutas LONG NOT NULL,
+avaliacao VARCHAR(500) NOT NULL,
+condutas VARCHAR(500) NOT NULL,
 CONSTRAINT usuario_prontuario PRIMARY KEY (id_usuario, id_prontuario),
 CONSTRAINT fk_usuario_prontuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_atendimento_prontuario FOREIGN KEY (id_usuario, id_atendimento) REFERENCES atendimento(id_usuario, id_atendimento) ON DELETE CASCADE ON UPDATE CASCADE

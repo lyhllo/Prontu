@@ -64,7 +64,6 @@
             this.panelCabecalho.Name = "panelCabecalho";
             this.panelCabecalho.Size = new System.Drawing.Size(1482, 43);
             this.panelCabecalho.TabIndex = 2;
-            this.panelCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelCabecalho_MouseMove);
             // 
             // lblData
             // 

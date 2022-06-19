@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
-using PRONTU.Queries.AgendaQueries;
+using PRONTU.Controller.AgendaController;
 
 
 namespace PRONTU
 {
     public partial class Agenda : Form
     {
+        AgendaController agendaController = new AgendaController();
         public Form ReferenciaHome { get; set; }
         public int formatoAgenda { get; set; }
         string dataSelecionada;
@@ -22,7 +23,6 @@ namespace PRONTU
         private int linhas;
         private List<AgendaModel> agenda;
         private AgendaModel atendimento;
-        AgendaQueries agQuery = new AgendaQueries();
 
 
         public Agenda()
@@ -46,7 +46,8 @@ namespace PRONTU
         {
             DateTime _d = new DateTime();
             _d = calendario.SelectionRange.Start;
-            agenda = agQuery.BuscaAgendamentosDoDia(1, _d);
+            
+            agenda = agendaController.BuscaAgendamentosDoDia(1, _d);
             for (int i = 0; i < linhas; i++)
             {
                 dgHorarios.Rows[i].Cells[0].Value = "0";
@@ -93,9 +94,7 @@ namespace PRONTU
                 if (agenda[i].Id_pcte == _val)
                 {
                     atendimento = agenda[i];
-                    lblValor.Visible = false;
-                    txtValor.Visible = true;
-                    btnPagar.Visible = true;
+                    mostrar_botoes(true);
                     txtValor.Text = atendimento.Valor_pago.ToString();
                     if (atendimento.Pago == true)
                     {
@@ -105,23 +104,41 @@ namespace PRONTU
                     {
                         btnPagar.Text = "Marcar Pagamento";
                     }
+                    if (atendimento.Avaliacao != null || atendimento.Observacoes != null)
+                    {
+                        btnRemoverAgendamento.Text = "Remover atendimento";
+                    }
+                    else
+                    {
+                        btnRemoverAgendamento.Text = "Remover agendamento";
+                    }
                     break;
                 }
                 else
                 {
-                    lblValor.Visible = false;
-                    txtValor.Visible = false;
-                    btnPagar.Visible = false;
-                    txtValor.Text = "0,00";
-                    btnPagar.Text = "Marcar Pagamento";
+                    mostrar_botoes(false);
                 }
             }
         }
 
-        private void GetDatas()
+        private void mostrar_botoes(Boolean _bol)
         {
-            dataSelecionada = calendario.SelectionRange.Start.ToShortDateString();
-            horaSelecionada = "14:30";
+            if (_bol)
+            {
+                btnAtender.Text = "Atender";
+            }
+            else
+            {
+                btnAtender.Text = "Agendar";
+            }
+            btnFalta.Visible = _bol;
+            btnCadastro.Visible = _bol;
+            btnRemoverAgendamento.Visible = _bol;
+            lblValor.Visible = _bol;
+            txtValor.Visible = _bol;
+            btnPagar.Visible = _bol;
+
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -131,7 +148,12 @@ namespace PRONTU
 
         private void btnRemoverAgendamento_Click(object sender, EventArgs e)
         {
-
+            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover da agenda e deletar todas " +
+                "as informações desse atendimento?", "Remover agendamento", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+            {
+                MessageBox.Show("Agendamento removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -157,6 +179,11 @@ namespace PRONTU
         }
 
         private void dgHorarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnFalta_Click(object sender, EventArgs e)
         {
 
         }

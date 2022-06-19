@@ -117,11 +117,7 @@ namespace PRONTU
 
         private void panelCabecalho_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                RelapseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+
         }
 
         public void AbrirAtendimento(DateTime _diaHora, int _idPcte)

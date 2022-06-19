@@ -19,6 +19,8 @@ namespace PRONTU.Model
         public double? Valor_pago { get; set; }
         public bool? Pago { get; set; }
         public bool? Presenca { get; set; }
+        public string Avaliacao { get; set; }
+        public string Condutas { get; set; }
 
     }
 }
