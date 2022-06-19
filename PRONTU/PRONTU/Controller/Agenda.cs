@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PRONTU.Model;
+using PRONTU.Queries;
 
 namespace PRONTU.Controller
 {

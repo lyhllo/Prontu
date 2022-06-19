@@ -35,13 +35,14 @@
             this.btnAtender = new System.Windows.Forms.Button();
             this.btnFalta = new System.Windows.Forms.Button();
             this.dgHorarios = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clIdPcte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clConvenio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.btnCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastro.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnCadastro.Location = new System.Drawing.Point(22, 438);
+            this.btnCadastro.Location = new System.Drawing.Point(22, 294);
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(134, 103);
             this.btnCadastro.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.btnRemoverAgendamento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRemoverAgendamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverAgendamento.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnRemoverAgendamento.Location = new System.Drawing.Point(207, 438);
+            this.btnRemoverAgendamento.Location = new System.Drawing.Point(207, 294);
             this.btnRemoverAgendamento.Name = "btnRemoverAgendamento";
             this.btnRemoverAgendamento.Size = new System.Drawing.Size(131, 103);
             this.btnRemoverAgendamento.TabIndex = 3;
@@ -99,11 +100,11 @@
             this.btnPagar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagar.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnPagar.Location = new System.Drawing.Point(103, 327);
+            this.btnPagar.Location = new System.Drawing.Point(114, 669);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(134, 71);
             this.btnPagar.TabIndex = 4;
-            this.btnPagar.Text = "Pago";
+            this.btnPagar.Text = "Marcar Pagamento";
             this.btnPagar.UseVisualStyleBackColor = false;
             // 
             // btnAtender
@@ -115,7 +116,7 @@
             this.btnAtender.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnAtender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtender.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnAtender.Location = new System.Drawing.Point(207, 590);
+            this.btnAtender.Location = new System.Drawing.Point(207, 446);
             this.btnAtender.Name = "btnAtender";
             this.btnAtender.Size = new System.Drawing.Size(134, 103);
             this.btnAtender.TabIndex = 5;
@@ -132,7 +133,7 @@
             this.btnFalta.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnFalta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFalta.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnFalta.Location = new System.Drawing.Point(22, 590);
+            this.btnFalta.Location = new System.Drawing.Point(22, 446);
             this.btnFalta.Name = "btnFalta";
             this.btnFalta.Size = new System.Drawing.Size(134, 103);
             this.btnFalta.TabIndex = 6;
@@ -143,8 +144,12 @@
             // 
             this.dgHorarios.AllowUserToAddRows = false;
             this.dgHorarios.AllowUserToDeleteRows = false;
+            this.dgHorarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clIdPcte,
             this.clHora,
             this.clPaciente,
             this.clDocumento,
@@ -161,24 +166,16 @@
             this.dgHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgHorarios.Size = new System.Drawing.Size(750, 835);
             this.dgHorarios.TabIndex = 7;
+            this.dgHorarios.SelectionChanged += new System.EventHandler(this.SelectionChanged);
             // 
-            // label1
+            // clIdPcte
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Sans Arabic", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(20, 268);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 42);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Valor: R$ ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(169, 268);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 42);
-            this.textBox1.TabIndex = 9;
+            this.clIdPcte.HeaderText = "idPaciente";
+            this.clIdPcte.MinimumWidth = 6;
+            this.clIdPcte.Name = "clIdPcte";
+            this.clIdPcte.ReadOnly = true;
+            this.clIdPcte.Visible = false;
+            this.clIdPcte.Width = 125;
             // 
             // clHora
             // 
@@ -194,7 +191,7 @@
             this.clPaciente.MinimumWidth = 6;
             this.clPaciente.Name = "clPaciente";
             this.clPaciente.ReadOnly = true;
-            this.clPaciente.Width = 300;
+            this.clPaciente.Width = 200;
             // 
             // clDocumento
             // 
@@ -218,15 +215,33 @@
             this.clObs.MinimumWidth = 6;
             this.clObs.Name = "clObs";
             this.clObs.ReadOnly = true;
-            this.clObs.Width = 300;
+            this.clObs.Width = 400;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Noto Sans Arabic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblValor.Location = new System.Drawing.Point(31, 592);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(139, 42);
+            this.lblValor.TabIndex = 8;
+            this.lblValor.Text = "Valor: R$ ";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(180, 592);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(132, 42);
+            this.txtValor.TabIndex = 9;
             // 
             // Agenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 1012);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.lblValor);
             this.Controls.Add(this.dgHorarios);
             this.Controls.Add(this.btnFalta);
             this.Controls.Add(this.btnAtender);
@@ -250,9 +265,10 @@
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblValor;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.DataGridView dgHorarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIdPcte;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn clPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;

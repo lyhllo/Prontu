@@ -14,9 +14,9 @@ namespace PRONTU.Model
         public string Cpf { get; set; }
         public DateTime? Dt_nasc { get; set; }
         public string Convenio { get; set; }
-        public long? Observacoes { get; set; }
+        public string Observacoes { get; set; }
 
-        public float? Valor_pago { get; set; }
+        public double? Valor_pago { get; set; }
         public bool? Pago { get; set; }
         public bool? Presenca { get; set; }
 

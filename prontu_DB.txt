@@ -1,3 +1,5 @@
+DROP SCHEMA IF EXISTS PRONTU;
+
 CREATE SCHEMA PRONTU;
 
 USE prontu;
@@ -14,6 +16,8 @@ codigo_recuperacao CHAR(6),
 CONSTRAINT usuario PRIMARY KEY(id_usuario)
 );
 
+insert into usuario values(1, "admin", "00000000000", "CREFITO-5", "Fisioterapeuta", "Traumato-Ortopedia", "admin", null);
+
 CREATE TABLE IF NOT EXISTS contato(
 id_usuario INT NOT NULL,
 id_contato INT NOT NULL,
@@ -29,11 +33,11 @@ CONSTRAINT usuario_contato PRIMARY KEY (id_usuario, id_contato),
 CONSTRAINT fk_usuario_contato FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+insert into contato values(1, 1, "Rua das Flores", 23, "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
+
 CREATE TABLE IF NOT EXISTS agenda(
 id_usuario INT NOT NULL,
 id_agenda INT NOT NULL,
-horario DATETIME NOT NULL,
-reserva BOOLEAN NOT NULL,
 formato_minutos INT NOT NULL,
 mostrar_valor BOOLEAN NOT NULL,
 marcador_comparecimento BOOLEAN NOT NULL,
@@ -41,6 +45,8 @@ marcador_pagamento BOOLEAN NOT NULL,
 CONSTRAINT usuario_agenda PRIMARY KEY (id_usuario, id_agenda),
 CONSTRAINT fk_usuario_agenda FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+insert into agenda values(1, 1, 30, true, true, true);
 
 CREATE TABLE IF NOT EXISTS paciente(
 id_usuario INT NOT NULL,
@@ -60,20 +66,23 @@ CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_us
 CONSTRAINT fk_contato_paciente FOREIGN KEY (id_usuario, id_contato) REFERENCES contato(id_usuario, id_contato) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+insert into paciente values(1, 1, 1, "Maria da Silva", "11100033322", "1990-09-04", null, null, "2022-06-18", "Unimed", "ab123545", "Paciente encaminhada pelo Dr Hans Chucrute.");
+
 CREATE TABLE IF NOT EXISTS atendimento(
 id_usuario INT NOT NULL,
 id_atendimento INT NOT NULL,
 id_paciente INT NOT NULL,
-id_agenda INT NOT NULL,
-reg_presenca BOOLEAN NOT NULL,
-pagto BOOLEAN NOT NULL,
-valor_pago FLOAT NOT NULL,
-convenio BOOLEAN NOT NULL,
+horario DATETIME NOT NULL,
+reg_presenca BOOLEAN,
+pagto BOOLEAN,
+valor_pago FLOAT,
+convenio VARCHAR(90),
 CONSTRAINT usuario_atendimento PRIMARY KEY (id_usuario, id_atendimento),
 CONSTRAINT fk_usuario_atendimento FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_paciente_atendimento FOREIGN KEY (id_usuario, id_paciente) REFERENCES paciente(id_usuario, id_paciente) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_agenda_atendimento FOREIGN KEY (id_usuario, id_agenda) REFERENCES agenda(id_usuario, id_agenda) ON DELETE CASCADE ON UPDATE CASCADE
+CONSTRAINT fk_paciente_atendimento FOREIGN KEY (id_usuario, id_paciente) REFERENCES paciente(id_usuario, id_paciente) ON DELETE CASCADE ON UPDATE CASCADE
 );
+delete from atendimento;
+insert into atendimento values(1, 1, 1, "2022-06-18 20:30:00", null, true, 80.5, "Unimed");
     
 CREATE TABLE IF NOT EXISTS prontuario(
 id_usuario INT NOT NULL,
@@ -85,3 +94,13 @@ CONSTRAINT usuario_prontuario PRIMARY KEY (id_usuario, id_prontuario),
 CONSTRAINT fk_usuario_prontuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_atendimento_prontuario FOREIGN KEY (id_usuario, id_atendimento) REFERENCES atendimento(id_usuario, id_atendimento) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+insert into prontuario values(1, 1, 1, "Paciente chega relatando melhora desde o último atendimento, demonstrando menor gasto energético para atividades da vida diária. Informa que passou por nova avaliação médica, sem necessidade de intervenção cirúrgica no momento.
+", "Alongamentos assistidos de MMII;
+Treino isométrico de quadríceps, adutores e abdutores bilateral;
+Iniciado treino proprioceptivo com prancha bidirecional e apoio do terapeuta;
+Treino de AVDs com leve auxílio ao fim dos movimentos.
+Deixo orientações para exercícios domiciliares.
+");
+
+
