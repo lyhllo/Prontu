@@ -59,10 +59,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(894, 860);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(1192, 1058);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 24);
+            this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 1;
             // 
             // btnConfirmar
@@ -72,9 +71,10 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(756, 11);
+            this.btnConfirmar.Location = new System.Drawing.Point(1008, 14);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(112, 39);
+            this.btnConfirmar.Size = new System.Drawing.Size(149, 48);
             this.btnConfirmar.TabIndex = 19;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
@@ -87,9 +87,10 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(638, 11);
+            this.btnCancelar.Location = new System.Drawing.Point(851, 14);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 48);
             this.btnCancelar.TabIndex = 18;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -97,38 +98,44 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(7, 24);
+            this.textBox8.Location = new System.Drawing.Point(9, 30);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(841, 206);
+            this.textBox8.Size = new System.Drawing.Size(1120, 253);
             this.textBox8.TabIndex = 17;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(14, 488);
+            this.groupBox3.Location = new System.Drawing.Point(19, 601);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(855, 236);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1140, 290);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CONDUTAS";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(7, 24);
+            this.textBox7.Location = new System.Drawing.Point(9, 30);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(841, 206);
+            this.textBox7.Size = new System.Drawing.Size(1120, 253);
             this.textBox7.TabIndex = 15;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(14, 217);
+            this.groupBox2.Location = new System.Drawing.Point(19, 267);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(855, 236);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1140, 290);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AVALIAÇÃO";
@@ -136,9 +143,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 24);
+            this.label2.Location = new System.Drawing.Point(9, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.Size = new System.Drawing.Size(62, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome:";
             // 
@@ -147,17 +155,19 @@
             this.txtNome.Enabled = false;
             this.txtNome.ForeColor = System.Drawing.Color.Black;
             this.txtNome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtNome.Location = new System.Drawing.Point(66, 21);
+            this.txtNome.Location = new System.Drawing.Point(88, 26);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(383, 24);
+            this.txtNome.Size = new System.Drawing.Size(509, 28);
             this.txtNome.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(463, 24);
+            this.label3.Location = new System.Drawing.Point(617, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 18);
+            this.label3.Size = new System.Drawing.Size(106, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Documento:";
             // 
@@ -166,90 +176,99 @@
             this.txtData.Enabled = false;
             this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtData.ForeColor = System.Drawing.Color.Black;
-            this.txtData.Location = new System.Drawing.Point(66, 58);
-            this.txtData.Margin = new System.Windows.Forms.Padding(2);
+            this.txtData.Location = new System.Drawing.Point(88, 71);
+            this.txtData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(78, 24);
+            this.txtData.Size = new System.Drawing.Size(103, 28);
             this.txtData.TabIndex = 7;
             this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtDocumento
             // 
             this.txtDocumento.Enabled = false;
-            this.txtDocumento.Location = new System.Drawing.Point(559, 21);
+            this.txtDocumento.Location = new System.Drawing.Point(745, 26);
+            this.txtDocumento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(110, 24);
+            this.txtDocumento.Size = new System.Drawing.Size(145, 28);
             this.txtDocumento.TabIndex = 3;
             this.txtDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(675, 24);
+            this.label4.Location = new System.Drawing.Point(900, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 18);
+            this.label4.Size = new System.Drawing.Size(109, 22);
             this.label4.TabIndex = 4;
             this.label4.Text = "Data. Nasc.:";
             // 
             // txtNascimento
             // 
             this.txtNascimento.Enabled = false;
-            this.txtNascimento.Location = new System.Drawing.Point(771, 21);
+            this.txtNascimento.Location = new System.Drawing.Point(1028, 26);
+            this.txtNascimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNascimento.Name = "txtNascimento";
-            this.txtNascimento.Size = new System.Drawing.Size(78, 24);
+            this.txtNascimento.Size = new System.Drawing.Size(103, 28);
             this.txtNascimento.TabIndex = 5;
             this.txtNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 61);
+            this.label5.Location = new System.Drawing.Point(9, 75);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 18);
+            this.label5.Size = new System.Drawing.Size(53, 22);
             this.label5.TabIndex = 6;
             this.label5.Text = "Data:";
             // 
             // txtHora
             // 
             this.txtHora.Enabled = false;
-            this.txtHora.Location = new System.Drawing.Point(210, 58);
+            this.txtHora.Location = new System.Drawing.Point(280, 71);
+            this.txtHora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(47, 24);
+            this.txtHora.Size = new System.Drawing.Size(61, 28);
             this.txtHora.TabIndex = 9;
             this.txtHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(159, 61);
+            this.label6.Location = new System.Drawing.Point(212, 75);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 18);
+            this.label6.Size = new System.Drawing.Size(54, 22);
             this.label6.TabIndex = 8;
             this.label6.Text = "Hora:";
             // 
             // txtConvenio
             // 
             this.txtConvenio.Enabled = false;
-            this.txtConvenio.Location = new System.Drawing.Point(344, 58);
+            this.txtConvenio.Location = new System.Drawing.Point(459, 71);
+            this.txtConvenio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtConvenio.Name = "txtConvenio";
-            this.txtConvenio.Size = new System.Drawing.Size(325, 24);
+            this.txtConvenio.Size = new System.Drawing.Size(432, 28);
             this.txtConvenio.TabIndex = 11;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(675, 61);
+            this.label8.Location = new System.Drawing.Point(900, 75);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.Size = new System.Drawing.Size(57, 22);
             this.label8.TabIndex = 12;
             this.label8.Text = "Valor:";
             // 
             // txtValor
             // 
             this.txtValor.Enabled = false;
-            this.txtValor.Location = new System.Drawing.Point(727, 58);
+            this.txtValor.Location = new System.Drawing.Point(969, 71);
+            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(122, 24);
+            this.txtValor.Size = new System.Drawing.Size(161, 28);
             this.txtValor.TabIndex = 13;
             this.txtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -270,9 +289,11 @@
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 85);
+            this.groupBox1.Location = new System.Drawing.Point(17, 105);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(856, 97);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1141, 119);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DADOS DO ATENDIMENTO";
@@ -280,24 +301,24 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(263, 61);
+            this.label7.Location = new System.Drawing.Point(351, 75);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 18);
+            this.label7.Size = new System.Drawing.Size(91, 22);
             this.label7.TabIndex = 10;
             this.label7.Text = "Convênio:";
             // 
             // Atendimento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 822);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1173, 1012);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Atendimento";
             this.Text = "Atendimento";
             this.groupBox3.ResumeLayout(false);
