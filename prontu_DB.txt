@@ -60,7 +60,7 @@ responsavel_nome VARCHAR(90),
 data_cadastro DATE NOT NULL,
 convenio VARCHAR(90),
 convenio_codigo VARCHAR(90),
-observacoes LONG,
+observacoes VARCHAR(150),
 CONSTRAINT usuario_paciente PRIMARY KEY (id_usuario, id_paciente),
 CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_contato_paciente FOREIGN KEY (id_usuario, id_contato) REFERENCES contato(id_usuario, id_contato) ON DELETE CASCADE ON UPDATE CASCADE
