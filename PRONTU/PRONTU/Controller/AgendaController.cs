@@ -19,16 +19,19 @@ namespace PRONTU.Controller.AgendaController
 
             var _agenda = new List<AgendaModel>();
 
-            sql = "SELECT atendimento.horario," +
-                  "       paciente.id_paciente," +
+            sql = "SELECT paciente.id_paciente," +
                   "       paciente.nome," +
                   "       paciente.cpf," +
                   "       paciente.dt_nasc," +
-                  "       if(atendimento.convenio is not null, atendimento.convenio, paciente.convenio) convenio," +
+                  "       paciente.convenio as convenio_paciente," +
                   "       paciente.observacoes," +
+                  "       atendimento.id_atendimento," +
+                  "       atendimento.horario," +
+                  "       atendimento.convenio as convenio_atendimento," +
                   "       atendimento.valor_pago," +
                   "       atendimento.pagto," +
                   "       atendimento.reg_presenca," +
+                  "       prontuario.id_prontuario," +
                   "       prontuario.avaliacao," +
                   "       prontuario.condutas" +
                   "  FROM atendimento" +
@@ -49,14 +52,94 @@ namespace PRONTU.Controller.AgendaController
                 while (rdr.Read())
                 {
                     AgendaModel agendaModel     = new AgendaModel();
-                    agendaModel.Horario         = Convert.ToDateTime(rdr["horario"]);
                     agendaModel.Id_pcte         = Convert.ToInt32(rdr["id_paciente"]);
                     agendaModel.Nome            = Convert.ToString(rdr["nome"]);
-                    agendaModel.Cpf             = Convert.ToString(rdr["cpf"]);
-                    agendaModel.Dt_nasc         = Convert.ToDateTime(rdr["dt_nasc"]);
-                    agendaModel.Convenio        = Convert.ToString(rdr["convenio"]);
-                    agendaModel.Observacoes     = Convert.ToString(rdr["observacoes"]);
-                    agendaModel.Valor_pago      = Convert.ToDouble(rdr["valor_pago"]);
+
+                    if (rdr["cpf"] != DBNull.Value)
+                    {
+                        agendaModel.Cpf = Convert.ToString(rdr["cpf"]);
+                    }
+                    else
+                    {
+                        agendaModel.Cpf = null;
+                    }
+
+                    if (rdr["dt_nasc"] != DBNull.Value)
+                    {
+                        agendaModel.Dt_nasc = Convert.ToDateTime(rdr["dt_nasc"]);
+                    }
+                    else
+                    {
+                        agendaModel.Dt_nasc = null;
+                    }
+                    
+                    if (rdr["convenio_paciente"] != DBNull.Value)
+                    {
+                        agendaModel.Convenio_pcte = Convert.ToString(rdr["convenio_paciente"]);
+                    }
+                    else
+                    {
+                        agendaModel.Convenio_pcte = null;
+                    }
+                    
+                    if (rdr["observacoes"] != DBNull.Value)
+                    {
+                        agendaModel.Observacoes = Convert.ToString(rdr["observacoes"]);
+                    }
+                    else
+                    {
+                        agendaModel.Observacoes = null;
+                    }
+
+                    agendaModel.Id_atendimento = Convert.ToInt32(rdr["id_atendimento"]);
+
+                    agendaModel.Horario         = Convert.ToDateTime(rdr["horario"]);
+                    
+                    if (rdr["convenio_atendimento"] != DBNull.Value)
+                    {
+                        agendaModel.Convenio_atendimento = Convert.ToString(rdr["convenio_atendimento"]);
+                    }
+                    else
+                    {
+                        agendaModel.Convenio_atendimento= null;
+                    }
+
+                    if (rdr["valor_pago"] != DBNull.Value)
+                    {
+                        agendaModel.Valor_pago = Convert.ToDouble(rdr["valor_pago"]);
+                    }
+                    else
+                    {
+                        agendaModel.Valor_pago = 0;
+                    }
+
+                    if (rdr["pagto"] != DBNull.Value)
+                    {
+                        agendaModel.Pagto = Convert.ToBoolean(rdr["pagto"]);
+                    }
+                    else
+                    {
+                        agendaModel.Pagto = null;
+                    }
+
+                    if (rdr["reg_presenca"] != DBNull.Value)
+                    {
+                        agendaModel.Reg_presenca = Convert.ToBoolean(rdr["reg_presenca"]);
+                    }
+                    else
+                    {
+                        agendaModel.Reg_presenca = null;
+                    }
+
+                    if (rdr["id_prontuario"] != DBNull.Value)
+                    {
+                        agendaModel.Id_prontuario = Convert.ToInt32(rdr["id_prontuario"]);
+                    }
+                    else
+                    {
+                        agendaModel.Id_prontuario = null;
+                    }
+
                     if (rdr["avaliacao"] != DBNull.Value)
                     {
                         agendaModel.Avaliacao = Convert.ToString(rdr["avaliacao"]);
@@ -65,6 +148,7 @@ namespace PRONTU.Controller.AgendaController
                     {
                         agendaModel.Avaliacao = null;
                     }
+
                     if (rdr["condutas"] != null)
                     {
                         agendaModel.Condutas = Convert.ToString(rdr["condutas"]);
@@ -72,22 +156,6 @@ namespace PRONTU.Controller.AgendaController
                     else
                     {
                         agendaModel.Condutas = null;
-                    }
-                    if (rdr["pagto"] != DBNull.Value)
-                    {
-                        agendaModel.Pago = Convert.ToBoolean(rdr["pagto"]);
-                    }
-                    else
-                    {
-                        agendaModel.Pago = null;
-                    }
-                    if (rdr["reg_presenca"] != DBNull.Value)
-                    {
-                        agendaModel.Presenca = Convert.ToBoolean(rdr["reg_presenca"]);
-                    }
-                    else
-                    {
-                        agendaModel.Presenca = null;
                     }
 
                     _agenda.Add(agendaModel);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using PRONTU.Model;
 
 namespace PRONTU
 {
@@ -120,7 +121,7 @@ namespace PRONTU
 
         }
 
-        public void AbrirAtendimento(DateTime _diaHora, int _idPcte)
+        public void AbrirAtendimento(AgendaModel _atendimento)
         {
             Atendimento formulario = panelConteudo.Controls.OfType<Atendimento>().FirstOrDefault();
 
@@ -132,7 +133,7 @@ namespace PRONTU
                 formulario.Dock = DockStyle.Fill;
                 panelConteudo.Controls.Add(formulario);
                 panelConteudo.Tag = formulario;
-                formulario.CarregaTela(_diaHora, _idPcte);
+                formulario.CarregaTela(_atendimento);
                 formulario.Show();
                 formulario.BringToFront();
             }
@@ -141,7 +142,7 @@ namespace PRONTU
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
                 formulario.BringToFront();
-                formulario.CarregaTela(_diaHora, _idPcte);
+                formulario.CarregaTela(_atendimento);
 
             }
         }

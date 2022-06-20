@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PRONTU.Model;
 
 namespace PRONTU
 {
@@ -19,11 +20,11 @@ namespace PRONTU
             InitializeComponent();
         }
 
-        public void CarregaTela(DateTime _diaHora, int _idPcte)
+        public void CarregaTela(AgendaModel _atendimento)
         {
             // para testes ------------------------
-            txtData.Text = _diaHora.ToString("d");
-            txtHora.Text = _diaHora.ToString("t");
+            //txtData.Text = _diaHora.ToString("d");
+            //txtHora.Text = _diaHora.ToString("t");
             txtNome.Text = "Ana Maria Joana";
             txtDocumento.Text = "001.002.003-99";
             txtNascimento.Text = "20/10/1990";

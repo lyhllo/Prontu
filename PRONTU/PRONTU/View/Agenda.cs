@@ -60,7 +60,7 @@ namespace PRONTU
                         dgHorarios.Rows[i].Cells[0].Value = agendaModel.Id_pcte;
                         dgHorarios.Rows[i].Cells[2].Value = agendaModel.Nome;
                         dgHorarios.Rows[i].Cells[3].Value = agendaModel.Cpf;
-                        dgHorarios.Rows[i].Cells[4].Value = agendaModel.Convenio;
+                        dgHorarios.Rows[i].Cells[4].Value = agendaModel.Convenio_atendimento;
                         dgHorarios.Rows[i].Cells[5].Value = agendaModel.Observacoes;
                     }
                 }
@@ -95,8 +95,8 @@ namespace PRONTU
                 {
                     atendimento = agenda[i];
                     mostrar_botoes(true);
-                    txtValor.Text = atendimento.Valor_pago.ToString();
-                    if (atendimento.Pago == true)
+                    txtValor.Text = atendimento.Valor_pago.ToString("N2");
+                    if (atendimento.Pagto == true)
                     {
                         btnPagar.Text = "Desmarcar Pagamento";
                     }
@@ -164,7 +164,7 @@ namespace PRONTU
         private void btnAtender_Click(object sender, EventArgs e)
         {
             Home novo = (Home)ReferenciaHome;
-            novo.AbrirAtendimento(DateTime.Now, 1);            
+            novo.AbrirAtendimento(atendimento);            
         }
 
         private void teste()
