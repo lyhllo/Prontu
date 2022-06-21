@@ -28,7 +28,7 @@ namespace PRONTU
         public Agenda()
         {
             InitializeComponent();
-            formatoAgenda = 15;
+            formatoAgenda = 30;
             linhas = (60 / formatoAgenda * 24);
             AtualizaHorarios();
         }
@@ -44,8 +44,7 @@ namespace PRONTU
 
         private void CarregaHorarios()
         {
-            DateTime _d = new DateTime();
-            _d = calendario.SelectionRange.Start;
+            DateTime _d = calendario.SelectionRange.Start;
             
             agenda = agendaController.BuscaAgendamentosDoDia(1, _d);
             for (int i = 0; i < linhas; i++)
@@ -70,14 +69,16 @@ namespace PRONTU
 
         private void EditaFoco()
         {
-            DateTime d = DateTime.Now;
+            DateTime d = calendario.SelectionRange.Start;
+            d = d.AddHours(DateTime.Now.Hour);
+            d = d.AddMinutes(DateTime.Now.Minute);
             for (int i = 0;i < dgHorarios.Rows.Count; i++)
             {
                 var _horario = dgHorarios.Rows[i].Cells[1].Value.ToString().Split(':');
                 DateTime _datahora = calendario.SelectionRange.Start;
                 _datahora = _datahora.AddHours(Double.Parse(_horario[0]));
                 _datahora = _datahora.AddMinutes(Double.Parse(_horario[1]));
-                if (DateTime.Now >= _datahora && DateTime.Now < _datahora.AddMinutes(formatoAgenda))
+                if (d >= _datahora && d < _datahora.AddMinutes(formatoAgenda))
                 {
                     dgHorarios.CurrentCell = dgHorarios.Rows[i].Cells[1];
                     dgHorarios.FirstDisplayedScrollingRowIndex = i;
@@ -87,18 +88,16 @@ namespace PRONTU
 
         private void SelectionChanged(object sender, EventArgs e)
         {
-            int _novo = dgHorarios.SelectedRows.Count;
-            int _nnovo = dgHorarios.SelectedCells.Count;
             int _val;
             if (dgHorarios.SelectedRows.Count > 0)
             {
-                _val = int.Parse(dgHorarios.SelectedRows..Cell[0].Value.ToString());
+                _val = int.Parse(dgHorarios.SelectedCells[0].Value.ToString());
             }
             else
             {
                 _val = 0;
             }
-            
+
 
             if (_val == 0)
             {
@@ -164,11 +163,6 @@ namespace PRONTU
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnRemoverAgendamento_Click(object sender, EventArgs e)
         {
             if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover esse agendamento?",
@@ -187,11 +181,6 @@ namespace PRONTU
                 }
                 
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAtender_Click(object sender, EventArgs e)

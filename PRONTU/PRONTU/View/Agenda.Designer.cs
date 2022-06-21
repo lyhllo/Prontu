@@ -74,6 +74,7 @@
             this.btnCadastro.TabIndex = 2;
             this.btnCadastro.Text = "Editar cadastro";
             this.btnCadastro.UseVisualStyleBackColor = false;
+            this.btnCadastro.Visible = false;
             // 
             // btnRemoverAgendamento
             // 
@@ -90,6 +91,7 @@
             this.btnRemoverAgendamento.TabIndex = 3;
             this.btnRemoverAgendamento.Text = "Remover Agendamento";
             this.btnRemoverAgendamento.UseVisualStyleBackColor = false;
+            this.btnRemoverAgendamento.Visible = false;
             this.btnRemoverAgendamento.Click += new System.EventHandler(this.btnRemoverAgendamento_Click);
             // 
             // btnPagar
@@ -107,6 +109,7 @@
             this.btnPagar.TabIndex = 4;
             this.btnPagar.Text = "Marcar Pagamento";
             this.btnPagar.UseVisualStyleBackColor = false;
+            this.btnPagar.Visible = false;
             // 
             // btnAtender
             // 
@@ -140,6 +143,7 @@
             this.btnFalta.TabIndex = 6;
             this.btnFalta.Text = "Registrar Falta";
             this.btnFalta.UseVisualStyleBackColor = false;
+            this.btnFalta.Visible = false;
             this.btnFalta.Click += new System.EventHandler(this.btnFalta_Click);
             // 
             // dgHorarios
@@ -178,7 +182,7 @@
             this.dgHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgHorarios.Size = new System.Drawing.Size(750, 935);
             this.dgHorarios.TabIndex = 7;
-            this.dgHorarios.SelectionChanged += new System.EventHandler(this.SelectionChanged);
+            this.dgHorarios.Click += new System.EventHandler(this.SelectionChanged);
             // 
             // clIdPcte
             // 
@@ -238,6 +242,7 @@
             this.lblValor.Size = new System.Drawing.Size(139, 42);
             this.lblValor.TabIndex = 8;
             this.lblValor.Text = "Valor: R$ ";
+            this.lblValor.Visible = false;
             // 
             // txtValor
             // 
@@ -246,6 +251,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(132, 42);
             this.txtValor.TabIndex = 9;
+            this.txtValor.Visible = false;
             // 
             // Agenda
             // 
