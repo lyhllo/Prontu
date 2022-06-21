@@ -147,6 +147,11 @@ namespace PRONTU
             }
         }
 
+        public void SelecionarPaciente(DateTime _horario)
+        {
+
+        }
+
         public void AbrirAgenda(Home _home)
         {
             Agenda formulario = panelConteudo.Controls.OfType<Agenda>().FirstOrDefault();
