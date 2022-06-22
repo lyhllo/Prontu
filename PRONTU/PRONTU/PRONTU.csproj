@@ -92,6 +92,9 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\AgendaController.cs" />
+    <Compile Include="Controller\Paciente.cs" />
+    <Compile Include="Controller\PacienteCadastroController.cs" />
+    <Compile Include="Controller\PacienteCadastroControllerHelpers.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\AgendaModel.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="View\Atendimento.Designer.cs">
       <DependentUpon>Atendimento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Contato.cs" />
     <Compile Include="View\EsqueciMinhaSenha.cs">
       <SubType>Form</SubType>
     </Compile>

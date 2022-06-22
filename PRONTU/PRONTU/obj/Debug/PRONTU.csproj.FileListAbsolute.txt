@@ -44,3 +44,23 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.SuggestedBindingRedirects.cache
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Agenda.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Ajustes.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Atendimento.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.EsqueciMinhaSenha.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Login.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Properties.Resources.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.LogoHome.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovaSenha.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovoUsuario.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacienteCadastro.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacientesPesquisar.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.GenerateResource.cache
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CoreCompileInputs.cache
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
+C:\Users\Marcos\Desktop\GerenciaDeProjetos\repo\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb

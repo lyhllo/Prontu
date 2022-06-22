@@ -164,7 +164,24 @@ namespace PRONTU
 
         private void BotaoIncluir_Click(object sender, EventArgs e)
         {
-
+            Controller.Paciente paciente = new Controller.Paciente();
+            Controller.Contato contato = new Controller.Contato();
+            paciente.nome = NomeTextField.Text;
+            paciente.cpf = CpfTextField.Text;
+            paciente.dt_nasc = NascimentoTextField.Text;
+            paciente.responsavel_cpf = CpfRespTextField.Text;
+            paciente.responsavel_nome = respTextField.Text;
+            paciente.convenio = ConvenioTextField.Text;
+            paciente.convenio_codigo = NumeroTextField.Text;
+            paciente.observacoes = ObsTextField.Text;
+            contato.logradouro = RuaTextField.Text;
+            contato.numero = NumRuaTextField.Text;
+            contato.bairro = BairroTextField.Text;
+            contato.complemento = CompelmentoTextField.Text;
+            contato.cidade = CidadeTextField.Text;
+            contato.uf = EstadoTextField.Text;
+            contato.telefone = TelefoneTextField.Text;
+            contato.email = EmailTextField.Text;
         }
 
         private void BotaoHistorico_Click(object sender, EventArgs e)
@@ -173,6 +190,16 @@ namespace PRONTU
         }
 
         private void BotaoAgenda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NomeTextField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CpfTextField_TextChanged(object sender, EventArgs e)
         {
 
         }
