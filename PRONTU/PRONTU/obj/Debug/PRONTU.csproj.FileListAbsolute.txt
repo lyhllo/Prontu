@@ -91,3 +91,4 @@ C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplet
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.View.AlterarSenha.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.AlterarSenha.resources
