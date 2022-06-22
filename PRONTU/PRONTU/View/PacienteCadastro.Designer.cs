@@ -87,7 +87,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 513);
+            this.label2.Location = new System.Drawing.Point(33, 469);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 25);
             this.label2.TabIndex = 2;
@@ -99,7 +99,7 @@
             this.label3.AutoSize = true;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 192);
+            this.label3.Location = new System.Drawing.Point(30, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 3;
@@ -111,7 +111,7 @@
             this.label4.AutoSize = true;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 262);
+            this.label4.Location = new System.Drawing.Point(30, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 25);
             this.label4.TabIndex = 4;
@@ -142,7 +142,7 @@
             this.label7.AutoSize = true;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(621, 262);
+            this.label7.Location = new System.Drawing.Point(621, 246);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 25);
             this.label7.TabIndex = 7;
@@ -176,7 +176,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(19, 582);
+            this.label10.Location = new System.Drawing.Point(19, 522);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 25);
             this.label10.TabIndex = 10;
@@ -186,7 +186,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(19, 676);
+            this.label11.Location = new System.Drawing.Point(19, 584);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 25);
             this.label11.TabIndex = 11;
@@ -196,7 +196,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(19, 782);
+            this.label12.Location = new System.Drawing.Point(19, 638);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 25);
             this.label12.TabIndex = 12;
@@ -207,7 +207,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(19, 870);
+            this.label13.Location = new System.Drawing.Point(19, 726);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 25);
             this.label13.TabIndex = 13;
@@ -217,7 +217,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(621, 582);
+            this.label14.Location = new System.Drawing.Point(621, 522);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 25);
             this.label14.TabIndex = 14;
@@ -227,7 +227,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(621, 676);
+            this.label15.Location = new System.Drawing.Point(621, 584);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 25);
             this.label15.TabIndex = 15;
@@ -237,7 +237,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(621, 782);
+            this.label16.Location = new System.Drawing.Point(621, 638);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 25);
             this.label16.TabIndex = 16;
@@ -247,7 +247,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(621, 870);
+            this.label17.Location = new System.Drawing.Point(621, 726);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 25);
             this.label17.TabIndex = 17;
@@ -257,7 +257,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(19, 939);
+            this.label18.Location = new System.Drawing.Point(19, 795);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(204, 25);
             this.label18.TabIndex = 18;
@@ -269,7 +269,7 @@
             this.respTextField.Location = new System.Drawing.Point(168, 331);
             this.respTextField.Margin = new System.Windows.Forms.Padding(4);
             this.respTextField.Name = "respTextField";
-            this.respTextField.Size = new System.Drawing.Size(420, 52);
+            this.respTextField.Size = new System.Drawing.Size(420, 35);
             this.respTextField.TabIndex = 21;
             this.respTextField.Text = "";
             this.respTextField.TextChanged += new System.EventHandler(this.respTextField_TextChanged);
@@ -279,7 +279,7 @@
             this.CpfRespTextField.Location = new System.Drawing.Point(736, 331);
             this.CpfRespTextField.Margin = new System.Windows.Forms.Padding(4);
             this.CpfRespTextField.Name = "CpfRespTextField";
-            this.CpfRespTextField.Size = new System.Drawing.Size(420, 52);
+            this.CpfRespTextField.Size = new System.Drawing.Size(420, 35);
             this.CpfRespTextField.TabIndex = 22;
             this.CpfRespTextField.Text = "";
             this.CpfRespTextField.TextChanged += new System.EventHandler(this.CpfRespTextField_TextChanged);
@@ -289,7 +289,7 @@
             this.ConvenioTextField.Location = new System.Drawing.Point(166, 415);
             this.ConvenioTextField.Margin = new System.Windows.Forms.Padding(4);
             this.ConvenioTextField.Name = "ConvenioTextField";
-            this.ConvenioTextField.Size = new System.Drawing.Size(420, 52);
+            this.ConvenioTextField.Size = new System.Drawing.Size(420, 35);
             this.ConvenioTextField.TabIndex = 24;
             this.ConvenioTextField.Text = "";
             this.ConvenioTextField.TextChanged += new System.EventHandler(this.ConvenioTextField_TextChanged);
@@ -299,7 +299,7 @@
             this.NumeroTextField.Location = new System.Drawing.Point(736, 415);
             this.NumeroTextField.Margin = new System.Windows.Forms.Padding(4);
             this.NumeroTextField.Name = "NumeroTextField";
-            this.NumeroTextField.Size = new System.Drawing.Size(420, 52);
+            this.NumeroTextField.Size = new System.Drawing.Size(420, 35);
             this.NumeroTextField.TabIndex = 25;
             this.NumeroTextField.Text = "";
             this.NumeroTextField.TextChanged += new System.EventHandler(this.NumeroTextField_TextChanged);
@@ -309,97 +309,97 @@
             this.NascimentoTextField.Location = new System.Drawing.Point(736, 246);
             this.NascimentoTextField.Margin = new System.Windows.Forms.Padding(4);
             this.NascimentoTextField.Name = "NascimentoTextField";
-            this.NascimentoTextField.Size = new System.Drawing.Size(420, 52);
+            this.NascimentoTextField.Size = new System.Drawing.Size(420, 35);
             this.NascimentoTextField.TabIndex = 26;
             this.NascimentoTextField.Text = "";
             this.NascimentoTextField.TextChanged += new System.EventHandler(this.NascimentoTextField_TextChanged);
             // 
             // TelefoneTextField
             // 
-            this.TelefoneTextField.Location = new System.Drawing.Point(168, 570);
+            this.TelefoneTextField.Location = new System.Drawing.Point(168, 510);
             this.TelefoneTextField.Margin = new System.Windows.Forms.Padding(4);
             this.TelefoneTextField.Name = "TelefoneTextField";
-            this.TelefoneTextField.Size = new System.Drawing.Size(420, 52);
+            this.TelefoneTextField.Size = new System.Drawing.Size(420, 35);
             this.TelefoneTextField.TabIndex = 27;
             this.TelefoneTextField.Text = "";
             this.TelefoneTextField.TextChanged += new System.EventHandler(this.TelefoneTextField_TextChanged);
             // 
             // RuaTextField
             // 
-            this.RuaTextField.Location = new System.Drawing.Point(168, 658);
+            this.RuaTextField.Location = new System.Drawing.Point(168, 566);
             this.RuaTextField.Margin = new System.Windows.Forms.Padding(4);
             this.RuaTextField.Name = "RuaTextField";
-            this.RuaTextField.Size = new System.Drawing.Size(420, 52);
+            this.RuaTextField.Size = new System.Drawing.Size(420, 35);
             this.RuaTextField.TabIndex = 28;
             this.RuaTextField.Text = "";
             this.RuaTextField.TextChanged += new System.EventHandler(this.RuaTextField_TextChanged);
             // 
             // EmailTextField
             // 
-            this.EmailTextField.Location = new System.Drawing.Point(736, 570);
+            this.EmailTextField.Location = new System.Drawing.Point(736, 510);
             this.EmailTextField.Margin = new System.Windows.Forms.Padding(4);
             this.EmailTextField.Name = "EmailTextField";
-            this.EmailTextField.Size = new System.Drawing.Size(420, 52);
+            this.EmailTextField.Size = new System.Drawing.Size(420, 35);
             this.EmailTextField.TabIndex = 29;
             this.EmailTextField.Text = "";
             this.EmailTextField.TextChanged += new System.EventHandler(this.EmailTextField_TextChanged);
             // 
             // NumRuaTextField
             // 
-            this.NumRuaTextField.Location = new System.Drawing.Point(740, 658);
+            this.NumRuaTextField.Location = new System.Drawing.Point(740, 566);
             this.NumRuaTextField.Margin = new System.Windows.Forms.Padding(4);
             this.NumRuaTextField.Name = "NumRuaTextField";
-            this.NumRuaTextField.Size = new System.Drawing.Size(420, 52);
+            this.NumRuaTextField.Size = new System.Drawing.Size(420, 35);
             this.NumRuaTextField.TabIndex = 30;
             this.NumRuaTextField.Text = "";
             this.NumRuaTextField.TextChanged += new System.EventHandler(this.NumRuaTextField_TextChanged);
             // 
             // BairroTextField
             // 
-            this.BairroTextField.Location = new System.Drawing.Point(736, 767);
+            this.BairroTextField.Location = new System.Drawing.Point(736, 623);
             this.BairroTextField.Margin = new System.Windows.Forms.Padding(4);
             this.BairroTextField.Name = "BairroTextField";
-            this.BairroTextField.Size = new System.Drawing.Size(420, 52);
+            this.BairroTextField.Size = new System.Drawing.Size(420, 35);
             this.BairroTextField.TabIndex = 31;
             this.BairroTextField.Text = "";
             this.BairroTextField.TextChanged += new System.EventHandler(this.BairroTextField_TextChanged);
             // 
             // EstadoTextField
             // 
-            this.EstadoTextField.Location = new System.Drawing.Point(736, 855);
+            this.EstadoTextField.Location = new System.Drawing.Point(736, 711);
             this.EstadoTextField.Margin = new System.Windows.Forms.Padding(4);
             this.EstadoTextField.Name = "EstadoTextField";
-            this.EstadoTextField.Size = new System.Drawing.Size(420, 52);
+            this.EstadoTextField.Size = new System.Drawing.Size(420, 35);
             this.EstadoTextField.TabIndex = 32;
             this.EstadoTextField.Text = "";
             this.EstadoTextField.TextChanged += new System.EventHandler(this.EstadoTextField_TextChanged);
             // 
             // CompelmentoTextField
             // 
-            this.CompelmentoTextField.Location = new System.Drawing.Point(163, 767);
+            this.CompelmentoTextField.Location = new System.Drawing.Point(163, 623);
             this.CompelmentoTextField.Margin = new System.Windows.Forms.Padding(4);
             this.CompelmentoTextField.Name = "CompelmentoTextField";
-            this.CompelmentoTextField.Size = new System.Drawing.Size(420, 52);
+            this.CompelmentoTextField.Size = new System.Drawing.Size(420, 35);
             this.CompelmentoTextField.TabIndex = 33;
             this.CompelmentoTextField.Text = "";
             this.CompelmentoTextField.TextChanged += new System.EventHandler(this.CompelmentoTextField_TextChanged);
             // 
             // CidadeTextField
             // 
-            this.CidadeTextField.Location = new System.Drawing.Point(168, 855);
+            this.CidadeTextField.Location = new System.Drawing.Point(168, 711);
             this.CidadeTextField.Margin = new System.Windows.Forms.Padding(4);
             this.CidadeTextField.Name = "CidadeTextField";
-            this.CidadeTextField.Size = new System.Drawing.Size(420, 52);
+            this.CidadeTextField.Size = new System.Drawing.Size(420, 35);
             this.CidadeTextField.TabIndex = 34;
             this.CidadeTextField.Text = "";
             this.CidadeTextField.TextChanged += new System.EventHandler(this.CidadeTextField_TextChanged);
             // 
             // ObsTextField
             // 
-            this.ObsTextField.Location = new System.Drawing.Point(241, 939);
+            this.ObsTextField.Location = new System.Drawing.Point(241, 795);
             this.ObsTextField.Margin = new System.Windows.Forms.Padding(4);
             this.ObsTextField.Name = "ObsTextField";
-            this.ObsTextField.Size = new System.Drawing.Size(915, 57);
+            this.ObsTextField.Size = new System.Drawing.Size(915, 35);
             this.ObsTextField.TabIndex = 35;
             this.ObsTextField.Text = "";
             this.ObsTextField.TextChanged += new System.EventHandler(this.ObsTextField_TextChanged);
@@ -515,7 +515,7 @@
             this.NomeTextField.Location = new System.Drawing.Point(168, 170);
             this.NomeTextField.Margin = new System.Windows.Forms.Padding(4);
             this.NomeTextField.Name = "NomeTextField";
-            this.NomeTextField.Size = new System.Drawing.Size(988, 52);
+            this.NomeTextField.Size = new System.Drawing.Size(988, 35);
             this.NomeTextField.TabIndex = 45;
             this.NomeTextField.Text = "";
             this.NomeTextField.TextChanged += new System.EventHandler(this.NomeTextField_TextChanged);
@@ -525,7 +525,7 @@
             this.CpfTextField.Location = new System.Drawing.Point(168, 246);
             this.CpfTextField.Margin = new System.Windows.Forms.Padding(4);
             this.CpfTextField.Name = "CpfTextField";
-            this.CpfTextField.Size = new System.Drawing.Size(418, 52);
+            this.CpfTextField.Size = new System.Drawing.Size(418, 35);
             this.CpfTextField.TabIndex = 46;
             this.CpfTextField.Text = "";
             this.CpfTextField.TextChanged += new System.EventHandler(this.CpfTextField_TextChanged);

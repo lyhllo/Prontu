@@ -11,6 +11,7 @@ namespace PRONTU.Model
         public int Id_Paciente { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
+        public DateTime? Dt_nasc { get; set; }
         public string Responsavel_Nome { get; set; }
         public string Responsavel_CPF { get; set; }
         public DateTime Data_Cadastro { get; set; }
