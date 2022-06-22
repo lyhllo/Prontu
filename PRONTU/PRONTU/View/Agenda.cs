@@ -11,6 +11,7 @@ using PRONTU.Model;
 using PRONTU.Controller.AgendaController;
 
 
+
 namespace PRONTU
 {
     public partial class Agenda : Form
@@ -61,9 +62,53 @@ namespace PRONTU
                         dgHorarios.Rows[i].Cells[3].Value = agendaModel.Cpf;
                         dgHorarios.Rows[i].Cells[4].Value = agendaModel.Convenio_atendimento;
                         dgHorarios.Rows[i].Cells[5].Value = agendaModel.Observacoes;
+                        MudaCoresPresenca(i, agendaModel.Reg_presenca);
                     }
                 }
+
                 _d = _d.AddMinutes(formatoAgenda);
+            }
+        }
+
+        private void MudaCoresPresenca(int _i, bool? _falta)
+        {
+            if (_falta == true)
+            {
+                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Blue;
+                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Blue;
+                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.Blue;
+                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.Blue;
+                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Blue;
+            } 
+            
+            if (_falta == false)
+            {
+                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Red;
+                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Red;
+                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.Red;
+                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.Red;
+                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Red;
+            }
+
+            if (_falta is null)
+            {
+                dgHorarios.Rows[_i].Cells[1].Style.BackColor = DefaultBackColor;
+                dgHorarios.Rows[_i].Cells[2].Style.BackColor = DefaultBackColor;
+                dgHorarios.Rows[_i].Cells[3].Style.BackColor = DefaultBackColor;
+                dgHorarios.Rows[_i].Cells[4].Style.BackColor = DefaultBackColor;
+                dgHorarios.Rows[_i].Cells[5].Style.BackColor = DefaultBackColor;
+            }
+        }
+
+        private void MudaCorPagto(bool? _pagto)
+        {
+            if (_pagto == true)
+            {
+                txtValor.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+                txtValor.BackColor = DefaultBackColor;
             }
         }
 
@@ -84,9 +129,10 @@ namespace PRONTU
                     dgHorarios.FirstDisplayedScrollingRowIndex = i;
                 }
             }
+            MudancaSelecao();
         }
 
-        private void SelectionChanged(object sender, EventArgs e)
+        private void MudancaSelecao()
         {
             int _val;
             if (dgHorarios.SelectedRows.Count > 0)
@@ -119,13 +165,21 @@ namespace PRONTU
                     {
                         btnPagar.Text = "Marcar Pagamento";
                     }
-                    if (atendimento.Avaliacao != null || atendimento.Observacoes != null)
+                    if (atendimento.Avaliacao != null && atendimento.Observacoes != null)
                     {
                         btnRemoverAgendamento.Text = "Remover atendimento";
                     }
                     else
                     {
                         btnRemoverAgendamento.Text = "Remover agendamento";
+                    }
+                    if (atendimento.Reg_presenca == false)
+                    {
+                        btnFalta.Enabled = false;
+                    }
+                    else
+                    {
+                        btnFalta.Enabled = true;
                     }
                     break;
                 }
@@ -134,6 +188,12 @@ namespace PRONTU
                     mostrar_botoes(false);
                 }
             }
+            MudaCorPagto(atendimento.Pagto);
+        }
+
+        private void SelectionChanged(object sender, EventArgs e)
+        {
+            MudancaSelecao();
         }
 
         private void mostrar_botoes(Boolean _bol)
@@ -216,6 +276,32 @@ namespace PRONTU
             else
             {
                 MessageBox.Show("Não foi possível registrar a falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            bool _pago;
+            if (atendimento.Pagto == false)
+            {
+                _pago = true;
+            }
+            else
+            {
+                _pago = false;
+            }
+
+            double _valor = double.Parse(txtValor.Text);
+
+            bool _res = agendaController.RegistrarPagto(atendimento.Id_atendimento, _valor, _pago);
+            if (_res)
+            {
+                MessageBox.Show("Pagamento registrado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AtualizaHorarios();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível registrar o pagamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

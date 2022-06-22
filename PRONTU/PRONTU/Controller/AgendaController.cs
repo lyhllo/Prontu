@@ -221,5 +221,30 @@ namespace PRONTU.Controller.AgendaController
                 return false;
             }
         }
+
+        public Boolean RegistrarPagto(int _idAtendimento, double _valor, bool _pago)
+        {
+            try
+            {
+                c = new Connection();
+
+                sql = " UPDATE atendimento" +
+                    "      SET atendimento.pagto = " + _pago + "," +
+                    "          atendimento.valor_pago = " + _valor.ToString(System.Globalization.CultureInfo.InvariantCulture) +
+                    "    WHERE atendimento.id_usuario = 1 " +
+                    "      AND atendimento.id_atendimento = " + _idAtendimento;
+
+                object result = c.Query(sql);
+
+                c.NonQuery(sql);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
     }
 }
