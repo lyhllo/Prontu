@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.View;
+using PRONTU.Controller;
 
 namespace PRONTU
 {
@@ -17,7 +18,14 @@ namespace PRONTU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NovoUsuario());
+
+            if (UsuarioController.ExisteUsuario())
+            {
+                Application.Run(new Login());
+            } else
+            {
+                Application.Run(new NovoUsuario());
+            }
         }
     }
 }

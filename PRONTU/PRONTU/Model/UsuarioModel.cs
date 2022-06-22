@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 
 namespace PRONTU.Model
 {
-    internal class UsuarioModel
+    public class UsuarioModel
     {
-        //public String username;
+        public UsuarioModel ()
+        {
+            Contato = new ContatoModel();
+        }
 
-        //public String password;
+        public int Id_usuario { get; set; }
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public string Registro_profissional { get; set; }
+        public string Profissao { get; set; }
+        public string Especialidade { get; set; }
+        public string Senha { get; set; }
+        public ContatoModel Contato { get; set; }
     }
 }

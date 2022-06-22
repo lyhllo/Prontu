@@ -38,10 +38,10 @@ namespace PRONTU
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuario = textBox1.Text;
+            string cpf = textBox1.Text;
             string senha = textBox2.Text;
-            //bool result = UsuarioController.Login(usuario, senha);
-            bool result = true; // usado para testes
+            bool result = UsuarioController.Login(cpf, senha);
+            //bool result = true; // usado para testes
 
             if (result)
             {
