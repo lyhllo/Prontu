@@ -3,37 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using PRONTU.Model;
 
 namespace PRONTU.Controller
 {
     internal class PacienteCadastroController
     {
-        public static bool CadastraPaciente(
-           String COntato,
-            String DataCadastro,
-            string Nome,
-            string Cpf,
-            string Responsavel,
-            string Convenio,
-            string DataNasc,
-            string CpfResp,
-            string ConvenioCodigo,
-            string Telefone,
-            string Logradouro,
-            string Rua,
-            string Complemento,
-            string Cidade,
-            string Numero,
-            string Email,
-            string Bairro,
-            string Uf,
-            long ObsGerais)
+        private Connection c;
+        private string sql;
+        private MySqlDataReader rdr;
+        public bool CadastraPaciente(CadastroModel _cadastro)
         {
+            int _novo_id_Contato = NovoIdContato();
+            int _novo_id_Paciente = NovoIdPaciente();
             try
             {
-                Connection c = new Connection();
+                c = new Connection();
 
-                string sql1 = "INSERT INTO contato (" +
+                sql = "INSERT INTO contato (" +
                     "logradouro," +
                     "numero," +
                     "bairro," +
@@ -100,5 +88,36 @@ namespace PRONTU.Controller
             }
         }
 
+        private int NovoIdPaciente()
+        {
+            try
+            {
+                c = new Connection();
+                int _id = 0;
+
+                sql = "SELECT max(paciente.id_paciente) + 1" +
+                    "    FROM paciente " +
+                    "   WHERE paciente.id_usuario = 1";
+
+                rdr = c.QueryData(sql);
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        _id = Convert.ToInt32(rdr["id_paciente"]);
+                    }
+                }
+
+                c.Close();
+
+                return _id;
+            }
+            catch (Exception ex)
+            {
+                
+                return _id;
+            }
+        }
     }
 }
