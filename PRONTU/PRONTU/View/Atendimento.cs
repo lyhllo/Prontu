@@ -48,6 +48,11 @@ namespace PRONTU
             txtAvaliacao.Text = atendimento.Avaliacao;
             txtCondutas.Text = atendimento.Condutas;
 
+            if (atendimento.Pagto is null)
+            {
+                atendimento.Pagto = false;
+            }
+
             popularComboBoxStatusPagto(atendimento.Pagto.Value);
         }
 

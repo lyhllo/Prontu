@@ -72,7 +72,7 @@ namespace PRONTU
 
         private void MudaCoresPresenca(int _i, bool? _falta)
         {
-            if (_falta == true)
+            if (_falta == false)
             {
                 dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Blue;
                 dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Blue;
@@ -81,7 +81,7 @@ namespace PRONTU
                 dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Blue;
             } 
             
-            if (_falta == false)
+            if (_falta == true)
             {
                 dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Red;
                 dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Red;
@@ -173,14 +173,14 @@ namespace PRONTU
                     {
                         btnRemoverAgendamento.Text = "Remover agendamento";
                     }
-                    if (atendimento.Reg_presenca == false)
+                    /*if (atendimento.Reg_presenca == false)
                     {
                         btnFalta.Text = "Registrar Falta";
                     }
                     else
                     {
                         btnFalta.Text = "Retirar Falta";
-                    }
+                    }*/
                     break;
                 }
                 else
@@ -274,14 +274,14 @@ namespace PRONTU
                 {
                     MessageBox.Show("Falta registrada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AtualizaHorarios();
-                    MudaCoresPresenca(atendimento.Id_atendimento, true);
+                    MudaCoresPresenca(atendimento.Id_atendimento, false);
                 }
                 else
                 {
                     MessageBox.Show("Não foi possível registrar a falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            /*else
             {
                 bool _res = agendaController.RegistrarFalta(atendimento.Id_atendimento, false);
                 if (_res)
@@ -294,7 +294,7 @@ namespace PRONTU
                 {
                     MessageBox.Show("Não foi possível retirar a falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            }*/
             
         }
 
