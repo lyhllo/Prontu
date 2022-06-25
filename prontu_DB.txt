@@ -13,14 +13,6 @@ profissao VARCHAR(90),
 especialidade VARCHAR(90),
 senha VARCHAR(90) NOT NULL,
 codigo_recuperacao CHAR(6),
-CONSTRAINT usuario PRIMARY KEY(id_usuario)
-);
-
-insert into usuario values(1, "admin", "00000000000", "CREFITO-5", "Fisioterapeuta", "Traumato-Ortopedia", "admin", null);
-
-CREATE TABLE IF NOT EXISTS contato(
-id_usuario INT NOT NULL,
-id_contato INT NOT NULL,
 logradouro VARCHAR(90),
 numero VARCHAR(9),
 bairro VARCHAR(90),
@@ -29,11 +21,10 @@ cidade VARCHAR(90),
 uf CHAR(2),
 telefone VARCHAR(30),
 email VARCHAR(90),
-CONSTRAINT usuario_contato PRIMARY KEY (id_usuario, id_contato),
-CONSTRAINT fk_usuario_contato FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+CONSTRAINT usuario PRIMARY KEY(id_usuario)
 );
 
-insert into contato values(1, 1, "Rua das Flores", 23, "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
+insert into usuario values(1, "admin", "00000000000", "CREFITO-5", "Fisioterapeuta", "Traumato-Ortopedia", "admin", null, "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
 
 CREATE TABLE IF NOT EXISTS agenda(
 id_usuario INT NOT NULL,
@@ -51,22 +42,28 @@ insert into agenda values(1, 1, 30, true, true, true);
 CREATE TABLE IF NOT EXISTS paciente(
 id_usuario INT NOT NULL,
 id_paciente INT NOT NULL,
-id_contato INT,
 nome VARCHAR(90) NOT NULL,
 cpf CHAR(11),
 dt_nasc DATE,
 responsavel_cpf CHAR(11),
 responsavel_nome VARCHAR(90),
-data_cadastro DATE NOT NULL,
 convenio VARCHAR(90),
 convenio_codigo VARCHAR(90),
 observacoes VARCHAR(150),
+logradouro VARCHAR(90),
+numero VARCHAR(9),
+bairro VARCHAR(90),
+complemento VARCHAR(90),
+cidade VARCHAR(90),
+uf CHAR(2),
+telefone VARCHAR(30),
+email VARCHAR(90),
 CONSTRAINT usuario_paciente PRIMARY KEY (id_usuario, id_paciente),
-CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT fk_contato_paciente FOREIGN KEY (id_usuario, id_contato) REFERENCES contato(id_usuario, id_contato) ON DELETE CASCADE ON UPDATE CASCADE
+CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into paciente values(1, 1, 1, "Maria da Silva", "11100033322", "1990-09-04", null, null, "2022-06-18", "Unimed", "ab123545", "Paciente encaminhada pelo Dr Hans Chucrute.");
+insert into paciente values(1, 1, "Maria da Silva", "11100033322", "1990-09-04", null, null, "Unimed", "ab123545", "Paciente encaminhada pelo Dr Hans Chucrute.", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
+insert into paciente values(1, 2, "Joao Lima", "99965438851", "1985-10-23", null, null, null, null, "Sempre falta!!!", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
 
 CREATE TABLE IF NOT EXISTS atendimento(
 id_usuario INT NOT NULL,
@@ -82,8 +79,9 @@ CONSTRAINT fk_usuario_atendimento FOREIGN KEY (id_usuario) REFERENCES usuario(id
 CONSTRAINT fk_paciente_atendimento FOREIGN KEY (id_usuario, id_paciente) REFERENCES paciente(id_usuario, id_paciente) ON DELETE CASCADE ON UPDATE CASCADE
 );
 delete from atendimento;
-insert into atendimento values(1, 1, 1, "2022-06-18 20:30:00", null, true, 80.5, "Unimed");
-    
+insert into atendimento values(1, 1, 1, "2022-06-22 20:30:00", null, true, 80.5, "Unimed");
+insert into atendimento values(1, 2, 2, "2022-06-22 18:00:00", null, null, null, "Particular");
+    select * from atendimento;
 CREATE TABLE IF NOT EXISTS prontuario(
 id_usuario INT NOT NULL,
 id_prontuario INT NOT NULL,
