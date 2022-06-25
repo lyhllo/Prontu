@@ -12,8 +12,8 @@ namespace PRONTU.Model
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime? Dt_nasc { get; set; }
-        public string Responsavel_Nome { get; set; }
         public string Responsavel_CPF { get; set; }
+        public string Responsavel_Nome { get; set; }
         public DateTime Data_Cadastro { get; set; }
         public string Convenio { get; set; }
         public string Convenio_Codigo { get; set; }
