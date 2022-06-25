@@ -61,8 +61,9 @@
             this.panelCabecalho.Controls.Add(this.btnFechar);
             this.panelCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
+            this.panelCabecalho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelCabecalho.Name = "panelCabecalho";
-            this.panelCabecalho.Size = new System.Drawing.Size(1482, 43);
+            this.panelCabecalho.Size = new System.Drawing.Size(1112, 35);
             this.panelCabecalho.TabIndex = 2;
             this.panelCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelCabecalho_MouseMove);
             // 
@@ -70,11 +71,12 @@
             // 
             this.lblData.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Noto Kufi Arabic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(764, 7);
+            this.lblData.Location = new System.Drawing.Point(573, 6);
+            this.lblData.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(112, 27);
+            this.lblData.Size = new System.Drawing.Size(75, 13);
             this.lblData.TabIndex = 8;
             this.lblData.Text = "12/06/2022";
             this.lblData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,11 +84,12 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Noto Kufi Arabic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(276, 7);
+            this.lblUsuario.Location = new System.Drawing.Point(207, 6);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(81, 27);
+            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 7;
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,11 +97,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Noto Kufi Arabic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(205, 0);
+            this.label3.Location = new System.Drawing.Point(154, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 43);
+            this.label3.Size = new System.Drawing.Size(17, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "-";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,11 +110,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Noto Kufi Arabic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(28, 0);
+            this.label2.Location = new System.Drawing.Point(21, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 42);
+            this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "PRONTU";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,9 +129,10 @@
             this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1344, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(1008, 1);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
+            this.btnMinimizar.Size = new System.Drawing.Size(30, 32);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -140,9 +146,10 @@
             this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1390, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1042, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(40, 40);
+            this.btnMaximizar.Size = new System.Drawing.Size(30, 32);
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.UseVisualStyleBackColor = true;
             this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
@@ -156,9 +163,10 @@
             this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.Location = new System.Drawing.Point(1436, 1);
+            this.btnFechar.Location = new System.Drawing.Point(1077, 1);
+            this.btnFechar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(40, 40);
+            this.btnFechar.Size = new System.Drawing.Size(30, 32);
             this.btnFechar.TabIndex = 2;
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -173,10 +181,9 @@
             this.panelMenu.Controls.Add(this.btnAgenda);
             this.panelMenu.Controls.Add(this.btnPacientes);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 43);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMenu.Location = new System.Drawing.Point(0, 35);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(308, 1012);
+            this.panelMenu.Size = new System.Drawing.Size(231, 822);
             this.panelMenu.TabIndex = 3;
             // 
             // btnRelatorios
@@ -188,13 +195,14 @@
             this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatorios.ForeColor = System.Drawing.Color.White;
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.Location = new System.Drawing.Point(34, 449);
+            this.btnRelatorios.Location = new System.Drawing.Point(26, 365);
+            this.btnRelatorios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(271, 70);
+            this.btnRelatorios.Size = new System.Drawing.Size(203, 57);
             this.btnRelatorios.TabIndex = 2;
             this.btnRelatorios.Text = "   RELATÓRIOS";
             this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -211,9 +219,10 @@
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(115, 88);
+            this.btnHome.Location = new System.Drawing.Point(86, 72);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(90, 90);
+            this.btnHome.Size = new System.Drawing.Size(68, 73);
             this.btnHome.TabIndex = 4;
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -227,13 +236,14 @@
             this.btnAjustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAjustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjustes.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjustes.Image")));
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(34, 679);
+            this.btnAjustes.Location = new System.Drawing.Point(26, 552);
+            this.btnAjustes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(271, 70);
+            this.btnAjustes.Size = new System.Drawing.Size(203, 57);
             this.btnAjustes.TabIndex = 3;
             this.btnAjustes.Text = "   AJUSTES";
             this.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -249,13 +259,14 @@
             this.btnUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(34, 564);
+            this.btnUsuario.Location = new System.Drawing.Point(26, 458);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(271, 70);
+            this.btnUsuario.Size = new System.Drawing.Size(203, 57);
             this.btnUsuario.TabIndex = 3;
             this.btnUsuario.Text = "   USUÁRIO";
             this.btnUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -271,13 +282,14 @@
             this.btnAgenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAgenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgenda.ForeColor = System.Drawing.Color.White;
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgenda.Location = new System.Drawing.Point(34, 334);
+            this.btnAgenda.Location = new System.Drawing.Point(26, 271);
+            this.btnAgenda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Size = new System.Drawing.Size(271, 70);
+            this.btnAgenda.Size = new System.Drawing.Size(203, 57);
             this.btnAgenda.TabIndex = 1;
             this.btnAgenda.Text = "   AGENDA";
             this.btnAgenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -293,13 +305,14 @@
             this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
             this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
             this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacientes.Location = new System.Drawing.Point(34, 219);
+            this.btnPacientes.Location = new System.Drawing.Point(26, 178);
+            this.btnPacientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPacientes.Name = "btnPacientes";
-            this.btnPacientes.Size = new System.Drawing.Size(271, 70);
+            this.btnPacientes.Size = new System.Drawing.Size(203, 57);
             this.btnPacientes.TabIndex = 0;
             this.btnPacientes.Text = "   PACIENTES";
             this.btnPacientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -309,21 +322,23 @@
             // panelConteudo
             // 
             this.panelConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelConteudo.Location = new System.Drawing.Point(308, 43);
+            this.panelConteudo.Location = new System.Drawing.Point(231, 35);
+            this.panelConteudo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelConteudo.Name = "panelConteudo";
-            this.panelConteudo.Size = new System.Drawing.Size(1174, 1012);
+            this.panelConteudo.Size = new System.Drawing.Size(881, 822);
             this.panelConteudo.TabIndex = 4;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 1055);
+            this.ClientSize = new System.Drawing.Size(1112, 857);
             this.Controls.Add(this.panelConteudo);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCabecalho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";

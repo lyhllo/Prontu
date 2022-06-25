@@ -16,5 +16,41 @@ namespace PRONTU
         {
             InitializeComponent();
         }
+
+        public Form VoltaHome { get; set; }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Close();
+            //Home novon = new Home();
+            //novon.AbrirFormNoPanel<LogoHome>(); 
+
+            //alterado de protected para public na linha 34 do Home.cs
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
