@@ -533,7 +533,7 @@
             // PacienteCadastro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1173, 1012);
+            this.ClientSize = new System.Drawing.Size(1202, 768);
             this.Controls.Add(this.CpfTextField);
             this.Controls.Add(this.NomeTextField);
             this.Controls.Add(this.BotaoIncluir);

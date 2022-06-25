@@ -29,6 +29,7 @@ namespace PRONTU
         public Home()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             AbrirFormNoPanel<LogoHome>();
         }
 
@@ -97,7 +98,7 @@ namespace PRONTU
             this.Close();
         }
 
-        private void btnMaximizar_Click(object sender, EventArgs e)
+        /*private void btnMaximizar_Click(object sender, EventArgs e)
         {
             if (!telaMax)
             {
@@ -114,12 +115,7 @@ namespace PRONTU
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void panelCabecalho_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
+        }*/
 
         public void AbrirAtendimento(AgendaModel _atendimento)
         {
@@ -143,6 +139,30 @@ namespace PRONTU
                     formulario.WindowState = FormWindowState.Normal;
                 formulario.BringToFront();
                 formulario.CarregaTela(_atendimento);
+
+            }
+        }
+
+        public void AbrirPesquisaPaciente()
+        {
+            PacientesPesquisar formulario = panelConteudo.Controls.OfType<PacientesPesquisar>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new PacientesPesquisar();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
 
             }
         }

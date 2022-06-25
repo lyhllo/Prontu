@@ -44,7 +44,7 @@
             // Relatorios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1174, 1012);
+            this.ClientSize = new System.Drawing.Size(1202, 768);
             this.Controls.Add(this.label1);
             this.Name = "Relatorios";
             this.Text = "Relatorios";

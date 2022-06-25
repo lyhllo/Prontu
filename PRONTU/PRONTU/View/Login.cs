@@ -40,8 +40,8 @@ namespace PRONTU
         {
             string cpf = textBox1.Text;
             string senha = textBox2.Text;
-            bool result = UsuarioController.Login(cpf, senha);
-            //bool result = true; // usado para testes
+            //bool result = UsuarioController.Login(cpf, senha);
+            bool result = true; // usado para testes
 
             if (result)
             {

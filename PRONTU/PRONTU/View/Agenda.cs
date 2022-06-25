@@ -248,6 +248,7 @@ namespace PRONTU
             Home _novo = (Home)ReferenciaHome;
             if (dgHorarios.SelectedCells[0].Value.ToString() == "0")
             {
+                _novo.AbrirPesquisaPaciente();
                 var _hora = dgHorarios.SelectedCells[1].Value.ToString().Split(':');
                 DateTime _datahora = calendario.SelectionRange.Start;
                 _datahora = _datahora.AddHours(Double.Parse(_hora[0]));

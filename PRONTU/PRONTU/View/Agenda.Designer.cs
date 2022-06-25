@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.btnRemoverAgendamento = new System.Windows.Forms.Button();
@@ -165,14 +165,14 @@
             this.clConvenio,
             this.clObs});
             this.dgHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgHorarios.Location = new System.Drawing.Point(397, 18);
             this.dgHorarios.MultiSelect = false;
             this.dgHorarios.Name = "dgHorarios";
@@ -181,7 +181,7 @@
             this.dgHorarios.RowHeadersWidth = 51;
             this.dgHorarios.RowTemplate.Height = 24;
             this.dgHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHorarios.Size = new System.Drawing.Size(750, 935);
+            this.dgHorarios.Size = new System.Drawing.Size(778, 691);
             this.dgHorarios.TabIndex = 7;
             this.dgHorarios.Click += new System.EventHandler(this.SelectionChanged);
             // 
@@ -257,7 +257,7 @@
             // Agenda
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1174, 1012);
+            this.ClientSize = new System.Drawing.Size(1202, 768);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.lblValor);
             this.Controls.Add(this.dgHorarios);

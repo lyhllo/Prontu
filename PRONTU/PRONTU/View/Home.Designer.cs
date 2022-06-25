@@ -128,7 +128,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.Visible = false;
             // 
             // btnMaximizar
             // 
@@ -144,7 +144,7 @@
             this.btnMaximizar.Size = new System.Drawing.Size(40, 40);
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            this.btnMaximizar.Visible = false;
             // 
             // btnFechar
             // 

@@ -65,7 +65,7 @@ namespace PRONTU
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(1192, 1058);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 24);
+            this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 1;
             // 
             // btnConfirmar
@@ -150,7 +150,7 @@ namespace PRONTU
             this.label2.Location = new System.Drawing.Point(9, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.Size = new System.Drawing.Size(62, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome:";
             // 
@@ -162,7 +162,7 @@ namespace PRONTU
             this.txtNome.Location = new System.Drawing.Point(88, 26);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(656, 24);
+            this.txtNome.Size = new System.Drawing.Size(656, 28);
             this.txtNome.TabIndex = 1;
             // 
             // label3
@@ -171,7 +171,7 @@ namespace PRONTU
             this.label3.Location = new System.Drawing.Point(756, 29);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 18);
+            this.label3.Size = new System.Drawing.Size(51, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "CPF:";
             // 
@@ -183,7 +183,7 @@ namespace PRONTU
             this.txtData.Location = new System.Drawing.Point(88, 71);
             this.txtData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(103, 24);
+            this.txtData.Size = new System.Drawing.Size(103, 28);
             this.txtData.TabIndex = 7;
             this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -193,7 +193,7 @@ namespace PRONTU
             this.label4.Location = new System.Drawing.Point(930, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 18);
+            this.label4.Size = new System.Drawing.Size(109, 22);
             this.label4.TabIndex = 4;
             this.label4.Text = "Data. Nasc.:";
             // 
@@ -203,7 +203,7 @@ namespace PRONTU
             this.txtNascimento.Location = new System.Drawing.Point(1028, 26);
             this.txtNascimento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNascimento.Name = "txtNascimento";
-            this.txtNascimento.Size = new System.Drawing.Size(103, 24);
+            this.txtNascimento.Size = new System.Drawing.Size(103, 28);
             this.txtNascimento.TabIndex = 5;
             this.txtNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -213,7 +213,7 @@ namespace PRONTU
             this.label5.Location = new System.Drawing.Point(9, 75);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 18);
+            this.label5.Size = new System.Drawing.Size(53, 22);
             this.label5.TabIndex = 6;
             this.label5.Text = "Data:";
             // 
@@ -223,7 +223,7 @@ namespace PRONTU
             this.txtHora.Location = new System.Drawing.Point(280, 71);
             this.txtHora.Margin = new System.Windows.Forms.Padding(4);
             this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(61, 24);
+            this.txtHora.Size = new System.Drawing.Size(61, 28);
             this.txtHora.TabIndex = 9;
             this.txtHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -233,7 +233,7 @@ namespace PRONTU
             this.label6.Location = new System.Drawing.Point(212, 75);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 18);
+            this.label6.Size = new System.Drawing.Size(54, 22);
             this.label6.TabIndex = 8;
             this.label6.Text = "Hora:";
             // 
@@ -243,7 +243,7 @@ namespace PRONTU
             this.label8.Location = new System.Drawing.Point(751, 73);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.Size = new System.Drawing.Size(57, 22);
             this.label8.TabIndex = 12;
             this.label8.Text = "Valor:";
             // 
@@ -252,7 +252,7 @@ namespace PRONTU
             this.txtValorPago.Location = new System.Drawing.Point(805, 71);
             this.txtValorPago.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorPago.Name = "txtValorPago";
-            this.txtValorPago.Size = new System.Drawing.Size(117, 24);
+            this.txtValorPago.Size = new System.Drawing.Size(117, 28);
             this.txtValorPago.TabIndex = 13;
             this.txtValorPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LimparValor);
@@ -292,7 +292,7 @@ namespace PRONTU
             this.mTextCpf.Location = new System.Drawing.Point(805, 26);
             this.mTextCpf.Mask = "000,000,000-00";
             this.mTextCpf.Name = "mTextCpf";
-            this.mTextCpf.Size = new System.Drawing.Size(117, 24);
+            this.mTextCpf.Size = new System.Drawing.Size(117, 28);
             this.mTextCpf.TabIndex = 17;
             // 
             // cbConvenio
@@ -301,7 +301,7 @@ namespace PRONTU
             this.cbConvenio.FormattingEnabled = true;
             this.cbConvenio.Location = new System.Drawing.Point(433, 70);
             this.cbConvenio.Name = "cbConvenio";
-            this.cbConvenio.Size = new System.Drawing.Size(311, 25);
+            this.cbConvenio.Size = new System.Drawing.Size(311, 30);
             this.cbConvenio.TabIndex = 16;
             // 
             // cbStatusPagto
@@ -310,7 +310,7 @@ namespace PRONTU
             this.cbStatusPagto.FormattingEnabled = true;
             this.cbStatusPagto.Location = new System.Drawing.Point(1028, 70);
             this.cbStatusPagto.Name = "cbStatusPagto";
-            this.cbStatusPagto.Size = new System.Drawing.Size(103, 25);
+            this.cbStatusPagto.Size = new System.Drawing.Size(103, 30);
             this.cbStatusPagto.TabIndex = 15;
             // 
             // label9
@@ -318,7 +318,7 @@ namespace PRONTU
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(975, 75);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 18);
+            this.label9.Size = new System.Drawing.Size(57, 22);
             this.label9.TabIndex = 14;
             this.label9.Text = "Pago:";
             // 
@@ -328,14 +328,14 @@ namespace PRONTU
             this.label7.Location = new System.Drawing.Point(351, 75);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 18);
+            this.label7.Size = new System.Drawing.Size(91, 22);
             this.label7.TabIndex = 10;
             this.label7.Text = "Convênio:";
             // 
             // Atendimento
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1173, 1012);
+            this.ClientSize = new System.Drawing.Size(1202, 768);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancelar);
