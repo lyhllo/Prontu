@@ -84,7 +84,7 @@ namespace PRONTU.Controller
             }
         }
 
-        private int NovoIdPaciente()
+        public int NovoIdPaciente()
         {
             int _id = 0;
             try
@@ -111,7 +111,7 @@ namespace PRONTU.Controller
             }
             catch (Exception ex)
             {
-                
+
                 return _id;
             }
         }
@@ -147,5 +147,71 @@ namespace PRONTU.Controller
                 return _id;
             }
         }
+       
+        public static bool AtualizaPaciente(CadastroModel _cadastro)
+        {
+            int Id_Paciente = _cadastro.Id_Paciente;
+       
+            Connection c = new Connection();
+            string sql = "UPDATE paciente " +
+                "SET nome = '" + _cadastro.Nome + "'," +
+                "cpf = '" + _cadastro.Cpf + "'," +
+                "dt_nasc = '" + _cadastro.Dt_nasc+ "'," +
+                "responsavel_cpf = '" + _cadastro.Responsavel_CPF + "'," +
+                "responsavel_nome = '" + _cadastro.Responsavel_Nome + "'," +
+                "responsavel_cpf = '" + _cadastro.Responsavel_CPF + "'," +
+                "data_cadastro = '" + _cadastro.Data_Cadastro + "'," +
+                "convenio = '" + _cadastro.Convenio + "'," +
+                "convenio_codigo = '" + _cadastro.Convenio_Codigo + "'," +
+                 " WHERE id_paciente = " + Id_Paciente+ ";" +
+                 "UPDATE contato " +
+                 "SET logradouro = '" + _cadastro.Logradouro + "'," +
+                "numero = '" + _cadastro.Numero + "'," +
+                "bairro = '" + _cadastro.Bairro + "'," +
+                "complemento = '" + _cadastro.Complemento + "'," +
+                "cidade = '" + _cadastro.Cidade + "'," +
+                "uf = '" + _cadastro.UF + "'," +
+                "telefone = '" + _cadastro.Telefone + "'," +
+                "email = '" + _cadastro.Email + "'" +
+                " WHERE id_contato = " + _cadastro.Id_contato;
+            try
+            {
+                c.NonQuery(sql);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public static bool ExcluirPaciente(int id)
+        {
+            try
+            {
+                Connection c = new Connection();
+
+                string sql = "DELETE from prontu.paciente WHERE id_usuario = '" + id +  "';";
+                string sql2 = "DELETE from prontu.contato WHERE id_usuario = '" + id + "';";
+                object result = c.Query(sql);
+                object result2 = c.Query(sql2);
+                c.NonQuery(sql);
+                c.NonQuery(sql2);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+
+
+
+
+
     }
 }

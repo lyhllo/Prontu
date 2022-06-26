@@ -146,6 +146,38 @@ namespace PRONTU
 
         private void BotaoSalvar_Click(object sender, EventArgs e)
         {
+            CadastroModel paciente = new CadastroModel();
+            paciente.Nome = NomeTextField.Text;
+            paciente.Cpf = CpfTextField.Text;
+            paciente.Responsavel_Nome = respTextField.Text;
+            paciente.Dt_nasc = NascimentoTextField.Text;
+            paciente.Responsavel_CPF = CpfRespTextField.Text;
+            paciente.Convenio = ConvenioTextField.Text;
+            paciente.Convenio_Codigo = NumeroTextField.Text;
+            paciente.Telefone= TelefoneTextField.Text;
+            paciente.Logradouro = RuaTextField.Text;
+            paciente.Complemento = CompelmentoTextField.Text;
+            paciente.Cidade = CidadeTextField.Text;
+            paciente.Email= EmailTextField.Text;
+            paciente.Numero= NumeroTextField.Text;
+            paciente.Bairro= BairroTextField.Text;
+            paciente.UF = EstadoTextField.Text;
+            paciente.Observacoes = ObsTextField.Text;
+
+            int ex = PacienteCadastroController.NovoIdPaciente();
+
+            if (PacienteCadastroController.CadastraPaciente(paciente))
+            {
+                MessageBox.Show("Paciente cadastrado com sucesso.");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Falha no cadastro do Paciente.");
+            }
+
+
+
 
         }
 
@@ -161,6 +193,8 @@ namespace PRONTU
 
         private void BotaoExcluir_Click(object sender, EventArgs e)
         {
+            PacienteCadastroController.ExcluirPaciente(id);
+
 
         }
 
