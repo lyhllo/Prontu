@@ -14,6 +14,7 @@ namespace PRONTU.Controller.AgendaController
     {
         private Connection c;
         private string sql;
+        MySqlDataReader rdr;
 
         public List<AgendaModel> BuscaAgendamentosDoDia(int _id_usuario, DateTime _dia)
         {
@@ -49,7 +50,7 @@ namespace PRONTU.Controller.AgendaController
                       "   AND DATE(atendimento.horario) = DATE('" + _dia.ToString("u") + "')" +
                       " ORDER BY atendimento.horario ";
 
-                MySqlDataReader rdr = c.QueryData(sql);
+                rdr = c.QueryData(sql);
 
                 if (rdr != null)
                 {
@@ -358,6 +359,231 @@ namespace PRONTU.Controller.AgendaController
             }
 
             return _idProntuario + 1;
+        }
+
+        public bool AgendaPaciente(int _idPcte, DateTime _horario, string _convenio)
+        {
+            int _idAtendimento = RetornaNovoIdAtendimento();
+            if (_convenio is null)
+                _convenio = "";
+
+            try
+            {
+                c = new Connection();
+
+                sql = "INSERT INTO atendimento" +
+                  "     VALUES (1," + // id_usuário
+                                _idAtendimento + ", " +
+                                _idPcte + ", " +
+                  "       '" +  _horario.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                  "             null, " +
+                  "             false, " +
+                  "             0, " +
+                  "       '" +  _convenio + "') ";
+
+
+                c.NonQuery(sql);
+                c.Close();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public int RetornaNovoIdAtendimento()
+        {
+            int _idAtendimento;
+
+            try
+            {
+                c = new Connection();
+
+                sql = "SELECT MAX(id_atendimento) FROM atendimento WHERE id_usuario = 1";
+
+                object obj = c.Query(sql);
+                string result = obj.ToString();
+                if (!result.Equals(""))
+                {
+                    _idAtendimento = Convert.ToInt32(result.ToString());
+                }
+                else
+                {
+                    _idAtendimento = 0;
+                }
+
+                c.Close();
+            }
+            catch
+            {
+                return 0;
+            }
+
+            return _idAtendimento + 1;
+        }
+
+        public List<AgendaModel> BuscaHistoricoAtendimentos()
+        {
+            try
+            {
+                c = new Connection();
+
+                var _historico = new List<AgendaModel>();
+
+                sql = "select paciente.id_paciente," +
+                      "       paciente.nome," +
+                      "       paciente.cpf," +
+                      "       paciente.dt_nasc," +
+                      "       paciente.convenio as convenio_pcte," +
+                      "       paciente.observacoes," +
+                      "       atendimento.id_atendimento," +
+                      "       atendimento.horario," +
+                      "       atendimento.convenio as convenio_atendimento," +
+                      "       atendimento.valor_pago," +
+                      "       atendimento.pagto," +
+                      "       atendimento.reg_presenca," +
+                      "       prontuario.id_prontuario," +
+                      "       prontuario.avaliacao," +
+                      "       prontuario.condutas" +
+                      "  from paciente" +
+                      " inner join atendimento" +
+                      "       on (paciente.id_usuario = atendimento.id_usuario" +
+                      "       and paciente.id_paciente = atendimento.id_paciente)" +
+                      " inner join prontuario" +
+                      "       on (atendimento.id_usuario = prontuario.id_usuario" +
+                      "       and atendimento.id_atendimento = prontuario.id_atendimento)" +
+                      " where paciente.id_usuario = 1" +
+                      "   and prontuario.id_prontuario is not null" +
+                      " order by atendimento.horario desc ";
+
+                rdr = c.QueryData(sql);
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        AgendaModel historicoModel = new AgendaModel();
+                        historicoModel.Id_pcte = Convert.ToInt32(rdr["id_paciente"]);
+                        historicoModel.Nome = Convert.ToString(rdr["nome"]);
+
+                        if (rdr["cpf"] != DBNull.Value)
+                        {
+                            historicoModel.Cpf = Convert.ToString(rdr["cpf"]);
+                        }
+                        else
+                        {
+                            historicoModel.Cpf = null;
+                        }
+
+                        if (rdr["dt_nasc"] != DBNull.Value)
+                        {
+                            historicoModel.Dt_nasc = Convert.ToDateTime(rdr["dt_nasc"]);
+                        }
+                        else
+                        {
+                            historicoModel.Dt_nasc = null;
+                        }
+
+                        if (rdr["convenio_paciente"] != DBNull.Value)
+                        {
+                            historicoModel.Convenio_pcte = Convert.ToString(rdr["convenio_paciente"]);
+                        }
+                        else
+                        {
+                            historicoModel.Convenio_pcte = null;
+                        }
+
+                        if (rdr["observacoes"] != DBNull.Value)
+                        {
+                            historicoModel.Observacoes = Convert.ToString(rdr["observacoes"]);
+                        }
+                        else
+                        {
+                            historicoModel.Observacoes = null;
+                        }
+
+                        historicoModel.Id_atendimento = Convert.ToInt32(rdr["id_atendimento"]);
+
+                        historicoModel.Horario = Convert.ToDateTime(rdr["horario"]);
+
+                        if (rdr["convenio_atendimento"] != DBNull.Value)
+                        {
+                            historicoModel.Convenio_atendimento = Convert.ToString(rdr["convenio_atendimento"]);
+                        }
+                        else
+                        {
+                            historicoModel.Convenio_atendimento = null;
+                        }
+
+                        if (rdr["valor_pago"] != DBNull.Value)
+                        {
+                            historicoModel.Valor_pago = Convert.ToDouble(rdr["valor_pago"]);
+                        }
+                        else
+                        {
+                            historicoModel.Valor_pago = 0;
+                        }
+
+                        if (rdr["pagto"] != DBNull.Value)
+                        {
+                            historicoModel.Pagto = Convert.ToBoolean(rdr["pagto"]);
+                        }
+                        else
+                        {
+                            historicoModel.Pagto = null;
+                        }
+
+                        if (rdr["reg_presenca"] != DBNull.Value)
+                        {
+                            historicoModel.Reg_presenca = Convert.ToBoolean(rdr["reg_presenca"]);
+                        }
+                        else
+                        {
+                            historicoModel.Reg_presenca = null;
+                        }
+
+                        if (rdr["id_prontuario"] != DBNull.Value)
+                        {
+                            historicoModel.Id_prontuario = Convert.ToInt32(rdr["id_prontuario"]);
+                        }
+                        else
+                        {
+                            historicoModel.Id_prontuario = null;
+                        }
+
+                        if (rdr["avaliacao"] != DBNull.Value)
+                        {
+                            historicoModel.Avaliacao = Convert.ToString(rdr["avaliacao"]);
+                        }
+                        else
+                        {
+                            historicoModel.Avaliacao = null;
+                        }
+
+                        if (rdr["condutas"] != null)
+                        {
+                            historicoModel.Condutas = Convert.ToString(rdr["condutas"]);
+                        }
+                        else
+                        {
+                            historicoModel.Condutas = null;
+                        }
+
+                        _historico.Add(historicoModel);
+                    }
+                }
+
+                c.Close();
+                return _historico;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
         }
     }
 }

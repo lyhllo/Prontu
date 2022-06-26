@@ -29,7 +29,6 @@ namespace PRONTU.Controller
                                    _cadastro.Dt_nasc + ", " +
                                    _cadastro.Responsavel_CPF + ", " +
                                    _cadastro.Responsavel_Nome + ", " +
-                                   _cadastro.Data_Cadastro + ", " +
                                    _cadastro.Convenio + ", " +
                                    _cadastro.Convenio_Codigo + ", " +
                                    _cadastro.Observacoes + ") ";
@@ -165,16 +164,17 @@ namespace PRONTU.Controller
                       "		  paciente.convenio," +
                       "		  paciente.convenio_codigo," +
                       "		  paciente.observacoes," +
-                      "		  contato.logradouro," +
-                      "		  contato.numero," +
-                      "		  contato.bairro," +
-                      "		  contato.complemento," +
-                      "		  contato.cidade," +
-                      "		  contato.uf," +
-                      "		  contato.telefone," +
-                      "		  contato.email" +
+                      "		  paciente.logradouro," +
+                      "		  paciente.numero," +
+                      "		  paciente.bairro," +
+                      "		  paciente.complemento," +
+                      "		  paciente.cidade," +
+                      "		  paciente.uf," +
+                      "		  paciente.telefone," +
+                      "		  paciente.email" +
                       "  from paciente" +
-                      " where paciente.id_usuario = 1 " ;
+                      " where paciente.id_usuario = 1" +
+                      " order by paciente.nome " ;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -222,8 +222,6 @@ namespace PRONTU.Controller
                         {
                             cadastroModel.Responsavel_Nome = null;
                         }
-
-                        cadastroModel.Data_Cadastro = Convert.ToDateTime(rdr["data_cadastro"]);
 
                         if (rdr["convenio"] != DBNull.Value)
                         {
