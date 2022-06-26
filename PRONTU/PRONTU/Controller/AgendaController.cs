@@ -424,7 +424,7 @@ namespace PRONTU.Controller.AgendaController
             return _idAtendimento + 1;
         }
 
-        public List<AgendaModel> BuscaHistoricoAtendimentos()
+        public List<AgendaModel> BuscaHistoricoAtendimentos(int _idPaciente)
         {
             try
             {
@@ -436,7 +436,7 @@ namespace PRONTU.Controller.AgendaController
                       "       paciente.nome," +
                       "       paciente.cpf," +
                       "       paciente.dt_nasc," +
-                      "       paciente.convenio as convenio_pcte," +
+                      "       paciente.convenio as convenio_paciente," +
                       "       paciente.observacoes," +
                       "       atendimento.id_atendimento," +
                       "       atendimento.horario," +
@@ -456,6 +456,7 @@ namespace PRONTU.Controller.AgendaController
                       "       and atendimento.id_atendimento = prontuario.id_atendimento)" +
                       " where paciente.id_usuario = 1" +
                       "   and prontuario.id_prontuario is not null" +
+                      "   and paciente.id_paciente = " + _idPaciente +
                       " order by atendimento.horario desc ";
 
                 rdr = c.QueryData(sql);

@@ -136,6 +136,7 @@
             this.btnHistorico.TabIndex = 54;
             this.btnHistorico.Text = "Histórico";
             this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             // 
             // btnIncluir
             // 

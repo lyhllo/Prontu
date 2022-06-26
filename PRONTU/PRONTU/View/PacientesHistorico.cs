@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.Controller.AgendaController;
+using System.Globalization;
 
 namespace PRONTU.View
 {
@@ -22,33 +23,35 @@ namespace PRONTU.View
             InitializeComponent();
         }
 
-        public void CarregarPacientes()
+        public void CarregarPacientes(int _idPaciente)
         {
+            dt.Clear();
+
             if (dt.Columns.Count == 0)
             {
-                historico = controller.BuscaHistoricoAtendimentos();
-
                 dt.Columns.Add("Id_atendimento", typeof(int));
                 dt.Columns.Add("Nome", typeof(string));
-                dt.Columns.Add("Data", typeof(string));
+                dt.Columns.Add("Data", typeof(DateTime));
                 dt.Columns.Add("Horário", typeof(string));
                 dt.Columns.Add("Convênio", typeof(string));
                 dt.Columns.Add("Avaliação", typeof(string));
                 dt.Columns.Add("Condutas", typeof(string));
-
-                if (historico != null)
-                {
-                    for (int i = 0; i < historico.Count; i++)
-                    {
-                        dt.Rows.Add(new object[] {historico[i].Id_atendimento, historico[i].Nome, historico[i].Horario.ToString("d"),
-                            historico[i].Horario.ToString("t"), historico[i].Convenio_atendimento, historico[i].Avaliacao,
-                            historico[i].Condutas});
-
-                    }
-                }
-
-                dgHistorico.DataSource = dt;
             }
+
+            historico = controller.BuscaHistoricoAtendimentos(_idPaciente);
+
+            if (historico != null)
+            {
+                for (int i = 0; i < historico.Count; i++)
+                {
+                    dt.Rows.Add(new object[] {historico[i].Id_atendimento, historico[i].Nome, historico[i].Horario.Date,
+                        historico[i].Horario.ToString("t"), historico[i].Convenio_atendimento, historico[i].Avaliacao,
+                        historico[i].Condutas});
+
+                }
+            }
+
+            dgHistorico.DataSource = dt;
 
             FormataCelulas();
         }
@@ -75,6 +78,77 @@ namespace PRONTU.View
 
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            DateTime? _dataInicio = null;
+            DateTime? _dataFim = null;
+            if (txtDataInicio.Text != "  /  /")
+            {
+                _dataInicio = DateTime.Parse(txtDataInicio.Text);
+            }
+
+            if (txtDataFim.Text != "  /  /")
+            {
+                _dataFim = DateTime.Parse(txtDataFim.Text);
+            }
+
+            FiltrarGrade(_dataInicio, _dataFim);
+        }
+
+        private void FiltrarGrade(DateTime? _inicio, DateTime? _fim)
+        {
+            if (_inicio != null || _fim != null)
+            {
+                string str = "";
+
+                if (_inicio != null && _fim != null)
+                    str = String.Format("[{0}] >= '{1}' AND [{0}] <= '{2}'", "Data", _inicio.Value.Date, _fim.Value.Date);
+
+                if (_inicio != null && _fim == null)
+                    str = String.Format("[{0}] >= '{1}'", "Data", _inicio.Value.Date);
+
+                if (_inicio == null && _fim != null)
+                    str = String.Format("[{0}] <= '{1}'", "Data", _fim.Value.Date);
+
+                dt.DefaultView.RowFilter = str;
+                dgHistorico.DataSource = dt;
+            }
+        }
+
+        private void ValidaDataInicio(object sender, EventArgs e)
+        {
+            if (txtDataInicio.Text != "  /  /")
+            {
+                DateTime _data;
+                bool dataValida = DateTime.TryParseExact(txtDataInicio.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                                         DateTimeStyles.None, out _data);
+
+                if (!dataValida)
+                {
+                    txtDataInicio.Focus();
+                    MessageBox.Show("Data inválida", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
+        }
+
+        private void ValidaDataFim(object sender, EventArgs e)
+        {
+            if (txtDataFim.Text != "  /  /")
+            {
+                DateTime _data;
+                bool dataValida = DateTime.TryParseExact(txtDataFim.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                                         DateTimeStyles.None, out _data);
+
+                if (!dataValida)
+                {
+                    txtDataFim.Focus();
+                    MessageBox.Show("Data inválida", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+                
         }
     }
 }

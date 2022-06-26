@@ -28,59 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNome = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.lblNome = new System.Windows.Forms.Label();
+            this.lblDataInicio = new System.Windows.Forms.Label();
             this.dgHistorico = new System.Windows.Forms.DataGridView();
+            this.txtDataInicio = new System.Windows.Forms.MaskedTextBox();
+            this.txtDataFim = new System.Windows.Forms.MaskedTextBox();
+            this.lblDataFim = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgHistorico)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(90, 12);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(413, 30);
-            this.txtNome.TabIndex = 6;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(518, 9);
+            this.btnPesquisar.Location = new System.Drawing.Point(678, 6);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(115, 37);
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // lblNome
+            // lblDataInicio
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(22, 12);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(70, 25);
-            this.lblNome.TabIndex = 5;
-            this.lblNome.Text = "Nome:";
+            this.lblDataInicio.AutoSize = true;
+            this.lblDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataInicio.Location = new System.Drawing.Point(22, 12);
+            this.lblDataInicio.Name = "lblDataInicio";
+            this.lblDataInicio.Size = new System.Drawing.Size(109, 25);
+            this.lblDataInicio.TabIndex = 5;
+            this.lblDataInicio.Text = "Data Início:";
             // 
             // dgHistorico
             // 
+            this.dgHistorico.AllowUserToAddRows = false;
+            this.dgHistorico.AllowUserToDeleteRows = false;
+            this.dgHistorico.AllowUserToResizeColumns = false;
+            this.dgHistorico.AllowUserToResizeRows = false;
+            this.dgHistorico.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgHistorico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgHistorico.ColumnHeadersVisible = false;
             this.dgHistorico.Location = new System.Drawing.Point(27, 57);
+            this.dgHistorico.MultiSelect = false;
             this.dgHistorico.Name = "dgHistorico";
+            this.dgHistorico.ReadOnly = true;
             this.dgHistorico.RowHeadersWidth = 51;
             this.dgHistorico.RowTemplate.Height = 24;
             this.dgHistorico.Size = new System.Drawing.Size(1163, 634);
             this.dgHistorico.TabIndex = 7;
             // 
+            // txtDataInicio
+            // 
+            this.txtDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataInicio.Location = new System.Drawing.Point(137, 9);
+            this.txtDataInicio.Mask = "00/00/0000";
+            this.txtDataInicio.Name = "txtDataInicio";
+            this.txtDataInicio.Size = new System.Drawing.Size(112, 30);
+            this.txtDataInicio.TabIndex = 9;
+            this.txtDataInicio.ValidatingType = typeof(System.DateTime);
+            this.txtDataInicio.Leave += new System.EventHandler(this.ValidaDataInicio);
+            // 
+            // txtDataFim
+            // 
+            this.txtDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataFim.Location = new System.Drawing.Point(483, 9);
+            this.txtDataFim.Mask = "00/00/0000";
+            this.txtDataFim.Name = "txtDataFim";
+            this.txtDataFim.Size = new System.Drawing.Size(112, 30);
+            this.txtDataFim.TabIndex = 10;
+            this.txtDataFim.ValidatingType = typeof(System.DateTime);
+            this.txtDataFim.Leave += new System.EventHandler(this.ValidaDataFim);
+            // 
+            // lblDataFim
+            // 
+            this.lblDataFim.AutoSize = true;
+            this.lblDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataFim.Location = new System.Drawing.Point(379, 12);
+            this.lblDataFim.Name = "lblDataFim";
+            this.lblDataFim.Size = new System.Drawing.Size(96, 25);
+            this.lblDataFim.TabIndex = 11;
+            this.lblDataFim.Text = "Data Fim:";
+            // 
             // PacientesHistorico
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1202, 703);
+            this.Controls.Add(this.lblDataFim);
+            this.Controls.Add(this.txtDataFim);
+            this.Controls.Add(this.txtDataInicio);
             this.Controls.Add(this.dgHistorico);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.lblDataInicio);
             this.Name = "PacientesHistorico";
             this.Text = "PacientesHistorico";
             ((System.ComponentModel.ISupportInitialize)(this.dgHistorico)).EndInit();
@@ -90,10 +137,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblDataInicio;
         private System.Windows.Forms.DataGridView dgHistorico;
+        private System.Windows.Forms.MaskedTextBox txtDataInicio;
+        private System.Windows.Forms.MaskedTextBox txtDataFim;
+        private System.Windows.Forms.Label lblDataFim;
     }
 }

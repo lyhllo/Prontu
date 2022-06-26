@@ -103,12 +103,6 @@ namespace PRONTU
             dgPacientes.DataSource = dt;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            selecionar = false;
-            this.Close();
-        }
-
         public bool AgendarPaciente()
         {
             if (dgPacientes.SelectedRows.Count > 0)
@@ -134,6 +128,18 @@ namespace PRONTU
             {
                 MessageBox.Show("Selecione um paciente para agendar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        public int SelecionaIdPcteSelecionado()
+        {
+            if (dgPacientes.SelectedRows.Count > 0)
+            {
+                return int.Parse(dgPacientes.SelectedCells[0].Value.ToString());
+            }
+            else
+            {
+                return 0;
             }
         }
     }
