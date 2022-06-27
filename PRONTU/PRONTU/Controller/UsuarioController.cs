@@ -15,7 +15,6 @@ namespace PRONTU.Controller
         public static bool Sessao_ativa;
         private static string Cpf_sessao;
         private static int Id_usuario;
-        private static int Id_contato;
 
         public static bool ExisteUsuario ()
         {
@@ -243,14 +242,14 @@ namespace PRONTU.Controller
                     usuario.Registro_profissional = rdr[3].ToString();
                     usuario.Profissao = rdr[4].ToString();
                     usuario.Especialidade = rdr[5].ToString();
-                    usuario.Logradouro = rdr[7].ToString();
-                    usuario.Numero = rdr[8].ToString();
-                    usuario.Bairro = rdr[9].ToString();
-                    usuario.Complemento = rdr[10].ToString();
-                    usuario.Cidade = rdr[11].ToString();
-                    usuario.Uf = rdr[12].ToString();
-                    usuario.Telefone = rdr[13].ToString();
-                    usuario.Email = rdr[14].ToString();
+                    usuario.Logradouro = rdr[6].ToString();
+                    usuario.Numero = rdr[7].ToString();
+                    usuario.Bairro = rdr[8].ToString();
+                    usuario.Complemento = rdr[9].ToString();
+                    usuario.Cidade = rdr[10].ToString();
+                    usuario.Uf = rdr[11].ToString();
+                    usuario.Telefone = rdr[12].ToString();
+                    usuario.Email = rdr[13].ToString();
                 }
                 rdr.Close();
 
