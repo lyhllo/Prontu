@@ -176,6 +176,7 @@
             this.btnIncluir.TabIndex = 53;
             this.btnIncluir.Text = "Novo";
             this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnExcluir
             // 

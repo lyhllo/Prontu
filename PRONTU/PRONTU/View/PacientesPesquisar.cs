@@ -41,7 +41,10 @@ namespace PRONTU
             pacientesReferencia.FormataBotoes("pesquisar");
 
             if (selecionar)
+            {
+                pacientesReferencia.btnSelecionar.Text = "";
                 pacientesReferencia.btnSelecionar.Visible = true;
+            }
             
             if (dt.Columns.Count == 0)
             {

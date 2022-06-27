@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.Controller;
+using PRONTU.View;
 
 namespace PRONTU
 {
     public partial class PacienteCadastro : Form
     {
+        public Pacientes pacientesReferencia { get; set; }
         public PacienteCadastro()
         {
             InitializeComponent();
+            
         }
 
         private void PacienteCadastro_Load(object sender, EventArgs e)
         {
+            pacientesReferencia.FormataBotoes("incluir");
 
         }
 
@@ -109,11 +113,6 @@ namespace PRONTU
 
         }
 
-        private void NumRuaTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CompelmentoTextField_TextChanged(object sender, EventArgs e)
         {
 
@@ -149,22 +148,22 @@ namespace PRONTU
             CadastroModel paciente = new CadastroModel();
             paciente.Nome = NomeTextField.Text;
             paciente.Cpf = CpfTextField.Text;
-            paciente.Responsavel_Nome = respTextField.Text;
-            paciente.Dt_nasc = NascimentoTextField.Text;
+            paciente.Responsavel_Nome = txtResponsavelNome.Text;
+            //paciente.Dt_nasc = NascimentoTextField.Text;
             paciente.Responsavel_CPF = CpfRespTextField.Text;
-            paciente.Convenio = ConvenioTextField.Text;
-            paciente.Convenio_Codigo = NumeroTextField.Text;
-            paciente.Telefone = TelefoneTextField.Text;
-            paciente.Logradouro = RuaTextField.Text;
-            paciente.Complemento = CompelmentoTextField.Text;
-            paciente.Cidade = CidadeTextField.Text;
-            paciente.Email = EmailTextField.Text;
-            paciente.Numero = NumeroTextField.Text;
-            paciente.Bairro = BairroTextField.Text;
-            paciente.UF = EstadoTextField.Text;
+            paciente.Convenio = txtConvenio.Text;
+            paciente.Convenio_Codigo = txtConvenioCodigo.Text;
+            paciente.Telefone = txtTelefone.Text;
+            paciente.Logradouro = txtLogradouro.Text;
+            paciente.Complemento = txtComplemento.Text;
+            paciente.Cidade = txtCidade.Text;
+            paciente.Email = txtEmail.Text;
+            paciente.Numero = txtConvenioCodigo.Text;
+            paciente.Bairro = txtBairro.Text;
+            paciente.UF = txtEstado.Text;
             paciente.Observacoes = ObsTextField.Text;
 
-            int ex = PacienteCadastroController.NovoIdPaciente();
+            /*int ex = PacienteCadastroController.NovoIdPaciente();
 
             if (PacienteCadastroController.CadastraPaciente(paciente))
             {
@@ -174,15 +173,10 @@ namespace PRONTU
             else
             {
                 MessageBox.Show("Falha no cadastro do Paciente.");
-            }
+            }*/
 
 
 
-
-        }
-
-        private void BotaoBuscar_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -193,28 +187,28 @@ namespace PRONTU
             _cadastroModel.Cpf = CpfTextField.Text;
             _cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
             _cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
-            _cadastroModel.Responsavel_Nome = respTextField.Text;
-            _cadastroModel.Convenio = ConvenioTextField.Text;
-            _cadastroModel.Convenio_Codigo = NumeroTextField.Text;
+            _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
+            _cadastroModel.Convenio = txtConvenio.Text;
+            _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
             _cadastroModel.Observacoes = ObsTextField.Text;
-            _cadastroModel.Logradouro = RuaTextField.Text;
-            _cadastroModel.Numero = NumRuaTextField.Text;
-            _cadastroModel.Bairro = BairroTextField.Text;
-            _cadastroModel.Complemento = CompelmentoTextField.Text;
-            _cadastroModel.Cidade = CidadeTextField.Text;
-            _cadastroModel.UF = EstadoTextField.Text;
-            _cadastroModel.Telefone = TelefoneTextField.Text;
-            _cadastroModel.Email = EmailTextField.Text;
+            _cadastroModel.Logradouro = txtLogradouro.Text;
+            _cadastroModel.Numero = txtNumero.Text;
+            _cadastroModel.Bairro = txtBairro.Text;
+            _cadastroModel.Complemento = txtComplemento.Text;
+            _cadastroModel.Cidade = txtCidade.Text;
+            _cadastroModel.UF = txtEstado.Text;
+            _cadastroModel.Telefone = txtTelefone.Text;
+            _cadastroModel.Email = txtEmail.Text;
 
             PacienteCadastroController _pacienteController = new PacienteCadastroController();
-            if (_pacienteController.AtualizaPaciente(_cadastroModel))
+            /*if (_pacienteController.AtualizaPaciente(_cadastroModel))
             {
                 MessageBox.Show("Cadastrado com sucesso");
             }
             else
             {
                 MessageBox.Show("Não foi possível cadastrar o paciente");
-            }
+            }*/
         }
     
 
@@ -224,7 +218,7 @@ namespace PRONTU
 
         private void BotaoExcluir_Click(object sender, EventArgs e)
         {
-            PacienteCadastroController.ExcluirPaciente(id);
+            //PacienteCadastroController.ExcluirPaciente(id);
 
 
 
@@ -237,18 +231,18 @@ namespace PRONTU
             _cadastroModel.Cpf = CpfTextField.Text;
             _cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
             _cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
-            _cadastroModel.Responsavel_Nome = respTextField.Text;
-            _cadastroModel.Convenio = ConvenioTextField.Text;
-            _cadastroModel.Convenio_Codigo = NumeroTextField.Text;
+            _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
+            _cadastroModel.Convenio = txtConvenio.Text;
+            _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
             _cadastroModel.Observacoes = ObsTextField.Text;
-            _cadastroModel.Logradouro = RuaTextField.Text;
-            _cadastroModel.Numero = NumRuaTextField.Text;
-            _cadastroModel.Bairro = BairroTextField.Text;
-            _cadastroModel.Complemento = CompelmentoTextField.Text;
-            _cadastroModel.Cidade = CidadeTextField.Text;
-            _cadastroModel.UF = EstadoTextField.Text;
-            _cadastroModel.Telefone = TelefoneTextField.Text;
-            _cadastroModel.Email = EmailTextField.Text;
+            _cadastroModel.Logradouro = txtLogradouro.Text;
+            _cadastroModel.Numero = txtNumero.Text;
+            _cadastroModel.Bairro = txtBairro.Text;
+            _cadastroModel.Complemento = txtComplemento.Text;
+            _cadastroModel.Cidade = txtCidade.Text;
+            _cadastroModel.UF = txtEstado.Text;
+            _cadastroModel.Telefone = txtTelefone.Text;
+            _cadastroModel.Email = txtEmail.Text;
 
             PacienteCadastroController _pacienteController = new PacienteCadastroController();
             if (_pacienteController.CadastraContato(_cadastroModel))

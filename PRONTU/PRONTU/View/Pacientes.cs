@@ -19,6 +19,7 @@ namespace PRONTU.View
         private PacientesPesquisar formularioPesquisar;
         private PacientesHistorico formularioHistorico;
         private PacientesAgendamentos formularioAgendamentos;
+        private PacienteCadastro formularioCadastro;
         public Pacientes()
         {
             InitializeComponent();
@@ -123,7 +124,7 @@ namespace PRONTU.View
                 homeReferencia.HabilitaBotoes(true);
                 this.Close();
             }
-                
+
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -267,6 +268,41 @@ namespace PRONTU.View
             else
             {
                 btnAgenda.BackColor = Color.DarkSlateGray;
+            }
+        }
+
+        private void btnIncluir_Click(object sender, EventArgs e)
+        {
+            AbrirPacientesCadastro();
+        }
+
+        private void AbrirPacientesCadastro()
+        {
+            formularioCadastro = panelPaciente.Controls.OfType<PacienteCadastro>().FirstOrDefault();
+
+            if (formularioCadastro == null)
+            {
+                formularioCadastro = new PacienteCadastro
+                {
+                    TopLevel = false,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
+                panelPaciente.Controls.Add(formularioCadastro);
+                panelPaciente.Tag = formularioCadastro;
+                formularioCadastro.pacientesReferencia = this;
+                //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                formularioCadastro.Show();
+                formularioCadastro.BringToFront();
+            }
+            else
+            {
+                if (formularioCadastro.WindowState == FormWindowState.Minimized)
+                    formularioCadastro.WindowState = FormWindowState.Normal;
+
+                formularioCadastro.pacientesReferencia = this;
+                //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                formularioCadastro.BringToFront();
             }
         }
     }
