@@ -83,7 +83,7 @@ namespace PRONTU.Controller
             }
         }
 
-        private int NovoIdPaciente()
+        public int NovoIdPaciente()
         {
             int _id = 0;
             try
@@ -110,7 +110,7 @@ namespace PRONTU.Controller
             }
             catch (Exception ex)
             {
-                
+
                 return _id;
             }
         }
