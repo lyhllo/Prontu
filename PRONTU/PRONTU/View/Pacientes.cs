@@ -18,6 +18,7 @@ namespace PRONTU.View
         public int? idPaciente { get; set; }
         private PacientesPesquisar formularioPesquisar;
         private PacientesHistorico formularioHistorico;
+        private PacientesAgendamentos formularioAgendamentos;
         public Pacientes()
         {
             InitializeComponent();
@@ -37,6 +38,8 @@ namespace PRONTU.View
                 };
                 panelPaciente.Controls.Add(formularioPesquisar);
                 panelPaciente.Tag = formularioPesquisar;
+                formularioPesquisar.pacientesReferencia = this;
+                formularioPesquisar.selecionar = _selecionar;
                 formularioPesquisar.CarregarPacientes();
                 if (_selecionar)
                 {
@@ -64,6 +67,9 @@ namespace PRONTU.View
             {
                 if (formularioPesquisar.WindowState == FormWindowState.Minimized)
                     formularioPesquisar.WindowState = FormWindowState.Normal;
+
+                formularioPesquisar.pacientesReferencia = this;
+                formularioPesquisar.selecionar = _selecionar;
                 formularioPesquisar.CarregarPacientes();
                 if (_selecionar)
                 {
@@ -148,6 +154,7 @@ namespace PRONTU.View
                 };
                 panelPaciente.Controls.Add(formularioHistorico);
                 panelPaciente.Tag = formularioHistorico;
+                formularioHistorico.pacientesReferencia = this;
                 formularioHistorico.CarregarPacientes(_idPaciente);
                 formularioHistorico.Show();
                 formularioHistorico.BringToFront();
@@ -156,8 +163,110 @@ namespace PRONTU.View
             {
                 if (formularioHistorico.WindowState == FormWindowState.Minimized)
                     formularioHistorico.WindowState = FormWindowState.Normal;
+
+                formularioHistorico.pacientesReferencia = this;
                 formularioHistorico.CarregarPacientes(_idPaciente);
                 formularioHistorico.BringToFront();
+            }
+        }
+
+        private void btnAgenda_Click(object sender, EventArgs e)
+        {
+            int _idPcte = formularioPesquisar.SelecionaIdPcteSelecionado();
+            if (_idPcte > 0)
+            {
+                AbrirPacientesAgendamentos(_idPcte);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um paciente para pesquisar os agendamentos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void AbrirPacientesAgendamentos(int _idPaciente)
+        {
+            formularioAgendamentos = panelPaciente.Controls.OfType<PacientesAgendamentos>().FirstOrDefault();
+
+            if (formularioAgendamentos == null)
+            {
+                formularioAgendamentos = new PacientesAgendamentos
+                {
+                    TopLevel = false,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
+                panelPaciente.Controls.Add(formularioAgendamentos);
+                panelPaciente.Tag = formularioAgendamentos;
+                formularioAgendamentos.pacientesReferencia = this;
+                formularioAgendamentos.CarregarAtendimentos(_idPaciente);
+                formularioAgendamentos.Show();
+                formularioAgendamentos.BringToFront();
+            }
+            else
+            {
+                if (formularioAgendamentos.WindowState == FormWindowState.Minimized)
+                    formularioAgendamentos.WindowState = FormWindowState.Normal;
+
+                formularioAgendamentos.pacientesReferencia = this;
+                formularioAgendamentos.CarregarAtendimentos(_idPaciente);
+                formularioAgendamentos.BringToFront();
+            }
+        }
+
+        public void FormataBotoes(string _janela)
+        {
+            if (_janela == "pesquisar")
+            {
+                btnBuscar.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnBuscar.BackColor = Color.DarkSlateGray;
+            }
+
+            if (_janela == "editar")
+            {
+                btnEditar.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnEditar.BackColor = Color.DarkSlateGray;
+            }
+
+            if (_janela == "excluir")
+            {
+                btnExcluir.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnExcluir.BackColor = Color.DarkSlateGray;
+            }
+
+            if (_janela == "incluir")
+            {
+                btnIncluir.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnIncluir.BackColor = Color.DarkSlateGray;
+            }
+
+            if (_janela == "historico")
+            {
+                btnHistorico.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnHistorico.BackColor = Color.DarkSlateGray;
+            }
+
+            if (_janela == "agendamentos")
+            {
+                btnAgenda.BackColor = Color.Goldenrod;
+            }
+            else
+            {
+                btnAgenda.BackColor = Color.DarkSlateGray;
             }
         }
     }

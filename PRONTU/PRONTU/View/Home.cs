@@ -22,8 +22,6 @@ namespace PRONTU
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool RelapseCapture();
-
-        private bool telaMax = false;
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
 

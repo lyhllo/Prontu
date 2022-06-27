@@ -173,6 +173,12 @@
     <Compile Include="View\Pacientes.Designer.cs">
       <DependentUpon>Pacientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PacientesAgendamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PacientesAgendamentos.Designer.cs">
+      <DependentUpon>PacientesAgendamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PacientesHistorico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Pacientes.resx">
       <DependentUpon>Pacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PacientesAgendamentos.resx">
+      <DependentUpon>PacientesAgendamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PacientesHistorico.resx">
       <DependentUpon>PacientesHistorico.cs</DependentUpon>

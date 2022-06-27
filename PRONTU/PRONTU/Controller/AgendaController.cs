@@ -432,32 +432,32 @@ namespace PRONTU.Controller.AgendaController
 
                 var _historico = new List<AgendaModel>();
 
-                sql = "select paciente.id_paciente," +
+                sql = "SELECT paciente.id_paciente," +
                       "       paciente.nome," +
                       "       paciente.cpf," +
                       "       paciente.dt_nasc," +
-                      "       paciente.convenio as convenio_paciente," +
+                      "       paciente.convenio AS convenio_paciente," +
                       "       paciente.observacoes," +
                       "       atendimento.id_atendimento," +
                       "       atendimento.horario," +
-                      "       atendimento.convenio as convenio_atendimento," +
+                      "       atendimento.convenio AS convenio_atendimento," +
                       "       atendimento.valor_pago," +
                       "       atendimento.pagto," +
                       "       atendimento.reg_presenca," +
                       "       prontuario.id_prontuario," +
                       "       prontuario.avaliacao," +
                       "       prontuario.condutas" +
-                      "  from paciente" +
-                      " inner join atendimento" +
-                      "       on (paciente.id_usuario = atendimento.id_usuario" +
-                      "       and paciente.id_paciente = atendimento.id_paciente)" +
-                      " inner join prontuario" +
-                      "       on (atendimento.id_usuario = prontuario.id_usuario" +
-                      "       and atendimento.id_atendimento = prontuario.id_atendimento)" +
-                      " where paciente.id_usuario = 1" +
-                      "   and prontuario.id_prontuario is not null" +
-                      "   and paciente.id_paciente = " + _idPaciente +
-                      " order by atendimento.horario desc ";
+                      "  FROM paciente" +
+                      " INNER JOIN atendimento" +
+                      "       ON (paciente.id_usuario = atendimento.id_usuario" +
+                      "       AND paciente.id_paciente = atendimento.id_paciente)" +
+                      " INNER JOIN prontuario" +
+                      "       ON (atendimento.id_usuario = prontuario.id_usuario" +
+                      "       AND atendimento.id_atendimento = prontuario.id_atendimento)" +
+                      " WHERE paciente.id_usuario = 1" +
+                      "   AND prontuario.id_prontuario is not null" +
+                      "   AND paciente.id_paciente = " + _idPaciente +
+                      " ORDER BY atendimento.horario DESC ";
 
                 rdr = c.QueryData(sql);
 
@@ -578,6 +578,169 @@ namespace PRONTU.Controller.AgendaController
 
                 c.Close();
                 return _historico;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+        }
+
+        public List<AgendaModel> BuscaAgendamentos(int _idPaciente)
+        {
+            try
+            {
+                c = new Connection();
+
+                var _agendamentos = new List<AgendaModel>();
+
+                sql = "SELECT paciente.id_paciente," +
+                      "       paciente.nome," +
+                      "       paciente.cpf," +
+                      "       paciente.dt_nasc," +
+                      "       paciente.convenio AS convenio_paciente," +
+                      "       paciente.observacoes," +
+                      "       atendimento.id_atendimento," +
+                      "       atendimento.horario," +
+                      "       atendimento.convenio AS convenio_atendimento," +
+                      "       atendimento.valor_pago," +
+                      "       atendimento.pagto," +
+                      "       atendimento.reg_presenca," +
+                      "       prontuario.id_prontuario," +
+                      "       prontuario.avaliacao," +
+                      "       prontuario.condutas" +
+                      "  FROM paciente" +
+                      " INNER JOIN atendimento" +
+                      "       ON (paciente.id_usuario = atendimento.id_usuario" +
+                      "       AND paciente.id_paciente = atendimento.id_paciente)" +
+                      "  LEFT JOIN prontuario" +
+                      "       ON (atendimento.id_usuario = prontuario.id_usuario" +
+                      "       AND atendimento.id_atendimento = prontuario.id_atendimento)" +
+                      " WHERE paciente.id_usuario = 1" +
+                      "   AND atendimento.horario >= current_date()" +
+                      "   AND paciente.id_paciente = " + _idPaciente +
+                      " ORDER BY atendimento.horario ";
+
+                rdr = c.QueryData(sql);
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        AgendaModel agendamentoModel = new AgendaModel();
+                        agendamentoModel.Id_pcte = Convert.ToInt32(rdr["id_paciente"]);
+                        agendamentoModel.Nome = Convert.ToString(rdr["nome"]);
+
+                        if (rdr["cpf"] != DBNull.Value)
+                        {
+                            agendamentoModel.Cpf = Convert.ToString(rdr["cpf"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Cpf = null;
+                        }
+
+                        if (rdr["dt_nasc"] != DBNull.Value)
+                        {
+                            agendamentoModel.Dt_nasc = Convert.ToDateTime(rdr["dt_nasc"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Dt_nasc = null;
+                        }
+
+                        if (rdr["convenio_paciente"] != DBNull.Value)
+                        {
+                            agendamentoModel.Convenio_pcte = Convert.ToString(rdr["convenio_paciente"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Convenio_pcte = null;
+                        }
+
+                        if (rdr["observacoes"] != DBNull.Value)
+                        {
+                            agendamentoModel.Observacoes = Convert.ToString(rdr["observacoes"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Observacoes = null;
+                        }
+
+                        agendamentoModel.Id_atendimento = Convert.ToInt32(rdr["id_atendimento"]);
+
+                        agendamentoModel.Horario = Convert.ToDateTime(rdr["horario"]);
+
+                        if (rdr["convenio_atendimento"] != DBNull.Value)
+                        {
+                            agendamentoModel.Convenio_atendimento = Convert.ToString(rdr["convenio_atendimento"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Convenio_atendimento = null;
+                        }
+
+                        if (rdr["valor_pago"] != DBNull.Value)
+                        {
+                            agendamentoModel.Valor_pago = Convert.ToDouble(rdr["valor_pago"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Valor_pago = 0;
+                        }
+
+                        if (rdr["pagto"] != DBNull.Value)
+                        {
+                            agendamentoModel.Pagto = Convert.ToBoolean(rdr["pagto"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Pagto = null;
+                        }
+
+                        if (rdr["reg_presenca"] != DBNull.Value)
+                        {
+                            agendamentoModel.Reg_presenca = Convert.ToBoolean(rdr["reg_presenca"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Reg_presenca = null;
+                        }
+
+                        if (rdr["id_prontuario"] != DBNull.Value)
+                        {
+                            agendamentoModel.Id_prontuario = Convert.ToInt32(rdr["id_prontuario"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Id_prontuario = null;
+                        }
+
+                        if (rdr["avaliacao"] != DBNull.Value)
+                        {
+                            agendamentoModel.Avaliacao = Convert.ToString(rdr["avaliacao"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Avaliacao = null;
+                        }
+
+                        if (rdr["condutas"] != null)
+                        {
+                            agendamentoModel.Condutas = Convert.ToString(rdr["condutas"]);
+                        }
+                        else
+                        {
+                            agendamentoModel.Condutas = null;
+                        }
+
+                        _agendamentos.Add(agendamentoModel);
+                    }
+                }
+
+                c.Close();
+                return _agendamentos;
             }
             catch (Exception ex)
             {

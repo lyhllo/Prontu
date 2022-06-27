@@ -21,6 +21,7 @@ namespace PRONTU
         private AgendaController agendaController = new AgendaController();
         private List<CadastroModel> cadastro;
         private DataTable dt = new DataTable();
+        public Pacientes pacientesReferencia { get; set; }
         public DateTime horario { get; set; }
         public bool selecionar { get; set; }
         public Agenda agendaReferencia { get; set; }
@@ -37,6 +38,11 @@ namespace PRONTU
 
         public void CarregarPacientes()
         {
+            pacientesReferencia.FormataBotoes("pesquisar");
+
+            if (selecionar)
+                pacientesReferencia.btnSelecionar.Visible = true;
+            
             if (dt.Columns.Count == 0)
             {
                 cadastro = controller.BuscaCadastrosPacientes();
@@ -86,7 +92,7 @@ namespace PRONTU
                     column.Width = 250;
 
                 if (column.DataPropertyName == "Observações")
-                    column.Width = 360;
+                    column.Width = 365;
 
                 //column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }

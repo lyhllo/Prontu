@@ -18,6 +18,7 @@ namespace PRONTU.View
         private DataTable dt = new DataTable();
         private List<AgendaModel> historico;
         private AgendaController controller = new AgendaController();
+        public Pacientes pacientesReferencia;
         public PacientesHistorico()
         {
             InitializeComponent();
@@ -25,6 +26,8 @@ namespace PRONTU.View
 
         public void CarregarPacientes(int _idPaciente)
         {
+            pacientesReferencia.FormataBotoes("historico");
+            pacientesReferencia.btnSelecionar.Visible = false;
             dt.Clear();
 
             if (dt.Columns.Count == 0)
@@ -149,6 +152,20 @@ namespace PRONTU.View
                 }
             }
                 
+        }
+
+        private void DetalharAtendimento(object sender, EventArgs e)
+        {
+            
+            foreach (AgendaModel am in historico)
+            {
+                if (am.Id_atendimento == int.Parse(dgHistorico.SelectedCells[0].Value.ToString()))
+                {
+                    pacientesReferencia.homeReferencia.AbrirAtendimento(am);
+                    pacientesReferencia.AbrirPacientesPesquisar(false, null);
+                    break;
+                }
+            }
         }
     }
 }
