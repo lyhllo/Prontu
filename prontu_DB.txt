@@ -5,7 +5,7 @@ CREATE SCHEMA PRONTU;
 USE prontu;
 
 CREATE TABLE IF NOT EXISTS usuario(
-id_usuario INT NOT NULL AUTO_INCREMENT,
+id_usuario INT NOT NULL,
 nome_usuario VARCHAR(90) NOT NULL,
 cpf CHAR(11) NOT NULL UNIQUE,
 registro_prof VARCHAR(90),

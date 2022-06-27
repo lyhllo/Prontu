@@ -26,7 +26,7 @@ namespace PRONTU.View
             
         }
 
-        private void startHome()
+        private void startLogin()
         {
             Application.Run(new Login());
         }
@@ -39,17 +39,17 @@ namespace PRONTU.View
             usuario.Registro_profissional = txtRegistroProfissional.Text;
             usuario.Profissao = txtProfissao.Text;
             usuario.Especialidade = txtEspecialidade.Text;
-            usuario.Contato.Logradouro = txtLogradouro.Text;
-            usuario.Contato.Numero = txtNumero.Text;
-            usuario.Contato.Bairro = txtBairro.Text;
-            usuario.Contato.Logradouro = txtComplemento.Text;
-            usuario.Contato.Cidade = txtCidade.Text;
-            usuario.Contato.Uf = txtUf.Text;
-            usuario.Contato.Telefone = txtTelefone.Text;
-            usuario.Contato.Email = txtEmail.Text;
+            usuario.Logradouro = txtLogradouro.Text;
+            usuario.Numero = txtNumero.Text;
+            usuario.Bairro = txtBairro.Text;
+            usuario.Logradouro = txtComplemento.Text;
+            usuario.Cidade = txtCidade.Text;
+            usuario.Uf = txtUf.Text;
+            usuario.Telefone = txtTelefone.Text;
+            usuario.Email = txtEmail.Text;
             if (Validacao.ValidaCpf(usuario.Cpf))
             {
-                if (Validacao.ValidaEmail(usuario.Contato.Email))
+                if (Validacao.ValidaEmail(usuario.Email))
                 {
                     if (txtSenha1.Text == txtSenha2.Text)
                     {
@@ -57,6 +57,12 @@ namespace PRONTU.View
                         if (UsuarioController.CadastraNovoUsuario(usuario))
                         {
                             MessageBox.Show("Usuário cadastrado com sucesso.");
+                            if (UsuarioController.Sessao_ativa == false)
+                            {
+                                nt = new Thread(startLogin);
+                                nt.SetApartmentState(ApartmentState.STA);
+                                nt.Start();
+                            }
                             Close();
                         }
                         else

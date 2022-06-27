@@ -97,7 +97,6 @@
     <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\AgendaModel.cs" />
     <Compile Include="Model\CadastroModel.cs" />
-    <Compile Include="Model\ContatoModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\Agenda.cs">
       <SubType>Form</SubType>

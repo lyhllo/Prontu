@@ -68,11 +68,11 @@
             // 
             this.lblData.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Noto Kufi Arabic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
             this.lblData.Location = new System.Drawing.Point(764, 7);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(112, 27);
+            this.lblData.Size = new System.Drawing.Size(75, 13);
             this.lblData.TabIndex = 8;
             this.lblData.Text = "12/06/2022";
             this.lblData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,11 +80,11 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Noto Kufi Arabic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
             this.lblUsuario.Location = new System.Drawing.Point(276, 7);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(81, 27);
+            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 7;
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,11 +92,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Noto Kufi Arabic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(205, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 43);
+            this.label3.Size = new System.Drawing.Size(17, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "-";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,11 +104,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Noto Kufi Arabic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(28, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 42);
+            this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "PRONTU";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -188,7 +188,7 @@
             this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatorios.ForeColor = System.Drawing.Color.White;
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,7 +227,7 @@
             this.btnAjustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAjustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjustes.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjustes.Image")));
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,7 +249,7 @@
             this.btnUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,7 +271,7 @@
             this.btnAgenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAgenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgenda.ForeColor = System.Drawing.Color.White;
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,7 +293,7 @@
             this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.Font = new System.Drawing.Font("Noto Kufi Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
             this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
             this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
