@@ -63,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 47);
+            this.label1.Location = new System.Drawing.Point(8, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 21;
@@ -186,7 +186,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbPaciente;
         private System.Windows.Forms.DateTimePicker dpDataInicial;
         private System.Windows.Forms.DateTimePicker dpDataFinal;
         private System.Windows.Forms.GroupBox gbAtendimento;
@@ -196,5 +195,6 @@
         private System.Windows.Forms.RadioButton rbAtendimentos;
         private System.Windows.Forms.GroupBox gbTipos;
         protected System.Windows.Forms.Button btnGerar;
+        public System.Windows.Forms.ComboBox cbPaciente;
     }
 }

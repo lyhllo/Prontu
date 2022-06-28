@@ -93,13 +93,13 @@
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\AgendaController.cs" />
     <Compile Include="Controller\PacienteCadastroController.cs" />
-    <Compile Include="Controller\RelatorioController.cs" />
+    <Compile Include="Controller\RelatorioAtendimentoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\AgendaModel.cs" />
     <Compile Include="Model\CadastroModel.cs" />
     <Compile Include="Model\ContatoModel.cs" />
-    <Compile Include="Model\RelatorioModel.cs" />
+    <Compile Include="Model\RelatorioAtendimentoModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\Agenda.cs">
       <SubType>Form</SubType>
