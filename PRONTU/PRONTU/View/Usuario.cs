@@ -144,5 +144,17 @@ namespace PRONTU
             mostra_dados_formulario(Usuario);
             somente_leitura(true);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            nt = new Thread(startConfirmaExclusao);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
+
+        private void startConfirmaExclusao()
+        {
+            Application.Run(new ConfirmaExclusao());
+        }
     }
 }

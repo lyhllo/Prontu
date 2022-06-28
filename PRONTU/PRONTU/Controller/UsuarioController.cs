@@ -177,7 +177,23 @@ namespace PRONTU.Controller
 
                 c = new Connection();
 
-                string sql2 = "INSERT INTO usuario (id_usuario, nome_usuario,cpf, registro_prof, profissao, especialidade, senha, logradouro,numero,bairro,complemento,cidade,uf,telefone,email) VALUES" +
+                string sql2 = "INSERT INTO usuario (" +
+                    "id_usuario, " +
+                    "nome_usuario," +
+                    "cpf, " +
+                    "registro_prof, " +
+                    "profissao, " +
+                    "especialidade, " +
+                    "senha, " +
+                    "logradouro," +
+                    "numero," +
+                    "bairro," +
+                    "complemento," +
+                    "cidade," +
+                    "uf," +
+                    "telefone," +
+                    "email) " +
+                    "VALUES" +
                     "(" + usuario.Id_usuario + "," +
                     "'" + usuario.Nome + "'," +
                     "'" + usuario.Cpf + "'," +
@@ -267,20 +283,21 @@ namespace PRONTU.Controller
         {
             Connection c = new Connection();
             string sql = "UPDATE usuario " +
-                "SET nome_usuario = '" + usuario.Nome + "'," +
-                "cpf = '" + usuario.Cpf + "'," +
-                "registro_prof = '" + usuario.Registro_profissional + "'," +
-                "profissao = '" + usuario.Profissao + "'," +
-                "especialidade = '" + usuario.Especialidade + "'," +
-                "logradouro = '" + usuario.Logradouro +"'," +
-                "numero = '" + usuario.Numero +"'," +
-                "bairro = '" + usuario.Bairro +"'," +
-                "complemento = '" + usuario.Complemento +"'," +
-                "cidade = '" + usuario.Cidade+"'," +
-                "uf = '" + usuario.Uf +"'," +
-                "telefone = '" + usuario.Telefone + "'," +
-                "email = '" + usuario.Email + "'" +
-                " WHERE id_usuario = "+Id_usuario;
+                        "SET " +
+                        "nome_usuario = '" + usuario.Nome + "'," +
+                        "cpf = '" + usuario.Cpf + "'," +
+                        "registro_prof = '" + usuario.Registro_profissional + "'," +
+                        "profissao = '" + usuario.Profissao + "'," +
+                        "especialidade = '" + usuario.Especialidade + "'," +
+                        "logradouro = '" + usuario.Logradouro +"'," +
+                        "numero = '" + usuario.Numero +"'," +
+                        "bairro = '" + usuario.Bairro +"'," +
+                        "complemento = '" + usuario.Complemento +"'," +
+                        "cidade = '" + usuario.Cidade+"'," +
+                        "uf = '" + usuario.Uf +"'," +
+                        "telefone = '" + usuario.Telefone + "'," +
+                        "email = '" + usuario.Email + "'" +
+                        " WHERE id_usuario = "+Id_usuario;
             try
             {
                 c.NonQuery(sql);
@@ -307,6 +324,59 @@ namespace PRONTU.Controller
                 return false;
             }
             return true;
+        }
+
+        public static bool ExcluiUsuario()
+        {
+            return true;
+            try
+            {
+                Connection c = new Connection();
+                string sql = "";
+                sql += "DELETE FROM atendimento WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM prontuario WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM agenda WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM paciente WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM usuario WHERE id_usuario=" + Id_usuario + ";";
+
+                c.NonQuery(sql);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine (ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ConfirmaSenha(string senha)
+        {
+            try
+            {
+                Connection c = new Connection();
+                string sql = "SELECT usuario.senha from usuario where id_usuario=" + Id_usuario + ";";
+                MySqlDataReader rdr = c.QueryData(sql);
+                string senha_correta = "";
+                while(rdr.Read())
+                {
+                    senha_correta = Convert.ToString(rdr[0]);
+                }
+                c.Close();
+                if (senha == senha_correta)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            
         }
     }
 }

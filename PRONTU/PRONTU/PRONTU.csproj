@@ -122,6 +122,12 @@
     <Compile Include="View\Atendimento.Designer.cs">
       <DependentUpon>Atendimento.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ConfirmaExclusao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConfirmaExclusao.Designer.cs">
+      <DependentUpon>ConfirmaExclusao.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EsqueciMinhaSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Atendimento.resx">
       <DependentUpon>Atendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConfirmaExclusao.resx">
+      <DependentUpon>ConfirmaExclusao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EsqueciMinhaSenha.resx">
       <DependentUpon>EsqueciMinhaSenha.cs</DependentUpon>

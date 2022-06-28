@@ -92,3 +92,4 @@ C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CoreCompile
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
