@@ -98,6 +98,7 @@ namespace PRONTU.View
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnSelecionar.Visible = false;
             AbrirPacientesPesquisar(false, null);
         }
 
@@ -119,12 +120,24 @@ namespace PRONTU.View
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (formularioPesquisar.AgendarPaciente())
+            if (btnSelecionar.Text == "Selecionar")
             {
-                homeReferencia.HabilitaBotoes(true);
-                this.Close();
+                if (formularioPesquisar.AgendarPaciente())
+                {
+                    homeReferencia.HabilitaBotoes(true);
+                    this.Close();
+                }
             }
-
+            
+            if (btnSelecionar.Text == "Salvar")
+            {
+                if (formularioCadastro.SalvarPaciente())
+                {
+                    homeReferencia.HabilitaBotoes(true);
+                    btnSelecionar.Visible = false;
+                    AbrirPacientesPesquisar(false, null);
+                }
+            }
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -292,6 +305,7 @@ namespace PRONTU.View
                 panelPaciente.Tag = formularioCadastro;
                 formularioCadastro.pacientesReferencia = this;
                 //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                homeReferencia.HabilitaBotoes(false);
                 formularioCadastro.Show();
                 formularioCadastro.BringToFront();
             }
@@ -302,6 +316,7 @@ namespace PRONTU.View
 
                 formularioCadastro.pacientesReferencia = this;
                 //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                homeReferencia.HabilitaBotoes(false);
                 formularioCadastro.BringToFront();
             }
         }

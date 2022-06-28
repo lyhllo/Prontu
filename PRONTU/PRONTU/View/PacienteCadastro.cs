@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.Controller;
 using PRONTU.View;
+using System.Globalization;
 
 namespace PRONTU
 {
     public partial class PacienteCadastro : Form
     {
         public Pacientes pacientesReferencia { get; set; }
+        private CadastroModel cadastro;
+        private PacienteCadastroController controller = new PacienteCadastroController();
         public PacienteCadastro()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace PRONTU
 
         private void PacienteCadastro_Load(object sender, EventArgs e)
         {
+            pacientesReferencia.btnSelecionar.Text = "Salvar";
+            pacientesReferencia.btnSelecionar.Visible = true;
             pacientesReferencia.FormataBotoes("incluir");
 
         }
@@ -73,62 +78,12 @@ namespace PRONTU
 
         }
 
-        private void respTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConvenioTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void NascimentoTextField_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void CpfRespTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NumeroTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TelefoneTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmailTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RuaTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CompelmentoTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BairroTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CidadeTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EstadoTextField_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -146,11 +101,11 @@ namespace PRONTU
         private void BotaoSalvar_Click(object sender, EventArgs e)
         {
             CadastroModel paciente = new CadastroModel();
-            paciente.Nome = NomeTextField.Text;
-            paciente.Cpf = CpfTextField.Text;
+            paciente.Nome = txtNome.Text;
+            //paciente.Cpf = CpfTextField.Text;
             paciente.Responsavel_Nome = txtResponsavelNome.Text;
             //paciente.Dt_nasc = NascimentoTextField.Text;
-            paciente.Responsavel_CPF = CpfRespTextField.Text;
+            //paciente.Responsavel_CPF = CpfRespTextField.Text;
             paciente.Convenio = txtConvenio.Text;
             paciente.Convenio_Codigo = txtConvenioCodigo.Text;
             paciente.Telefone = txtTelefone.Text;
@@ -160,7 +115,7 @@ namespace PRONTU
             paciente.Email = txtEmail.Text;
             paciente.Numero = txtConvenioCodigo.Text;
             paciente.Bairro = txtBairro.Text;
-            paciente.UF = txtEstado.Text;
+            //paciente.UF = txtEstado.Text;
             paciente.Observacoes = ObsTextField.Text;
 
             /*int ex = PacienteCadastroController.NovoIdPaciente();
@@ -183,10 +138,10 @@ namespace PRONTU
         private void BotaoEditar_Click(object sender, EventArgs e)
         {
             CadastroModel _cadastroModel = new CadastroModel();
-            _cadastroModel.Nome = NomeTextField.Text;
-            _cadastroModel.Cpf = CpfTextField.Text;
-            _cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
-            _cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
+            _cadastroModel.Nome = txtNome.Text;
+            //_cadastroModel.Cpf = CpfTextField.Text;
+            //_cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
+            //_cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
             _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
             _cadastroModel.Convenio = txtConvenio.Text;
             _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
@@ -196,7 +151,7 @@ namespace PRONTU
             _cadastroModel.Bairro = txtBairro.Text;
             _cadastroModel.Complemento = txtComplemento.Text;
             _cadastroModel.Cidade = txtCidade.Text;
-            _cadastroModel.UF = txtEstado.Text;
+            //_cadastroModel.UF = txtEstado.Text;
             _cadastroModel.Telefone = txtTelefone.Text;
             _cadastroModel.Email = txtEmail.Text;
 
@@ -227,10 +182,10 @@ namespace PRONTU
         private void BotaoIncluir_Click(object sender, EventArgs e)
         {
             CadastroModel _cadastroModel = new CadastroModel();
-            _cadastroModel.Nome = NomeTextField.Text;
-            _cadastroModel.Cpf = CpfTextField.Text;
-            _cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
-            _cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
+            _cadastroModel.Nome = txtNome.Text;
+            //_cadastroModel.Cpf = CpfTextField.Text;
+            //_cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
+            //_cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
             _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
             _cadastroModel.Convenio = txtConvenio.Text;
             _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
@@ -240,7 +195,7 @@ namespace PRONTU
             _cadastroModel.Bairro = txtBairro.Text;
             _cadastroModel.Complemento = txtComplemento.Text;
             _cadastroModel.Cidade = txtCidade.Text;
-            _cadastroModel.UF = txtEstado.Text;
+            //_cadastroModel.UF = txtEstado.Text;
             _cadastroModel.Telefone = txtTelefone.Text;
             _cadastroModel.Email = txtEmail.Text;
 
@@ -265,14 +220,126 @@ namespace PRONTU
 
         }
 
-        private void NomeTextField_TextChanged(object sender, EventArgs e)
+        private void ValidarDataNascimento(object sender, EventArgs e)
         {
+            if (txtDataNascimento.Text != "  /  /")
+            {
+                DateTime _data;
+                bool dataValida = DateTime.TryParseExact(txtDataNascimento.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                                         DateTimeStyles.None, out _data);
 
+                if (!dataValida)
+                {
+                    txtDataNascimento.Focus();
+                    MessageBox.Show("Data inválida", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void CpfTextField_TextChanged(object sender, EventArgs e)
+        private void ValidaCpfPaciente(object sender, EventArgs e)
         {
+            if (!Validacao.ValidaCpf(txtCPF.Text) && txtCPF.Text != "")
+            {
+                txtCPF.Focus();
+                MessageBox.Show("CPF inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void ValidaCpfResponsavel(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaCpf(txtCpfResponsavel.Text) && txtCpfResponsavel.Text != "")
+            {
+                txtCpfResponsavel.Focus();
+                MessageBox.Show("CPF inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ValidaEmail(object sender, EventArgs e)
+        {
+            if (!Validacao.ValidaEmail(txtEmail.Text) && txtEmail.Text != "")
+            {
+                txtEmail.Focus();
+                MessageBox.Show("E-mail inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool SalvarPaciente()
+        {
+            if (ValidaCadastro())
+            {
+                if (controller.CadastraPaciente(cadastro))
+                {
+                    MessageBox.Show("Cadastro efetuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar paciente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private Boolean ValidaCadastro()
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório preencher no mínimo Nome e CPF", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if ((txtCPF.Text == "") && (txtCpfResponsavel.Text == ""))
+            {
+                MessageBox.Show("Obrigatório preencher o CPF do(a) paciente ou da pessoa responsável", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            cadastro = new CadastroModel();
+
+            cadastro.Id_Paciente = controller.NovoIdPaciente();
+
+            cadastro.Nome = txtNome.Text;
+
+            cadastro.Cpf = txtCPF.Text;
+
+            if (txtDataNascimento.Text != "  /  /")
+                cadastro.Dt_nasc = DateTime.Parse(txtDataNascimento.Text);
+            else
+                cadastro.Dt_nasc = null;
+
+            cadastro.Responsavel_CPF = txtCpfResponsavel.Text;
+
+            cadastro.Responsavel_Nome = txtResponsavelNome.Text;
+
+            cadastro.Convenio = txtConvenio.Text;
+
+            cadastro.Convenio_Codigo = txtConvenioCodigo.Text;
+
+            cadastro.Observacoes = txtObservacoes.Text;
+
+            cadastro.Logradouro = txtLogradouro.Text;
+
+            cadastro.Numero = txtNumero.Text;
+
+            cadastro.Bairro = txtBairro.Text;
+
+            cadastro.Complemento = txtComplemento.Text;
+
+            cadastro.Cidade = txtCidade.Text;
+
+            cadastro.UF = cbUF.Text;
+
+            cadastro.Telefone = txtTelefone.Text;
+
+            cadastro.Email = txtEmail.Text;
+
+            cadastro.CEP = txtCEP.Text;
+
+            return true;
         }
     }
 }

@@ -38,13 +38,9 @@ namespace PRONTU
 
         public void CarregarPacientes()
         {
+            pacientesReferencia.btnSelecionar.Text = "Selecionar";
+            pacientesReferencia.btnSelecionar.Visible = selecionar;
             pacientesReferencia.FormataBotoes("pesquisar");
-
-            if (selecionar)
-            {
-                pacientesReferencia.btnSelecionar.Text = "";
-                pacientesReferencia.btnSelecionar.Visible = true;
-            }
             
             if (dt.Columns.Count == 0)
             {

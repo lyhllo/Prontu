@@ -54,19 +54,19 @@
             this.txtEmail = new System.Windows.Forms.RichTextBox();
             this.txtNumero = new System.Windows.Forms.RichTextBox();
             this.txtBairro = new System.Windows.Forms.RichTextBox();
-            this.txtEstado = new System.Windows.Forms.RichTextBox();
             this.txtComplemento = new System.Windows.Forms.RichTextBox();
             this.txtCidade = new System.Windows.Forms.RichTextBox();
             this.ObsTextField = new System.Windows.Forms.RichTextBox();
-            this.NomeTextField = new System.Windows.Forms.RichTextBox();
+            this.txtNome = new System.Windows.Forms.RichTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtObservacoes = new System.Windows.Forms.RichTextBox();
             this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtCpfResponsavel = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.btnCEP = new System.Windows.Forms.Button();
+            this.cbUF = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -190,7 +190,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(13, 577);
+            this.label11.Location = new System.Drawing.Point(13, 559);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 25);
             this.label11.TabIndex = 11;
@@ -200,7 +200,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(888, 577);
+            this.label12.Location = new System.Drawing.Point(888, 559);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 25);
             this.label12.TabIndex = 12;
@@ -211,7 +211,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(541, 660);
+            this.label13.Location = new System.Drawing.Point(541, 625);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 25);
             this.label13.TabIndex = 13;
@@ -231,7 +231,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(646, 579);
+            this.label15.Location = new System.Drawing.Point(646, 561);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 25);
             this.label15.TabIndex = 15;
@@ -241,7 +241,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(12, 669);
+            this.label16.Location = new System.Drawing.Point(12, 625);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 25);
             this.label16.TabIndex = 16;
@@ -251,7 +251,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1017, 660);
+            this.label17.Location = new System.Drawing.Point(1017, 625);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 25);
             this.label17.TabIndex = 17;
@@ -275,10 +275,10 @@
             this.txtResponsavelNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtResponsavelNome.MaxLength = 90;
             this.txtResponsavelNome.Name = "txtResponsavelNome";
+            this.txtResponsavelNome.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtResponsavelNome.Size = new System.Drawing.Size(450, 30);
             this.txtResponsavelNome.TabIndex = 4;
             this.txtResponsavelNome.Text = "";
-            this.txtResponsavelNome.TextChanged += new System.EventHandler(this.respTextField_TextChanged);
             // 
             // txtConvenio
             // 
@@ -287,10 +287,10 @@
             this.txtConvenio.Margin = new System.Windows.Forms.Padding(4);
             this.txtConvenio.MaxLength = 90;
             this.txtConvenio.Name = "txtConvenio";
+            this.txtConvenio.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtConvenio.Size = new System.Drawing.Size(450, 30);
             this.txtConvenio.TabIndex = 6;
             this.txtConvenio.Text = "";
-            this.txtConvenio.TextChanged += new System.EventHandler(this.ConvenioTextField_TextChanged);
             // 
             // txtConvenioCodigo
             // 
@@ -299,10 +299,10 @@
             this.txtConvenioCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtConvenioCodigo.MaxLength = 90;
             this.txtConvenioCodigo.Name = "txtConvenioCodigo";
+            this.txtConvenioCodigo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtConvenioCodigo.Size = new System.Drawing.Size(451, 30);
             this.txtConvenioCodigo.TabIndex = 7;
             this.txtConvenioCodigo.Text = "";
-            this.txtConvenioCodigo.TextChanged += new System.EventHandler(this.NumeroTextField_TextChanged);
             // 
             // txtTelefone
             // 
@@ -314,19 +314,17 @@
             this.txtTelefone.Size = new System.Drawing.Size(420, 30);
             this.txtTelefone.TabIndex = 11;
             this.txtTelefone.Text = "";
-            this.txtTelefone.TextChanged += new System.EventHandler(this.TelefoneTextField_TextChanged);
             // 
             // txtLogradouro
             // 
             this.txtLogradouro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogradouro.Location = new System.Drawing.Point(147, 574);
+            this.txtLogradouro.Location = new System.Drawing.Point(147, 556);
             this.txtLogradouro.Margin = new System.Windows.Forms.Padding(4);
             this.txtLogradouro.MaxLength = 90;
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(420, 30);
             this.txtLogradouro.TabIndex = 13;
             this.txtLogradouro.Text = "";
-            this.txtLogradouro.TextChanged += new System.EventHandler(this.RuaTextField_TextChanged);
             // 
             // txtEmail
             // 
@@ -338,12 +336,12 @@
             this.txtEmail.Size = new System.Drawing.Size(451, 30);
             this.txtEmail.TabIndex = 12;
             this.txtEmail.Text = "";
-            this.txtEmail.TextChanged += new System.EventHandler(this.EmailTextField_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.ValidaEmail);
             // 
             // txtNumero
             // 
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(738, 574);
+            this.txtNumero.Location = new System.Drawing.Point(738, 556);
             this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.MaxLength = 9;
             this.txtNumero.Name = "txtNumero";
@@ -354,50 +352,35 @@
             // txtBairro
             // 
             this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(147, 657);
+            this.txtBairro.Location = new System.Drawing.Point(147, 622);
             this.txtBairro.Margin = new System.Windows.Forms.Padding(4);
             this.txtBairro.MaxLength = 90;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(367, 30);
             this.txtBairro.TabIndex = 16;
             this.txtBairro.Text = "";
-            this.txtBairro.TextChanged += new System.EventHandler(this.BairroTextField_TextChanged);
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(1126, 657);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEstado.MaxLength = 2;
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(63, 30);
-            this.txtEstado.TabIndex = 18;
-            this.txtEstado.Text = "";
-            this.txtEstado.TextChanged += new System.EventHandler(this.EstadoTextField_TextChanged);
             // 
             // txtComplemento
             // 
             this.txtComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComplemento.Location = new System.Drawing.Point(986, 574);
+            this.txtComplemento.Location = new System.Drawing.Point(986, 556);
             this.txtComplemento.Margin = new System.Windows.Forms.Padding(4);
             this.txtComplemento.MaxLength = 90;
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(203, 30);
             this.txtComplemento.TabIndex = 15;
             this.txtComplemento.Text = "";
-            this.txtComplemento.TextChanged += new System.EventHandler(this.CompelmentoTextField_TextChanged);
             // 
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(651, 657);
+            this.txtCidade.Location = new System.Drawing.Point(651, 622);
             this.txtCidade.Margin = new System.Windows.Forms.Padding(4);
             this.txtCidade.MaxLength = 90;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(341, 30);
             this.txtCidade.TabIndex = 17;
             this.txtCidade.Text = "";
-            this.txtCidade.TextChanged += new System.EventHandler(this.CidadeTextField_TextChanged);
             // 
             // ObsTextField
             // 
@@ -409,22 +392,23 @@
             this.ObsTextField.Text = "";
             this.ObsTextField.TextChanged += new System.EventHandler(this.ObsTextField_TextChanged);
             // 
-            // NomeTextField
+            // txtNome
             // 
-            this.NomeTextField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NomeTextField.Location = new System.Drawing.Point(147, 61);
-            this.NomeTextField.Margin = new System.Windows.Forms.Padding(4);
-            this.NomeTextField.Name = "NomeTextField";
-            this.NomeTextField.Size = new System.Drawing.Size(450, 30);
-            this.NomeTextField.TabIndex = 1;
-            this.NomeTextField.Text = "";
-            this.NomeTextField.TextChanged += new System.EventHandler(this.NomeTextField_TextChanged);
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(147, 61);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNome.MaxLength = 90;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtNome.Size = new System.Drawing.Size(450, 30);
+            this.txtNome.TabIndex = 1;
+            this.txtNome.Text = "";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(13, 303);
+            this.label19.Location = new System.Drawing.Point(13, 288);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(135, 25);
             this.label19.TabIndex = 47;
@@ -438,7 +422,7 @@
             this.txtObservacoes.MaxLength = 150;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtObservacoes.Size = new System.Drawing.Size(1042, 60);
+            this.txtObservacoes.Size = new System.Drawing.Size(1042, 30);
             this.txtObservacoes.TabIndex = 8;
             this.txtObservacoes.Text = "";
             // 
@@ -446,32 +430,37 @@
             // 
             this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(1022, 59);
-            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Mask = "999,999,999-99";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(167, 30);
             this.txtCPF.TabIndex = 3;
             this.txtCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCPF.Leave += new System.EventHandler(this.ValidaCpfPaciente);
             // 
             // txtCpfResponsavel
             // 
             this.txtCpfResponsavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpfResponsavel.Location = new System.Drawing.Point(738, 136);
-            this.txtCpfResponsavel.Mask = "000.000.000-00";
+            this.txtCpfResponsavel.Mask = "999,999,999-99";
             this.txtCpfResponsavel.Name = "txtCpfResponsavel";
             this.txtCpfResponsavel.Size = new System.Drawing.Size(167, 30);
             this.txtCpfResponsavel.TabIndex = 5;
             this.txtCpfResponsavel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCpfResponsavel.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpfResponsavel.Leave += new System.EventHandler(this.ValidaCpfResponsavel);
             // 
-            // maskedTextBox1
+            // txtDataNascimento
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(790, 59);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(115, 30);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.txtDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataNascimento.Location = new System.Drawing.Point(738, 61);
+            this.txtDataNascimento.Mask = "00/00/0000";
+            this.txtDataNascimento.Name = "txtDataNascimento";
+            this.txtDataNascimento.Size = new System.Drawing.Size(115, 30);
+            this.txtDataNascimento.TabIndex = 2;
+            this.txtDataNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDataNascimento.ValidatingType = typeof(System.DateTime);
+            this.txtDataNascimento.Leave += new System.EventHandler(this.ValidarDataNascimento);
             // 
             // label20
             // 
@@ -483,15 +472,15 @@
             this.label20.TabIndex = 53;
             this.label20.Text = "C.E.P.:";
             // 
-            // maskedTextBox2
+            // txtCEP
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(147, 424);
-            this.maskedTextBox2.Mask = "00000-000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(118, 30);
-            this.maskedTextBox2.TabIndex = 9;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCEP.Location = new System.Drawing.Point(147, 424);
+            this.txtCEP.Mask = "99,999-999";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(118, 30);
+            this.txtCEP.TabIndex = 9;
+            this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCEP
             // 
@@ -511,23 +500,61 @@
             this.btnCEP.UseVisualStyleBackColor = false;
             this.btnCEP.Visible = false;
             // 
+            // cbUF
+            // 
+            this.cbUF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUF.FormattingEnabled = true;
+            this.cbUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AM",
+            "AP",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MG",
+            "MS",
+            "MT",
+            "PA",
+            "PB",
+            "PE",
+            "PI",
+            "PR",
+            "RJ",
+            "RN",
+            "RO",
+            "RR",
+            "RS",
+            "SC",
+            "SE",
+            "SP",
+            "TO"});
+            this.cbUF.Location = new System.Drawing.Point(1102, 618);
+            this.cbUF.Name = "cbUF";
+            this.cbUF.Size = new System.Drawing.Size(86, 33);
+            this.cbUF.TabIndex = 18;
+            // 
             // PacienteCadastro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1202, 703);
+            this.Controls.Add(this.cbUF);
             this.Controls.Add(this.btnCEP);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.txtDataNascimento);
             this.Controls.Add(this.txtCpfResponsavel);
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtObservacoes);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.NomeTextField);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.ObsTextField);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.txtComplemento);
-            this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtBairro);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtEmail);
@@ -591,18 +618,18 @@
         private System.Windows.Forms.RichTextBox txtEmail;
         private System.Windows.Forms.RichTextBox txtNumero;
         private System.Windows.Forms.RichTextBox txtBairro;
-        private System.Windows.Forms.RichTextBox txtEstado;
         private System.Windows.Forms.RichTextBox txtComplemento;
         private System.Windows.Forms.RichTextBox txtCidade;
         private System.Windows.Forms.RichTextBox ObsTextField;
-        private System.Windows.Forms.RichTextBox NomeTextField;
+        private System.Windows.Forms.RichTextBox txtNome;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.RichTextBox txtObservacoes;
         private System.Windows.Forms.MaskedTextBox txtCPF;
         private System.Windows.Forms.MaskedTextBox txtCpfResponsavel;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtDataNascimento;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Button btnCEP;
+        private System.Windows.Forms.ComboBox cbUF;
     }
 }
