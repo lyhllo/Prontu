@@ -76,15 +76,7 @@ namespace PRONTU
             RelatorioAtendimentoController atendimento = new RelatorioAtendimentoController();
             var _atendimento = new List<RelatorioAtendimentoModel>();
             
-            if(cbPaciente.Text.Equals("Todos os pacientes"))
-            {
-                _atendimento = atendimento.RetornarAtendimentosTodosPacientes(1, dpDataInicial.Value, dpDataFinal.Value);
-            }
-            else
-            {
-                _atendimento = atendimento.RetornarAtendimentosPorPaciente(1, dpDataInicial.Value, dpDataFinal.Value, cbPaciente.Text);
-            }
-            
+            _atendimento = atendimento.RetornarAtendimentos(1, dpDataInicial.Value, dpDataFinal.Value, cbPaciente.Text);
 
             // Mostrar na tela para testes
             string str = "";
