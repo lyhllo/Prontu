@@ -135,7 +135,7 @@ namespace PRONTU.View
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (situacaoCadastro == "Selecionar" || situacaoCadastro == "selecionar")
+            if (situacaoCadastro == "Selecionar" || situacaoCadastro == "selecionar" || situacaoCadastro == "buscar")
             {
                 if (formularioPesquisar.AgendarPaciente())
                 {
@@ -322,6 +322,8 @@ namespace PRONTU.View
 
         private void AbrirPacientesCadastro(CadastroModel _cadastroPaciente)
         {
+            btnSelecionar.Visible = true;
+            btnSelecionar.Enabled = true;
             formularioCadastro = panelPaciente.Controls.OfType<PacienteCadastro>().FirstOrDefault();
 
             if (formularioCadastro == null)

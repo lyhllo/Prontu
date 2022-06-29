@@ -160,6 +160,27 @@ namespace PRONTU
                 txtCidade.Text = _cadastroPaciente.Cidade;
                 cbUF.Text = _cadastroPaciente.UF;
             }
+            else
+            {
+
+                txtNome.Clear();
+                txtDataNascimento.Clear();
+                txtCPF.Clear();
+                txtResponsavelNome.Clear();
+                txtCpfResponsavel.Clear();
+                txtConvenio.Clear();
+                txtConvenioCodigo.Clear();
+                txtObservacoes.Clear();
+                txtCEP.Clear();
+                txtTelefone.Clear();
+                txtEmail.Clear();
+                txtLogradouro.Clear();
+                txtNumero.Clear();
+                txtComplemento.Clear();
+                txtBairro.Clear();
+                txtCidade.Clear();
+                cbUF.Text = "";
+            }
         }
 
         private Boolean ValidaCadastro()
