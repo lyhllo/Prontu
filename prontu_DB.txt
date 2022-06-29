@@ -24,7 +24,7 @@ email VARCHAR(90),
 CONSTRAINT usuario PRIMARY KEY(id_usuario)
 );
 
-insert into usuario values(1, "admin", "00000000000", "CREFITO-5", "Fisioterapeuta", "Traumato-Ortopedia", "admin", null, "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
+insert into usuario values(1, "admin", "00000000000", "CREFITO-5", "Fisioterapeuta", "Traumato-Ortopedia", "$2a$10$e5EDNuMPtwwmHThq4r7v4OmTq6posiAV61ZpawdRDqG4s78GJsZpa", null, "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
 
 CREATE TABLE IF NOT EXISTS agenda(
 id_usuario INT NOT NULL,

@@ -179,7 +179,6 @@ namespace PRONTU.Controller
             try
             {
                 usuario.Senha = Crypt.HashGeneration(usuario.Senha);
-                Console.WriteLine(usuario.Senha);
                 Connection c = new Connection();
                 string sql1 = "SELECT MAX(id_usuario) FROM usuario;";
                 MySqlDataReader rdr = c.QueryData(sql1);
@@ -239,8 +238,6 @@ namespace PRONTU.Controller
                     "'" + usuario.Telefone + "'," +
                     "'" + usuario.Email + "');";
 
-                Console.WriteLine(sql2);
-
                 c.NonQuery(sql2);
                 c.Close();
             }
@@ -275,8 +272,6 @@ namespace PRONTU.Controller
                 "usuario.email " +
                 "FROM usuario " +
                 "WHERE usuario.cpf = "+ Cpf_sessao +";";
-
-            Console.WriteLine(sql);
 
             try
             {
