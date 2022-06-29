@@ -21,8 +21,7 @@ namespace PRONTU
         private PacienteCadastroController controller = new PacienteCadastroController();
         public PacienteCadastro()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void PacienteCadastro_Load(object sender, EventArgs e)
@@ -68,157 +67,11 @@ namespace PRONTU
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NascimentoTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CpfRespTextField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ObsTextField_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void BotaoCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BotaoSalvar_Click(object sender, EventArgs e)
-        {
-            CadastroModel paciente = new CadastroModel();
-            paciente.Nome = txtNome.Text;
-            //paciente.Cpf = CpfTextField.Text;
-            paciente.Responsavel_Nome = txtResponsavelNome.Text;
-            //paciente.Dt_nasc = NascimentoTextField.Text;
-            //paciente.Responsavel_CPF = CpfRespTextField.Text;
-            paciente.Convenio = txtConvenio.Text;
-            paciente.Convenio_Codigo = txtConvenioCodigo.Text;
-            paciente.Telefone = txtTelefone.Text;
-            paciente.Logradouro = txtLogradouro.Text;
-            paciente.Complemento = txtComplemento.Text;
-            paciente.Cidade = txtCidade.Text;
-            paciente.Email = txtEmail.Text;
-            paciente.Numero = txtConvenioCodigo.Text;
-            paciente.Bairro = txtBairro.Text;
-            //paciente.UF = txtEstado.Text;
-            paciente.Observacoes = ObsTextField.Text;
-
-            /*int ex = PacienteCadastroController.NovoIdPaciente();
-
-            if (PacienteCadastroController.CadastraPaciente(paciente))
-            {
-                MessageBox.Show("Paciente cadastrado com sucesso.");
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Falha no cadastro do Paciente.");
-            }*/
-
-
-
-
-        }
-
-        private void BotaoEditar_Click(object sender, EventArgs e)
-        {
-            CadastroModel _cadastroModel = new CadastroModel();
-            _cadastroModel.Nome = txtNome.Text;
-            //_cadastroModel.Cpf = CpfTextField.Text;
-            //_cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
-            //_cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
-            _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
-            _cadastroModel.Convenio = txtConvenio.Text;
-            _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
-            _cadastroModel.Observacoes = ObsTextField.Text;
-            _cadastroModel.Logradouro = txtLogradouro.Text;
-            _cadastroModel.Numero = txtNumero.Text;
-            _cadastroModel.Bairro = txtBairro.Text;
-            _cadastroModel.Complemento = txtComplemento.Text;
-            _cadastroModel.Cidade = txtCidade.Text;
-            //_cadastroModel.UF = txtEstado.Text;
-            _cadastroModel.Telefone = txtTelefone.Text;
-            _cadastroModel.Email = txtEmail.Text;
-
-            PacienteCadastroController _pacienteController = new PacienteCadastroController();
-            /*if (_pacienteController.AtualizaPaciente(_cadastroModel))
-            {
-                MessageBox.Show("Cadastrado com sucesso");
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível cadastrar o paciente");
-            }*/
-        }
-    
-
-
-
-    
-
-        private void BotaoExcluir_Click(object sender, EventArgs e)
-        {
-            //PacienteCadastroController.ExcluirPaciente(id);
-
-
-
-        }
-
-        private void BotaoIncluir_Click(object sender, EventArgs e)
-        {
-            CadastroModel _cadastroModel = new CadastroModel();
-            _cadastroModel.Nome = txtNome.Text;
-            //_cadastroModel.Cpf = CpfTextField.Text;
-            //_cadastroModel.Dt_nasc = DateTime.Parse(NascimentoTextField.Text);
-            //_cadastroModel.Responsavel_CPF = CpfRespTextField.Text;
-            _cadastroModel.Responsavel_Nome = txtResponsavelNome.Text;
-            _cadastroModel.Convenio = txtConvenio.Text;
-            _cadastroModel.Convenio_Codigo = txtConvenioCodigo.Text;
-            _cadastroModel.Observacoes = ObsTextField.Text;
-            _cadastroModel.Logradouro = txtLogradouro.Text;
-            _cadastroModel.Numero = txtNumero.Text;
-            _cadastroModel.Bairro = txtBairro.Text;
-            _cadastroModel.Complemento = txtComplemento.Text;
-            _cadastroModel.Cidade = txtCidade.Text;
-            //_cadastroModel.UF = txtEstado.Text;
-            _cadastroModel.Telefone = txtTelefone.Text;
-            _cadastroModel.Email = txtEmail.Text;
-
-            PacienteCadastroController _pacienteController = new PacienteCadastroController();
-            if (_pacienteController.CadastraContato(_cadastroModel))
-            {
-                MessageBox.Show("Cadastrado com sucesso");
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível cadastrar o paciente");
-            }
-        }
-
-        private void BotaoHistorico_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BotaoAgenda_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ValidarDataNascimento(object sender, EventArgs e)
         {
@@ -284,6 +137,31 @@ namespace PRONTU
             }
         }
 
+        public void CarregarCadastro(CadastroModel _cadastroPaciente)
+        {
+            if (_cadastroPaciente != null)
+            {
+                cadastro = _cadastroPaciente;
+                txtNome.Text = _cadastroPaciente.Nome;
+                txtDataNascimento.Text = _cadastroPaciente.Dt_nasc.Value.ToString("d");
+                txtCPF.Text = _cadastroPaciente.Cpf;
+                txtResponsavelNome.Text = _cadastroPaciente.Responsavel_Nome;
+                txtCpfResponsavel.Text = _cadastroPaciente.Responsavel_CPF;
+                txtConvenio.Text = _cadastroPaciente.Convenio;
+                txtConvenioCodigo.Text = _cadastroPaciente.Convenio_Codigo;
+                txtObservacoes.Text = _cadastroPaciente.Observacoes;
+                txtCEP.Text = _cadastroPaciente.CEP;
+                txtTelefone.Text = _cadastroPaciente.Telefone;
+                txtEmail.Text = _cadastroPaciente.Email;
+                txtLogradouro.Text = _cadastroPaciente.Logradouro;
+                txtNumero.Text = _cadastroPaciente.Numero;
+                txtComplemento.Text = _cadastroPaciente.Complemento;
+                txtBairro.Text = _cadastroPaciente.Bairro;
+                txtCidade.Text = _cadastroPaciente.Cidade;
+                cbUF.Text = _cadastroPaciente.UF;
+            }
+        }
+
         private Boolean ValidaCadastro()
         {
             if (txtNome.Text == "")
@@ -298,9 +176,11 @@ namespace PRONTU
                 return false;
             }
 
-            cadastro = new CadastroModel();
-
-            cadastro.Id_Paciente = controller.NovoIdPaciente();
+            if (cadastro.Id_Paciente == 0)
+            {
+                cadastro = new CadastroModel();
+                cadastro.Id_Paciente = controller.NovoIdPaciente();
+            }
 
             cadastro.Nome = txtNome.Text;
 
@@ -341,5 +221,27 @@ namespace PRONTU
 
             return true;
         }
+
+        public bool EditarPaciente()
+        {
+            if (ValidaCadastro())
+            {
+                if (controller.EditaPaciente(cadastro))
+                {
+                    MessageBox.Show("Cadastro alterado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar o cadastro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

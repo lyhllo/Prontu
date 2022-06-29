@@ -37,7 +37,8 @@ namespace PRONTU.Controller
                     "   '" +        _cadastro.Cidade                                 + "', " +
                     "   '" +        _cadastro.UF                                     + "', " +
                     "   '" +        _cadastro.Telefone                               + "', " +
-                    "   '" +        _cadastro.Email                                  + "') ";
+                    "   '" +        _cadastro.Email                                  + "', " +
+                    "   '" +        _cadastro.CEP                                    + ") ";
 
                 c.NonQuery(sql);
 
@@ -50,38 +51,37 @@ namespace PRONTU.Controller
             }
         }
 
-        public bool CadastraContato(CadastroModel _cadastro)
+        public bool EditaPaciente(CadastroModel _cadastro)
         {
-            int _novo_id_Contato = NovoIdContato();
             try
             {
                 c = new Connection();
 
-                sql = "INSERT INTO contato" +
-                    "       VALUES( 1," +
-                                    _novo_id_Contato + ", " +
-                                    _cadastro.Logradouro + ", " +
-                                    _cadastro.Numero + ", " +
-                                    _cadastro.Bairro + ", " +
-                                    _cadastro.Complemento + ", " +
-                                    _cadastro.Cidade + ", " +
-                                    _cadastro.UF + ", " +
-                                    _cadastro.Telefone + ", " +
-                                    _cadastro.Email + ") ";
+                sql = "UPDATE paciente" +
+                    "     SET paciente.nome = '" + _cadastro.Nome + "', " +
+                    "         paciente.cpf  = '" + _cadastro.Cpf + "', " +
+                    "         paciente.dt_nasc  = '" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "', " +
+                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF + "', " +
+                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome + "', " +
+                    "         paciente.convenio = '" + _cadastro.Convenio + "', " +
+                    "         paciente.convenio_codigo = '" + _cadastro.Convenio_Codigo + "', " +
+                    "         paciente.observacoes = '" + _cadastro.Observacoes + "', " +
+                    "         paciente.logradouro   = '" + _cadastro.Logradouro + "', " +
+                    "         paciente.numero = '" + _cadastro.Numero + "', " +
+                    "         paciente.bairro = '" + _cadastro.Bairro + "', " +
+                    "         paciente.complemento = '" + _cadastro.Complemento + "', " +
+                    "         paciente.cidade = '" + _cadastro.Cidade + "', " +
+                    "         paciente.uf   = '" + _cadastro.UF + "', " +
+                    "         paciente.telefone = '" + _cadastro.Telefone + "', " +
+                    "         paciente.email = '" + _cadastro.Email + "', " +
+                    "         paciente.cep = '" + _cadastro.CEP + "' " +
+                    "   WHERE paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _cadastro.Id_Paciente ;
 
                 c.NonQuery(sql);
 
                 c.Close();
-
-                if (CadastraPaciente(_cadastro))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                return true;
             }
             catch
             {

@@ -16,6 +16,7 @@ namespace PRONTU.View
         public Home homeReferencia { get; set; }
         public DateTime? horario { get; set; }
         public int? idPaciente { get; set; }
+        private string situacaoCadastro;
         private PacientesPesquisar formularioPesquisar;
         private PacientesHistorico formularioHistorico;
         private PacientesAgendamentos formularioAgendamentos;
@@ -27,6 +28,7 @@ namespace PRONTU.View
 
         public void AbrirPacientesPesquisar(bool _selecionar, Agenda _agenda)
         {
+            situacaoCadastro = "buscar";
             formularioPesquisar = panelPaciente.Controls.OfType<PacientesPesquisar>().FirstOrDefault();
 
             if (formularioPesquisar == null)
@@ -49,18 +51,15 @@ namespace PRONTU.View
                     formularioPesquisar.lblHorario.Visible = true;
                     formularioPesquisar.txtHorario.Visible = true;
                     formularioPesquisar.txtHorario.Text = horario.Value.ToString("t");
-                    MostrarBotoes(false);
-                    homeReferencia.HabilitaBotoes(false);
-
                 }
                 else
                 {
                     formularioPesquisar.lblHorario.Visible = false;
                     formularioPesquisar.txtHorario.Visible = false;
                     horario = null;
-                    MostrarBotoes(true);
-                    homeReferencia.HabilitaBotoes(true);
                 }
+                MostrarBotoes(true);
+                homeReferencia.HabilitaBotoes(true);
                 formularioPesquisar.Show();
                 formularioPesquisar.BringToFront();
             }
@@ -79,17 +78,15 @@ namespace PRONTU.View
                     formularioPesquisar.lblHorario.Visible = true;
                     formularioPesquisar.txtHorario.Visible = true;
                     formularioPesquisar.txtHorario.Text = horario.Value.ToString("t");
-                    MostrarBotoes(false);
-                    homeReferencia.HabilitaBotoes(false);
                 }
                 else
                 {
                     formularioPesquisar.lblHorario.Visible = false;
                     formularioPesquisar.txtHorario.Visible = false;
                     horario = null;
-                    MostrarBotoes(true);
-                    homeReferencia.HabilitaBotoes(true);
                 }
+                MostrarBotoes(true);
+                homeReferencia.HabilitaBotoes(true);
                 formularioPesquisar.BringToFront();
 
 
@@ -99,13 +96,15 @@ namespace PRONTU.View
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             btnSelecionar.Visible = false;
+            btnCancelar.Text = "Voltar";
             AbrirPacientesPesquisar(false, null);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             homeReferencia.HabilitaBotoes(true);
-            this.Close();
+            btnSelecionar.Visible = false;
+            AbrirPacientesPesquisar(false, null);
         }
 
         private void MostrarBotoes(bool _info)
@@ -125,13 +124,24 @@ namespace PRONTU.View
                 if (formularioPesquisar.AgendarPaciente())
                 {
                     homeReferencia.HabilitaBotoes(true);
-                    this.Close();
+                    btnSelecionar.Visible = false;
+                    AbrirPacientesPesquisar(false, null);
                 }
             }
             
-            if (btnSelecionar.Text == "Salvar")
+            if (situacaoCadastro == "incluir")
             {
                 if (formularioCadastro.SalvarPaciente())
+                {
+                    homeReferencia.HabilitaBotoes(true);
+                    btnSelecionar.Visible = false;
+                    AbrirPacientesPesquisar(false, null);
+                }
+            }
+
+            if (situacaoCadastro == "editar")
+            {
+                if (formularioCadastro.EditarPaciente())
                 {
                     homeReferencia.HabilitaBotoes(true);
                     btnSelecionar.Visible = false;
@@ -142,6 +152,7 @@ namespace PRONTU.View
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
+            btnCancelar.Text = "Voltar";
             int _idPcte = formularioPesquisar.SelecionaIdPcteSelecionado();
             if (_idPcte > 0)
             {
@@ -156,6 +167,7 @@ namespace PRONTU.View
 
         public void AbrirPacientesHistorico(int _idPaciente)
         {
+            btnCancelar.Text = "Voltar";
             formularioHistorico = panelPaciente.Controls.OfType<PacientesHistorico>().FirstOrDefault();
 
             if (formularioHistorico == null)
@@ -286,10 +298,13 @@ namespace PRONTU.View
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            AbrirPacientesCadastro();
+            situacaoCadastro = "incluir";
+            btnCancelar.Text = "Cancelar";
+            FormataBotoes("incluir");
+            AbrirPacientesCadastro(null);
         }
 
-        private void AbrirPacientesCadastro()
+        private void AbrirPacientesCadastro(CadastroModel _cadastroPaciente)
         {
             formularioCadastro = panelPaciente.Controls.OfType<PacienteCadastro>().FirstOrDefault();
 
@@ -304,7 +319,7 @@ namespace PRONTU.View
                 panelPaciente.Controls.Add(formularioCadastro);
                 panelPaciente.Tag = formularioCadastro;
                 formularioCadastro.pacientesReferencia = this;
-                //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                formularioCadastro.CarregarCadastro(_cadastroPaciente);
                 homeReferencia.HabilitaBotoes(false);
                 formularioCadastro.Show();
                 formularioCadastro.BringToFront();
@@ -315,10 +330,32 @@ namespace PRONTU.View
                     formularioCadastro.WindowState = FormWindowState.Normal;
 
                 formularioCadastro.pacientesReferencia = this;
-                //formularioCadastro.CarregarAtendimentos(_idPaciente);
+                formularioCadastro.CarregarCadastro(_cadastroPaciente);
                 homeReferencia.HabilitaBotoes(false);
                 formularioCadastro.BringToFront();
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            situacaoCadastro = "editar";
+            btnSelecionar.Text = "Salvar";
+            btnSelecionar.Visible = true;
+            CadastroModel _cadastroPaciente = formularioPesquisar.SelecionaCadastroSelecionado();
+
+            if (_cadastroPaciente.Id_Paciente > 0)
+            {
+                AbrirPacientesCadastro(_cadastroPaciente);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um paciente para editar o cadastro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            situacaoCadastro = "excluir";
         }
     }
 }

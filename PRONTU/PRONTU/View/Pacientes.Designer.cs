@@ -194,6 +194,7 @@
             this.btnExcluir.TabIndex = 52;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -211,6 +212,7 @@
             this.btnEditar.TabIndex = 51;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // Pacientes
             // 
@@ -228,7 +230,7 @@
         #endregion
         private System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.Button btnSelecionar;
-        private System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Panel panelPaciente;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAgenda;

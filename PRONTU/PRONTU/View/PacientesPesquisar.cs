@@ -41,11 +41,11 @@ namespace PRONTU
             pacientesReferencia.btnSelecionar.Text = "Selecionar";
             pacientesReferencia.btnSelecionar.Visible = selecionar;
             pacientesReferencia.FormataBotoes("pesquisar");
-            
+            dt.Clear();
+            cadastro = controller.BuscaCadastrosPacientes();
+
             if (dt.Columns.Count == 0)
             {
-                cadastro = controller.BuscaCadastrosPacientes();
-
                 dt.Columns.Add("Id", typeof(int));
                 dt.Columns.Add("Nome", typeof(string));
                 dt.Columns.Add("Nascimento", typeof(string));
@@ -53,21 +53,17 @@ namespace PRONTU
                 dt.Columns.Add("Telefone", typeof(string));
                 dt.Columns.Add("E-mail", typeof(string));
                 dt.Columns.Add("Observações", typeof(string));
-
-
-                if (cadastro != null)
+            }
+            if (cadastro != null)
+            {
+                for (int i = 0; i < cadastro.Count; i++)
                 {
-                    for (int i = 0; i < cadastro.Count; i++)
-                    {
-                        dt.Rows.Add(new object[] {cadastro[i].Id_Paciente, cadastro[i].Nome, cadastro[i].Dt_nasc.Value.ToString("d"),
+                    dt.Rows.Add(new object[] {cadastro[i].Id_Paciente, cadastro[i].Nome, cadastro[i].Dt_nasc.Value.ToString("d"),
                                         cadastro[i].Convenio, cadastro[i].Telefone, cadastro[i].Email, cadastro[i].Observacoes});
 
-                    }
                 }
-
-                dgPacientes.DataSource = dt;
             }
-            
+            dgPacientes.DataSource = dt;
             FormataCelulas();
 
 
@@ -146,6 +142,23 @@ namespace PRONTU
             {
                 return 0;
             }
+        }
+
+        public CadastroModel SelecionaCadastroSelecionado()
+        {
+            CadastroModel _cadastro = new CadastroModel();
+            if (dgPacientes.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < cadastro.Count; i++)
+                {
+                    if (cadastro[i].Id_Paciente.ToString() == dgPacientes.SelectedCells[0].Value.ToString())
+                    {
+                        _cadastro = cadastro[i];
+                        break;
+                    }
+                }
+            }
+            return _cadastro;
         }
     }
 }
