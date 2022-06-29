@@ -75,27 +75,53 @@ namespace PRONTU
         {
             RelatorioAtendimentoController atendimento = new RelatorioAtendimentoController();
             var _atendimento = new List<RelatorioAtendimentoModel>();
-            
-            _atendimento = atendimento.RetornarAtendimentos(1, dpDataInicial.Value, dpDataFinal.Value, cbPaciente.Text);
 
-            // Mostrar na tela para testes
-            string str = "";
-            for(int i = 0; i < _atendimento.Count(); i++)
+             _atendimento = atendimento.RetornarAtendimentos(1, dpDataInicial.Value, dpDataFinal.Value, cbPaciente.Text);
+
+            if (dpDataInicial.Value.Date > dpDataFinal.Value.Date)
             {
-                str = str + _atendimento[i].Nome.ToString() + " ; ";
-                str = str + _atendimento[i].Horario.ToString() + " ; ";
-                str = str + _atendimento[i].Convenio.ToString() + " ; ";
-                str = str + _atendimento[i].Valor_pago.ToString() + " ; ";
-                str = str + _atendimento[i].Avaliacao.ToString() + " ; ";
-                str = str + _atendimento[i].Condutas.ToString();
-                str = str + "\r\n" + "\r\n";
+                MessageBox.Show("Data inicial maior que a data final", "Relatório de atendimentos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            MessageBox.Show(str);
+            else
+            {
+                // Mostrar na tela para testes
+                string str = "";
+                for (int i = 0; i < _atendimento.Count(); i++)
+                {
+                    str = str + _atendimento[i].Nome.ToString() + " ; ";
+                    str = str + _atendimento[i].Horario.ToString() + " ; ";
+                    str = str + _atendimento[i].Convenio.ToString() + " ; ";
+                    str = str + _atendimento[i].Valor_pago.ToString() + " ; ";
+                    str = str + _atendimento[i].Avaliacao.ToString() + " ; ";
+                    str = str + _atendimento[i].Condutas.ToString();
+                    str = str + "\r\n" + "\r\n";
+                }
+                MessageBox.Show(str);
+            }
+
+             
         }
 
         public void Laudo()
         {
-            MessageBox.Show("Laudo");
+            LaudoController laudo = new LaudoController();
+            var _laudo = new List<LaudoModel>();
+
+            _laudo = laudo.RetornarDadosDoProfissional(1);
+
+            // Mostrar na tela para testes
+            string str = "";
+            for (int i = 0; i < _laudo.Count(); i++)
+            {
+                str = str + _laudo[i].Nome.ToString() + " ; ";
+                str = str + _laudo[i].Profissao.ToString() + " ; ";
+                str = str + _laudo[i].Especialidade.ToString() + " ; ";
+                str = str + _laudo[i].Registro_profissional.ToString() + " ; ";
+                str = str + _laudo[i].Telefone.ToString() + " ; ";
+                str = str + _laudo[i].Email.ToString();
+                str = str + "\r\n" + "\r\n";
+            }
+            MessageBox.Show(str);
         }
     }
 }
