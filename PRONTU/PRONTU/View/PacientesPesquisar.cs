@@ -108,13 +108,13 @@ namespace PRONTU
         {
             if (dgPacientes.SelectedRows.Count > 0)
             {
+                pacientesReferencia.btnSelecionar.Enabled = true;
                 int _idPcte = int.Parse(dgPacientes.SelectedCells[0].Value.ToString());
                 string _convenio = dgPacientes.SelectedCells[3].Value.ToString();
 
                 if (agendaController.AgendaPaciente(_idPcte, horario, _convenio))
                 {
                     MessageBox.Show("Agendamento realizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    selecionar = false;
                     agendaReferencia.AtualizaHorarios();
                     selecionar = false;
                     return true;

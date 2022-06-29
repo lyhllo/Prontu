@@ -89,6 +89,47 @@ namespace PRONTU.Controller
             }
         }
 
+        public bool ExcluiPaciente(int _idPaciente)
+        {
+            try
+            {
+                c = new Connection();
+
+                sql = "DELETE FROM paciente" +
+                    "   WHERE  paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+
+                c = new Connection();
+
+                sql = "DELETE FROM atendimento" +
+                    "   WHERE  paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+
+                c = new Connection();
+
+                sql = "DELETE FROM prontuario" +
+                    "   WHERE paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public int NovoIdPaciente()
         {
             int _id = 0;
@@ -121,37 +162,6 @@ namespace PRONTU.Controller
             }
         }
 
-        private int NovoIdContato()
-        {
-            int _id = 0;
-            try
-            {
-                c = new Connection();
-
-                sql = "SELECT max(contato.id_contato) + 1" +
-                    "    FROM contato " +
-                    "   WHERE contato.id_usuario = 1";
-
-                rdr = c.QueryData(sql);
-
-                if (rdr != null)
-                {
-                    while (rdr.Read())
-                    {
-                        _id = Convert.ToInt32(rdr["id_paciente"]);
-                    }
-                }
-
-                c.Close();
-
-                return _id;
-            }
-            catch (Exception ex)
-            {
-
-                return _id;
-            }
-        }
 
         public List<CadastroModel> BuscaCadastrosPacientes()
         {

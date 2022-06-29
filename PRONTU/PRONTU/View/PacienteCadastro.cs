@@ -21,7 +21,7 @@ namespace PRONTU
         private PacienteCadastroController controller = new PacienteCadastroController();
         public PacienteCadastro()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void PacienteCadastro_Load(object sender, EventArgs e)
@@ -241,6 +241,47 @@ namespace PRONTU
             {
                 return false;
             }
+        }
+
+        public void ExcluirPaciente(int _idPaciente)
+        {
+            LiberarCadastro(false);
+            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover esse cadastro e todas" +
+                "as informações de agendamentos e atendimentos?",
+                "Remover cadastro", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+            {
+                if (controller.ExcluiPaciente(cadastro.Id_Paciente))
+                {
+                    MessageBox.Show("Cadastro removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível remover o cadastro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            LiberarCadastro(true);
+        }
+
+        public void LiberarCadastro(bool _info)
+        {
+            txtNome.Enabled = _info;
+            txtDataNascimento.Enabled = _info;
+            txtCPF.Enabled = _info;
+            txtResponsavelNome.Enabled = _info;
+            txtCpfResponsavel.Enabled = _info;
+            txtConvenio.Enabled = _info;
+            txtConvenioCodigo.Enabled = _info;
+            txtObservacoes.Enabled = _info;
+            txtCEP.Enabled = _info;
+            txtTelefone.Enabled = _info;
+            txtEmail.Enabled = _info;
+            txtLogradouro.Enabled = _info;
+            txtNumero.Enabled = _info;
+            txtComplemento.Enabled = _info;
+            txtBairro.Enabled = _info;
+            txtCidade.Enabled = _info;
+            cbUF.Enabled = _info;
         }
 
     }
