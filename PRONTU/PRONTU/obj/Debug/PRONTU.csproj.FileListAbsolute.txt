@@ -93,3 +93,5 @@ C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplet
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
 C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Bruno\Desktop\gp\repo\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.xml

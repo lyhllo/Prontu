@@ -42,12 +42,29 @@ namespace PRONTU.Controller
         public static bool Login (string cpf, string senha)
         {
             Connection c = new Connection();
+            
 
-            string sql = "SELECT * FROM usuario WHERE cpf='" + cpf + "' AND senha='" + senha + "';";
 
-            object result = c.Query(sql);
+            string sql = "SELECT senha FROM usuario WHERE cpf='" + cpf + "';";
 
-            if (result != null)
+            
+
+            MySqlDataReader rdr = c.QueryData(sql);
+            string senhac = "";
+            
+            while (rdr.Read())
+            {
+                if(rdr[0] != null)
+                {
+                    senhac = Convert.ToString(rdr[0]);
+                } else
+                {
+                    return false;
+                }
+            }
+
+
+            if (Crypt.PasswordCompare(senhac, senha))
             {
                 Cpf_sessao = cpf;
                 Sessao_ativa = true;
@@ -106,8 +123,6 @@ namespace PRONTU.Controller
 
                 string sql = "UPDATE usuario SET codigo_recuperacao = '" + codigo + "' WHERE email='" + email + "';";
 
-                //object result = c.Query(sql);
-
                 c.NonQuery(sql);
             }
             catch (Exception ex)
@@ -139,11 +154,12 @@ namespace PRONTU.Controller
 
         public static bool AtualizaSenha(string email, string senha)
         {
+            string senhac = Crypt.HashGeneration(senha);
             try
             {
                 Connection c = new Connection();
 
-                string sql = "UPDATE usuario_sistema SET senha = '" + senha + "' WHERE email='" + email + "';";
+                string sql = "UPDATE usuario_sistema SET senha = '" + senhac + "' WHERE email='" + email + "';";
 
                 object result = c.Query(sql);
 
@@ -162,6 +178,8 @@ namespace PRONTU.Controller
         {
             try
             {
+                usuario.Senha = Crypt.HashGeneration(usuario.Senha);
+                Console.WriteLine(usuario.Senha);
                 Connection c = new Connection();
                 string sql1 = "SELECT MAX(id_usuario) FROM usuario;";
                 MySqlDataReader rdr = c.QueryData(sql1);
@@ -170,8 +188,19 @@ namespace PRONTU.Controller
                 {
                     while (rdr.Read())
                     {
-                        usuario.Id_usuario = Convert.ToInt32(rdr[0]) + 1;
+                        if(rdr[0] != DBNull.Value)
+                        {
+                            usuario.Id_usuario = Convert.ToInt32(rdr[0]) + 1;
+                        } else
+                        {
+                            usuario.Id_usuario = 1;
+                        }
+                        
                     }
+                } 
+                else
+                {
+                    return false;
                 }
                 c.Close();
 
@@ -200,7 +229,7 @@ namespace PRONTU.Controller
                     "'" + usuario.Registro_profissional + "'," +
                     "'" + usuario.Profissao + "'," +
                     "'" + usuario.Especialidade + "'," +
-                    "'" + usuario.Senha+"'," +
+                    "'" + usuario.Senha +"'," +
                     "'" + usuario.Logradouro + "'," +
                     "'" + usuario.Numero + "'," +
                     "'" + usuario.Bairro + "'," +
@@ -209,6 +238,8 @@ namespace PRONTU.Controller
                     "'" + usuario.Uf + "'," +
                     "'" + usuario.Telefone + "'," +
                     "'" + usuario.Email + "');";
+
+                Console.WriteLine(sql2);
 
                 c.NonQuery(sql2);
                 c.Close();
@@ -312,10 +343,11 @@ namespace PRONTU.Controller
 
         public static bool AlteraSenha(string senha)
         {
+            string senhac = Crypt.HashGeneration(senha);
             try
             {
                 Connection c = new Connection();
-                string sql = "UPDATE usuario SET senha = '"+senha+"' WHERE id_usuario = "+Id_usuario+";";
+                string sql = "UPDATE usuario SET senha = '"+senhac+"' WHERE id_usuario = "+Id_usuario+";";
                 c.NonQuery(sql);
             }
             catch (Exception ex)
@@ -328,7 +360,7 @@ namespace PRONTU.Controller
 
         public static bool ExcluiUsuario()
         {
-            return true;
+            return true; // EXCLUSÃO DESABILITADA PARA TESTES
             try
             {
                 Connection c = new Connection();
@@ -357,13 +389,14 @@ namespace PRONTU.Controller
                 Connection c = new Connection();
                 string sql = "SELECT usuario.senha from usuario where id_usuario=" + Id_usuario + ";";
                 MySqlDataReader rdr = c.QueryData(sql);
-                string senha_correta = "";
+                string senhac = "";
                 while(rdr.Read())
                 {
-                    senha_correta = Convert.ToString(rdr[0]);
+                    senhac = Convert.ToString(rdr[0]);
                 }
                 c.Close();
-                if (senha == senha_correta)
+                
+                if (Crypt.PasswordCompare(senhac,senha))
                 {
                     return true;
                 }
