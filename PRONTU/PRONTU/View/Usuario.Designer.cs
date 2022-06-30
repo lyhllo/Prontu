@@ -269,6 +269,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(201, 20);
             this.txtCpf.TabIndex = 35;
+            //this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             // 
             // txtNome
             // 
@@ -277,6 +278,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(601, 20);
             this.txtNome.TabIndex = 34;
+            //this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label2
             // 

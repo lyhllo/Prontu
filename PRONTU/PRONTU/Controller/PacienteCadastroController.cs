@@ -13,26 +13,32 @@ namespace PRONTU.Controller
         private Connection c;
         private string sql;
         private MySqlDataReader rdr;
-        public bool CadastraPaciente(int _id_contato, CadastroModel _cadastro)
+        public bool CadastraPaciente(CadastroModel _cadastro)
         {
-            int _novo_id_Paciente = NovoIdPaciente();
             try
             {
                 c = new Connection();
 
                 sql = "INSERT INTO paciente" +
                     "       VALUES ( 1," +
-                                   _novo_id_Paciente + ", " +
-                                   _id_contato + ", " +
-                                   _cadastro.Nome + ", " +
-                                   _cadastro.Cpf + ", " +
-                                   _cadastro.Dt_nasc + ", " +
-                                   _cadastro.Responsavel_CPF + ", " +
-                                   _cadastro.Responsavel_Nome + ", " +
-                                   _cadastro.Data_Cadastro + ", " +
-                                   _cadastro.Convenio + ", " +
-                                   _cadastro.Convenio_Codigo + ", " +
-                                   _cadastro.Observacoes + ") ";
+                                    _cadastro.Id_Paciente                            + ", " +
+                    "   '" +        _cadastro.Nome                                   + "', " +
+                    "   '" +        _cadastro.Cpf                                    + "', " +
+                    "   '" +        _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd")   + "', " +
+                    "   '" +        _cadastro.Responsavel_CPF                        + "', " +
+                    "   '" +        _cadastro.Responsavel_Nome                       + "', " +
+                    "   '" +        _cadastro.Convenio                               + "', " +
+                    "   '" +        _cadastro.Convenio_Codigo                        + "', " +
+                    "   '" +        _cadastro.Observacoes                            + "', " +
+                    "   '" +        _cadastro.Logradouro                             + "', " +
+                    "   '" +        _cadastro.Numero                                 + "', " +
+                    "   '" +        _cadastro.Bairro                                 + "', " +
+                    "   '" +        _cadastro.Complemento                            + "', " +
+                    "   '" +        _cadastro.Cidade                                 + "', " +
+                    "   '" +        _cadastro.UF                                     + "', " +
+                    "   '" +        _cadastro.Telefone                               + "', " +
+                    "   '" +        _cadastro.Email                                  + "', " +
+                    "   '" +        _cadastro.CEP                                    + ") ";
 
                 c.NonQuery(sql);
 
@@ -45,38 +51,37 @@ namespace PRONTU.Controller
             }
         }
 
-        public bool CadastraContato(CadastroModel _cadastro)
+        public bool EditaPaciente(CadastroModel _cadastro)
         {
-            int _novo_id_Contato = NovoIdContato();
             try
             {
                 c = new Connection();
 
-                sql = "INSERT INTO contato" +
-                    "       VALUES( 1," +
-                                    _novo_id_Contato + ", " +
-                                    _cadastro.Logradouro + ", " +
-                                    _cadastro.Numero + ", " +
-                                    _cadastro.Bairro + ", " +
-                                    _cadastro.Complemento + ", " +
-                                    _cadastro.Cidade + ", " +
-                                    _cadastro.UF + ", " +
-                                    _cadastro.Telefone + ", " +
-                                    _cadastro.Email + ") ";
+                sql = "UPDATE paciente" +
+                    "     SET paciente.nome = '" + _cadastro.Nome + "', " +
+                    "         paciente.cpf  = '" + _cadastro.Cpf + "', " +
+                    "         paciente.dt_nasc  = '" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "', " +
+                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF + "', " +
+                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome + "', " +
+                    "         paciente.convenio = '" + _cadastro.Convenio + "', " +
+                    "         paciente.convenio_codigo = '" + _cadastro.Convenio_Codigo + "', " +
+                    "         paciente.observacoes = '" + _cadastro.Observacoes + "', " +
+                    "         paciente.logradouro   = '" + _cadastro.Logradouro + "', " +
+                    "         paciente.numero = '" + _cadastro.Numero + "', " +
+                    "         paciente.bairro = '" + _cadastro.Bairro + "', " +
+                    "         paciente.complemento = '" + _cadastro.Complemento + "', " +
+                    "         paciente.cidade = '" + _cadastro.Cidade + "', " +
+                    "         paciente.uf   = '" + _cadastro.UF + "', " +
+                    "         paciente.telefone = '" + _cadastro.Telefone + "', " +
+                    "         paciente.email = '" + _cadastro.Email + "', " +
+                    "         paciente.cep = '" + _cadastro.CEP + "' " +
+                    "   WHERE paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _cadastro.Id_Paciente ;
 
                 c.NonQuery(sql);
 
                 c.Close();
-
-                if (CadastraPaciente(_novo_id_Contato, _cadastro))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                return true;
             }
             catch
             {
@@ -84,14 +89,55 @@ namespace PRONTU.Controller
             }
         }
 
-        private int NovoIdPaciente()
+        public bool ExcluiPaciente(int _idPaciente)
+        {
+            try
+            {
+                c = new Connection();
+
+                sql = "DELETE FROM paciente" +
+                    "   WHERE  paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+
+                c = new Connection();
+
+                sql = "DELETE FROM atendimento" +
+                    "   WHERE  paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+
+                c = new Connection();
+
+                sql = "DELETE FROM prontuario" +
+                    "   WHERE paciente.id_usuario = 1" +
+                    "     AND paciente.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                c.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public int NovoIdPaciente()
         {
             int _id = 0;
             try
             {
                 c = new Connection();
 
-                sql = "SELECT max(paciente.id_paciente) + 1" +
+                sql = "SELECT max(paciente.id_paciente) as id" +
                     "    FROM paciente " +
                     "   WHERE paciente.id_usuario = 1";
 
@@ -101,45 +147,13 @@ namespace PRONTU.Controller
                 {
                     while (rdr.Read())
                     {
-                        _id = Convert.ToInt32(rdr["id_paciente"]);
+                        _id = Convert.ToInt32(rdr["id"]);
                     }
                 }
 
                 c.Close();
 
-                return _id;
-            }
-            catch (Exception ex)
-            {
-                
-                return _id;
-            }
-        }
-
-        private int NovoIdContato()
-        {
-            int _id = 0;
-            try
-            {
-                c = new Connection();
-
-                sql = "SELECT max(contato.id_contato) + 1" +
-                    "    FROM contato " +
-                    "   WHERE contato.id_usuario = 1";
-
-                rdr = c.QueryData(sql);
-
-                if (rdr != null)
-                {
-                    while (rdr.Read())
-                    {
-                        _id = Convert.ToInt32(rdr["id_paciente"]);
-                    }
-                }
-
-                c.Close();
-
-                return _id;
+                return _id + 1;
             }
             catch (Exception ex)
             {
@@ -147,6 +161,7 @@ namespace PRONTU.Controller
                 return _id;
             }
         }
+
 
         public List<CadastroModel> BuscaCadastrosPacientes()
         {
@@ -165,16 +180,17 @@ namespace PRONTU.Controller
                       "		  paciente.convenio," +
                       "		  paciente.convenio_codigo," +
                       "		  paciente.observacoes," +
-                      "		  contato.logradouro," +
-                      "		  contato.numero," +
-                      "		  contato.bairro," +
-                      "		  contato.complemento," +
-                      "		  contato.cidade," +
-                      "		  contato.uf," +
-                      "		  contato.telefone," +
-                      "		  contato.email" +
+                      "		  paciente.logradouro," +
+                      "		  paciente.numero," +
+                      "		  paciente.bairro," +
+                      "		  paciente.complemento," +
+                      "		  paciente.cidade," +
+                      "		  paciente.uf," +
+                      "		  paciente.telefone," +
+                      "		  paciente.email" +
                       "  from paciente" +
-                      " where paciente.id_usuario = 1 " ;
+                      " where paciente.id_usuario = 1" +
+                      " order by paciente.nome " ;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -222,8 +238,6 @@ namespace PRONTU.Controller
                         {
                             cadastroModel.Responsavel_Nome = null;
                         }
-
-                        cadastroModel.Data_Cadastro = Convert.ToDateTime(rdr["data_cadastro"]);
 
                         if (rdr["convenio"] != DBNull.Value)
                         {

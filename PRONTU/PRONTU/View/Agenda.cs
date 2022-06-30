@@ -19,6 +19,7 @@ namespace PRONTU
         AgendaController agendaController = new AgendaController();
         public Form ReferenciaHome { get; set; }
         public int formatoAgenda { get; set; }
+        public CadastroModel cadastro { get; set; }
         string dataSelecionada;
         string horaSelecionada = DateTime.Now.Hour.ToString() + " : " + DateTime.Now.Minute.ToString();
         private int linhas;
@@ -34,7 +35,7 @@ namespace PRONTU
             AtualizaHorarios();
         }
 
-        private void AtualizaHorarios()
+        public void AtualizaHorarios()
         {
             dgHorarios.Rows.Clear();
             dgHorarios.Rows.Add(linhas);
@@ -43,7 +44,7 @@ namespace PRONTU
 
         }
 
-        private void CarregaHorarios()
+        public void CarregaHorarios()
         {
             DateTime _d = calendario.SelectionRange.Start;
             
@@ -112,7 +113,7 @@ namespace PRONTU
             }
         }
 
-        private void EditaFoco()
+        public void EditaFoco()
         {
             DateTime d = calendario.SelectionRange.Start;
             d = d.AddHours(DateTime.Now.Hour);
@@ -132,27 +133,27 @@ namespace PRONTU
             MudancaSelecao();
         }
 
-        private void MudancaSelecao()
+        public void MudancaSelecao()
         {
-            int _val;
+            DateTime? _horario;
             if (dgHorarios.SelectedRows.Count > 0)
             {
-                _val = int.Parse(dgHorarios.SelectedCells[0].Value.ToString());
+                _horario = DateTime.Parse(dgHorarios.SelectedCells[1].Value.ToString());
             }
             else
             {
-                _val = 0;
+                _horario = null;
             }
 
 
-            if (_val == 0)
+            if (_horario is null)
             {
                 mostrar_botoes(false);
             }
 
             for (int i = 0; i < agenda.Count; i++)
             {
-                if (agenda[i].Id_pcte == _val)
+                if (agenda[i].Horario == _horario)
                 {
                     atendimento = agenda[i];
                     mostrar_botoes(true);
@@ -239,7 +240,6 @@ namespace PRONTU
                 {
                     MessageBox.Show("Não foi possível remover o agendamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
         }
 
@@ -248,12 +248,11 @@ namespace PRONTU
             Home _novo = (Home)ReferenciaHome;
             if (dgHorarios.SelectedCells[0].Value.ToString() == "0")
             {
-                _novo.AbrirPesquisaPaciente();
                 var _hora = dgHorarios.SelectedCells[1].Value.ToString().Split(':');
                 DateTime _datahora = calendario.SelectionRange.Start;
                 _datahora = _datahora.AddHours(Double.Parse(_hora[0]));
                 _datahora = _datahora.AddMinutes(Double.Parse(_hora[1]));
-                _novo.SelecionarPaciente(_datahora);
+                _novo.AbrirPacientes(true, _datahora, this);
             }
             else
             {
@@ -314,6 +313,7 @@ namespace PRONTU
             double _valor = double.Parse(txtValor.Text);
 
             bool _res = agendaController.RegistrarPagto(atendimento.Id_atendimento, _valor, _pago);
+
             if (_res)
             {
                 MessageBox.Show("Pagamento registrado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

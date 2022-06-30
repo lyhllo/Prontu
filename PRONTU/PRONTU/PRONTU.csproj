@@ -95,12 +95,15 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\AgendaController.cs" />
-    <Compile Include="Controller\Crypt.cs" />
+    <Compile Include="Controller\LaudoController.cs" />
     <Compile Include="Controller\PacienteCadastroController.cs" />
+    <Compile Include="Controller\RelatorioAtendimentoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\AgendaModel.cs" />
     <Compile Include="Model\CadastroModel.cs" />
+    <Compile Include="Model\LaudoModel.cs" />
+    <Compile Include="Model\RelatorioAtendimentoModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\Agenda.cs">
       <SubType>Form</SubType>
@@ -176,6 +179,24 @@
     <Compile Include="View\PacienteCadastro.Designer.cs">
       <DependentUpon>PacienteCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Pacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pacientes.Designer.cs">
+      <DependentUpon>Pacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PacientesAgendamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PacientesAgendamentos.Designer.cs">
+      <DependentUpon>PacientesAgendamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PacientesHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PacientesHistorico.Designer.cs">
+      <DependentUpon>PacientesHistorico.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PacientesPesquisar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +261,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PacienteCadastro.resx">
       <DependentUpon>PacienteCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pacientes.resx">
+      <DependentUpon>Pacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PacientesAgendamentos.resx">
+      <DependentUpon>PacientesAgendamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PacientesHistorico.resx">
+      <DependentUpon>PacientesHistorico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PacientesPesquisar.resx">
       <DependentUpon>PacientesPesquisar.cs</DependentUpon>
