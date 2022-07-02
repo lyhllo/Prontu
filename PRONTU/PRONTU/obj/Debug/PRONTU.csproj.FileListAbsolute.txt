@@ -96,3 +96,5 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesAgendamentos.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesHistorico.resources
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.xml

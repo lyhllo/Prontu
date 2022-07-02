@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\AgendaController.cs" />
+    <Compile Include="Controller\Crypt.cs" />
     <Compile Include="Controller\LaudoController.cs" />
     <Compile Include="Controller\PacienteCadastroController.cs" />
     <Compile Include="Controller\RelatorioAtendimentoController.cs" />

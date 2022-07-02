@@ -391,14 +391,14 @@ namespace PRONTU.Controller
                 }
                 c.Close();
                 
-                /*if (Crypt.PasswordCompare(senhac,senha))
+                if (Crypt.PasswordCompare(senhac,senha))
                 {
                     return true;
                 }
                 else
                 {
                     return false;
-                }*/
+                }
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);

@@ -22,7 +22,10 @@ namespace PRONTU.Controller
 
         public static bool PasswordCompare(string hash, string password)
         {
-            return BCrypt.Net.BCrypt.Verify(password, hash);
+            if (hash != "" && password != "")
+                return BCrypt.Net.BCrypt.Verify(password, hash);
+            else
+                return false;
         }
     }
 }
