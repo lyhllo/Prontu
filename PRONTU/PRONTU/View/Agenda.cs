@@ -143,7 +143,7 @@ namespace PRONTU
                 _horario = null;
             }
 
-            if (_horario is null)
+            if (_horario is null || agenda.Count == 0)
             {
                 mostrar_botoes(false);
             }
