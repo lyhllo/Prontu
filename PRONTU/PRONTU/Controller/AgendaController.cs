@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace PRONTU.Controller.AgendaController
+namespace PRONTU.Controller
 {
     internal class AgendaController
     {
@@ -770,7 +770,7 @@ namespace PRONTU.Controller.AgendaController
                             agendamentoModel.Avaliacao = null;
                         }
 
-                        if (rdr["condutas"] != null)
+                        if (rdr["condutas"] != DBNull.Value)
                         {
                             agendamentoModel.Condutas = Convert.ToString(rdr["condutas"]);
                         }
@@ -792,6 +792,40 @@ namespace PRONTU.Controller.AgendaController
                 return null;
             }
 
+        }
+
+        public List<int> SelecionaIdAtendimentos(int _idPaciente)
+        {
+            List<int> _atendimentos = new List<int>();
+
+            try
+            {
+                c = new Connection();
+
+                sql = "SELECT atendimento.id_atendimento" +
+                      "  FROM atendimento" +
+                      " WHERE atendimento.id_usuario = 1" +
+                      "   AND atendimento.id_paciente = " + _idPaciente;
+                      
+                rdr = c.QueryData(sql);
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        if (rdr["id_atendimento"] != DBNull.Value)
+                            _atendimentos.Add(Convert.ToInt32(rdr["id_atendimento"]));
+                    }
+                }
+
+                c.Close();
+                return _atendimentos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
         }
     }
 }

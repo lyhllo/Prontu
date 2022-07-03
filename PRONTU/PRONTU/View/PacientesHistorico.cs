@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
-using PRONTU.Controller.AgendaController;
+using PRONTU.Controller;
 using System.Globalization;
 
 namespace PRONTU.View

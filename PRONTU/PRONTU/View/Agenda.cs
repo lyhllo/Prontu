@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
-using PRONTU.Controller.AgendaController;
+using PRONTU.Controller;
 
 
 
@@ -334,6 +334,24 @@ namespace PRONTU
             else
             {
                 MessageBox.Show("Não foi possível registrar o pagamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            Home _novo = (Home)ReferenciaHome;
+
+            if (dgHorarios.SelectedCells[0].Value.ToString() == "0")
+            {
+                var _hora = dgHorarios.SelectedCells[1].Value.ToString().Split(':');
+                DateTime _datahora = calendario.SelectionRange.Start;
+                _datahora = _datahora.AddHours(Double.Parse(_hora[0]));
+                _datahora = _datahora.AddMinutes(Double.Parse(_hora[1]));
+                _novo.AbrirPacientes(true, _datahora, this);
+            }
+            else
+            {
+                _novo.AbrirAtendimento(atendimento, this);
             }
         }
     }

@@ -76,6 +76,7 @@
             this.btnCadastro.Text = "Editar cadastro";
             this.btnCadastro.UseVisualStyleBackColor = false;
             this.btnCadastro.Visible = false;
+            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
             // btnRemoverAgendamento
             // 

@@ -105,34 +105,42 @@ namespace PRONTU.Controller
         {
             try
             {
-                c = new Connection();
-
-                sql = "DELETE FROM paciente" +
-                    "   WHERE  paciente.id_usuario = 1" +
-                    "     AND paciente.id_paciente = " + _idPaciente;
-
-                c.NonQuery(sql);
-
-                c.Close();
+                AgendaController _ac = new AgendaController();
+                List<int> _atendimentos = _ac.SelecionaIdAtendimentos(_idPaciente);
 
                 c = new Connection();
+                c.BeginTransaction();
+
+                if (_atendimentos.Count > 0)
+                {
+                    sql = "DELETE FROM prontuario" +
+                    "   WHERE prontuario.id_usuario = 1" +
+                    "     AND prontuario.id_atendimento IN ( ";
+
+                    for (int i = 0; i < _atendimentos.Count; i++)
+                    {
+                        if (i < _atendimentos.Count - 1)
+                            sql += _atendimentos[i] + ", ";
+                        else
+                            sql += _atendimentos[i] + ")";
+                    }
+
+                    c.NonQuery(sql);
+                }
 
                 sql = "DELETE FROM atendimento" +
+                    "   WHERE atendimento.id_usuario = 1" +
+                    "     AND atendimento.id_paciente = " + _idPaciente;
+
+                c.NonQuery(sql);
+
+                sql = "DELETE FROM paciente" +
                     "   WHERE paciente.id_usuario = 1" +
                     "     AND paciente.id_paciente = " + _idPaciente;
 
                 c.NonQuery(sql);
 
-                c.Close();
-
-                c = new Connection();
-
-                sql = "DELETE FROM prontuario" +
-                    "   WHERE paciente.id_usuario = 1" +
-                    "     AND paciente.id_paciente = " + _idPaciente;
-
-                c.NonQuery(sql);
-
+                c.transaction.Commit();
                 c.Close();
                 return true;
             }

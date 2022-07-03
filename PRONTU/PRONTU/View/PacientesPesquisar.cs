@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Controller;
 using PRONTU.Model;
-using PRONTU.Controller.AgendaController;
 using PRONTU.View;
 
 namespace PRONTU
