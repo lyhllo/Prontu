@@ -66,7 +66,7 @@ namespace PRONTU
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<LogoHome>();
+            AbrirLogo();
         }
 
         private void btnPacientes_Click(object sender, EventArgs e)
@@ -228,6 +228,29 @@ namespace PRONTU
                     formulario.WindowState = FormWindowState.Normal;
                 formulario.BringToFront();
                 formulario.carregarAjustes();
+            }
+        }
+
+        public void AbrirLogo()
+        {
+            LogoHome formulario = panelConteudo.Controls.OfType<LogoHome>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new LogoHome();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
             }
         }
 
