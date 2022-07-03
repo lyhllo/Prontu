@@ -18,6 +18,7 @@ namespace PRONTU
     public partial class Agenda : Form
     {
         AgendaController agendaController = new AgendaController();
+        
         public Home ReferenciaHome { get; set; }
         public Pacientes ReferenciaPacientes { get; set; }
         public int formatoAgenda { get; set; }
