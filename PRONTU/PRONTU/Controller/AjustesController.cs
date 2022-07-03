@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using PRONTU.Model;
 
-namespace PRONTU.Controller.AjustesController
+namespace PRONTU.Controller
 {
     internal class AjustesController
     {
@@ -52,7 +52,7 @@ namespace PRONTU.Controller.AjustesController
 
                 c.Close();
                 return _agenda;
-            }        
+            }
 
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace PRONTU.Controller.AjustesController
                 var _ajuste = new List<AjustesModel>();
 
                 sql = "UPDATE agenda " +
-                         "SET agenda.formato_minutos = " + _formatoMinutos + "," +                             
+                         "SET agenda.formato_minutos = " + _formatoMinutos + "," +
                              "agenda.mostrar_valor = " + _mostrarValor + "," +
                              "agenda.marcador_comparecimento = " + _marcadorComparecimento + "," +
                              "agenda.marcador_pagamento = " + _marcadorPagto + "," +

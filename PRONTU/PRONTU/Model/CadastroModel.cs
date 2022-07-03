@@ -14,11 +14,9 @@ namespace PRONTU.Model
         public DateTime? Dt_nasc { get; set; }
         public string Responsavel_CPF { get; set; }
         public string Responsavel_Nome { get; set; }
-        public DateTime Data_Cadastro { get; set; }
         public string Convenio { get; set; }
         public string Convenio_Codigo { get; set; }
         public string Observacoes { get; set; }
-        public int Id_contato { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Bairro { get; set; }
@@ -27,5 +25,6 @@ namespace PRONTU.Model
         public string UF { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string CEP { get; set; }
     }
 }

@@ -89,5 +89,15 @@ namespace PRONTU.Controller
                 return false;
             }
         }
+
+        public static bool ValidaCEP(string _cep)
+        {
+            Regex Rgx = new Regex(@"^\d{5}-\d{3}$");
+
+            if (!Rgx.IsMatch(_cep))
+                return false;
+            else
+                return true;
+        }
     }
 }

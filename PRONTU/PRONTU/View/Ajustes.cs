@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PRONTU.Controller.AjustesController;
 using PRONTU.Model;
+using PRONTU.Controller;
 
 
 

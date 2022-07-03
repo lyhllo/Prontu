@@ -22,6 +22,7 @@ namespace PRONTU
             InitializeComponent();
             UsuarioModel Usuario = UsuarioController.BuscaDadosUsuario();
             mostra_dados_formulario(Usuario);
+            somente_leitura(true);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -37,22 +38,23 @@ namespace PRONTU
             usuario.Registro_profissional = txtRegistroProfissional.Text;
             usuario.Profissao = txtProfissao.Text;
             usuario.Especialidade = txtEspecialidade.Text;
-            usuario.Contato.Logradouro = txtLogradouro.Text;
-            usuario.Contato.Numero = txtNumero.Text;
-            usuario.Contato.Bairro = txtBairro.Text;
-            usuario.Contato.Logradouro = txtComplemento.Text;
-            usuario.Contato.Cidade = txtCidade.Text;
-            usuario.Contato.Uf = txtUf.Text;
-            usuario.Contato.Telefone = txtTelefone.Text;
-            usuario.Contato.Email = txtEmail.Text;
+            usuario.Logradouro = txtLogradouro.Text;
+            usuario.Numero = txtNumero.Text;
+            usuario.Bairro = txtBairro.Text;
+            usuario.Logradouro = txtComplemento.Text;
+            usuario.Cidade = txtCidade.Text;
+            usuario.Uf = txtUf.Text;
+            usuario.Telefone = txtTelefone.Text;
+            usuario.Email = txtEmail.Text;
 
             if (Validacao.ValidaCpf(usuario.Cpf))
             {
-                if (Validacao.ValidaEmail(usuario.Contato.Email))
+                if (Validacao.ValidaEmail(usuario.Email))
                 {
                     if (UsuarioController.AtualizaUsuario(usuario))
                     {
                         MessageBox.Show("Usuário atualizado com sucesso.");
+                        somente_leitura(true);
                     }
                     else
                     {
@@ -79,14 +81,32 @@ namespace PRONTU
             txtRegistroProfissional.Text = usuario.Registro_profissional;
             txtProfissao.Text = usuario.Profissao;
             txtEspecialidade.Text = usuario.Especialidade;
-            txtLogradouro.Text = usuario.Contato.Logradouro;
-            txtNumero.Text = usuario.Contato.Numero;
-            txtBairro.Text = usuario.Contato.Bairro;
-            txtComplemento.Text = usuario.Contato.Logradouro;
-            txtCidade.Text = usuario.Contato.Cidade;
-            txtUf.Text = usuario.Contato.Uf;
-            txtTelefone.Text = usuario.Contato.Telefone;
-            txtEmail.Text = usuario.Contato.Email;
+            txtLogradouro.Text = usuario.Logradouro;
+            txtNumero.Text = usuario.Numero;
+            txtBairro.Text = usuario.Bairro;
+            txtComplemento.Text = usuario.Logradouro;
+            txtCidade.Text = usuario.Cidade;
+            txtUf.Text = usuario.Uf;
+            txtTelefone.Text = usuario.Telefone;
+            txtEmail.Text = usuario.Email;
+        }
+
+        private void somente_leitura(bool b)
+        {
+            txtNome.ReadOnly = b;
+            txtCpf.ReadOnly = b;
+            txtRegistroProfissional.ReadOnly = b;
+            txtProfissao.ReadOnly = b;
+            txtEspecialidade.ReadOnly = b;
+            txtLogradouro.ReadOnly = b;
+            txtNumero.ReadOnly = b;
+            txtBairro.ReadOnly = b;
+            txtComplemento.ReadOnly = b;
+            txtCidade.ReadOnly = b;
+            txtUf.ReadOnly = b;
+            txtTelefone.ReadOnly = b;
+            txtEmail.ReadOnly = b;
+            btnSalvar.Enabled = !b;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -111,6 +131,30 @@ namespace PRONTU
         private void startAlteraSenha()
         {
             Application.Run(new AlterarSenha());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            somente_leitura(false);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UsuarioModel Usuario = UsuarioController.BuscaDadosUsuario();
+            mostra_dados_formulario(Usuario);
+            somente_leitura(true);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            nt = new Thread(startConfirmaExclusao);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
+        }
+
+        private void startConfirmaExclusao()
+        {
+            Application.Run(new ConfirmaExclusao());
         }
     }
 }

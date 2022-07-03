@@ -45,9 +45,63 @@ C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe.config
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.pdb
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\BouncyCastle.Crypto.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Hash.xxHash.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\MySql.Data.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Buffers.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Memory.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Numerics.Vectors.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\Ubiety.Dns.Core.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\ZstdNet.dll
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.pdb
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Hash.xxHash.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\MySql.Data.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Buffers.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Memory.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Numerics.Vectors.xml
+D:\projetos\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.AssemblyReference.cache
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.SuggestedBindingRedirects.cache
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Agenda.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Ajustes.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.AlterarSenha.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Atendimento.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.EsqueciMinhaSenha.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Login.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Properties.Resources.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.LogoHome.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovaSenha.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovoUsuario.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacienteCadastro.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacientesPesquisar.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.GenerateResource.cache
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CoreCompileInputs.cache
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
+D:\projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Pacientes.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesAgendamentos.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesHistorico.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.xml
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe.config
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.exe
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\PRONTU.pdb
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.dll
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.dll
@@ -60,6 +114,7 @@ C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\System.
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\Ubiety.Dns.Core.dll
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\ZstdNet.dll
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.xml
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.pdb
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\Google.Protobuf.xml
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\bin\Debug\K4os.Compression.LZ4.xml
@@ -76,6 +131,7 @@ C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Ajustes.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.AlterarSenha.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Atendimento.resources
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.EsqueciMinhaSenha.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Home.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Login.resources
@@ -84,6 +140,9 @@ C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovaSenha.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.NovoUsuario.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacienteCadastro.resources
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Pacientes.resources
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesAgendamentos.resources
+C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesHistorico.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.PacientesPesquisar.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Relatorios.resources
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.Usuario.resources

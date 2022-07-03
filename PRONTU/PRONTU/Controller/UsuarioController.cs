@@ -12,10 +12,9 @@ namespace PRONTU.Controller
 {
     public class UsuarioController
     {
-
+        public static bool Sessao_ativa;
         private static string Cpf_sessao;
         private static int Id_usuario;
-        private static int Id_contato;
 
         public static bool ExisteUsuario ()
         {
@@ -43,14 +42,32 @@ namespace PRONTU.Controller
         public static bool Login (string cpf, string senha)
         {
             Connection c = new Connection();
+            
 
-            string sql = "SELECT * FROM usuario WHERE cpf='" + cpf + "' AND senha='" + senha + "';";
 
-            object result = c.Query(sql);
+            string sql = "SELECT senha FROM usuario WHERE cpf='" + cpf + "';";
 
-            if (result != null)
+            
+
+            MySqlDataReader rdr = c.QueryData(sql);
+            string senhac = "";
+            
+            while (rdr.Read())
+            {
+                if(rdr[0] != null)
+                {
+                    senhac = Convert.ToString(rdr[0]);
+                } else
+                {
+                    return false;
+                }
+            }
+
+
+            if (Crypt.PasswordCompare(senhac, senha))
             {
                 Cpf_sessao = cpf;
+                Sessao_ativa = true;
                 c.Close();
                 return true;
             }
@@ -106,8 +123,6 @@ namespace PRONTU.Controller
 
                 string sql = "UPDATE usuario SET codigo_recuperacao = '" + codigo + "' WHERE email='" + email + "';";
 
-                //object result = c.Query(sql);
-
                 c.NonQuery(sql);
             }
             catch (Exception ex)
@@ -139,11 +154,12 @@ namespace PRONTU.Controller
 
         public static bool AtualizaSenha(string email, string senha)
         {
+            string senhac = Crypt.HashGeneration(senha);
             try
             {
                 Connection c = new Connection();
 
-                string sql = "UPDATE usuario_sistema SET senha = '" + senha + "' WHERE email='" + email + "';";
+                string sql = "UPDATE usuario_sistema SET senha = '" + senhac + "' WHERE email='" + email + "';";
 
                 object result = c.Query(sql);
 
@@ -162,49 +178,68 @@ namespace PRONTU.Controller
         {
             try
             {
+                usuario.Senha = Crypt.HashGeneration(usuario.Senha);
                 Connection c = new Connection();
-                string sql = "INSERT INTO usuario (nome_usuario,cpf, registro_prof, profissao, especialidade, senha) VALUES" +
-                    "('" + usuario.Nome + "'," +
-                    "'" + usuario.Cpf + "'," +
-                    "'" + usuario.Registro_profissional + "'," +
-                    "'" + usuario.Profissao + "'," +
-                    "'" + usuario.Especialidade + "'," +
-                    "'"+usuario.Senha+"');";
-                c.NonQuery(sql);
-                c.Close();
-
-                c = new Connection();
-                string sql2 = "SELECT MAX(id_usuario) FROM usuario;";
-                MySqlDataReader rdr = c.QueryData(sql2);
-                
-
-                string Id_novo_usuario = "";
+                string sql1 = "SELECT MAX(id_usuario) FROM usuario;";
+                MySqlDataReader rdr = c.QueryData(sql1);
 
                 if (rdr != null)
                 {
                     while (rdr.Read())
                     {
-                        Id_novo_usuario = rdr[0].ToString();
+                        if(rdr[0] != DBNull.Value)
+                        {
+                            usuario.Id_usuario = Convert.ToInt32(rdr[0]) + 1;
+                        } else
+                        {
+                            usuario.Id_usuario = 1;
+                        }
+                        
                     }
+                } 
+                else
+                {
+                    return false;
                 }
                 c.Close();
 
                 c = new Connection();
-                string sql3 = "INSERT INTO contato (id_usuario,id_contato,logradouro,numero,bairro,complemento,cidade,uf,telefone,email) VALUES " +
-                    "("+ Id_novo_usuario +"," +
-                    "" + Id_novo_usuario + "," +
-                    "'"+usuario.Contato.Logradouro+"'," +
-                    "'"+usuario.Contato.Numero+"'," +
-                    "'"+usuario.Contato.Bairro+"'," +
-                    "'"+usuario.Contato.Complemento+"'," +
-                    "'"+usuario.Contato.Cidade+"'," +
-                    "'"+usuario.Contato.Uf+"'," +
-                    "'"+usuario.Contato.Telefone+"'," +
-                    "'"+usuario.Contato.Email+"');";
-                Console.WriteLine(sql3);
-                c.NonQuery(sql3);
-                c.Close();
 
+                string sql2 = "INSERT INTO usuario (" +
+                    "id_usuario, " +
+                    "nome_usuario," +
+                    "cpf, " +
+                    "registro_prof, " +
+                    "profissao, " +
+                    "especialidade, " +
+                    "senha, " +
+                    "logradouro," +
+                    "numero," +
+                    "bairro," +
+                    "complemento," +
+                    "cidade," +
+                    "uf," +
+                    "telefone," +
+                    "email) " +
+                    "VALUES" +
+                    "(" + usuario.Id_usuario + "," +
+                    "'" + usuario.Nome + "'," +
+                    "'" + usuario.Cpf + "'," +
+                    "'" + usuario.Registro_profissional + "'," +
+                    "'" + usuario.Profissao + "'," +
+                    "'" + usuario.Especialidade + "'," +
+                    "'" + usuario.Senha +"'," +
+                    "'" + usuario.Logradouro + "'," +
+                    "'" + usuario.Numero + "'," +
+                    "'" + usuario.Bairro + "'," +
+                    "'" + usuario.Complemento + "'," +
+                    "'" + usuario.Cidade + "'," +
+                    "'" + usuario.Uf + "'," +
+                    "'" + usuario.Telefone + "'," +
+                    "'" + usuario.Email + "');";
+
+                c.NonQuery(sql2);
+                c.Close();
             }
             catch (Exception ex)
             {
@@ -227,21 +262,16 @@ namespace PRONTU.Controller
                 "usuario.registro_prof, " +
                 "usuario.profissao, " +
                 "usuario.especialidade, " +
-                "contato.id_contato, " +
-                "contato.logradouro, " +
-                "contato.numero, " +
-                "contato.bairro, " +
-                "contato.complemento, " +
-                "contato.cidade, " +
-                "contato.uf, " +
-                "contato.telefone, " +
-                "contato.email " +
-                "FROM contato " +
-                "LEFT JOIN usuario " +
-                "ON (usuario.id_usuario = contato.id_contato) " +
+                "usuario.logradouro, " +
+                "usuario.numero, " +
+                "usuario.bairro, " +
+                "usuario.complemento, " +
+                "usuario.cidade, " +
+                "usuario.uf, " +
+                "usuario.telefone, " +
+                "usuario.email " +
+                "FROM usuario " +
                 "WHERE usuario.cpf = "+ Cpf_sessao +";";
-
-            Console.WriteLine(sql);
 
             try
             {
@@ -254,16 +284,14 @@ namespace PRONTU.Controller
                     usuario.Registro_profissional = rdr[3].ToString();
                     usuario.Profissao = rdr[4].ToString();
                     usuario.Especialidade = rdr[5].ToString();
-                    Console.WriteLine(Convert.ToInt32(rdr[6]).ToString());
-                    usuario.Contato.Id_contato = Convert.ToInt32(rdr[6]);
-                    usuario.Contato.Logradouro = rdr[7].ToString();
-                    usuario.Contato.Numero = rdr[8].ToString();
-                    usuario.Contato.Bairro = rdr[9].ToString();
-                    usuario.Contato.Complemento = rdr[10].ToString();
-                    usuario.Contato.Cidade = rdr[11].ToString();
-                    usuario.Contato.Uf = rdr[12].ToString();
-                    usuario.Contato.Telefone = rdr[13].ToString();
-                    usuario.Contato.Email = rdr[14].ToString(); 
+                    usuario.Logradouro = rdr[6].ToString();
+                    usuario.Numero = rdr[7].ToString();
+                    usuario.Bairro = rdr[8].ToString();
+                    usuario.Complemento = rdr[9].ToString();
+                    usuario.Cidade = rdr[10].ToString();
+                    usuario.Uf = rdr[11].ToString();
+                    usuario.Telefone = rdr[12].ToString();
+                    usuario.Email = rdr[13].ToString();
                 }
                 rdr.Close();
 
@@ -274,7 +302,6 @@ namespace PRONTU.Controller
             }
             c.Close();
             Id_usuario = usuario.Id_usuario;
-            Id_contato = usuario.Contato.Id_contato;
             return usuario;
         }
 
@@ -282,22 +309,21 @@ namespace PRONTU.Controller
         {
             Connection c = new Connection();
             string sql = "UPDATE usuario " +
-                "SET nome_usuario = '" + usuario.Nome + "'," +
-                "cpf = '" + usuario.Cpf + "'," +
-                "registro_prof = '" + usuario.Registro_profissional + "'," +
-                "profissao = '" + usuario.Profissao + "'," +
-                "especialidade = '" + usuario.Especialidade + "'" +
-                " WHERE id_usuario = " + Id_usuario + ";" +
-                "UPDATE contato " +
-                "SET logradouro = '" + usuario.Contato.Logradouro +"'," +
-                "numero = '" + usuario.Contato.Numero +"'," +
-                "bairro = '" + usuario.Contato.Bairro +"'," +
-                "complemento = '" + usuario.Contato.Complemento +"'," +
-                "cidade = '" + usuario.Contato.Cidade+"'," +
-                "uf = '" + usuario.Contato.Uf +"'," +
-                "telefone = '" + usuario.Contato.Telefone + "'," +
-                "email = '" + usuario.Contato.Email + "'" +
-                " WHERE id_contato = "+Id_contato;
+                        "SET " +
+                        "nome_usuario = '" + usuario.Nome + "'," +
+                        "cpf = '" + usuario.Cpf + "'," +
+                        "registro_prof = '" + usuario.Registro_profissional + "'," +
+                        "profissao = '" + usuario.Profissao + "'," +
+                        "especialidade = '" + usuario.Especialidade + "'," +
+                        "logradouro = '" + usuario.Logradouro +"'," +
+                        "numero = '" + usuario.Numero +"'," +
+                        "bairro = '" + usuario.Bairro +"'," +
+                        "complemento = '" + usuario.Complemento +"'," +
+                        "cidade = '" + usuario.Cidade+"'," +
+                        "uf = '" + usuario.Uf +"'," +
+                        "telefone = '" + usuario.Telefone + "'," +
+                        "email = '" + usuario.Email + "'" +
+                        " WHERE id_usuario = "+Id_usuario;
             try
             {
                 c.NonQuery(sql);
@@ -312,10 +338,11 @@ namespace PRONTU.Controller
 
         public static bool AlteraSenha(string senha)
         {
+            string senhac = Crypt.HashGeneration(senha);
             try
             {
                 Connection c = new Connection();
-                string sql = "UPDATE usuario SET senha = '"+senha+"' WHERE id_usuario = "+Id_usuario+";";
+                string sql = "UPDATE usuario SET senha = '"+senhac+"' WHERE id_usuario = "+Id_usuario+";";
                 c.NonQuery(sql);
             }
             catch (Exception ex)
@@ -324,6 +351,60 @@ namespace PRONTU.Controller
                 return false;
             }
             return true;
+        }
+
+        public static bool ExcluiUsuario()
+        {
+            return true; // EXCLUSÃO DESABILITADA PARA TESTES
+            try
+            {
+                Connection c = new Connection();
+                string sql = "";
+                sql += "DELETE FROM atendimento WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM prontuario WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM agenda WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM paciente WHERE id_usuario=" + Id_usuario + ";";
+                sql += "DELETE FROM usuario WHERE id_usuario=" + Id_usuario + ";";
+
+                c.NonQuery(sql);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine (ex.Message);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ConfirmaSenha(string senha)
+        {
+            try
+            {
+                Connection c = new Connection();
+                string sql = "SELECT usuario.senha from usuario where id_usuario=" + Id_usuario + ";";
+                MySqlDataReader rdr = c.QueryData(sql);
+                string senhac = "";
+                while(rdr.Read())
+                {
+                    senhac = Convert.ToString(rdr[0]);
+                }
+                c.Close();
+                
+                if (Crypt.PasswordCompare(senhac,senha))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            
         }
     }
 }

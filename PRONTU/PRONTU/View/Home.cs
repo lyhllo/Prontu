@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using PRONTU.Model;
+using PRONTU.View;
 
 namespace PRONTU
 {
@@ -21,8 +22,6 @@ namespace PRONTU
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool RelapseCapture();
-
-        private bool telaMax = false;
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
 
@@ -70,7 +69,7 @@ namespace PRONTU
 
         private void btnPacientes_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<PacienteCadastro>();
+            AbrirPacientes(false, null, null);
         }
 
         private void btnAgenda_Click(object sender, EventArgs e)
@@ -90,7 +89,7 @@ namespace PRONTU
 
         private void btnAjustes_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<Ajustes>();
+            AbrirAjustes();
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -110,14 +109,14 @@ namespace PRONTU
                 this.WindowState = FormWindowState.Normal;
                 telaMax = false;
             }
-        }
+        }*/
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }*/
+        }
 
-        public void AbrirAtendimento(AgendaModel _atendimento)
+        public void AbrirAtendimento(AgendaModel _atendimento, Agenda _agenda)
         {
             Atendimento formulario = panelConteudo.Controls.OfType<Atendimento>().FirstOrDefault();
 
@@ -129,6 +128,7 @@ namespace PRONTU
                 formulario.Dock = DockStyle.Fill;
                 panelConteudo.Controls.Add(formulario);
                 panelConteudo.Tag = formulario;
+                formulario.agendaReferencia = _agenda;
                 formulario.CarregaTela(_atendimento);
                 formulario.Show();
                 formulario.BringToFront();
@@ -137,24 +137,32 @@ namespace PRONTU
             {
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
-                formulario.BringToFront();
+                formulario.agendaReferencia = _agenda;
                 formulario.CarregaTela(_atendimento);
+                formulario.BringToFront();
+                
 
             }
         }
 
-        public void AbrirPesquisaPaciente()
+        public void AbrirPacientes(bool _selecionar, DateTime? _hora, Agenda _agenda)
         {
-            PacientesPesquisar formulario = panelConteudo.Controls.OfType<PacientesPesquisar>().FirstOrDefault();
+            Pacientes formulario = panelConteudo.Controls.OfType<Pacientes>().FirstOrDefault();
 
             if (formulario == null)
             {
-                formulario = new PacientesPesquisar();
-                formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
+                formulario = new Pacientes
+                {
+                    TopLevel = false,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
                 panelConteudo.Controls.Add(formulario);
                 panelConteudo.Tag = formulario;
+                formulario.homeReferencia = this;
+                formulario.horario = _hora;
+                
+                formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
                 formulario.Show();
                 formulario.BringToFront();
             }
@@ -162,14 +170,13 @@ namespace PRONTU
             {
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
+                formulario.homeReferencia = this;
+                formulario.horario = _hora;
+                formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
                 formulario.BringToFront();
 
+
             }
-        }
-
-        public void SelecionarPaciente(DateTime _horario)
-        {
-
         }
 
         public void AbrirAgenda(Home _home)
@@ -195,6 +202,41 @@ namespace PRONTU
                 formulario.BringToFront();
                 formulario.ReferenciaHome = _home;
             }
+        }
+
+        public void AbrirAjustes()
+        {
+            Ajustes formulario = panelConteudo.Controls.OfType<Ajustes>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new Ajustes();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                formulario.carregarAjustes();
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
+                formulario.carregarAjustes();
+            }
+        }
+
+        public void HabilitaBotoes(bool _info)
+        {
+            btnHome.Enabled = _info;
+            btnPacientes.Enabled = _info;
+            btnAgenda.Enabled = _info;
+            btnRelatorios.Enabled = _info;
+            btnUsuario.Enabled = _info;
+            btnAjustes.Enabled = _info;
         }
     }
 }
