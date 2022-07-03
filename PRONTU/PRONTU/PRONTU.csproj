@@ -92,11 +92,13 @@
   <ItemGroup>
     <Compile Include="Connection.cs" />
     <Compile Include="Controller\AgendaController.cs" />
+    <Compile Include="Controller\AjustesController.cs" />
     <Compile Include="Controller\PacienteCadastroController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Model\AgendaModel.cs" />
     <Compile Include="Model\CadastroModel.cs" />
+    <Compile Include="Model\AjustesModel.cs" />
     <Compile Include="Model\ContatoModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\Agenda.cs">
