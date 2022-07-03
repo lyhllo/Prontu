@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.Controller;
+using PRONTU.View;
 
 
 
@@ -17,7 +18,8 @@ namespace PRONTU
     public partial class Agenda : Form
     {
         AgendaController agendaController = new AgendaController();
-        public Form ReferenciaHome { get; set; }
+        public Home ReferenciaHome { get; set; }
+        public Pacientes ReferenciaPacientes { get; set; }
         public int formatoAgenda { get; set; }
         private int linhas;
         private List<AgendaModel> agenda;
@@ -340,19 +342,14 @@ namespace PRONTU
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             Home _novo = (Home)ReferenciaHome;
+            
+            PacienteCadastroController _cadastroController = new PacienteCadastroController();
 
-            if (dgHorarios.SelectedCells[0].Value.ToString() == "0")
-            {
-                var _hora = dgHorarios.SelectedCells[1].Value.ToString().Split(':');
-                DateTime _datahora = calendario.SelectionRange.Start;
-                _datahora = _datahora.AddHours(Double.Parse(_hora[0]));
-                _datahora = _datahora.AddMinutes(Double.Parse(_hora[1]));
-                _novo.AbrirPacientes(true, _datahora, this);
-            }
-            else
-            {
-                _novo.AbrirAtendimento(atendimento, this);
-            }
+            CadastroModel _cadastro = _cadastroController.BuscaCadastroPorId(atendimento.Id_pcte);
+
+            _novo.AbrirPacientes(true, null, this);
+
+
         }
     }
 }

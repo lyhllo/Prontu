@@ -89,7 +89,7 @@ namespace PRONTU
 
         private void btnAjustes_Click(object sender, EventArgs e)
         {
-            AbrirFormNoPanel<Ajustes>();
+            AbrirAjustes();
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -161,6 +161,7 @@ namespace PRONTU
                 panelConteudo.Tag = formulario;
                 formulario.homeReferencia = this;
                 formulario.horario = _hora;
+                
                 formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
                 formulario.Show();
                 formulario.BringToFront();
@@ -200,6 +201,31 @@ namespace PRONTU
                     formulario.WindowState = FormWindowState.Normal;
                 formulario.BringToFront();
                 formulario.ReferenciaHome = _home;
+            }
+        }
+
+        public void AbrirAjustes()
+        {
+            Ajustes formulario = panelConteudo.Controls.OfType<Ajustes>().FirstOrDefault();
+
+            if (formulario == null)
+            {
+                formulario = new Ajustes();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelConteudo.Controls.Add(formulario);
+                panelConteudo.Tag = formulario;
+                
+                formulario.Show();
+                formulario.BringToFront();
+            }
+            else
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
+                
             }
         }
 

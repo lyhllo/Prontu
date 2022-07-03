@@ -16,7 +16,7 @@ namespace PRONTU.View
         public Home homeReferencia { get; set; }
         public DateTime? horario { get; set; }
         public int? idPaciente { get; set; }
-        private string situacaoCadastro;
+        public string situacaoCadastro { get; set; }
         private PacientesPesquisar formularioPesquisar;
         private PacientesHistorico formularioHistorico;
         private PacientesAgendamentos formularioAgendamentos;
@@ -143,7 +143,7 @@ namespace PRONTU.View
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (situacaoCadastro == "Selecionar" || situacaoCadastro == "selecionar")
+            if (situacaoCadastro == "selecionar")
             {
                 if (formularioPesquisar.AgendarPaciente())
                 {
@@ -171,6 +171,16 @@ namespace PRONTU.View
                     homeReferencia.HabilitaBotoes(true);
                     btnSelecionar.Visible = false;
                     AbrirPacientesPesquisar(false, null);
+                }
+            }
+
+            if (situacaoCadastro == "editarAgenda")
+            {
+                if (formularioCadastro.EditarPaciente())
+                {
+                    homeReferencia.HabilitaBotoes(true);
+                    btnSelecionar.Visible = false;
+                    this.Close();
                 }
             }
         }

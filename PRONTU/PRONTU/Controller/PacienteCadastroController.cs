@@ -114,8 +114,8 @@ namespace PRONTU.Controller
                 if (_atendimentos.Count > 0)
                 {
                     sql = "DELETE FROM prontuario" +
-                    "   WHERE prontuario.id_usuario = 1" +
-                    "     AND prontuario.id_atendimento IN ( ";
+                    "       WHERE prontuario.id_usuario = 1" +
+                    "         AND prontuario.id_atendimento IN ( ";
 
                     for (int i = 0; i < _atendimentos.Count; i++)
                     {
@@ -191,7 +191,7 @@ namespace PRONTU.Controller
 
                 var _cadastro = new List<CadastroModel>();
 
-                sql = "select paciente.id_paciente      ," +
+                sql = "SELECT paciente.id_paciente      ," +
                       "       paciente.nome             ," +
                       "       paciente.cpf              ," +
                       "		  paciente.dt_nasc          ," +
@@ -209,9 +209,9 @@ namespace PRONTU.Controller
                       "		  paciente.telefone         ," +
                       "		  paciente.email            ," +
                       "		  paciente.cep            " +
-                      "  from paciente                  " +
-                      " where paciente.id_usuario = 1   " +
-                      " order by paciente.nome          " ;
+                      "  FROM paciente                  " +
+                      " WHERE paciente.id_usuario = 1   " +
+                      " ORDER BY paciente.nome          " ;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -369,6 +369,204 @@ namespace PRONTU.Controller
                         }
 
                         _cadastro.Add(cadastroModel);
+                    }
+                }
+
+                c.Close();
+                return _cadastro;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+        }
+
+        public CadastroModel BuscaCadastroPorId(int _idPaciente)
+        {
+            try
+            {
+                c = new Connection();
+
+                CadastroModel _cadastro = new CadastroModel();
+
+                sql = "SELECT paciente.id_paciente      ," +
+                      "       paciente.nome             ," +
+                      "       paciente.cpf              ," +
+                      "		  paciente.dt_nasc          ," +
+                      "		  paciente.responsavel_cpf  ," +
+                      "		  paciente.responsavel_nome ," +
+                      "		  paciente.convenio         ," +
+                      "		  paciente.convenio_codigo  ," +
+                      "		  paciente.observacoes      ," +
+                      "		  paciente.logradouro       ," +
+                      "		  paciente.numero           ," +
+                      "		  paciente.bairro           ," +
+                      "		  paciente.complemento      ," +
+                      "		  paciente.cidade           ," +
+                      "		  paciente.uf               ," +
+                      "		  paciente.telefone         ," +
+                      "		  paciente.email            ," +
+                      "		  paciente.cep            " +
+                      "  FROM paciente                  " +
+                      " WHERE paciente.id_usuario = 1   " +
+                      "   AND paciente.id_paciente = " + _idPaciente;
+
+                MySqlDataReader rdr = c.QueryData(sql);
+
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        _cadastro.Id_Paciente = Convert.ToInt32(rdr["id_paciente"]);
+
+                        _cadastro.Nome = Convert.ToString(rdr["nome"]);
+
+                        if (rdr["cpf"] != DBNull.Value)
+                        {
+                            _cadastro.Cpf = Convert.ToString(rdr["cpf"]);
+                        }
+                        else
+                        {
+                            _cadastro.Cpf = "";
+                        }
+
+                        if (rdr["dt_nasc"] != DBNull.Value)
+                        {
+                            _cadastro.Dt_nasc = Convert.ToDateTime(rdr["dt_nasc"]);
+                        }
+                        else
+                        {
+                            _cadastro.Dt_nasc = null;
+                        }
+
+                        if (rdr["responsavel_cpf"] != DBNull.Value)
+                        {
+                            _cadastro.Responsavel_CPF = Convert.ToString(rdr["responsavel_cpf"]);
+                        }
+                        else
+                        {
+                            _cadastro.Responsavel_CPF = "";
+                        }
+
+                        if (rdr["responsavel_nome"] != DBNull.Value)
+                        {
+                            _cadastro.Responsavel_Nome = Convert.ToString(rdr["responsavel_nome"]);
+                        }
+                        else
+                        {
+                            _cadastro.Responsavel_Nome = "";
+                        }
+
+                        if (rdr["convenio"] != DBNull.Value)
+                        {
+                            _cadastro.Convenio = Convert.ToString(rdr["convenio"]);
+                        }
+                        else
+                        {
+                            _cadastro.Convenio = "";
+                        }
+
+                        if (rdr["convenio_codigo"] != DBNull.Value)
+                        {
+                            _cadastro.Convenio_Codigo = Convert.ToString(rdr["convenio_codigo"]);
+                        }
+                        else
+                        {
+                            _cadastro.Convenio_Codigo = "";
+                        }
+
+                        if (rdr["observacoes"] != DBNull.Value)
+                        {
+                            _cadastro.Observacoes = Convert.ToString(rdr["observacoes"]);
+                        }
+                        else
+                        {
+                            _cadastro.Observacoes = "";
+                        }
+
+                        if (rdr["logradouro"] != DBNull.Value)
+                        {
+                            _cadastro.Logradouro = Convert.ToString(rdr["logradouro"]);
+                        }
+                        else
+                        {
+                            _cadastro.Logradouro = "";
+                        }
+
+                        if (rdr["numero"] != DBNull.Value)
+                        {
+                            _cadastro.Numero = Convert.ToString(rdr["numero"]);
+                        }
+                        else
+                        {
+                            _cadastro.Numero = "";
+                        }
+
+                        if (rdr["bairro"] != DBNull.Value)
+                        {
+                            _cadastro.Bairro = Convert.ToString(rdr["bairro"]);
+                        }
+                        else
+                        {
+                            _cadastro.Bairro = "";
+                        }
+
+                        if (rdr["complemento"] != DBNull.Value)
+                        {
+                            _cadastro.Complemento = Convert.ToString(rdr["complemento"]);
+                        }
+                        else
+                        {
+                            _cadastro.Complemento = "";
+                        }
+
+                        if (rdr["cidade"] != DBNull.Value)
+                        {
+                            _cadastro.Cidade = Convert.ToString(rdr["cidade"]);
+                        }
+                        else
+                        {
+                            _cadastro.Cidade = "";
+                        }
+
+                        if (rdr["uf"] != DBNull.Value)
+                        {
+                            _cadastro.UF = Convert.ToString(rdr["uf"]);
+                        }
+                        else
+                        {
+                            _cadastro.UF = "";
+                        }
+
+                        if (rdr["telefone"] != DBNull.Value)
+                        {
+                            _cadastro.Telefone = Convert.ToString(rdr["telefone"]);
+                        }
+                        else
+                        {
+                            _cadastro.Telefone = "";
+                        }
+
+                        if (rdr["email"] != DBNull.Value)
+                        {
+                            _cadastro.Email = Convert.ToString(rdr["email"]);
+                        }
+                        else
+                        {
+                            _cadastro.Email = "";
+                        }
+
+                        if (rdr["cep"] != DBNull.Value)
+                        {
+                            _cadastro.CEP = Convert.ToString(rdr["cep"]);
+                        }
+                        else
+                        {
+                            _cadastro.CEP = "";
+                        }
+
                     }
                 }
 
