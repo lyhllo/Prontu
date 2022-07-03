@@ -16,7 +16,7 @@ namespace PRONTU
 {
     public partial class Ajustes : Form
     {
-
+        public Home homeRef { get; set; }
         AjustesController ajustesController = new AjustesController();
 
         public Ajustes()
@@ -24,12 +24,28 @@ namespace PRONTU
             InitializeComponent();
         }
 
-        public void carregarAjustes()
+        public void carregarAjustes()//carrega as informações que constam no banco
         {
-            List <AjustesModel> _lista = ajustesController.BuscarAjustesUsuario(1);
-            Console.WriteLine(_lista);
+            AjustesModel _ajustesModel = ajustesController.BuscarAjustesUsuario(1);
+            cbDuracao.Text = _ajustesModel.formato_minutos.ToString();
+
+            if (_ajustesModel.marcador_comparecimento == true)
+                rbComparecimentoSIM.Checked = true;
+            else
+                rbComparecimento_NAO.Checked = true;
+
+           if (_ajustesModel.marcador_pagamento == true)
+                rbPagamento_SIM.Checked = true;
+            else
+                rbPagamento_NAO.Checked = true;
+
+            if (_ajustesModel.mostrar_valor == true)
+                rbValor_SIM.Checked = true;
+            else
+                rbValor_NAO.Checked = true;
 
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -38,35 +54,44 @@ namespace PRONTU
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             AjustesModel _ajustes = new AjustesModel();
-            //ajustes.formato_minutos();
 
+            _ajustes.id_agenda = 1;
+            _ajustes.id_usuario = 1;
+            _ajustes.formato_minutos = int.Parse(cbDuracao.Text);
 
-            ajustesController.BuscarAjustesUsuario(1);
-            Form lista = new Form();
-            lista.Show();
+            if (rbComparecimentoSIM.Checked)
+                _ajustes.marcador_comparecimento = true;
+            else
+                _ajustes.marcador_comparecimento = false;
 
+            if (rbPagamento_SIM.Checked)
+                _ajustes.marcador_pagamento = true;
+            else
+                _ajustes.marcador_pagamento = false;
 
-            //ajustesController.AtualizarAjustesUsuario();
-
-
-
-
+            if (rbValor_SIM.Checked)
+                _ajustes.mostrar_valor = true;
+            else
+                _ajustes.mostrar_valor = false;
 
 
             if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja salvar as alterações?",
-                           "Salvar", MessageBoxButtons.YesNo,
+                           "Ajustes", MessageBoxButtons.YesNo,
                            MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
             {
-               /* bool _res = ajustesController.AtualizarAjustesUsuario();
+               bool _res = ajustesController.AtualizarAjustesUsuario(_ajustes);
                 if (_res)
                 {
                     MessageBox.Show("Ajustes salvos com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AtualizarAjustes();
+                    //homeRef.AbrirFormNoPanel<LogoHome>;
                 }
+
                 else
                 {
                     MessageBox.Show("Não foi possível salvar as alterações de ajustes", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
+                }
+
+
 
             }
         }
@@ -140,5 +165,9 @@ namespace PRONTU
 
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

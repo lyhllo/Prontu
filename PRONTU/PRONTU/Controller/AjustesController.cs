@@ -13,7 +13,6 @@ namespace PRONTU.Controller
         private Connection c;
         private string sql;
 
-
         public bool InserirAjustes(int _idUsuario, int _idAgenda)
         {
             try
@@ -21,7 +20,7 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "INSERT INTO agenda " +
-                      "VALUES (" + _idUsuario + _idAgenda + "60, true, true, true);";
+                      "VALUES (" + _idUsuario + _idAgenda + "30, true, true, true);";
 
                 c.NonQuery(sql);
 
@@ -36,13 +35,13 @@ namespace PRONTU.Controller
             }
         }
 
-        public List<AjustesModel> BuscarAjustesUsuario(int _idUsuario)
+        public AjustesModel BuscarAjustesUsuario(int _idUsuario)
         {
             try
             {
                 c = new Connection();
 
-                var _agenda = new List<AjustesModel>();
+                var _ajustes = new AjustesModel();
 
                 sql = "SELECT * " +
                         "FROM agenda " +
@@ -50,8 +49,22 @@ namespace PRONTU.Controller
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
+                if (rdr != null)
+                {
+                    while (rdr.Read())
+                    {
+                        _ajustes.id_usuario = Convert.ToInt32(rdr["id_usuario"]);
+                        _ajustes.id_agenda = Convert.ToInt32(rdr["id_agenda"]);
+                        _ajustes.formato_minutos = Convert.ToInt32(rdr["formato_minutos"]);
+                        _ajustes.mostrar_valor = Convert.ToBoolean(rdr["mostrar_valor"]);
+                        _ajustes.marcador_pagamento = Convert.ToBoolean(rdr["marcador_pagamento"]);
+                        _ajustes.marcador_comparecimento = Convert.ToBoolean(rdr["marcador_comparecimento"]);
+
+
+                    }
+                }
                 c.Close();
-                return _agenda;
+                return _ajustes;
             }
 
             catch (Exception ex)
@@ -61,21 +74,19 @@ namespace PRONTU.Controller
             }
         }
 
-        public bool AtualizarAjustesUsuario(int _idUsuario, int _idAgenda, int _formatoMinutos, bool _marcadorComparecimento, bool _marcadorPagto, bool _mostrarValor)
+        public bool AtualizarAjustesUsuario(AjustesModel _ajustes)
         {
             try
             {
                 c = new Connection();
 
-                var _ajuste = new List<AjustesModel>();
-
                 sql = "UPDATE agenda " +
-                         "SET agenda.formato_minutos = " + _formatoMinutos + "," +
-                             "agenda.mostrar_valor = " + _mostrarValor + "," +
-                             "agenda.marcador_comparecimento = " + _marcadorComparecimento + "," +
-                             "agenda.marcador_pagamento = " + _marcadorPagto + "," +
-                       "WHERE agenda.id_usuario = " + _idUsuario +
-                        " AND agenda.id_agenda = " + _idAgenda;
+                         "SET agenda.formato_minutos = " + _ajustes.formato_minutos + "," +
+                             "agenda.mostrar_valor = " + _ajustes.mostrar_valor + "," +
+                             "agenda.marcador_comparecimento = " + _ajustes.marcador_comparecimento + "," +
+                             "agenda.marcador_pagamento = " + _ajustes.marcador_pagamento +
+                       " WHERE agenda.id_usuario = " + _ajustes.id_usuario +
+                        " AND agenda.id_agenda = " + _ajustes.id_agenda;
 
                 c.NonQuery(sql);
                 c.Close();

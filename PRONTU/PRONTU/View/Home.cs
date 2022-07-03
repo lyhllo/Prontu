@@ -24,6 +24,8 @@ namespace PRONTU
         public static extern bool RelapseCapture();
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
+        public static AjustesModel ajustesUsuario { get; set; }
+
 
         public Home()
         {
@@ -32,7 +34,7 @@ namespace PRONTU
             AbrirFormNoPanel<LogoHome>();
         }
 
-        protected void AbrirFormNoPanel<Forms>() where Forms : Form, new()
+        public void AbrirFormNoPanel<Forms>() where Forms : Form, new()
         {
             Form formulario;
             formulario = panelConteudo.Controls.OfType<Forms>().FirstOrDefault();
