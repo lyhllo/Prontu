@@ -37,14 +37,14 @@
             this.btnAtender = new System.Windows.Forms.Button();
             this.btnFalta = new System.Windows.Forms.Button();
             this.dgHorarios = new System.Windows.Forms.DataGridView();
-            this.lblValor = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
             this.clIdPcte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clConvenio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgHorarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +86,7 @@
             this.btnRemoverAgendamento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRemoverAgendamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoverAgendamento.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnRemoverAgendamento.Location = new System.Drawing.Point(191, 445);
+            this.btnRemoverAgendamento.Location = new System.Drawing.Point(186, 302);
             this.btnRemoverAgendamento.Name = "btnRemoverAgendamento";
             this.btnRemoverAgendamento.Size = new System.Drawing.Size(131, 103);
             this.btnRemoverAgendamento.TabIndex = 3;
@@ -139,7 +139,7 @@
             this.btnFalta.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnFalta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFalta.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnFalta.Location = new System.Drawing.Point(188, 302);
+            this.btnFalta.Location = new System.Drawing.Point(183, 445);
             this.btnFalta.Name = "btnFalta";
             this.btnFalta.Size = new System.Drawing.Size(134, 103);
             this.btnFalta.TabIndex = 6;
@@ -194,26 +194,6 @@
             this.dgHorarios.TabIndex = 7;
             this.dgHorarios.Click += new System.EventHandler(this.SelectionChanged);
             // 
-            // lblValor
-            // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Font = new System.Drawing.Font("Noto Sans Arabic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblValor.Location = new System.Drawing.Point(31, 592);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(139, 42);
-            this.lblValor.TabIndex = 8;
-            this.lblValor.Text = "Valor: R$ ";
-            this.lblValor.Visible = false;
-            // 
-            // txtValor
-            // 
-            this.txtValor.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(180, 592);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(132, 42);
-            this.txtValor.TabIndex = 9;
-            this.txtValor.Visible = false;
-            // 
             // clIdPcte
             // 
             this.clIdPcte.HeaderText = "idPaciente";
@@ -245,6 +225,7 @@
             this.clDocumento.MinimumWidth = 6;
             this.clDocumento.Name = "clDocumento";
             this.clDocumento.ReadOnly = true;
+            this.clDocumento.Width = 125;
             // 
             // clConvenio
             // 
@@ -261,6 +242,26 @@
             this.clObs.Name = "clObs";
             this.clObs.ReadOnly = true;
             this.clObs.Width = 385;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Noto Sans Arabic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblValor.Location = new System.Drawing.Point(31, 592);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(139, 42);
+            this.lblValor.TabIndex = 8;
+            this.lblValor.Text = "Valor: R$ ";
+            this.lblValor.Visible = false;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(180, 592);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(132, 42);
+            this.txtValor.TabIndex = 9;
+            this.txtValor.Visible = false;
             // 
             // Agenda
             // 

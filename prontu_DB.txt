@@ -5,7 +5,7 @@ CREATE SCHEMA PRONTU;
 USE prontu;
 
 CREATE TABLE IF NOT EXISTS usuario(
-id_usuario INT NOT NULL,
+id_usuario INT NOT NULL AUTO_INCREMENT,
 nome_usuario VARCHAR(90) NOT NULL,
 cpf CHAR(11) NOT NULL UNIQUE,
 registro_prof VARCHAR(90),
@@ -58,12 +58,13 @@ cidade VARCHAR(90),
 uf CHAR(2),
 telefone VARCHAR(30),
 email VARCHAR(90),
+cep VARCHAR(9),
 CONSTRAINT usuario_paciente PRIMARY KEY (id_usuario, id_paciente),
 CONSTRAINT fk_usuario_paciente FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into paciente values(1, 1, "Maria da Silva", "11100033322", "1990-09-04", null, null, "Unimed", "ab123545", "Paciente encaminhada pelo Dr Hans Chucrute.", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
-insert into paciente values(1, 2, "Joao Lima", "99965438851", "1985-10-23", null, null, null, null, "Sempre falta!!!", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com");
+insert into paciente values(1, 1, "Maria da Silva", "11100033322", "1990-09-04", null, null, "Unimed", "ab123545", "Paciente encaminhada pelo Dr Hans Chucrute.", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com", "");
+insert into paciente values(1, 2, "Joao Lima", "99965438851", "1985-10-23", null, null, null, null, "Sempre falta!!!", "Rua das Flores", "23", "Centro", "Ap 25", "Farroupilha", "RS", "54 3290-5855", "teste@teste.com", "");
 
 CREATE TABLE IF NOT EXISTS atendimento(
 id_usuario INT NOT NULL,

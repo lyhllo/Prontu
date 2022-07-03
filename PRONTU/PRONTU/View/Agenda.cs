@@ -19,9 +19,6 @@ namespace PRONTU
         AgendaController agendaController = new AgendaController();
         public Form ReferenciaHome { get; set; }
         public int formatoAgenda { get; set; }
-        public CadastroModel cadastro { get; set; }
-        string dataSelecionada;
-        string horaSelecionada = DateTime.Now.Hour.ToString() + " : " + DateTime.Now.Minute.ToString();
         private int linhas;
         private List<AgendaModel> agenda;
         private AgendaModel atendimento = new AgendaModel();
@@ -41,6 +38,7 @@ namespace PRONTU
             dgHorarios.Rows.Add(linhas);
             CarregaHorarios();
             EditaFoco();
+            MudancaSelecao();
 
         }
 
@@ -73,16 +71,16 @@ namespace PRONTU
 
         private void MudaCoresPresenca(int _i, bool? _falta)
         {
-            if (_falta == false)
+            if (_falta == true)
             {
-                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Blue;
-                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Blue;
-                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.Blue;
-                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.Blue;
-                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Blue;
+                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.LightSkyBlue;
+                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.LightSkyBlue;
+                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.LightSkyBlue;
+                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.LightSkyBlue;
+                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.LightSkyBlue;
             } 
             
-            if (_falta == true)
+            if (_falta == false)
             {
                 dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Red;
                 dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Red;
@@ -145,7 +143,6 @@ namespace PRONTU
                 _horario = null;
             }
 
-
             if (_horario is null)
             {
                 mostrar_botoes(false);
@@ -166,22 +163,25 @@ namespace PRONTU
                     {
                         btnPagar.Text = "Marcar Pagamento";
                     }
-                    if (atendimento.Avaliacao != null && atendimento.Observacoes != null)
+                    if (atendimento.Reg_presenca == false)
+                    {
+                        btnFalta.Text = "Retirar Falta";
+                    }
+                    else
+                    {
+                        btnFalta.Text = "Registrar Falta";
+                    }
+                    if (atendimento.Id_prontuario > 0)
                     {
                         btnRemoverAgendamento.Text = "Remover atendimento";
+                        btnFalta.Visible = false;
                     }
                     else
                     {
                         btnRemoverAgendamento.Text = "Remover agendamento";
+                        btnFalta.Visible = true;
                     }
-                    /*if (atendimento.Reg_presenca == false)
-                    {
-                        btnFalta.Text = "Registrar Falta";
-                    }
-                    else
-                    {
-                        btnFalta.Text = "Retirar Falta";
-                    }*/
+                    
                     break;
                 }
                 else
@@ -209,36 +209,48 @@ namespace PRONTU
             }
             btnFalta.Visible = _bol;
             btnCadastro.Visible = _bol;
-            btnRemoverAgendamento.Visible = _bol;
             lblValor.Visible = _bol;
             txtValor.Visible = _bol;
             btnPagar.Visible = _bol;
-
-            if (atendimento.Id_prontuario != null)
-            {
-                btnRemoverAgendamento.Enabled = false;
-            }
-            else
-            {
-                btnRemoverAgendamento.Enabled = true;
-            }
+            btnRemoverAgendamento.Visible = _bol;
         }
 
         private void btnRemoverAgendamento_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover esse agendamento?",
+            if (atendimento.Id_prontuario > 0)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover este atendimento?",
+                "Remover atendimento", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+                    bool _res = agendaController.RemoveAtendimento(atendimento.Id_atendimento, atendimento.Id_prontuario);
+                    if (_res)
+                    {
+                        MessageBox.Show("Atendimento removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaHorarios();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível remover o atendimento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja remover este agendamento?",
                 "Remover agendamento", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
-            {
-                bool _res = agendaController.RemoverAgendamento(atendimento.Id_atendimento);
-                if (_res)
                 {
-                    MessageBox.Show("Agendamento removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AtualizaHorarios();
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível remover o agendamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    bool _res = agendaController.RemoverAgendamento(atendimento.Id_atendimento);
+                    if (_res)
+                    {
+                        MessageBox.Show("Agendamento removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AtualizaHorarios();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível remover o agendamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -256,7 +268,7 @@ namespace PRONTU
             }
             else
             {
-                _novo.AbrirAtendimento(atendimento);
+                _novo.AbrirAtendimento(atendimento, this);
             }
         }
 
@@ -267,23 +279,22 @@ namespace PRONTU
 
         private void btnFalta_Click(object sender, EventArgs e)
         {
-            if (atendimento.Reg_presenca != true)
+            if (atendimento.Reg_presenca == null)
             {
-                bool _res = agendaController.RegistrarFalta(atendimento.Id_atendimento, true);
+                bool _res = agendaController.MudarPresenca(atendimento.Id_atendimento, false);
                 if (_res)
                 {
                     MessageBox.Show("Falta registrada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AtualizaHorarios();
-                    MudaCoresPresenca(atendimento.Id_atendimento, false);
                 }
                 else
                 {
                     MessageBox.Show("Não foi possível registrar a falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            /*else
+            else
             {
-                bool _res = agendaController.RegistrarFalta(atendimento.Id_atendimento, false);
+                    bool _res = agendaController.MudarPresenca(atendimento.Id_atendimento, null);
                 if (_res)
                 {
                     MessageBox.Show("Falta retirada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -294,7 +305,8 @@ namespace PRONTU
                 {
                     MessageBox.Show("Não foi possível retirar a falta", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }*/
+                
+            }
             
         }
 

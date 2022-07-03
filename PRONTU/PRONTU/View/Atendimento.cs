@@ -19,6 +19,7 @@ namespace PRONTU
         public int IdUsuario { get; set; }
         public int IdAtendimento { get; set; }
         public int IdProntuario { get; set; }
+        public Agenda agendaReferencia { get; set; }
 
         public Atendimento()
         {
@@ -38,9 +39,13 @@ namespace PRONTU
 
             txtNome.Text = atendimento.Nome;
             mTextCpf.Text = atendimento.Cpf;
-            txtNascimento.Text = atendimento.Dt_nasc.Value.ToString("d");
             txtData.Text = atendimento.Horario.ToString("d");
             txtHora.Text = atendimento.Horario.ToString("HH:mm");
+
+            if (atendimento.Dt_nasc != null)
+                txtNascimento.Text = atendimento.Dt_nasc.Value.ToString("d");
+            else
+                txtNascimento.Text = "";
 
             popularComboBoxConvenio(atendimento.Convenio_atendimento, atendimento.Convenio_pcte);
 
@@ -91,7 +96,9 @@ namespace PRONTU
                 {
                     MessageBox.Show("Atendimento registrado com sucesso!", "Atendimento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+                if (agendaReferencia != null)
+                    agendaReferencia.AtualizaHorarios();
+                
                 Close();
             }
         }

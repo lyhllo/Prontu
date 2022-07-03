@@ -116,7 +116,7 @@ namespace PRONTU
             this.WindowState = FormWindowState.Minimized;
         }
 
-        public void AbrirAtendimento(AgendaModel _atendimento)
+        public void AbrirAtendimento(AgendaModel _atendimento, Agenda _agenda)
         {
             Atendimento formulario = panelConteudo.Controls.OfType<Atendimento>().FirstOrDefault();
 
@@ -128,6 +128,7 @@ namespace PRONTU
                 formulario.Dock = DockStyle.Fill;
                 panelConteudo.Controls.Add(formulario);
                 panelConteudo.Tag = formulario;
+                formulario.agendaReferencia = _agenda;
                 formulario.CarregaTela(_atendimento);
                 formulario.Show();
                 formulario.BringToFront();
@@ -136,6 +137,7 @@ namespace PRONTU
             {
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
+                formulario.agendaReferencia = _agenda;
                 formulario.CarregaTela(_atendimento);
                 formulario.BringToFront();
                 

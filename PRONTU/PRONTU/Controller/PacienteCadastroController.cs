@@ -21,24 +21,30 @@ namespace PRONTU.Controller
 
                 sql = "INSERT INTO paciente" +
                     "       VALUES ( 1," +
-                                    _cadastro.Id_Paciente                            + ", " +
-                    "   '" +        _cadastro.Nome                                   + "', " +
-                    "   '" +        _cadastro.Cpf                                    + "', " +
-                    "   '" +        _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd")   + "', " +
-                    "   '" +        _cadastro.Responsavel_CPF                        + "', " +
-                    "   '" +        _cadastro.Responsavel_Nome                       + "', " +
-                    "   '" +        _cadastro.Convenio                               + "', " +
-                    "   '" +        _cadastro.Convenio_Codigo                        + "', " +
-                    "   '" +        _cadastro.Observacoes                            + "', " +
-                    "   '" +        _cadastro.Logradouro                             + "', " +
-                    "   '" +        _cadastro.Numero                                 + "', " +
-                    "   '" +        _cadastro.Bairro                                 + "', " +
-                    "   '" +        _cadastro.Complemento                            + "', " +
-                    "   '" +        _cadastro.Cidade                                 + "', " +
-                    "   '" +        _cadastro.UF                                     + "', " +
-                    "   '" +        _cadastro.Telefone                               + "', " +
-                    "   '" +        _cadastro.Email                                  + "', " +
-                    "   '" +        _cadastro.CEP                                    + ") ";
+                                    _cadastro.Id_Paciente           + ", " +
+                    "   '" +        _cadastro.Nome                  + "', " +
+                    "   '" +        _cadastro.Cpf                   + "', ";
+
+                if (_cadastro.Dt_nasc != null)
+                    sql += "'" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "',";
+                else
+                    sql += "null, ";
+
+                sql +=
+                    "   '" +        _cadastro.Responsavel_CPF       + "', " +
+                    "   '" +        _cadastro.Responsavel_Nome      + "', " +
+                    "   '" +        _cadastro.Convenio              + "', " +
+                    "   '" +        _cadastro.Convenio_Codigo       + "', " +
+                    "   '" +        _cadastro.Observacoes           + "', " +
+                    "   '" +        _cadastro.Logradouro            + "', " +
+                    "   '" +        _cadastro.Numero                + "', " +
+                    "   '" +        _cadastro.Bairro                + "', " +
+                    "   '" +        _cadastro.Complemento           + "', " +
+                    "   '" +        _cadastro.Cidade                + "', " +
+                    "   '" +        _cadastro.UF                    + "', " +
+                    "   '" +        _cadastro.Telefone              + "', " +
+                    "   '" +        _cadastro.Email                 + "', " +
+                    "   '" +        _cadastro.CEP                   + "') ";
 
                 c.NonQuery(sql);
 
@@ -58,25 +64,31 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "UPDATE paciente" +
-                    "     SET paciente.nome = '" + _cadastro.Nome + "', " +
-                    "         paciente.cpf  = '" + _cadastro.Cpf + "', " +
-                    "         paciente.dt_nasc  = '" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "', " +
-                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF + "', " +
-                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome + "', " +
-                    "         paciente.convenio = '" + _cadastro.Convenio + "', " +
-                    "         paciente.convenio_codigo = '" + _cadastro.Convenio_Codigo + "', " +
-                    "         paciente.observacoes = '" + _cadastro.Observacoes + "', " +
-                    "         paciente.logradouro   = '" + _cadastro.Logradouro + "', " +
-                    "         paciente.numero = '" + _cadastro.Numero + "', " +
-                    "         paciente.bairro = '" + _cadastro.Bairro + "', " +
-                    "         paciente.complemento = '" + _cadastro.Complemento + "', " +
-                    "         paciente.cidade = '" + _cadastro.Cidade + "', " +
-                    "         paciente.uf   = '" + _cadastro.UF + "', " +
-                    "         paciente.telefone = '" + _cadastro.Telefone + "', " +
-                    "         paciente.email = '" + _cadastro.Email + "', " +
-                    "         paciente.cep = '" + _cadastro.CEP + "' " +
-                    "   WHERE paciente.id_usuario = 1" +
-                    "     AND paciente.id_paciente = " + _cadastro.Id_Paciente ;
+                    "     SET paciente.nome             = '" + _cadastro.Nome               + "', " +
+                    "         paciente.cpf              = '" + _cadastro.Cpf                + "', ";
+
+                if (_cadastro.Dt_nasc != null)
+                    sql += "paciente.dt_nasc = '" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "', ";
+                else
+                    sql += "paciente.dt_nasc = null, ";
+
+                sql +=
+                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF    + "', " +
+                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome   + "', " +
+                    "         paciente.convenio         = '" + _cadastro.Convenio           + "', " +
+                    "         paciente.convenio_codigo  = '" + _cadastro.Convenio_Codigo    + "', " +
+                    "         paciente.observacoes      = '" + _cadastro.Observacoes        + "', " +
+                    "         paciente.logradouro       = '" + _cadastro.Logradouro         + "', " +
+                    "         paciente.numero           = '" + _cadastro.Numero             + "', " +
+                    "         paciente.bairro           = '" + _cadastro.Bairro             + "', " +
+                    "         paciente.complemento      = '" + _cadastro.Complemento        + "', " +
+                    "         paciente.cidade           = '" + _cadastro.Cidade             + "', " +
+                    "         paciente.uf               = '" + _cadastro.UF                 + "', " +
+                    "         paciente.telefone         = '" + _cadastro.Telefone           + "', " +
+                    "         paciente.email            = '" + _cadastro.Email              + "', " +
+                    "         paciente.cep              = '" + _cadastro.CEP                + "' " +
+                    "   WHERE paciente.id_usuario       = 1" +
+                    "     AND paciente.id_paciente      = " + _cadastro.Id_Paciente ;
 
                 c.NonQuery(sql);
 
@@ -106,7 +118,7 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "DELETE FROM atendimento" +
-                    "   WHERE  paciente.id_usuario = 1" +
+                    "   WHERE paciente.id_usuario = 1" +
                     "     AND paciente.id_paciente = " + _idPaciente;
 
                 c.NonQuery(sql);
@@ -171,26 +183,27 @@ namespace PRONTU.Controller
 
                 var _cadastro = new List<CadastroModel>();
 
-                sql = "select paciente.id_paciente," +
-                      "       paciente.nome," +
-                      "       paciente.cpf," +
-                      "		  paciente.dt_nasc," +
-                      "		  paciente.responsavel_cpf," +
-                      "		  paciente.responsavel_nome," +
-                      "		  paciente.convenio," +
-                      "		  paciente.convenio_codigo," +
-                      "		  paciente.observacoes," +
-                      "		  paciente.logradouro," +
-                      "		  paciente.numero," +
-                      "		  paciente.bairro," +
-                      "		  paciente.complemento," +
-                      "		  paciente.cidade," +
-                      "		  paciente.uf," +
-                      "		  paciente.telefone," +
-                      "		  paciente.email" +
-                      "  from paciente" +
-                      " where paciente.id_usuario = 1" +
-                      " order by paciente.nome " ;
+                sql = "select paciente.id_paciente      ," +
+                      "       paciente.nome             ," +
+                      "       paciente.cpf              ," +
+                      "		  paciente.dt_nasc          ," +
+                      "		  paciente.responsavel_cpf  ," +
+                      "		  paciente.responsavel_nome ," +
+                      "		  paciente.convenio         ," +
+                      "		  paciente.convenio_codigo  ," +
+                      "		  paciente.observacoes      ," +
+                      "		  paciente.logradouro       ," +
+                      "		  paciente.numero           ," +
+                      "		  paciente.bairro           ," +
+                      "		  paciente.complemento      ," +
+                      "		  paciente.cidade           ," +
+                      "		  paciente.uf               ," +
+                      "		  paciente.telefone         ," +
+                      "		  paciente.email            ," +
+                      "		  paciente.cep            " +
+                      "  from paciente                  " +
+                      " where paciente.id_usuario = 1   " +
+                      " order by paciente.nome          " ;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -209,7 +222,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Cpf = null;
+                            cadastroModel.Cpf = "";
                         }
 
                         if (rdr["dt_nasc"] != DBNull.Value)
@@ -227,7 +240,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Responsavel_CPF = null;
+                            cadastroModel.Responsavel_CPF = "";
                         }
 
                         if (rdr["responsavel_nome"] != DBNull.Value)
@@ -236,7 +249,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Responsavel_Nome = null;
+                            cadastroModel.Responsavel_Nome = "";
                         }
 
                         if (rdr["convenio"] != DBNull.Value)
@@ -245,7 +258,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Convenio = null;
+                            cadastroModel.Convenio = "";
                         }
 
                         if (rdr["convenio_codigo"] != DBNull.Value)
@@ -254,7 +267,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Convenio_Codigo = null;
+                            cadastroModel.Convenio_Codigo = "";
                         }
 
                         if (rdr["observacoes"] != DBNull.Value)
@@ -263,7 +276,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Observacoes = null;
+                            cadastroModel.Observacoes = "";
                         }
 
                         if (rdr["logradouro"] != DBNull.Value)
@@ -272,7 +285,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Logradouro = null;
+                            cadastroModel.Logradouro = "";
                         }
 
                         if (rdr["numero"] != DBNull.Value)
@@ -281,7 +294,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Numero = null;
+                            cadastroModel.Numero = "";
                         }
 
                         if (rdr["bairro"] != DBNull.Value)
@@ -290,7 +303,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Bairro = null;
+                            cadastroModel.Bairro = "";
                         }
 
                         if (rdr["complemento"] != DBNull.Value)
@@ -299,7 +312,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Complemento = null;
+                            cadastroModel.Complemento = "";
                         }
 
                         if (rdr["cidade"] != DBNull.Value)
@@ -308,7 +321,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Cidade = null;
+                            cadastroModel.Cidade = "";
                         }
 
                         if (rdr["uf"] != DBNull.Value)
@@ -317,7 +330,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.UF = null;
+                            cadastroModel.UF = "";
                         }
 
                         if (rdr["telefone"] != DBNull.Value)
@@ -326,7 +339,7 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Telefone = null;
+                            cadastroModel.Telefone = "";
                         }
 
                         if (rdr["email"] != DBNull.Value)
@@ -335,7 +348,16 @@ namespace PRONTU.Controller
                         }
                         else
                         {
-                            cadastroModel.Email = null;
+                            cadastroModel.Email = "";
+                        }
+
+                        if (rdr["cep"] != DBNull.Value)
+                        {
+                            cadastroModel.CEP = Convert.ToString(rdr["cep"]);
+                        }
+                        else
+                        {
+                            cadastroModel.CEP = "";
                         }
 
                         _cadastro.Add(cadastroModel);

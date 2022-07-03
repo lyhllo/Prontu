@@ -201,21 +201,31 @@ namespace PRONTU.Controller.AgendaController
             }
         }
 
-        public Boolean RegistrarFalta(int _idAtendimento, bool _falta)
+        /// null - sem registro
+        /// false - falta
+        /// true - atendimento realizado
+        public Boolean MudarPresenca(int _idAtendimento, bool? _falta)
         {
             try
             {
                 c = new Connection();
 
                 sql = " UPDATE atendimento" +
-                    "      SET atendimento.reg_presenca = " + _falta +
+                    "      SET atendimento.reg_presenca = ";
+
+                if (_falta == null)
+                    sql += "null";
+                else
+                    sql += _falta;
+
+                sql +=
                     "    WHERE atendimento.id_usuario = 1 " +
                     "      AND atendimento.id_atendimento = " + _idAtendimento;
 
                 object result = c.Query(sql);
 
                 c.NonQuery(sql);
-
+                c.Close();
                 return true;
             }
             catch (Exception ex)
@@ -240,7 +250,7 @@ namespace PRONTU.Controller.AgendaController
                 object result = c.Query(sql);
 
                 c.NonQuery(sql);
-
+                c.Close();
                 return true;
             }
             catch (Exception ex)
@@ -422,6 +432,40 @@ namespace PRONTU.Controller.AgendaController
             }
 
             return _idAtendimento + 1;
+        }
+
+        public bool RemoveAtendimento(int _idAtendimento, int? _idProntuario)
+        {
+            c = new Connection();
+            c.BeginTransaction();
+            
+            try
+            {
+                sql = " DELETE FROM atendimento" +
+                      "  WHERE id_usuario = 1" +
+                      "    AND id_atendimento = " + _idAtendimento;
+
+                c.NonQuery(sql);
+
+                if (_idProntuario > 0)
+                {
+                    sql = " DELETE FROM prontuario" +
+                          "  WHERE id_usuario = 1" +
+                          "    AND id_atendimento = " + _idAtendimento +
+                          "    AND id_prontuario = " + _idProntuario;
+
+                    c.NonQuery(sql);
+                }
+                c.transaction.Commit();
+                c.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                c.transaction.Rollback();
+                return false;
+            }
         }
 
         public List<AgendaModel> BuscaHistoricoAtendimentos(int _idPaciente)

@@ -161,7 +161,7 @@ namespace PRONTU.View
             {
                 if (am.Id_atendimento == int.Parse(dgHistorico.SelectedCells[0].Value.ToString()))
                 {
-                    pacientesReferencia.homeReferencia.AbrirAtendimento(am);
+                    pacientesReferencia.homeReferencia.AbrirAtendimento(am, null);
                     pacientesReferencia.AbrirPacientesPesquisar(false, null);
                     break;
                 }

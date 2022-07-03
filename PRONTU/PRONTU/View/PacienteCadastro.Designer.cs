@@ -481,6 +481,7 @@
             this.txtCEP.Size = new System.Drawing.Size(118, 30);
             this.txtCEP.TabIndex = 9;
             this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnCEP
             // 

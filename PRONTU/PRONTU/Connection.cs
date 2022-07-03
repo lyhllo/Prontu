@@ -6,6 +6,8 @@ namespace PRONTU
     {
 
         public MySqlConnection conn;
+        public MySqlCommand cmd;
+        public MySqlTransaction transaction;
 
         public Connection ()
         {
@@ -16,27 +18,45 @@ namespace PRONTU
 
         public object Query (string sql)
         {
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            if (transaction == null)
+                cmd = new MySqlCommand(sql, conn);
+            else
+                cmd = new MySqlCommand(sql, conn, transaction);
+
             object result = cmd.ExecuteScalar();
             return result;
         }
 
         public MySqlDataReader QueryData(string sql)
         {
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            if (transaction == null)
+                cmd = new MySqlCommand(sql, conn);
+            else
+                cmd = new MySqlCommand(sql, conn, transaction);
+
             MySqlDataReader rdr = cmd.ExecuteReader();
             return rdr;
         }
 
         public void NonQuery(string sql)
         {
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            if (transaction == null)
+                cmd = new MySqlCommand(sql, conn, transaction);
+            else
+                cmd = new MySqlCommand(sql, conn);
+
             cmd.ExecuteNonQuery();
         }
 
         public void Close()
         {
-            conn.Close ();
+            conn.Close();
         }
+
+        public void BeginTransaction()
+        {
+            transaction = conn.BeginTransaction();
+        }
+
     }
 }

@@ -38,8 +38,6 @@ namespace PRONTU
 
         public void CarregarPacientes()
         {
-            pacientesReferencia.btnSelecionar.Text = "Selecionar";
-            pacientesReferencia.btnSelecionar.Visible = selecionar;
             pacientesReferencia.FormataBotoes("pesquisar");
             dt.Clear();
             cadastro = controller.BuscaCadastrosPacientes();
@@ -58,7 +56,13 @@ namespace PRONTU
             {
                 for (int i = 0; i < cadastro.Count; i++)
                 {
-                    dt.Rows.Add(new object[] {cadastro[i].Id_Paciente, cadastro[i].Nome, cadastro[i].Dt_nasc.Value.ToString("d"),
+                    string _nasc;
+                    if (cadastro[i].Dt_nasc != null)
+                        _nasc = cadastro[i].Dt_nasc.Value.ToString("d");
+                    else
+                        _nasc = "";
+
+                    dt.Rows.Add(new object[] {cadastro[i].Id_Paciente, cadastro[i].Nome, _nasc,
                                         cadastro[i].Convenio, cadastro[i].Telefone, cadastro[i].Email, cadastro[i].Observacoes});
 
                 }

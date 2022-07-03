@@ -17,7 +17,7 @@ namespace PRONTU
     public partial class PacienteCadastro : Form
     {
         public Pacientes pacientesReferencia { get; set; }
-        private CadastroModel cadastro;
+        public CadastroModel cadastro;
         private PacienteCadastroController controller = new PacienteCadastroController();
         public PacienteCadastro()
         {
@@ -26,10 +26,6 @@ namespace PRONTU
 
         private void PacienteCadastro_Load(object sender, EventArgs e)
         {
-            pacientesReferencia.btnSelecionar.Text = "Salvar";
-            pacientesReferencia.btnSelecionar.Visible = true;
-            pacientesReferencia.FormataBotoes("incluir");
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -139,48 +135,29 @@ namespace PRONTU
 
         public void CarregarCadastro(CadastroModel _cadastroPaciente)
         {
-            if (_cadastroPaciente != null)
-            {
-                cadastro = _cadastroPaciente;
-                txtNome.Text = _cadastroPaciente.Nome;
+            if (_cadastroPaciente.Dt_nasc != null)
                 txtDataNascimento.Text = _cadastroPaciente.Dt_nasc.Value.ToString("d");
-                txtCPF.Text = _cadastroPaciente.Cpf;
-                txtResponsavelNome.Text = _cadastroPaciente.Responsavel_Nome;
-                txtCpfResponsavel.Text = _cadastroPaciente.Responsavel_CPF;
-                txtConvenio.Text = _cadastroPaciente.Convenio;
-                txtConvenioCodigo.Text = _cadastroPaciente.Convenio_Codigo;
-                txtObservacoes.Text = _cadastroPaciente.Observacoes;
-                txtCEP.Text = _cadastroPaciente.CEP;
-                txtTelefone.Text = _cadastroPaciente.Telefone;
-                txtEmail.Text = _cadastroPaciente.Email;
-                txtLogradouro.Text = _cadastroPaciente.Logradouro;
-                txtNumero.Text = _cadastroPaciente.Numero;
-                txtComplemento.Text = _cadastroPaciente.Complemento;
-                txtBairro.Text = _cadastroPaciente.Bairro;
-                txtCidade.Text = _cadastroPaciente.Cidade;
-                cbUF.Text = _cadastroPaciente.UF;
-            }
             else
-            {
+                txtDataNascimento.Text = "";
 
-                txtNome.Clear();
-                txtDataNascimento.Clear();
-                txtCPF.Clear();
-                txtResponsavelNome.Clear();
-                txtCpfResponsavel.Clear();
-                txtConvenio.Clear();
-                txtConvenioCodigo.Clear();
-                txtObservacoes.Clear();
-                txtCEP.Clear();
-                txtTelefone.Clear();
-                txtEmail.Clear();
-                txtLogradouro.Clear();
-                txtNumero.Clear();
-                txtComplemento.Clear();
-                txtBairro.Clear();
-                txtCidade.Clear();
-                cbUF.Text = "";
-            }
+            txtNome.Text            = _cadastroPaciente.Nome;
+            txtCPF.Text             = _cadastroPaciente.Cpf;
+            txtResponsavelNome.Text = _cadastroPaciente.Responsavel_Nome;
+            txtCpfResponsavel.Text  = _cadastroPaciente.Responsavel_CPF;
+            txtConvenio.Text        = _cadastroPaciente.Convenio;
+            txtConvenioCodigo.Text  = _cadastroPaciente.Convenio_Codigo;
+            txtObservacoes.Text     = _cadastroPaciente.Observacoes;
+            txtCEP.Text             = _cadastroPaciente.CEP;
+            txtTelefone.Text        = _cadastroPaciente.Telefone;
+            txtEmail.Text           = _cadastroPaciente.Email;
+            txtLogradouro.Text      = _cadastroPaciente.Logradouro;
+            txtNumero.Text          = _cadastroPaciente.Numero;
+            txtComplemento.Text     = _cadastroPaciente.Complemento;
+            txtBairro.Text          = _cadastroPaciente.Bairro;
+            txtCidade.Text          = _cadastroPaciente.Cidade;
+            cbUF.Text               = _cadastroPaciente.UF;
+
+            cadastro = _cadastroPaciente;
         }
 
         private Boolean ValidaCadastro()
