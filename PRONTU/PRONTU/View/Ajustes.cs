@@ -44,6 +44,9 @@ namespace PRONTU
             else
                 rbValor_NAO.Checked = true;
 
+            //setar na global
+            homeRef.ajustesUsuario = _ajustesModel;
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -83,7 +86,7 @@ namespace PRONTU
                 if (_res)
                 {
                     MessageBox.Show("Ajustes salvos com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //homeRef.AbrirFormNoPanel<LogoHome>;
+                    homeRef.AbrirLogo();
                 }
 
                 else

@@ -24,7 +24,7 @@ namespace PRONTU
         public static extern bool RelapseCapture();
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
-        public static AjustesModel ajustesUsuario { get; set; }
+        public AjustesModel ajustesUsuario { get; set; }
 
 
         public Home()
@@ -218,6 +218,7 @@ namespace PRONTU
                 formulario.Dock = DockStyle.Fill;
                 panelConteudo.Controls.Add(formulario);
                 panelConteudo.Tag = formulario;
+                formulario.homeRef = this;
                 formulario.carregarAjustes();
                 formulario.Show();
                 formulario.BringToFront();
@@ -226,6 +227,7 @@ namespace PRONTU
             {
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
+                formulario.homeRef = this;
                 formulario.BringToFront();
                 formulario.carregarAjustes();
             }

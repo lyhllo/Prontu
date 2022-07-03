@@ -13,14 +13,20 @@ namespace PRONTU.Controller
         private Connection c;
         private string sql;
 
-        public bool InserirAjustes(int _idUsuario, int _idAgenda)
+        public bool InserirAjustes(AjustesModel _ajustes)
         {
             try
             {
                 c = new Connection();
 
                 sql = "INSERT INTO agenda " +
-                      "VALUES (" + _idUsuario + _idAgenda + "30, true, true, true);";
+                      "VALUES (" + _ajustes.id_usuario + ","
+                                 + _ajustes.id_agenda + ","
+                                 + _ajustes.formato_minutos + ","
+                                 + _ajustes.mostrar_valor + ","
+                                 + _ajustes.marcador_comparecimento + ","
+                                 + _ajustes.marcador_pagamento + ")";
+
 
                 c.NonQuery(sql);
 
@@ -110,8 +116,6 @@ namespace PRONTU.Controller
                 sql = sql = " DELETE " +
                                "FROM agenda" +
                               "WHERE agenda.id_usuario = " + _idUsuario;
-
-                object result = c.Query(sql);
 
                 c.NonQuery(sql);
 
