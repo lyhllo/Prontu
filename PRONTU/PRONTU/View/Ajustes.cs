@@ -24,7 +24,12 @@ namespace PRONTU
             InitializeComponent();
         }
 
+        public void carregarAjustes()
+        {
+            List <AjustesModel> _lista = ajustesController.BuscarAjustesUsuario(1);
+            Console.WriteLine(_lista);
 
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
