@@ -79,9 +79,9 @@ CONSTRAINT usuario_atendimento PRIMARY KEY (id_usuario, id_atendimento),
 CONSTRAINT fk_usuario_atendimento FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT fk_paciente_atendimento FOREIGN KEY (id_usuario, id_paciente) REFERENCES paciente(id_usuario, id_paciente) ON DELETE CASCADE ON UPDATE CASCADE
 );
-delete from atendimento;
-insert into atendimento values(1, 1, 1, "2022-06-22 20:30:00", null, true, 80.5, "Unimed");
-insert into atendimento values(1, 2, 2, "2022-06-22 18:00:00", null, null, null, "Particular");
+
+insert into atendimento values(1, 1, 1, "2022-07-06 20:30:00", null, true, 80.5, "Unimed");
+insert into atendimento values(1, 2, 2, "2022-07-06 18:00:00", null, null, null, "Particular");
     select * from atendimento;
 CREATE TABLE IF NOT EXISTS prontuario(
 id_usuario INT NOT NULL,
