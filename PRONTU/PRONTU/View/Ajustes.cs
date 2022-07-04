@@ -44,9 +44,6 @@ namespace PRONTU
             else
                 rbValor_NAO.Checked = true;
 
-            //setar na global
-            homeRef.ajustesUsuario = _ajustesModel;
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

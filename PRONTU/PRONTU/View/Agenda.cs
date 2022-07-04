@@ -21,7 +21,6 @@ namespace PRONTU
         
         public Home ReferenciaHome { get; set; }
         public Pacientes ReferenciaPacientes { get; set; }
-        public int formatoAgenda { get; set; }
         private int linhas;
         private List<AgendaModel> agenda;
         private AgendaModel atendimento = new AgendaModel();
@@ -30,8 +29,7 @@ namespace PRONTU
         public Agenda()
         {
             InitializeComponent();
-            formatoAgenda = 30;
-            linhas = (60 / formatoAgenda * 24);
+            linhas = (60 / Home.ajustesUsuario.formato_minutos * 24);
             AtualizaHorarios();
         }
 
@@ -48,8 +46,7 @@ namespace PRONTU
         public void CarregaHorarios()
         {
             DateTime _d = calendario.SelectionRange.Start;
-            
-            agenda = agendaController.BuscaAgendamentosDoDia(1, _d);
+            agenda = agendaController.BuscaAgendamentosDoDia(_d);
             for (int i = 0; i < linhas; i++)
             {
                 dgHorarios.Rows[i].Cells[0].Value = "0";
@@ -68,7 +65,7 @@ namespace PRONTU
                     }
                 }
 
-                _d = _d.AddMinutes(formatoAgenda);
+                _d = _d.AddMinutes(Home.ajustesUsuario.formato_minutos);
             }
         }
 
@@ -125,7 +122,7 @@ namespace PRONTU
                 DateTime _datahora = calendario.SelectionRange.Start;
                 _datahora = _datahora.AddHours(Double.Parse(_horario[0]));
                 _datahora = _datahora.AddMinutes(Double.Parse(_horario[1]));
-                if (d >= _datahora && d < _datahora.AddMinutes(formatoAgenda))
+                if (d >= _datahora && d < _datahora.AddMinutes(Home.ajustesUsuario.formato_minutos))
                 {
                     dgHorarios.CurrentCell = dgHorarios.Rows[i].Cells[1];
                     dgHorarios.FirstDisplayedScrollingRowIndex = i;

@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.View;
+using PRONTU.Controller;
 
 namespace PRONTU
 {
@@ -24,14 +25,22 @@ namespace PRONTU
         public static extern bool RelapseCapture();
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
-        public AjustesModel ajustesUsuario { get; set; }
+        public static AjustesModel ajustesUsuario;
 
 
         public Home()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            CarregarVariaveis();
             AbrirFormNoPanel<LogoHome>();
+        }
+
+        public void CarregarVariaveis()
+        {
+            UsuarioModel _usuario = UsuarioController.BuscaDadosUsuario();
+            AjustesController _con = new AjustesController();
+            ajustesUsuario = _con.BuscarAjustesUsuario(_usuario.Id_usuario);
         }
 
         public void AbrirFormNoPanel<Forms>() where Forms : Form, new()

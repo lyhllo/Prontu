@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using PRONTU.Controller;
 using PRONTU.View;
+using PRONTU.Model;
 
 namespace PRONTU
 {

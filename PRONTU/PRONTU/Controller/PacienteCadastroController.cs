@@ -20,10 +20,11 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "INSERT INTO paciente" +
-                    "       VALUES ( 1," +
-                                    _cadastro.Id_Paciente           + ", " +
+                    "       VALUES ( " +
+                                    Home.ajustesUsuario.id_usuario  + ",  " +
+                                    _cadastro.Id_Paciente           + ",  " +
                     "   '" +        _cadastro.Nome                  + "', " +
-                    "   '" +        _cadastro.Cpf                   + "', ";
+                    "   '" +        _cadastro.Cpf                   + "', " ;
 
                 if (_cadastro.Dt_nasc != null)
                     sql += "'" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "',";
@@ -44,7 +45,7 @@ namespace PRONTU.Controller
                     "   '" +        _cadastro.UF                    + "', " +
                     "   '" +        _cadastro.Telefone              + "', " +
                     "   '" +        _cadastro.Email                 + "', " +
-                    "   '" +        _cadastro.CEP                   + "') ";
+                    "   '" +        _cadastro.CEP                   + "') " ;
 
                 c.NonQuery(sql);
 
@@ -64,8 +65,8 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "UPDATE paciente" +
-                    "     SET paciente.nome             = '" + _cadastro.Nome               + "', " +
-                    "         paciente.cpf              = '" + _cadastro.Cpf                + "', ";
+                    "     SET paciente.nome             = '" + _cadastro.Nome                   + "', " +
+                    "         paciente.cpf              = '" + _cadastro.Cpf                    + "', ";
 
                 if (_cadastro.Dt_nasc != null)
                     sql += "paciente.dt_nasc = '" + _cadastro.Dt_nasc.Value.ToString("yyyy-MM-dd") + "', ";
@@ -73,22 +74,22 @@ namespace PRONTU.Controller
                     sql += "paciente.dt_nasc = null, ";
 
                 sql +=
-                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF    + "', " +
-                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome   + "', " +
-                    "         paciente.convenio         = '" + _cadastro.Convenio           + "', " +
-                    "         paciente.convenio_codigo  = '" + _cadastro.Convenio_Codigo    + "', " +
-                    "         paciente.observacoes      = '" + _cadastro.Observacoes        + "', " +
-                    "         paciente.logradouro       = '" + _cadastro.Logradouro         + "', " +
-                    "         paciente.numero           = '" + _cadastro.Numero             + "', " +
-                    "         paciente.bairro           = '" + _cadastro.Bairro             + "', " +
-                    "         paciente.complemento      = '" + _cadastro.Complemento        + "', " +
-                    "         paciente.cidade           = '" + _cadastro.Cidade             + "', " +
-                    "         paciente.uf               = '" + _cadastro.UF                 + "', " +
-                    "         paciente.telefone         = '" + _cadastro.Telefone           + "', " +
-                    "         paciente.email            = '" + _cadastro.Email              + "', " +
-                    "         paciente.cep              = '" + _cadastro.CEP                + "' " +
-                    "   WHERE paciente.id_usuario       = 1" +
-                    "     AND paciente.id_paciente      = " + _cadastro.Id_Paciente ;
+                    "         paciente.responsavel_cpf  = '" + _cadastro.Responsavel_CPF        + "', " +
+                    "         paciente.responsavel_nome = '" + _cadastro.Responsavel_Nome       + "', " +
+                    "         paciente.convenio         = '" + _cadastro.Convenio               + "', " +
+                    "         paciente.convenio_codigo  = '" + _cadastro.Convenio_Codigo        + "', " +
+                    "         paciente.observacoes      = '" + _cadastro.Observacoes            + "', " +
+                    "         paciente.logradouro       = '" + _cadastro.Logradouro             + "', " +
+                    "         paciente.numero           = '" + _cadastro.Numero                 + "', " +
+                    "         paciente.bairro           = '" + _cadastro.Bairro                 + "', " +
+                    "         paciente.complemento      = '" + _cadastro.Complemento            + "', " +
+                    "         paciente.cidade           = '" + _cadastro.Cidade                 + "', " +
+                    "         paciente.uf               = '" + _cadastro.UF                     + "', " +
+                    "         paciente.telefone         = '" + _cadastro.Telefone               + "', " +
+                    "         paciente.email            = '" + _cadastro.Email                  + "', " +
+                    "         paciente.cep              = '" + _cadastro.CEP                    + "'  " +
+                    "   WHERE paciente.id_usuario       = "  + Home.ajustesUsuario.id_usuario   + "   " +
+                    "     AND paciente.id_paciente      = "  + _cadastro.Id_Paciente ;
 
                 c.NonQuery(sql);
 
@@ -114,7 +115,7 @@ namespace PRONTU.Controller
                 if (_atendimentos.Count > 0)
                 {
                     sql = "DELETE FROM prontuario" +
-                    "       WHERE prontuario.id_usuario = 1" +
+                    "       WHERE prontuario.id_usuario = " + Home.ajustesUsuario.id_usuario +
                     "         AND prontuario.id_atendimento IN ( ";
 
                     for (int i = 0; i < _atendimentos.Count; i++)
@@ -129,13 +130,13 @@ namespace PRONTU.Controller
                 }
 
                 sql = "DELETE FROM atendimento" +
-                    "   WHERE atendimento.id_usuario = 1" +
+                    "   WHERE atendimento.id_usuario = " + Home.ajustesUsuario.id_usuario +
                     "     AND atendimento.id_paciente = " + _idPaciente;
 
                 c.NonQuery(sql);
 
                 sql = "DELETE FROM paciente" +
-                    "   WHERE paciente.id_usuario = 1" +
+                    "   WHERE paciente.id_usuario = " + Home.ajustesUsuario.id_usuario +
                     "     AND paciente.id_paciente = " + _idPaciente;
 
                 c.NonQuery(sql);
@@ -159,7 +160,7 @@ namespace PRONTU.Controller
 
                 sql = "SELECT max(paciente.id_paciente) as id" +
                     "    FROM paciente " +
-                    "   WHERE paciente.id_usuario = 1";
+                    "   WHERE paciente.id_usuario = " + Home.ajustesUsuario.id_usuario;
 
                 rdr = c.QueryData(sql);
 
@@ -208,10 +209,10 @@ namespace PRONTU.Controller
                       "		  paciente.uf               ," +
                       "		  paciente.telefone         ," +
                       "		  paciente.email            ," +
-                      "		  paciente.cep            " +
-                      "  FROM paciente                  " +
-                      " WHERE paciente.id_usuario = 1   " +
-                      " ORDER BY paciente.nome          " ;
+                      "		  paciente.cep               " +
+                      "  FROM paciente                   " +
+                      " WHERE paciente.id_usuario =      " + Home.ajustesUsuario.id_usuario +
+                      " ORDER BY paciente.nome           " ;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -408,10 +409,10 @@ namespace PRONTU.Controller
                       "		  paciente.uf               ," +
                       "		  paciente.telefone         ," +
                       "		  paciente.email            ," +
-                      "		  paciente.cep            " +
-                      "  FROM paciente                  " +
-                      " WHERE paciente.id_usuario = 1   " +
-                      "   AND paciente.id_paciente = " + _idPaciente;
+                      "		  paciente.cep               " +
+                      "  FROM paciente                   " +
+                      " WHERE paciente.id_usuario  =     " + Home.ajustesUsuario.id_usuario +
+                      "   AND paciente.id_paciente =     " + _idPaciente;
 
                 MySqlDataReader rdr = c.QueryData(sql);
 

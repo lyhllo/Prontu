@@ -16,7 +16,7 @@ namespace PRONTU.Controller
         private string sql;
         MySqlDataReader rdr;
 
-        public List<AgendaModel> BuscaAgendamentosDoDia(int _id_usuario, DateTime _dia)
+        public List<AgendaModel> BuscaAgendamentosDoDia(DateTime _dia)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace PRONTU.Controller
                       "  LEFT JOIN prontuario" +
                       "       ON(prontuario.id_usuario = atendimento.id_usuario AND" +
                       "          prontuario.id_atendimento = atendimento.id_atendimento)" +
-                      " WHERE atendimento.id_usuario = " + _id_usuario +
+                      " WHERE atendimento.id_usuario = " + Home.ajustesUsuario.id_usuario +
                       "   AND DATE(atendimento.horario) = DATE('" + _dia.ToString("u") + "')" +
                       " ORDER BY atendimento.horario ";
 
@@ -185,8 +185,8 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = " DELETE FROM atendimento" +
-                    "    WHERE atendimento.id_usuario = 1 " +
-                    "      AND atendimento.id_atendimento = " + _idAtendimento;
+                    "    WHERE atendimento.id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                    "      AND atendimento.id_atendimento   = " + _idAtendimento;
 
                 object result = c.Query(sql);
 
@@ -219,8 +219,8 @@ namespace PRONTU.Controller
                     sql += _falta;
 
                 sql +=
-                    "    WHERE atendimento.id_usuario = 1 " +
-                    "      AND atendimento.id_atendimento = " + _idAtendimento;
+                    "    WHERE atendimento.id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                    "      AND atendimento.id_atendimento   = " + _idAtendimento;
 
                 object result = c.Query(sql);
 
@@ -242,10 +242,10 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = " UPDATE atendimento" +
-                    "      SET atendimento.pagto = " + _pago + "," +
-                    "          atendimento.valor_pago = " + _valor.ToString(System.Globalization.CultureInfo.InvariantCulture) +
-                    "    WHERE atendimento.id_usuario = 1 " +
-                    "      AND atendimento.id_atendimento = " + _idAtendimento;
+                    "      SET atendimento.pagto            = " + _pago + "," +
+                    "          atendimento.valor_pago       = " + _valor.ToString(System.Globalization.CultureInfo.InvariantCulture) +
+                    "    WHERE atendimento.id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                    "      AND atendimento.id_atendimento   = " + _idAtendimento;
 
                 object result = c.Query(sql);
 
@@ -318,7 +318,7 @@ namespace PRONTU.Controller
                 }
                 else
                 {
-                    int _novoIdProntuario = RetornaNovoIdProntuario(_idUsuario);
+                    int _novoIdProntuario = RetornaNovoIdProntuario();
                     if(_novoIdProntuario == 0)
                     {
                         return false;
@@ -340,7 +340,7 @@ namespace PRONTU.Controller
             }
         }
 
-        public int RetornaNovoIdProntuario(int _idUsuario)
+        public int RetornaNovoIdProntuario()
         {
             int _idProntuario;
 
@@ -348,7 +348,7 @@ namespace PRONTU.Controller
             {
                 Connection c = new Connection();
 
-                string sql = "SELECT MAX(id_prontuario) FROM prontuario WHERE id_usuario = " + _idUsuario;
+                string sql = "SELECT MAX(id_prontuario) FROM prontuario WHERE id_usuario = " + Home.ajustesUsuario.id_usuario;
 
                 object obj = c.Query(sql);
                 string result = obj.ToString();
@@ -382,14 +382,14 @@ namespace PRONTU.Controller
                 c = new Connection();
 
                 sql = "INSERT INTO atendimento" +
-                  "     VALUES (1," + // id_usuário
-                                _idAtendimento + ", " +
-                                _idPcte + ", " +
-                  "       '" +  _horario.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
-                  "             null, " +
-                  "             false, " +
-                  "             0, " +
-                  "       '" +  _convenio + "') ";
+                  "     VALUES (" + Home.ajustesUsuario.id_usuario + "," +
+                                    _idAtendimento + ", " +
+                                    _idPcte + ", " +
+                  "       '" +      _horario.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                  "                 null, " +
+                  "                 false, " +
+                  "                 0, " +
+                  "       '" +      _convenio + "') ";
 
 
                 c.NonQuery(sql);
@@ -411,7 +411,7 @@ namespace PRONTU.Controller
             {
                 c = new Connection();
 
-                sql = "SELECT MAX(id_atendimento) FROM atendimento WHERE id_usuario = 1";
+                sql = "SELECT MAX(id_atendimento) FROM atendimento WHERE id_usuario = " + Home.ajustesUsuario.id_usuario;
 
                 object obj = c.Query(sql);
                 string result = obj.ToString();
@@ -442,17 +442,17 @@ namespace PRONTU.Controller
             try
             {
                 sql = " DELETE FROM atendimento" +
-                      "  WHERE id_usuario = 1" +
-                      "    AND id_atendimento = " + _idAtendimento;
+                      "  WHERE id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                      "    AND id_atendimento   = " + _idAtendimento;
 
                 c.NonQuery(sql);
 
                 if (_idProntuario > 0)
                 {
                     sql = " DELETE FROM prontuario" +
-                          "  WHERE id_usuario = 1" +
-                          "    AND id_atendimento = " + _idAtendimento +
-                          "    AND id_prontuario = " + _idProntuario;
+                          "  WHERE id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                          "    AND id_atendimento   = " + _idAtendimento +
+                          "    AND id_prontuario    = " + _idProntuario;
 
                     c.NonQuery(sql);
                 }
@@ -476,32 +476,32 @@ namespace PRONTU.Controller
 
                 var _historico = new List<AgendaModel>();
 
-                sql = "SELECT paciente.id_paciente," +
-                      "       paciente.nome," +
-                      "       paciente.cpf," +
-                      "       paciente.dt_nasc," +
-                      "       paciente.convenio AS convenio_paciente," +
-                      "       paciente.observacoes," +
-                      "       atendimento.id_atendimento," +
-                      "       atendimento.horario," +
-                      "       atendimento.convenio AS convenio_atendimento," +
-                      "       atendimento.valor_pago," +
-                      "       atendimento.pagto," +
-                      "       atendimento.reg_presenca," +
-                      "       prontuario.id_prontuario," +
-                      "       prontuario.avaliacao," +
-                      "       prontuario.condutas" +
-                      "  FROM paciente" +
-                      " INNER JOIN atendimento" +
-                      "       ON (paciente.id_usuario = atendimento.id_usuario" +
-                      "       AND paciente.id_paciente = atendimento.id_paciente)" +
-                      " INNER JOIN prontuario" +
-                      "       ON (atendimento.id_usuario = prontuario.id_usuario" +
-                      "       AND atendimento.id_atendimento = prontuario.id_atendimento)" +
-                      " WHERE paciente.id_usuario = 1" +
-                      "   AND prontuario.id_prontuario is not null" +
-                      "   AND paciente.id_paciente = " + _idPaciente +
-                      " ORDER BY atendimento.horario DESC ";
+                sql = "SELECT paciente.id_paciente                                                  ," +
+                      "       paciente.nome                                                         ," +
+                      "       paciente.cpf                                                          ," +
+                      "       paciente.dt_nasc                                                      ," +
+                      "       paciente.convenio AS convenio_paciente                                ," +
+                      "       paciente.observacoes                                                  ," +
+                      "       atendimento.id_atendimento                                            ," +
+                      "       atendimento.horario                                                   ," +
+                      "       atendimento.convenio AS convenio_atendimento                          ," +
+                      "       atendimento.valor_pago                                                ," +
+                      "       atendimento.pagto                                                     ," +
+                      "       atendimento.reg_presenca                                              ," +
+                      "       prontuario.id_prontuario                                              ," +
+                      "       prontuario.avaliacao                                                  ," +
+                      "       prontuario.condutas                                                    " +
+                      "  FROM paciente                                                               " +
+                      " INNER JOIN atendimento                                                       " +
+                      "       ON (paciente.id_usuario           = atendimento.id_usuario             " +
+                      "       AND paciente.id_paciente          = atendimento.id_paciente)           " +
+                      " INNER JOIN prontuario                                                        " +
+                      "       ON (atendimento.id_usuario        = prontuario.id_usuario              " +
+                      "       AND atendimento.id_atendimento    = prontuario.id_atendimento)         " +
+                      " WHERE paciente.id_usuario               = " + Home.ajustesUsuario.id_usuario   +
+                      "   AND prontuario.id_prontuario          is not null                          " +
+                      "   AND paciente.id_paciente              = " + _idPaciente                      +
+                      " ORDER BY atendimento.horario DESC                                             ";
 
                 rdr = c.QueryData(sql);
 
@@ -639,32 +639,32 @@ namespace PRONTU.Controller
 
                 var _agendamentos = new List<AgendaModel>();
 
-                sql = "SELECT paciente.id_paciente," +
-                      "       paciente.nome," +
-                      "       paciente.cpf," +
-                      "       paciente.dt_nasc," +
-                      "       paciente.convenio AS convenio_paciente," +
-                      "       paciente.observacoes," +
-                      "       atendimento.id_atendimento," +
-                      "       atendimento.horario," +
-                      "       atendimento.convenio AS convenio_atendimento," +
-                      "       atendimento.valor_pago," +
-                      "       atendimento.pagto," +
-                      "       atendimento.reg_presenca," +
-                      "       prontuario.id_prontuario," +
-                      "       prontuario.avaliacao," +
-                      "       prontuario.condutas" +
-                      "  FROM paciente" +
-                      " INNER JOIN atendimento" +
-                      "       ON (paciente.id_usuario = atendimento.id_usuario" +
-                      "       AND paciente.id_paciente = atendimento.id_paciente)" +
-                      "  LEFT JOIN prontuario" +
-                      "       ON (atendimento.id_usuario = prontuario.id_usuario" +
-                      "       AND atendimento.id_atendimento = prontuario.id_atendimento)" +
-                      " WHERE paciente.id_usuario = 1" +
-                      "   AND atendimento.horario >= current_date()" +
-                      "   AND paciente.id_paciente = " + _idPaciente +
-                      " ORDER BY atendimento.horario ";
+                sql = "SELECT paciente.id_paciente                                                      ," +
+                      "       paciente.nome                                                             ," +
+                      "       paciente.cpf                                                              ," +
+                      "       paciente.dt_nasc                                                          ," +
+                      "       paciente.convenio AS convenio_paciente                                    ," +
+                      "       paciente.observacoes                                                      ," +
+                      "       atendimento.id_atendimento                                                ," +
+                      "       atendimento.horario                                                       ," +
+                      "       atendimento.convenio AS convenio_atendimento                              ," +
+                      "       atendimento.valor_pago                                                    ," +
+                      "       atendimento.pagto                                                         ," +
+                      "       atendimento.reg_presenca                                                  ," +
+                      "       prontuario.id_prontuario                                                  ," +
+                      "       prontuario.avaliacao                                                      ," +
+                      "       prontuario.condutas                                                        " +
+                      "  FROM paciente                                                                   " +
+                      " INNER JOIN atendimento                                                           " +
+                      "       ON (paciente.id_usuario           = atendimento.id_usuario                 " +
+                      "       AND paciente.id_paciente          = atendimento.id_paciente)               " +
+                      "  LEFT JOIN prontuario                                                            " +
+                      "       ON (atendimento.id_usuario        = prontuario.id_usuario                  " +
+                      "       AND atendimento.id_atendimento    = prontuario.id_atendimento)             " +
+                      " WHERE paciente.id_usuario               = " + Home.ajustesUsuario.id_usuario       +
+                      "   AND atendimento.horario               >= current_date()                        " +
+                      "   AND paciente.id_paciente              = " + _idPaciente                          +
+                      " ORDER BY atendimento.horario                                                      ";
 
                 rdr = c.QueryData(sql);
 
@@ -804,8 +804,8 @@ namespace PRONTU.Controller
 
                 sql = "SELECT atendimento.id_atendimento" +
                       "  FROM atendimento" +
-                      " WHERE atendimento.id_usuario = 1" +
-                      "   AND atendimento.id_paciente = " + _idPaciente;
+                      " WHERE atendimento.id_usuario    = " + Home.ajustesUsuario.id_usuario +
+                      "   AND atendimento.id_paciente   = " + _idPaciente;
                       
                 rdr = c.QueryData(sql);
 

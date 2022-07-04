@@ -61,7 +61,7 @@
             this.panelCabecalho.Controls.Add(this.btnFechar);
             this.panelCabecalho.Location = new System.Drawing.Point(0, 0);
             this.panelCabecalho.Name = "panelCabecalho";
-            this.panelCabecalho.Size = new System.Drawing.Size(1482, 43);
+            this.panelCabecalho.Size = new System.Drawing.Size(1380, 43);
             this.panelCabecalho.TabIndex = 2;
             // 
             // lblData
@@ -70,9 +70,9 @@
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(764, 7);
+            this.lblData.Location = new System.Drawing.Point(713, 7);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(75, 13);
+            this.lblData.Size = new System.Drawing.Size(90, 17);
             this.lblData.TabIndex = 8;
             this.lblData.Text = "12/06/2022";
             this.lblData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,7 +84,7 @@
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
             this.lblUsuario.Location = new System.Drawing.Point(276, 7);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(64, 17);
             this.lblUsuario.TabIndex = 7;
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,7 +96,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(205, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 24);
+            this.label3.Size = new System.Drawing.Size(22, 29);
             this.label3.TabIndex = 6;
             this.label3.Text = "-";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +108,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(28, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 22);
+            this.label2.Size = new System.Drawing.Size(110, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "PRONTU";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,7 +122,7 @@
             this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1390, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(1288, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizar.TabIndex = 4;
@@ -138,7 +138,7 @@
             this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.Location = new System.Drawing.Point(1436, 1);
+            this.btnFechar.Location = new System.Drawing.Point(1334, 1);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(40, 40);
             this.btnFechar.TabIndex = 2;
@@ -160,7 +160,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 43);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(206, 745);
+            this.panelMenu.Size = new System.Drawing.Size(301, 745);
             this.panelMenu.TabIndex = 3;
             // 
             // btnRelatorios
