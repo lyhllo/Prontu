@@ -46,7 +46,7 @@ namespace PRONTU
 
             if (result)
             {
-                MessageBox.Show("Login OK.");
+                //MessageBox.Show("Login OK.");
                 Close();
                 nt = new Thread(startHome);
                 nt.SetApartmentState(ApartmentState.STA);
