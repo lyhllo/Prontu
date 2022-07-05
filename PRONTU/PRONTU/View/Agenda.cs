@@ -29,7 +29,7 @@ namespace PRONTU
         public Agenda()
         {
             InitializeComponent();
-            linhas = (60 / Home.ajustesUsuario.formato_minutos * 24);
+            linhas = (1440 / Home.ajustesUsuario.formato_minutos);
             AtualizaHorarios();
         }
 
@@ -336,17 +336,9 @@ namespace PRONTU
             }
         }
 
-        private void btnCadastro_Click(object sender, EventArgs e)
+        public void fechar()
         {
-            Home _novo = (Home)ReferenciaHome;
-            
-            PacienteCadastroController _cadastroController = new PacienteCadastroController();
-
-            CadastroModel _cadastro = _cadastroController.BuscaCadastroPorId(atendimento.Id_pcte);
-
-            _novo.AbrirPacientes(true, null, this);
-
-
+            this.Close();
         }
     }
 }

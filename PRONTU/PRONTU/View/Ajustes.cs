@@ -83,6 +83,10 @@ namespace PRONTU
                 if (_res)
                 {
                     MessageBox.Show("Ajustes salvos com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    homeRef.CarregarVariaveis();
+                    Agenda _agenda = homeRef.agendaReferencia;
+                    if (_agenda != null)
+                        _agenda.fechar();
                     homeRef.AbrirLogo();
                 }
 
