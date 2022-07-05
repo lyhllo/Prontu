@@ -208,7 +208,6 @@ namespace PRONTU
                 btnAtender.Text = "Agendar";
             }
             btnFalta.Visible = _bol;
-            btnCadastro.Visible = _bol;
             lblValor.Visible = _bol;
             txtValor.Visible = _bol;
             btnPagar.Visible = _bol;

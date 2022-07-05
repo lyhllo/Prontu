@@ -172,10 +172,7 @@ namespace PRONTU
                 panelConteudo.Tag = formulario;
                 formulario.homeReferencia = this;
                 formulario.horario = _hora;
-                //if (_selecionar && _hora == null)
-                    
-                //else
-                    formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
+                formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
                 formulario.Show();
                 formulario.BringToFront();
             }
