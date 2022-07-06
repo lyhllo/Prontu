@@ -94,7 +94,7 @@
             this.txtDataInicio.Location = new System.Drawing.Point(137, 9);
             this.txtDataInicio.Mask = "00/00/0000";
             this.txtDataInicio.Name = "txtDataInicio";
-            this.txtDataInicio.Size = new System.Drawing.Size(112, 30);
+            this.txtDataInicio.Size = new System.Drawing.Size(128, 30);
             this.txtDataInicio.TabIndex = 9;
             this.txtDataInicio.ValidatingType = typeof(System.DateTime);
             this.txtDataInicio.Leave += new System.EventHandler(this.ValidaDataInicio);
@@ -105,7 +105,7 @@
             this.txtDataFim.Location = new System.Drawing.Point(483, 9);
             this.txtDataFim.Mask = "00/00/0000";
             this.txtDataFim.Name = "txtDataFim";
-            this.txtDataFim.Size = new System.Drawing.Size(112, 30);
+            this.txtDataFim.Size = new System.Drawing.Size(123, 30);
             this.txtDataFim.TabIndex = 10;
             this.txtDataFim.ValidatingType = typeof(System.DateTime);
             this.txtDataFim.Leave += new System.EventHandler(this.ValidaDataFim);
