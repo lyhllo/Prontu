@@ -39,6 +39,11 @@ namespace PRONTU
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ValidarLogin();
+        }
+
+        private void ValidarLogin()
+        {
             string cpf = textBox1.Text;
             string senha = textBox2.Text;
             bool result = UsuarioController.Login(cpf, senha);
@@ -56,7 +61,6 @@ namespace PRONTU
             {
                 MessageBox.Show("Login inválido.");
             }
-
         }
 
         private void startHome()
@@ -89,6 +93,14 @@ namespace PRONTU
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void EnterPressionado(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ValidarLogin();
+            }
         }
     }
 }

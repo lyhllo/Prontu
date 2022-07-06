@@ -244,6 +244,8 @@
             this.txtValor.Size = new System.Drawing.Size(132, 42);
             this.txtValor.TabIndex = 9;
             this.txtValor.Visible = false;
+            this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SalvaDeletaValor);
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormatarValor);
             // 
             // Agenda
             // 
@@ -273,7 +275,6 @@
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
         private System.Windows.Forms.Label lblValor;
-        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIdPcte;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
@@ -281,5 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn clConvenio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clObs;
+        private System.Windows.Forms.TextBox txtValor;
     }
 }

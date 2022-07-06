@@ -260,6 +260,30 @@ namespace PRONTU.Controller
             }
         }
 
+        public Boolean AlterarValor(int _idAtendimento, double _valor)
+        {
+            try
+            {
+                c = new Connection();
+
+                sql = " UPDATE atendimento" +
+                    "      SET atendimento.valor_pago       = " + _valor.ToString(System.Globalization.CultureInfo.InvariantCulture) +
+                    "    WHERE atendimento.id_usuario       = " + Home.ajustesUsuario.id_usuario +
+                    "      AND atendimento.id_atendimento   = " + _idAtendimento;
+
+                object result = c.Query(sql);
+
+                c.NonQuery(sql);
+                c.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
         public bool RegistrarAtendimento(int _idUsuario, int _idAtendimento,int _idProntuario, string _convenio, string _valorPago, 
                                         bool _statusPagto, string _avaliacao, string _condutas)
         {
