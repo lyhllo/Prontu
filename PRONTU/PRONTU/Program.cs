@@ -19,13 +19,22 @@ namespace PRONTU
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (UsuarioController.ExisteUsuario())
+            try
             {
-                Application.Run(new Login());
-            } else
+                if (UsuarioController.ExisteUsuario())
+                {
+                    Application.Run(new Login());
+                }
+                else
+                {
+                    Application.Run(new NovoUsuario());
+                }
+            } catch
             {
-                Application.Run(new NovoUsuario());
+                MessageBox.Show("O banco de dados não está acessível.");
             }
+
+            
         }
     }
 }
