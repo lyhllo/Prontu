@@ -102,6 +102,12 @@ namespace PRONTU.View
 
         private void FiltrarGrade(DateTime? _inicio, DateTime? _fim)
         {
+            if (_inicio == null)
+                _inicio = DateTime.MinValue;
+
+            if (_fim == null)
+                _fim = DateTime.MaxValue;
+
             if (_inicio != null || _fim != null)
             {
                 string str = "";

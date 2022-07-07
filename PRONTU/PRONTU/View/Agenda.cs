@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using PRONTU.Model;
 using PRONTU.Controller;
 using PRONTU.View;
-
-
+using System.Text.RegularExpressions;
 
 namespace PRONTU
 {
@@ -29,7 +28,7 @@ namespace PRONTU
         public Agenda()
         {
             InitializeComponent();
-            linhas = (60 / Home.ajustesUsuario.formato_minutos * 24);
+            linhas = (1440 / Home.ajustesUsuario.formato_minutos);
             AtualizaHorarios();
         }
 
@@ -71,43 +70,49 @@ namespace PRONTU
 
         private void MudaCoresPresenca(int _i, bool? _falta)
         {
-            if (_falta == true)
+            if (Home.ajustesUsuario.marcador_comparecimento)
             {
-                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.LightSkyBlue;
-                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.LightSkyBlue;
-                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.LightSkyBlue;
-                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.LightSkyBlue;
-                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.LightSkyBlue;
-            } 
-            
-            if (_falta == false)
-            {
-                dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Red;
-                dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Red;
-                dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.Red;
-                dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.Red;
-                dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Red;
-            }
+                if (_falta == true)
+                {
+                    dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.LightSkyBlue;
+                    dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.LightSkyBlue;
+                    dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.LightSkyBlue;
+                    dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.LightSkyBlue;
+                    dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.LightSkyBlue;
+                }
 
-            if (_falta is null)
-            {
-                dgHorarios.Rows[_i].Cells[1].Style.BackColor = DefaultBackColor;
-                dgHorarios.Rows[_i].Cells[2].Style.BackColor = DefaultBackColor;
-                dgHorarios.Rows[_i].Cells[3].Style.BackColor = DefaultBackColor;
-                dgHorarios.Rows[_i].Cells[4].Style.BackColor = DefaultBackColor;
-                dgHorarios.Rows[_i].Cells[5].Style.BackColor = DefaultBackColor;
+                if (_falta == false)
+                {
+                    dgHorarios.Rows[_i].Cells[1].Style.BackColor = Color.Red;
+                    dgHorarios.Rows[_i].Cells[2].Style.BackColor = Color.Red;
+                    dgHorarios.Rows[_i].Cells[3].Style.BackColor = Color.Red;
+                    dgHorarios.Rows[_i].Cells[4].Style.BackColor = Color.Red;
+                    dgHorarios.Rows[_i].Cells[5].Style.BackColor = Color.Red;
+                }
+
+                if (_falta is null)
+                {
+                    dgHorarios.Rows[_i].Cells[1].Style.BackColor = DefaultBackColor;
+                    dgHorarios.Rows[_i].Cells[2].Style.BackColor = DefaultBackColor;
+                    dgHorarios.Rows[_i].Cells[3].Style.BackColor = DefaultBackColor;
+                    dgHorarios.Rows[_i].Cells[4].Style.BackColor = DefaultBackColor;
+                    dgHorarios.Rows[_i].Cells[5].Style.BackColor = DefaultBackColor;
+                }
             }
         }
 
         private void MudaCorPagto(bool? _pagto)
         {
-            if (_pagto == true)
+            if (Home.ajustesUsuario.marcador_pagamento)
             {
-                txtValor.BackColor = Color.GreenYellow;
-            }
-            else
-            {
-                txtValor.BackColor = DefaultBackColor;
+                if (_pagto == true)
+                {
+                    btnPagar.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    btnPagar.BackColor = Color.Gainsboro;
+                }
             }
         }
 
@@ -179,7 +184,8 @@ namespace PRONTU
                     else
                     {
                         btnRemoverAgendamento.Text = "Remover agendamento";
-                        btnFalta.Visible = true;
+                        if (Home.ajustesUsuario.marcador_comparecimento)
+                            btnFalta.Visible = true;
                     }
                     
                     break;
@@ -207,11 +213,27 @@ namespace PRONTU
             {
                 btnAtender.Text = "Agendar";
             }
-            btnFalta.Visible = _bol;
-            btnCadastro.Visible = _bol;
-            lblValor.Visible = _bol;
-            txtValor.Visible = _bol;
-            btnPagar.Visible = _bol;
+            if (Home.ajustesUsuario.marcador_comparecimento)
+                btnFalta.Visible = _bol;
+            else
+                btnFalta.Visible = false;
+
+            if (Home.ajustesUsuario.mostrar_valor)
+            {
+                lblValor.Visible = _bol;
+                txtValor.Visible = _bol;
+            }
+            else
+            {
+                lblValor.Visible = false;
+                txtValor.Visible = false;
+            }
+
+            if (Home.ajustesUsuario.marcador_pagamento && Home.ajustesUsuario.mostrar_valor)
+                btnPagar.Visible = _bol;
+            else
+                btnPagar.Visible = false;
+
             btnRemoverAgendamento.Visible = _bol;
         }
 
@@ -337,17 +359,60 @@ namespace PRONTU
             }
         }
 
-        private void btnCadastro_Click(object sender, EventArgs e)
+        public void fechar()
         {
-            Home _novo = (Home)ReferenciaHome;
-            
-            PacienteCadastroController _cadastroController = new PacienteCadastroController();
+            this.Close();
+        }
 
-            CadastroModel _cadastro = _cadastroController.BuscaCadastroPorId(atendimento.Id_pcte);
+        // Formata o campo do valor de pagamento conforme digita
+        private void FormatarValor(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
+            {
+                TextBox t = (TextBox)sender;
+                string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
+                if (w == string.Empty) w = "00";
 
-            _novo.AbrirPacientes(true, null, this);
+                if (e.KeyChar.Equals((char)Keys.Back))
+                {
+                    w = w.Substring(0, w.Length - 1);
+                }
+                else
+                {
+                    w += e.KeyChar;
+                }
 
+                t.Text = String.Format("{0:#,##0.00}", Double.Parse(w) / 100);
+                t.Select(t.Text.Length, 0);
+            }
+            e.Handled = true;
+        }
 
+        private void SalvaDeletaValor(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                TextBox t = (TextBox)sender;
+                t.Text = string.Format("{0:#,##0.00}", 0d);
+                t.Select(t.Text.Length, 0);
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                double _valor = double.Parse(txtValor.Text);
+
+                bool _res = agendaController.AlterarValor(atendimento.Id_atendimento, _valor);
+
+                if (_res)
+                {
+                    MessageBox.Show("Valor alterado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AtualizaHorarios();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível alterar o valor", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

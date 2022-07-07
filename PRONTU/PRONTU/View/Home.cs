@@ -26,6 +26,7 @@ namespace PRONTU
         public DateTime diaHora { get; set; }
         public int id_pcte { get; set; }
         public static AjustesModel ajustesUsuario;
+        public Agenda agendaReferencia { get; set; }
 
 
         public Home()
@@ -172,10 +173,7 @@ namespace PRONTU
                 panelConteudo.Tag = formulario;
                 formulario.homeReferencia = this;
                 formulario.horario = _hora;
-                //if (_selecionar && _hora == null)
-                    
-                //else
-                    formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
+                formulario.AbrirPacientesPesquisar(_selecionar, _agenda);
                 formulario.Show();
                 formulario.BringToFront();
             }
@@ -215,6 +213,7 @@ namespace PRONTU
                 formulario.BringToFront();
                 formulario.ReferenciaHome = _home;
             }
+            agendaReferencia = formulario;
         }
 
         public void AbrirAjustes()

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendario = new System.Windows.Forms.MonthCalendar();
-            this.btnCadastro = new System.Windows.Forms.Button();
             this.btnRemoverAgendamento = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
@@ -60,24 +59,6 @@
             this.calendario.TrailingForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateChanged);
             // 
-            // btnCadastro
-            // 
-            this.btnCadastro.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastro.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnCadastro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastro.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnCadastro.Location = new System.Drawing.Point(22, 445);
-            this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(134, 103);
-            this.btnCadastro.TabIndex = 2;
-            this.btnCadastro.Text = "Editar cadastro";
-            this.btnCadastro.UseVisualStyleBackColor = false;
-            this.btnCadastro.Visible = false;
-            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
-            // 
             // btnRemoverAgendamento
             // 
             this.btnRemoverAgendamento.BackColor = System.Drawing.Color.Gainsboro;
@@ -105,9 +86,9 @@
             this.btnPagar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagar.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnPagar.Location = new System.Drawing.Point(114, 669);
+            this.btnPagar.Location = new System.Drawing.Point(22, 441);
             this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(134, 71);
+            this.btnPagar.Size = new System.Drawing.Size(134, 103);
             this.btnPagar.TabIndex = 4;
             this.btnPagar.Text = "Marcar Pagamento";
             this.btnPagar.UseVisualStyleBackColor = false;
@@ -140,7 +121,7 @@
             this.btnFalta.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnFalta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFalta.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnFalta.Location = new System.Drawing.Point(183, 445);
+            this.btnFalta.Location = new System.Drawing.Point(183, 441);
             this.btnFalta.Name = "btnFalta";
             this.btnFalta.Size = new System.Drawing.Size(134, 103);
             this.btnFalta.TabIndex = 6;
@@ -158,14 +139,14 @@
             this.dgHorarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgHorarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHorarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clIdPcte,
@@ -175,14 +156,14 @@
             this.clConvenio,
             this.clObs});
             this.dgHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgHorarios.Location = new System.Drawing.Point(345, 18);
             this.dgHorarios.MultiSelect = false;
             this.dgHorarios.Name = "dgHorarios";
@@ -263,6 +244,8 @@
             this.txtValor.Size = new System.Drawing.Size(132, 42);
             this.txtValor.TabIndex = 9;
             this.txtValor.Visible = false;
+            this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SalvaDeletaValor);
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormatarValor);
             // 
             // Agenda
             // 
@@ -275,7 +258,6 @@
             this.Controls.Add(this.btnAtender);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.btnRemoverAgendamento);
-            this.Controls.Add(this.btnCadastro);
             this.Controls.Add(this.calendario);
             this.Name = "Agenda";
             this.Text = "Agenda";
@@ -288,13 +270,11 @@
         #endregion
 
         private System.Windows.Forms.MonthCalendar calendario;
-        private System.Windows.Forms.Button btnCadastro;
         private System.Windows.Forms.Button btnRemoverAgendamento;
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
         private System.Windows.Forms.Label lblValor;
-        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIdPcte;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
@@ -302,5 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn clConvenio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clObs;
+        private System.Windows.Forms.TextBox txtValor;
     }
 }
