@@ -10,10 +10,13 @@ namespace PRONTU.Model
     {
         public string Nome { get; set; }
         public string Profissao { get; set; }
-        public string Especialidade { get; set; }
         public string Registro_profissional { get; set; }
+        public string Cidade { get; set; }
+        public string Uf { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string Cabecalho { get; set; }
+        public string Titulo { get; set; }
 
     }
 }

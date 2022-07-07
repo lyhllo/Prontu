@@ -16,7 +16,6 @@ namespace PRONTU
 {
     public partial class Atendimento : Form
     {
-        public int IdUsuario { get; set; }
         public int IdAtendimento { get; set; }
         public int IdProntuario { get; set; }
         public Agenda agendaReferencia { get; set; }
@@ -28,7 +27,6 @@ namespace PRONTU
 
         public void CarregaTela(AgendaModel atendimento)
         {
-            IdUsuario = 1; // para testes
             IdAtendimento = atendimento.Id_atendimento;
 
             if (atendimento.Id_prontuario == null)
@@ -92,9 +90,13 @@ namespace PRONTU
                 string _avaliacao = txtAvaliacao.Text;
                 string _condutas = txtCondutas.Text;
 
-                if (atendimento.RegistrarAtendimento(IdUsuario, IdAtendimento, IdProntuario, _convenio, _valorPago, _statusPago, _avaliacao, _condutas))
+                if (atendimento.RegistrarAtendimento(IdAtendimento, IdProntuario, _convenio, _valorPago, _statusPago, _avaliacao, _condutas))
                 {
                     MessageBox.Show("Atendimento registrado com sucesso!", "Atendimento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao atualizar os dados do atendimento", "Atendimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (agendaReferencia != null)
                     agendaReferencia.AtualizaHorarios();
@@ -130,42 +132,6 @@ namespace PRONTU
                 cbStatusPagto.SelectedIndex = cbStatusPagto.FindStringExact("Sim");
             } 
             else cbStatusPagto.SelectedIndex = cbStatusPagto.FindStringExact("Não");
-        }
-
-        // Formata o campo do valor de pagamento conforme digita
-        private void FormatarValor(object sender, KeyPressEventArgs e)
-        {
-            if(char.IsDigit(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back))
-            {
-                TextBox t = (TextBox)sender;
-                string w = Regex.Replace(t.Text, "[^0-9]", string.Empty);
-                if (w == string.Empty) w = "00";
-
-                if (e.KeyChar.Equals((char)Keys.Back))
-                {
-                    w = w.Substring(0, w.Length - 1);
-                }
-                else
-                {
-                    w += e.KeyChar;
-                }
-
-                t.Text = String.Format("{0:#,##0.00}", Double.Parse(w) / 100);
-                t.Select(t.Text.Length, 0);
-            }
-            e.Handled = true;
-        }
-
-        // Limpa o campo do valor de pagamento ao pressionar a tecla DELETE
-        private void LimparValor(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Delete)
-            {
-                TextBox t = (TextBox)sender;
-                t.Text = string.Format("{0:#,##0.00}", 0d);
-                t.Select(t.Text.Length, 0);
-                e.Handled = true;
-            }
         }
     }
 }

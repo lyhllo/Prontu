@@ -23,10 +23,13 @@ namespace PRONTU.Controller
 
                 sql = " SELECT usuario.nome_usuario," +
                       "        usuario.profissao," +
-                      "        usuario.especialidade," +
                       "        usuario.registro_prof," +
+                      "        usuario.cidade," +
+                      "        usuario.uf," +
                       "        usuario.telefone," +
-                      "        usuario.email" +
+                      "        usuario.email," +
+                      "        '' as cabecalho," +
+                      "        '' as titulo" +
                       "   FROM usuario" +
                       "  WHERE usuario.id_usuario = " + _idUsuario;
 
@@ -49,15 +52,6 @@ namespace PRONTU.Controller
                             laudo.Profissao = "";
                         }
 
-                        if (rdr["especialidade"] != DBNull.Value)
-                        {
-                            laudo.Especialidade = Convert.ToString(rdr["especialidade"]);
-                        }
-                        else
-                        {
-                            laudo.Especialidade = "";
-                        }
-
                         if (rdr["registro_prof"] != DBNull.Value)
                         {
                             laudo.Registro_profissional = Convert.ToString(rdr["registro_prof"]);
@@ -65,6 +59,24 @@ namespace PRONTU.Controller
                         else
                         {
                             laudo.Registro_profissional = "";
+                        }
+
+                        if (rdr["cidade"] != DBNull.Value)
+                        {
+                            laudo.Cidade = Convert.ToString(rdr["cidade"]);
+                        }
+                        else
+                        {
+                            laudo.Cidade = "";
+                        }
+
+                        if (rdr["uf"] != DBNull.Value)
+                        {
+                            laudo.Uf = Convert.ToString(rdr["uf"]);
+                        }
+                        else
+                        {
+                            laudo.Uf = "";
                         }
 
                         if (rdr["telefone"] != DBNull.Value)
@@ -84,6 +96,9 @@ namespace PRONTU.Controller
                         {
                             laudo.Email = "";
                         }
+
+                        laudo.Cabecalho = Convert.ToString(rdr["cabecalho"]);
+                        laudo.Titulo = Convert.ToString(rdr["titulo"]);
 
                         _laudo.Add(laudo);
                     }

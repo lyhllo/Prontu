@@ -67,15 +67,12 @@ namespace PRONTU.Controller
                       "       atendimento.horario," +
                       "       atendimento.convenio," +
                       "       atendimento.valor_pago," +
-                      "       prontuario.avaliacao," +
-                      "       prontuario.condutas" +
+                      "       atendimento.pagto," +
+                      "       atendimento.reg_presenca" +
                       "  FROM atendimento" +
                       "  LEFT JOIN paciente " +
                       "    ON (paciente.id_paciente = atendimento.id_paciente AND" +
                       "        paciente.id_usuario = atendimento.id_usuario)" +
-                      "  LEFT JOIN prontuario " +
-                      "    ON (prontuario.id_atendimento = atendimento.id_atendimento AND" +
-                      "        prontuario.id_usuario = atendimento.id_usuario)" +
                       "  WHERE atendimento.id_usuario = " + _idUsuario +
                       "    AND DATE(atendimento.horario) BETWEEN DATE('" + _dataInicial.ToString("u") + "') AND DATE('" + _dataFinal.ToString("u") + "')";
                      
@@ -84,7 +81,7 @@ namespace PRONTU.Controller
                     sql += " AND paciente.nome = '" + _nomePaciente + "'";
                 }
 
-                sql += " ORDER BY paciente.nome";
+                sql += " ORDER BY atendimento.horario, paciente.nome";
 
                 MySqlDataReader rdr = c.QueryData(sql);
 
@@ -97,15 +94,6 @@ namespace PRONTU.Controller
                         relatorioAtendimento.Nome = Convert.ToString(rdr["nome"]);
                         relatorioAtendimento.Horario = Convert.ToDateTime(rdr["horario"]);
 
-                        if (rdr["valor_pago"] != DBNull.Value)
-                        {
-                            relatorioAtendimento.Valor_pago = Convert.ToDouble(rdr["valor_pago"]);
-                        }
-                        else
-                        {
-                            relatorioAtendimento.Valor_pago = 0;
-                        }
-
                         if (rdr["convenio"] != DBNull.Value)
                         {
                             relatorioAtendimento.Convenio = Convert.ToString(rdr["convenio"]);
@@ -115,22 +103,31 @@ namespace PRONTU.Controller
                             relatorioAtendimento.Convenio = "";
                         }
 
-                        if (rdr["avaliacao"] != DBNull.Value)
+                        if (rdr["valor_pago"] != DBNull.Value)
                         {
-                            relatorioAtendimento.Avaliacao = Convert.ToString(rdr["avaliacao"]);
+                            relatorioAtendimento.Valor_pago = Convert.ToDouble(rdr["valor_pago"]);
                         }
                         else
                         {
-                            relatorioAtendimento.Avaliacao = "";
+                            relatorioAtendimento.Valor_pago = 0;
                         }
 
-                        if (rdr["condutas"] != DBNull.Value)
+                        if (rdr["pagto"] != DBNull.Value)
                         {
-                            relatorioAtendimento.Condutas = Convert.ToString(rdr["condutas"]);
+                            relatorioAtendimento.Pagto = Convert.ToBoolean(rdr["pagto"]);
                         }
                         else
                         {
-                            relatorioAtendimento.Condutas = "";
+                            relatorioAtendimento.Pagto = false;
+                        }
+
+                        if (rdr["reg_presenca"] != DBNull.Value)
+                        {
+                            relatorioAtendimento.Presenca = Convert.ToBoolean(rdr["reg_presenca"]);
+                        }
+                        else
+                        {
+                            relatorioAtendimento.Presenca = false;
                         }
 
                         _atendimentos.Add(relatorioAtendimento);

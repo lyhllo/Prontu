@@ -260,27 +260,11 @@ namespace PRONTU.Controller
             }
         }
 
-        public bool RegistrarAtendimento(int _idUsuario, int _idAtendimento,int _idProntuario, string _convenio, string _valorPago, 
-                                        bool _statusPagto, string _avaliacao, string _condutas)
-        {
-            if (!AtualizaAtendimento(_idUsuario, _idAtendimento, _convenio, _valorPago, _statusPagto))
-            {
-                MessageBox.Show("Ocorreu um erro ao atualizar os dados do atendimento", "Atendimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if(!AtualizaProntuario(_idUsuario, _idProntuario, _idAtendimento, _avaliacao, _condutas))
-            {
-                MessageBox.Show("Ocorreu um erro ao atualizar os dados do prontuário", "Atendimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool AtualizaAtendimento(int _idUsuario, int _idAtendimento, string _convenio, string _valorPago, bool _statusPagto)
+        public bool RegistrarAtendimento(int _idAtendimento,int _idProntuario, string _convenio, string _valorPago, 
+            bool _statusPagto, string _avaliacao, string _condutas)
         {
             c = new Connection();
+            c.BeginTransaction();
 
             try
             {
@@ -288,54 +272,47 @@ namespace PRONTU.Controller
                                              " valor_pago = " + _valorPago + "," +
                                              " pagto = " + _statusPagto + "," +
                                              " reg_presenca = 1 " +
-                       " WHERE id_usuario = " + _idUsuario +
+                       " WHERE id_usuario = " + Home.ajustesUsuario.id_usuario +
                          " AND id_atendimento = " + _idAtendimento;
 
                 c.NonQuery(sql);
-                c.Close();
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return false;
-            }
-        }
-
-        public bool AtualizaProntuario(int _idUsuario, int _idProntuario, int _idAtendimento, string _avaliacao, string _condutas)
-        {
-            c = new Connection();
-            
-            try
-            {
                 if (_idProntuario > 0)
                 {
                     sql = "UPDATE prontuario SET avaliacao = '" + _avaliacao + "'," +
                                                " condutas = '" + _condutas + "'" +
-                          " WHERE id_usuario = " + _idUsuario +
+                          " WHERE id_usuario = " + Home.ajustesUsuario.id_usuario +
                             " AND id_prontuario = " + _idProntuario;
+
+                    c.NonQuery(sql);
                 }
                 else
                 {
                     int _novoIdProntuario = RetornaNovoIdProntuario();
-                    if(_novoIdProntuario == 0)
+                    if (_novoIdProntuario == 0)
                     {
+                        c.transaction.Rollback();
                         return false;
                     }
 
                     sql = " INSERT INTO prontuario (id_usuario, id_prontuario, id_atendimento, avaliacao, condutas) " +
-                          " VALUES (" + _idUsuario + "," + _novoIdProntuario + "," + _idAtendimento + ",'" + _avaliacao + "','" + _condutas + "')";
+                          " VALUES (" + Home.ajustesUsuario.id_usuario + "," +
+                                        _novoIdProntuario + "," +
+                                        _idAtendimento + ",'" +
+                                        _avaliacao + "','" +
+                                        _condutas + "')";
+
+                    c.NonQuery(sql);
                 }
 
-                c.NonQuery(sql);
+                c.transaction.Commit();
                 c.Close();
-
                 return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                c.transaction.Rollback();
                 return false;
             }
         }

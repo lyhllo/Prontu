@@ -151,3 +151,12 @@ C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.csproj.CopyComplete
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.exe
 C:\Users\José\Desktop\PRONTU\repo_prontu\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.pdb
+D:\Projetos\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.dll
+D:\Projetos\Prontu\PRONTU\PRONTU\bin\Debug\iTextSharp.LGPLv2.Core.dll
+D:\Projetos\Prontu\PRONTU\PRONTU\bin\Debug\BCrypt.Net-Next.xml
+D:\Projetos\Prontu\PRONTU\PRONTU\bin\Debug\BouncyCastle.Crypto.xml
+D:\Projetos\Prontu\PRONTU\PRONTU\bin\Debug\iTextSharp.LGPLv2.Core.xml
+D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resources
+D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Pacientes.resources
+D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesAgendamentos.resources
+D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesHistorico.resources

@@ -39,8 +39,14 @@
             this.rbLaudo = new System.Windows.Forms.RadioButton();
             this.rbAtendimentos = new System.Windows.Forms.RadioButton();
             this.gbTipos = new System.Windows.Forms.GroupBox();
+            this.gbLaudo = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCab = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.gbAtendimento.SuspendLayout();
             this.gbTipos.SuspendLayout();
+            this.gbLaudo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGerar
@@ -106,7 +112,7 @@
             this.gbAtendimento.Controls.Add(this.cbPaciente);
             this.gbAtendimento.Controls.Add(this.dpDataInicial);
             this.gbAtendimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAtendimento.Location = new System.Drawing.Point(12, 272);
+            this.gbAtendimento.Location = new System.Drawing.Point(12, 503);
             this.gbAtendimento.Name = "gbAtendimento";
             this.gbAtendimento.Size = new System.Drawing.Size(1176, 137);
             this.gbAtendimento.TabIndex = 28;
@@ -167,10 +173,59 @@
             this.gbTipos.TabStop = false;
             this.gbTipos.Text = "Selecione o tipo de relatório";
             // 
+            // gbLaudo
+            // 
+            this.gbLaudo.Controls.Add(this.txtTitulo);
+            this.gbLaudo.Controls.Add(this.txtCab);
+            this.gbLaudo.Controls.Add(this.label5);
+            this.gbLaudo.Controls.Add(this.label4);
+            this.gbLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLaudo.Location = new System.Drawing.Point(12, 272);
+            this.gbLaudo.Name = "gbLaudo";
+            this.gbLaudo.Size = new System.Drawing.Size(1176, 189);
+            this.gbLaudo.TabIndex = 29;
+            this.gbLaudo.TabStop = false;
+            this.gbLaudo.Text = "Informe os dados do Laudo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Cabeçalho:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 106);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Título:";
+            // 
+            // txtCab
+            // 
+            this.txtCab.Location = new System.Drawing.Point(12, 56);
+            this.txtCab.MaxLength = 115;
+            this.txtCab.Name = "txtCab";
+            this.txtCab.Size = new System.Drawing.Size(1148, 26);
+            this.txtCab.TabIndex = 2;
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(11, 129);
+            this.txtTitulo.MaxLength = 115;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(1149, 26);
+            this.txtTitulo.TabIndex = 3;
+            // 
             // Relatorios
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1204, 776);
+            this.Controls.Add(this.gbLaudo);
             this.Controls.Add(this.gbAtendimento);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.gbTipos);
@@ -180,6 +235,8 @@
             this.gbAtendimento.PerformLayout();
             this.gbTipos.ResumeLayout(false);
             this.gbTipos.PerformLayout();
+            this.gbLaudo.ResumeLayout(false);
+            this.gbLaudo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +253,10 @@
         private System.Windows.Forms.GroupBox gbTipos;
         protected System.Windows.Forms.Button btnGerar;
         public System.Windows.Forms.ComboBox cbPaciente;
+        private System.Windows.Forms.GroupBox gbLaudo;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.TextBox txtCab;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

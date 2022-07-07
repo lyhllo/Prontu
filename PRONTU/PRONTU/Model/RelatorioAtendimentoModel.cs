@@ -12,8 +12,8 @@ namespace PRONTU.Model
         public DateTime Horario{ get; set; }
         public string Convenio { get; set; }
         public double Valor_pago {get; set; }
-        public string Avaliacao { get; set; }
-        public string Condutas {get; set; }
+        public bool Pagto { get; set; }
+        public bool Presenca { get; set; }
 
     }
 }
