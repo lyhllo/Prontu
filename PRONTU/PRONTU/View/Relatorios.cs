@@ -112,7 +112,7 @@ namespace PRONTU
                 // Configuração do documento PDF
                 var pxPorMm = 72 / 25.5F;
                 var pdf = new Document(PageSize.A4, 15 * pxPorMm, 15 * pxPorMm, 15 * pxPorMm, 20 * pxPorMm);
-                var nomeArquivo = $"relatorios\\atendimentos_{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
+                var nomeArquivo = $"atendimentos_{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
                 var arquivo = new FileStream(nomeArquivo, FileMode.Create);
                 var writer = PdfWriter.GetInstance(pdf, arquivo);
                 writer.PageEvent = new EventosDePagina(totalPaginas);
@@ -130,7 +130,13 @@ namespace PRONTU
                 pdf.Add(subTitulo);
 
                 // adição da imagem
-                var caminhoImagem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img\\logo_prontu_cinza_verde.png");
+                //var caminhoImagem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img\\logo_prontu_cinza_verde.png");
+                string caminhoImagem = "";
+                var c = Directory.GetParent(Directory.GetCurrentDirectory());
+                if(c != null)
+                {
+                    caminhoImagem = c.ToString().Replace("bin", "img\\logo_prontu_cinza_verde.png");
+                }
                 if (File.Exists(caminhoImagem))
                 {
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(caminhoImagem);
@@ -257,7 +263,7 @@ namespace PRONTU
             // Configuração do documento PDF
             var pxPorMm = 72 / 25.5F;
             var pdf = new Document(PageSize.A4, 15 * pxPorMm, 15 * pxPorMm, 15 * pxPorMm, 20 * pxPorMm);
-            var nomeArquivo = $"relatorios\\laudo_{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
+            var nomeArquivo = $"laudo_{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf";
             var arquivo = new FileStream(nomeArquivo, FileMode.Create);
             var writer = PdfWriter.GetInstance(pdf, arquivo);
             //writer.PageEvent = new EventosDePagina(totalPaginas);
