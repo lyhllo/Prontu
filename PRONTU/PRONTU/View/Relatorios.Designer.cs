@@ -40,10 +40,10 @@
             this.rbAtendimentos = new System.Windows.Forms.RadioButton();
             this.gbTipos = new System.Windows.Forms.GroupBox();
             this.gbLaudo = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCab = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.txtDiagnostico = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbAtendimento.SuspendLayout();
             this.gbTipos.SuspendLayout();
             this.gbLaudo.SuspendLayout();
@@ -112,7 +112,7 @@
             this.gbAtendimento.Controls.Add(this.cbPaciente);
             this.gbAtendimento.Controls.Add(this.dpDataInicial);
             this.gbAtendimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAtendimento.Location = new System.Drawing.Point(12, 503);
+            this.gbAtendimento.Location = new System.Drawing.Point(12, 627);
             this.gbAtendimento.Name = "gbAtendimento";
             this.gbAtendimento.Size = new System.Drawing.Size(1176, 137);
             this.gbAtendimento.TabIndex = 28;
@@ -166,7 +166,7 @@
             this.gbTipos.Controls.Add(this.rbAtendimentos);
             this.gbTipos.Controls.Add(this.rbLaudo);
             this.gbTipos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTipos.Location = new System.Drawing.Point(12, 99);
+            this.gbTipos.Location = new System.Drawing.Point(12, 84);
             this.gbTipos.Name = "gbTipos";
             this.gbTipos.Size = new System.Drawing.Size(1177, 137);
             this.gbTipos.TabIndex = 1;
@@ -176,50 +176,52 @@
             // gbLaudo
             // 
             this.gbLaudo.Controls.Add(this.txtTitulo);
-            this.gbLaudo.Controls.Add(this.txtCab);
+            this.gbLaudo.Controls.Add(this.txtDiagnostico);
             this.gbLaudo.Controls.Add(this.label5);
             this.gbLaudo.Controls.Add(this.label4);
             this.gbLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLaudo.Location = new System.Drawing.Point(12, 272);
+            this.gbLaudo.Location = new System.Drawing.Point(12, 239);
             this.gbLaudo.Name = "gbLaudo";
-            this.gbLaudo.Size = new System.Drawing.Size(1176, 189);
+            this.gbLaudo.Size = new System.Drawing.Size(1176, 382);
             this.gbLaudo.TabIndex = 29;
             this.gbLaudo.TabStop = false;
             this.gbLaudo.Text = "Informe os dados do Laudo";
             // 
-            // label4
+            // txtTitulo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Cabeçalho:";
+            this.txtTitulo.Location = new System.Drawing.Point(12, 55);
+            this.txtTitulo.MaxLength = 50;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(1149, 26);
+            this.txtTitulo.TabIndex = 2;
+            // 
+            // txtDiagnostico
+            // 
+            this.txtDiagnostico.Location = new System.Drawing.Point(12, 123);
+            this.txtDiagnostico.MaxLength = 1000;
+            this.txtDiagnostico.Multiline = true;
+            this.txtDiagnostico.Name = "txtDiagnostico";
+            this.txtDiagnostico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDiagnostico.Size = new System.Drawing.Size(1149, 244);
+            this.txtDiagnostico.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 106);
+            this.label5.Location = new System.Drawing.Point(8, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Título:";
             // 
-            // txtCab
+            // label4
             // 
-            this.txtCab.Location = new System.Drawing.Point(12, 56);
-            this.txtCab.MaxLength = 115;
-            this.txtCab.Name = "txtCab";
-            this.txtCab.Size = new System.Drawing.Size(1148, 26);
-            this.txtCab.TabIndex = 2;
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Location = new System.Drawing.Point(11, 129);
-            this.txtTitulo.MaxLength = 115;
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(1149, 26);
-            this.txtTitulo.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Diagnóstico:";
             // 
             // Relatorios
             // 
@@ -255,7 +257,7 @@
         public System.Windows.Forms.ComboBox cbPaciente;
         private System.Windows.Forms.GroupBox gbLaudo;
         private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.TextBox txtCab;
+        private System.Windows.Forms.TextBox txtDiagnostico;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
     }

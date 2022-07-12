@@ -27,7 +27,11 @@ namespace PRONTU.Controller
                       "  LEFT JOIN atendimento" +
                       "    ON (atendimento.id_paciente = paciente.id_paciente AND" +
                       "        atendimento.id_usuario = paciente.id_usuario)" +
+                      "  LEFT JOIN prontuario " +
+                      "    ON (atendimento.id_usuario = prontuario.id_usuario AND" +
+                      "        atendimento.id_atendimento = prontuario.id_atendimento)" +
                       " WHERE atendimento.id_usuario = " + _idUsuario +
+                      "   AND prontuario.id_prontuario > 0 " +
                       " ORDER BY paciente.nome";
 
                 MySqlDataReader rdr = c.QueryData(sql);
