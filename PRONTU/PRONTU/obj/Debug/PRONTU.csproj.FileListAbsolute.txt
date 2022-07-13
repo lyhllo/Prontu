@@ -160,3 +160,6 @@ D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.ConfirmaExclusao.resource
 D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.Pacientes.resources
 D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesAgendamentos.resources
 D:\Projetos\Prontu\PRONTU\PRONTU\obj\Debug\PRONTU.View.PacientesHistorico.resources
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\iTextSharp.LGPLv2.Core.dll
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\lyhll\OneDrive\Área de Trabalho\PRONTU\Prontu\PRONTU\PRONTU\bin\Debug\iTextSharp.LGPLv2.Core.xml
