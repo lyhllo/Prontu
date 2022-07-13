@@ -352,5 +352,10 @@ namespace PRONTU
 
 
         }
+
+        private void dgHorarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

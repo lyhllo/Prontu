@@ -43,17 +43,17 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnBuscar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(4, 20);
+            this.btnBuscar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscar.Location = new System.Drawing.Point(27, 36);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(128, 54);
+            this.btnBuscar.Size = new System.Drawing.Size(120, 48);
             this.btnBuscar.TabIndex = 47;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -61,17 +61,17 @@
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSelecionar.BackColor = System.Drawing.Color.SeaGreen;
             this.btnSelecionar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSelecionar.FlatAppearance.BorderSize = 0;
             this.btnSelecionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnSelecionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelecionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSelecionar.Location = new System.Drawing.Point(872, 20);
+            this.btnSelecionar.Location = new System.Drawing.Point(1009, 36);
             this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelecionar.Name = "btnSelecionar";
-            this.btnSelecionar.Size = new System.Drawing.Size(155, 54);
+            this.btnSelecionar.Size = new System.Drawing.Size(149, 48);
             this.btnSelecionar.TabIndex = 40;
             this.btnSelecionar.Text = "Selecionar";
             this.btnSelecionar.UseVisualStyleBackColor = false;
@@ -80,17 +80,17 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancelar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(1035, 20);
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCancelar.Location = new System.Drawing.Point(854, 36);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(128, 54);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 48);
             this.btnCancelar.TabIndex = 39;
             this.btnCancelar.Text = "Voltar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -126,17 +126,17 @@
             // 
             // btnAgenda
             // 
-            this.btnAgenda.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnAgenda.BackColor = System.Drawing.Color.Gainsboro;
             this.btnAgenda.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAgenda.FlatAppearance.BorderSize = 0;
             this.btnAgenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAgenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgenda.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgenda.Location = new System.Drawing.Point(699, 20);
+            this.btnAgenda.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgenda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgenda.Location = new System.Drawing.Point(667, 36);
             this.btnAgenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Size = new System.Drawing.Size(128, 54);
+            this.btnAgenda.Size = new System.Drawing.Size(120, 48);
             this.btnAgenda.TabIndex = 55;
             this.btnAgenda.Text = "Agenda";
             this.btnAgenda.UseVisualStyleBackColor = false;
@@ -144,17 +144,17 @@
             // 
             // btnHistorico
             // 
-            this.btnHistorico.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnHistorico.BackColor = System.Drawing.Color.Gainsboro;
             this.btnHistorico.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnHistorico.FlatAppearance.BorderSize = 0;
             this.btnHistorico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHistorico.Location = new System.Drawing.Point(560, 20);
+            this.btnHistorico.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorico.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHistorico.Location = new System.Drawing.Point(539, 36);
             this.btnHistorico.Margin = new System.Windows.Forms.Padding(4);
             this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(128, 54);
+            this.btnHistorico.Size = new System.Drawing.Size(120, 48);
             this.btnHistorico.TabIndex = 54;
             this.btnHistorico.Text = "Histórico";
             this.btnHistorico.UseVisualStyleBackColor = false;
@@ -162,17 +162,17 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnIncluir.BackColor = System.Drawing.Color.Gainsboro;
             this.btnIncluir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnIncluir.FlatAppearance.BorderSize = 0;
             this.btnIncluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIncluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnIncluir.Location = new System.Drawing.Point(421, 20);
+            this.btnIncluir.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncluir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnIncluir.Location = new System.Drawing.Point(411, 36);
             this.btnIncluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(128, 54);
+            this.btnIncluir.Size = new System.Drawing.Size(120, 48);
             this.btnIncluir.TabIndex = 53;
             this.btnIncluir.Text = "Novo";
             this.btnIncluir.UseVisualStyleBackColor = false;
@@ -180,17 +180,17 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnExcluir.BackColor = System.Drawing.Color.Gainsboro;
             this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExcluir.Location = new System.Drawing.Point(282, 20);
+            this.btnExcluir.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnExcluir.Location = new System.Drawing.Point(283, 36);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(128, 54);
+            this.btnExcluir.Size = new System.Drawing.Size(120, 48);
             this.btnExcluir.TabIndex = 52;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -198,17 +198,17 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnEditar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditar.Location = new System.Drawing.Point(143, 20);
+            this.btnEditar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEditar.Location = new System.Drawing.Point(155, 36);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(128, 54);
+            this.btnEditar.Size = new System.Drawing.Size(120, 48);
             this.btnEditar.TabIndex = 51;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;

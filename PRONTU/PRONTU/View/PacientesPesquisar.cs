@@ -163,5 +163,10 @@ namespace PRONTU
             }
             return _cadastro;
         }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
