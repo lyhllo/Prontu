@@ -130,7 +130,13 @@ namespace PRONTU
                 pdf.Add(subTitulo);
 
                 // adição da imagem
-                var caminhoImagem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img\\logo_prontu_cinza_verde.png");
+                //var caminhoImagem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img\\logo_prontu_cinza_verde.png");
+                string caminhoImagem = "";
+                var c = Directory.GetParent(Directory.GetCurrentDirectory());
+                if(c != null)
+                {
+                    caminhoImagem = c.ToString().Replace("bin", "img\\logo_prontu_cinza_verde.png");
+                }
                 if (File.Exists(caminhoImagem))
                 {
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(caminhoImagem);
@@ -145,8 +151,8 @@ namespace PRONTU
                 }
 
                 // Adição da tabela de dados
-                var tabela = new PdfPTable(7);
-                float[] larguraColunas = { 4f, 1.5f, 1f, 1.5f, 2f, 2f, 1f};
+                var tabela = new PdfPTable(6);
+                float[] larguraColunas = { 5.5f, 1.5f, 1f, 2f, 2f, 1f};
                 tabela.SetWidths(larguraColunas);
                 tabela.DefaultCell.BorderWidth = 0;
                 tabela.WidthPercentage = 100;
@@ -155,7 +161,7 @@ namespace PRONTU
                 CriarCelulaTexto(tabela, "Paciente", PdfPCell.ALIGN_LEFT, true, false, 12, 25);
                 CriarCelulaTexto(tabela, "Data", PdfPCell.ALIGN_LEFT, true, false, 12, 25);
                 CriarCelulaTexto(tabela, "Hora", PdfPCell.ALIGN_LEFT, true, false, 12, 25);
-                CriarCelulaTexto(tabela, "Atendido", PdfPCell.ALIGN_CENTER, true, false, 12, 25);
+                //CriarCelulaTexto(tabela, "Atendido", PdfPCell.ALIGN_CENTER, true, false, 12, 25);
                 CriarCelulaTexto(tabela, "Convênio", PdfPCell.ALIGN_LEFT, true, false, 12, 25);
                 CriarCelulaTexto(tabela, "Valor", PdfPCell.ALIGN_LEFT, true, false, 12, 25);
                 CriarCelulaTexto(tabela, "Pago", PdfPCell.ALIGN_CENTER, true, false, 12, 25);
@@ -170,7 +176,7 @@ namespace PRONTU
                     // Hora
                     CriarCelulaTexto(tabela, a.Horario.ToString("HH:mm"), PdfPCell.ALIGN_LEFT, false, false, 12, 25);
                     // Atendido
-                    CriarCelulaTexto(tabela, a.Presenca ? "Sim" : "Não", PdfPCell.ALIGN_CENTER, false, false, 12, 25);
+                    //CriarCelulaTexto(tabela, a.Presenca ? "Sim" : "Não", PdfPCell.ALIGN_CENTER, false, false, 12, 25);
                     // Convênio
                     CriarCelulaTexto(tabela, a.Convenio, PdfPCell.ALIGN_LEFT, false, false, 12, 25);
                     // Valor
@@ -185,12 +191,12 @@ namespace PRONTU
                 arquivo.Close();
 
                 // Move o arquivo para area de trabalho
-                string origem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
-                string destino = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), nomeArquivo);
-                System.IO.File.Move(origem, destino);
+                //string origem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
+                //string destino = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), nomeArquivo);
+                //System.IO.File.Move(origem, destino);
 
                 // Abre o PDF no visualizador padrão
-                var caminhoPDF = destino;
+                var caminhoPDF = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
                 if (File.Exists(caminhoPDF))
                 {
                     Process.Start(new ProcessStartInfo()
@@ -263,16 +269,6 @@ namespace PRONTU
             //writer.PageEvent = new EventosDePagina(totalPaginas);
             pdf.Open();
 
-            // Adição do Cabeçalho
-            var cabecalho = new Paragraph(txtCab.Text, fonteNormal14);
-            cabecalho.Alignment = Element.ALIGN_CENTER;
-            pdf.Add(cabecalho);
-
-            // Adição da linha de divisão
-            var linhaDivisoria = new Paragraph("_________________________________________________________________", fonteNormal14);
-            linhaDivisoria.Alignment = Element.ALIGN_CENTER;
-            pdf.Add(linhaDivisoria);
-
             // Adição dos dados do profissional
             var profissional = new Paragraph(_laudo[0].Nome + " - " + _laudo[0].Profissao + " - " + _laudo[0].Registro_profissional, fonteNormal14);
             profissional.Alignment = Element.ALIGN_CENTER;
@@ -291,10 +287,20 @@ namespace PRONTU
             titulo.SpacingAfter = 10;
             pdf.Add(titulo);
 
-            // Adição das linhas em branco
-            var vazio = new Paragraph("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", fonteBold16);
-            vazio.Alignment = Element.ALIGN_LEFT;
-            pdf.Add(vazio);
+            if (String.IsNullOrEmpty(txtDiagnostico.Text))
+            {
+                // Adição das linhas em branco
+                var vazio = new Paragraph("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", fonteBold16);
+                vazio.Alignment = Element.ALIGN_LEFT;
+                pdf.Add(vazio);
+            }
+            else
+            {
+                // Adiciona o texto informado
+                var textoDetalhado = new Paragraph(txtDiagnostico.Text + "\n\n", fonteNormal12);
+                textoDetalhado.Alignment = Element.ALIGN_LEFT;
+                pdf.Add(textoDetalhado);
+            }
 
             // Adição da assinatura
             var nomeAssinatura = new Paragraph(_laudo[0].Nome, fonteUnderline12);
@@ -314,12 +320,12 @@ namespace PRONTU
             pdf.Close();
             arquivo.Close();
 
-            string origem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
-            string destino = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), nomeArquivo);
-            System.IO.File.Move(origem, destino);
+            //string origem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
+            //string destino = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), nomeArquivo);
+            //System.IO.File.Move(origem, destino);
 
             // Abre o PDF no visualizador padrão
-            var caminhoPDF = destino;
+            var caminhoPDF = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nomeArquivo);
             if (File.Exists(caminhoPDF))
             {
                 Process.Start(new ProcessStartInfo()
