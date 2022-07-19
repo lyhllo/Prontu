@@ -51,7 +51,7 @@
             // 
             this.calendario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.calendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calendario.Location = new System.Drawing.Point(48, 43);
+            this.calendario.Location = new System.Drawing.Point(46, 41);
             this.calendario.Name = "calendario";
             this.calendario.ShowTodayCircle = false;
             this.calendario.TabIndex = 0;
@@ -59,18 +59,37 @@
             this.calendario.TrailingForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendario_DateChanged);
             // 
+            // btnCadastro
+            // 
+            this.btnCadastro.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastro.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnCadastro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastro.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastro.Location = new System.Drawing.Point(43, 397);
+            this.btnCadastro.Name = "btnCadastro";
+            this.btnCadastro.Size = new System.Drawing.Size(230, 40);
+            this.btnCadastro.TabIndex = 2;
+            this.btnCadastro.Text = "Editar Cadastro";
+            this.btnCadastro.UseVisualStyleBackColor = false;
+            this.btnCadastro.Visible = false;
+            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
+            // 
             // btnRemoverAgendamento
             // 
-            this.btnRemoverAgendamento.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRemoverAgendamento.BackColor = System.Drawing.Color.LightCoral;
             this.btnRemoverAgendamento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoverAgendamento.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnRemoverAgendamento.FlatAppearance.BorderSize = 0;
             this.btnRemoverAgendamento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRemoverAgendamento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRemoverAgendamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoverAgendamento.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnRemoverAgendamento.Location = new System.Drawing.Point(186, 302);
+            this.btnRemoverAgendamento.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverAgendamento.Location = new System.Drawing.Point(43, 319);
             this.btnRemoverAgendamento.Name = "btnRemoverAgendamento";
-            this.btnRemoverAgendamento.Size = new System.Drawing.Size(131, 103);
+            this.btnRemoverAgendamento.Size = new System.Drawing.Size(230, 40);
             this.btnRemoverAgendamento.TabIndex = 3;
             this.btnRemoverAgendamento.Text = "Remover Agendamento";
             this.btnRemoverAgendamento.UseVisualStyleBackColor = false;
@@ -85,10 +104,10 @@
             this.btnPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPagar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnPagar.Location = new System.Drawing.Point(22, 441);
+            this.btnPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.btnPagar.Location = new System.Drawing.Point(124, 624);
             this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(134, 103);
+            this.btnPagar.Size = new System.Drawing.Size(149, 48);
             this.btnPagar.TabIndex = 4;
             this.btnPagar.Text = "Marcar Pagamento";
             this.btnPagar.UseVisualStyleBackColor = false;
@@ -97,16 +116,18 @@
             // 
             // btnAtender
             // 
-            this.btnAtender.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnAtender.BackColor = System.Drawing.Color.SeaGreen;
             this.btnAtender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtender.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnAtender.FlatAppearance.BorderSize = 0;
             this.btnAtender.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAtender.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnAtender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtender.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnAtender.Location = new System.Drawing.Point(22, 302);
+            this.btnAtender.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtender.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAtender.Location = new System.Drawing.Point(43, 242);
             this.btnAtender.Name = "btnAtender";
-            this.btnAtender.Size = new System.Drawing.Size(134, 103);
+            this.btnAtender.Size = new System.Drawing.Size(227, 40);
             this.btnAtender.TabIndex = 5;
             this.btnAtender.Text = "Agendar";
             this.btnAtender.UseVisualStyleBackColor = false;
@@ -120,10 +141,10 @@
             this.btnFalta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnFalta.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnFalta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFalta.Font = new System.Drawing.Font("Noto Sans Arabic UI", 10.8F);
-            this.btnFalta.Location = new System.Drawing.Point(183, 441);
+            this.btnFalta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFalta.Location = new System.Drawing.Point(43, 474);
             this.btnFalta.Name = "btnFalta";
-            this.btnFalta.Size = new System.Drawing.Size(134, 103);
+            this.btnFalta.Size = new System.Drawing.Size(230, 40);
             this.btnFalta.TabIndex = 6;
             this.btnFalta.Text = "Registrar Falta";
             this.btnFalta.UseVisualStyleBackColor = false;
@@ -156,15 +177,15 @@
             this.clConvenio,
             this.clObs});
             this.dgHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgHorarios.Location = new System.Drawing.Point(345, 18);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgHorarios.Location = new System.Drawing.Point(338, 41);
             this.dgHorarios.MultiSelect = false;
             this.dgHorarios.Name = "dgHorarios";
             this.dgHorarios.ReadOnly = true;
@@ -172,8 +193,9 @@
             this.dgHorarios.RowHeadersWidth = 51;
             this.dgHorarios.RowTemplate.Height = 24;
             this.dgHorarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHorarios.Size = new System.Drawing.Size(830, 691);
+            this.dgHorarios.Size = new System.Drawing.Size(814, 680);
             this.dgHorarios.TabIndex = 7;
+            this.dgHorarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgHorarios_CellContentClick);
             this.dgHorarios.Click += new System.EventHandler(this.SelectionChanged);
             // 
             // clIdPcte
@@ -228,20 +250,20 @@
             // lblValor
             // 
             this.lblValor.AutoSize = true;
-            this.lblValor.Font = new System.Drawing.Font("Noto Sans Arabic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblValor.Location = new System.Drawing.Point(31, 592);
+            this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblValor.Location = new System.Drawing.Point(42, 586);
             this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(139, 42);
+            this.lblValor.Size = new System.Drawing.Size(79, 20);
             this.lblValor.TabIndex = 8;
             this.lblValor.Text = "Valor: R$ ";
             this.lblValor.Visible = false;
             // 
             // txtValor
             // 
-            this.txtValor.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(180, 592);
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(124, 583);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(132, 42);
+            this.txtValor.Size = new System.Drawing.Size(149, 26);
             this.txtValor.TabIndex = 9;
             this.txtValor.Visible = false;
             this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SalvaDeletaValor);

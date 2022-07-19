@@ -42,31 +42,34 @@
             // lblDataFim
             // 
             this.lblDataFim.AutoSize = true;
-            this.lblDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataFim.Location = new System.Drawing.Point(374, 15);
+            this.lblDataFim.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataFim.Location = new System.Drawing.Point(276, 29);
+            this.lblDataFim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataFim.Name = "lblDataFim";
-            this.lblDataFim.Size = new System.Drawing.Size(96, 25);
+            this.lblDataFim.Size = new System.Drawing.Size(89, 18);
             this.lblDataFim.TabIndex = 17;
             this.lblDataFim.Text = "Data Fim:";
             // 
             // txtDataFim
             // 
-            this.txtDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataFim.Location = new System.Drawing.Point(478, 12);
+            this.txtDataFim.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataFim.Location = new System.Drawing.Point(369, 26);
+            this.txtDataFim.Margin = new System.Windows.Forms.Padding(2);
             this.txtDataFim.Mask = "00/00/0000";
             this.txtDataFim.Name = "txtDataFim";
-            this.txtDataFim.Size = new System.Drawing.Size(125, 30);
+            this.txtDataFim.Size = new System.Drawing.Size(110, 27);
             this.txtDataFim.TabIndex = 16;
             this.txtDataFim.ValidatingType = typeof(System.DateTime);
             this.txtDataFim.Leave += new System.EventHandler(this.ValidaDataFim);
             // 
             // txtDataInicio
             // 
-            this.txtDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataInicio.Location = new System.Drawing.Point(132, 12);
+            this.txtDataInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataInicio.Location = new System.Drawing.Point(132, 26);
+            this.txtDataInicio.Margin = new System.Windows.Forms.Padding(2);
             this.txtDataInicio.Mask = "00/00/0000";
             this.txtDataInicio.Name = "txtDataInicio";
-            this.txtDataInicio.Size = new System.Drawing.Size(120, 30);
+            this.txtDataInicio.Size = new System.Drawing.Size(110, 27);
             this.txtDataInicio.TabIndex = 15;
             this.txtDataInicio.ValidatingType = typeof(System.DateTime);
             this.txtDataInicio.Leave += new System.EventHandler(this.ValidaDataInicio);
@@ -99,7 +102,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgAgendamentos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgAgendamentos.Location = new System.Drawing.Point(22, 60);
+            this.dgAgendamentos.Location = new System.Drawing.Point(16, 72);
+            this.dgAgendamentos.Margin = new System.Windows.Forms.Padding(2);
             this.dgAgendamentos.MultiSelect = false;
             this.dgAgendamentos.Name = "dgAgendamentos";
             this.dgAgendamentos.ReadOnly = true;
@@ -107,41 +111,47 @@
             this.dgAgendamentos.RowHeadersWidth = 51;
             this.dgAgendamentos.RowTemplate.Height = 24;
             this.dgAgendamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgAgendamentos.Size = new System.Drawing.Size(1163, 634);
+            this.dgAgendamentos.Size = new System.Drawing.Size(872, 488);
             this.dgAgendamentos.TabIndex = 14;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(673, 9);
+            this.btnPesquisar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPesquisar.Location = new System.Drawing.Point(739, 12);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(115, 37);
+            this.btnPesquisar.Size = new System.Drawing.Size(149, 48);
             this.btnPesquisar.TabIndex = 12;
             this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // lblDataInicio
             // 
             this.lblDataInicio.AutoSize = true;
-            this.lblDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataInicio.Location = new System.Drawing.Point(17, 15);
+            this.lblDataInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataInicio.Location = new System.Drawing.Point(13, 29);
+            this.lblDataInicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDataInicio.Name = "lblDataInicio";
-            this.lblDataInicio.Size = new System.Drawing.Size(109, 25);
+            this.lblDataInicio.Size = new System.Drawing.Size(105, 18);
             this.lblDataInicio.TabIndex = 13;
             this.lblDataInicio.Text = "Data Início:";
             // 
             // PacientesAgendamentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 703);
+            this.ClientSize = new System.Drawing.Size(902, 571);
             this.Controls.Add(this.lblDataFim);
             this.Controls.Add(this.txtDataFim);
             this.Controls.Add(this.txtDataInicio);
             this.Controls.Add(this.dgAgendamentos);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.lblDataInicio);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PacientesAgendamentos";
             this.Text = "PacientesAgendamentos";
             ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).EndInit();

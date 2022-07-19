@@ -70,12 +70,13 @@ namespace PRONTU
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(168)))), ((int)(((byte)(79)))));
+            this.btnConfirmar.BackColor = System.Drawing.Color.SeaGreen;
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Verdana", 14F);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(1008, 14);
+            this.btnConfirmar.Location = new System.Drawing.Point(1009, 36);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(149, 48);
@@ -86,12 +87,11 @@ namespace PRONTU
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(851, 14);
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 14F);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.Location = new System.Drawing.Point(854, 36);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(149, 48);
@@ -107,18 +107,18 @@ namespace PRONTU
             this.txtCondutas.MaxLength = 500;
             this.txtCondutas.Multiline = true;
             this.txtCondutas.Name = "txtCondutas";
-            this.txtCondutas.Size = new System.Drawing.Size(1118, 110);
+            this.txtCondutas.Size = new System.Drawing.Size(1131, 187);
             this.txtCondutas.TabIndex = 17;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtCondutas);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(18, 424);
+            this.groupBox3.Font = new System.Drawing.Font("Verdana", 12F);
+            this.groupBox3.Location = new System.Drawing.Point(18, 519);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(1140, 163);
+            this.groupBox3.Size = new System.Drawing.Size(1158, 236);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CONDUTAS";
@@ -130,18 +130,18 @@ namespace PRONTU
             this.txtAvaliacao.MaxLength = 500;
             this.txtAvaliacao.Multiline = true;
             this.txtAvaliacao.Name = "txtAvaliacao";
-            this.txtAvaliacao.Size = new System.Drawing.Size(1118, 110);
+            this.txtAvaliacao.Size = new System.Drawing.Size(1122, 185);
             this.txtAvaliacao.TabIndex = 15;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtAvaliacao);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(18, 247);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 12F);
+            this.groupBox2.Location = new System.Drawing.Point(18, 255);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1140, 154);
+            this.groupBox2.Size = new System.Drawing.Size(1158, 233);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AVALIAÇÃO";
@@ -152,7 +152,7 @@ namespace PRONTU
             this.label2.Location = new System.Drawing.Point(9, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome:";
             // 
@@ -161,19 +161,19 @@ namespace PRONTU
             this.txtNome.Enabled = false;
             this.txtNome.ForeColor = System.Drawing.Color.Black;
             this.txtNome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtNome.Location = new System.Drawing.Point(88, 26);
+            this.txtNome.Location = new System.Drawing.Point(72, 26);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(656, 24);
+            this.txtNome.Size = new System.Drawing.Size(615, 27);
             this.txtNome.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(756, 29);
+            this.label3.Location = new System.Drawing.Point(720, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 18);
+            this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "CPF:";
             // 
@@ -182,20 +182,20 @@ namespace PRONTU
             this.txtData.Enabled = false;
             this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtData.ForeColor = System.Drawing.Color.Black;
-            this.txtData.Location = new System.Drawing.Point(88, 71);
+            this.txtData.Location = new System.Drawing.Point(72, 73);
             this.txtData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(103, 24);
+            this.txtData.Size = new System.Drawing.Size(100, 24);
             this.txtData.TabIndex = 7;
             this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(930, 30);
+            this.label4.Location = new System.Drawing.Point(919, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 18);
+            this.label4.Size = new System.Drawing.Size(111, 18);
             this.label4.TabIndex = 4;
             this.label4.Text = "Data. Nasc.:";
             // 
@@ -205,56 +205,56 @@ namespace PRONTU
             this.txtNascimento.Location = new System.Drawing.Point(1028, 26);
             this.txtNascimento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNascimento.Name = "txtNascimento";
-            this.txtNascimento.Size = new System.Drawing.Size(103, 24);
+            this.txtNascimento.Size = new System.Drawing.Size(103, 27);
             this.txtNascimento.TabIndex = 5;
             this.txtNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 75);
+            this.label5.Location = new System.Drawing.Point(17, 75);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 18);
+            this.label5.Size = new System.Drawing.Size(54, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "Data:";
             // 
             // txtHora
             // 
             this.txtHora.Enabled = false;
-            this.txtHora.Location = new System.Drawing.Point(280, 71);
+            this.txtHora.Location = new System.Drawing.Point(243, 72);
             this.txtHora.Margin = new System.Windows.Forms.Padding(4);
             this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(61, 24);
+            this.txtHora.Size = new System.Drawing.Size(70, 27);
             this.txtHora.TabIndex = 9;
             this.txtHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(212, 75);
+            this.label6.Location = new System.Drawing.Point(189, 75);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 18);
+            this.label6.Size = new System.Drawing.Size(53, 18);
             this.label6.TabIndex = 8;
             this.label6.Text = "Hora:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(751, 73);
+            this.label8.Location = new System.Drawing.Point(709, 75);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 18);
+            this.label8.Size = new System.Drawing.Size(56, 18);
             this.label8.TabIndex = 12;
             this.label8.Text = "Valor:";
             // 
             // txtValorPago
             // 
-            this.txtValorPago.Location = new System.Drawing.Point(805, 71);
+            this.txtValorPago.Location = new System.Drawing.Point(763, 71);
             this.txtValorPago.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorPago.Name = "txtValorPago";
-            this.txtValorPago.Size = new System.Drawing.Size(117, 24);
+            this.txtValorPago.Size = new System.Drawing.Size(139, 27);
             this.txtValorPago.TabIndex = 13;
             this.txtValorPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -276,8 +276,8 @@ namespace PRONTU
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 78);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(17, 105);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -289,19 +289,19 @@ namespace PRONTU
             // mTextCpf
             // 
             this.mTextCpf.Enabled = false;
-            this.mTextCpf.Location = new System.Drawing.Point(805, 26);
+            this.mTextCpf.Location = new System.Drawing.Point(763, 26);
             this.mTextCpf.Mask = "000,000,000-00";
             this.mTextCpf.Name = "mTextCpf";
-            this.mTextCpf.Size = new System.Drawing.Size(117, 24);
+            this.mTextCpf.Size = new System.Drawing.Size(139, 27);
             this.mTextCpf.TabIndex = 17;
             // 
             // cbConvenio
             // 
             this.cbConvenio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbConvenio.FormattingEnabled = true;
-            this.cbConvenio.Location = new System.Drawing.Point(433, 70);
+            this.cbConvenio.Location = new System.Drawing.Point(426, 72);
             this.cbConvenio.Name = "cbConvenio";
-            this.cbConvenio.Size = new System.Drawing.Size(311, 25);
+            this.cbConvenio.Size = new System.Drawing.Size(261, 26);
             this.cbConvenio.TabIndex = 16;
             // 
             // cbStatusPagto
@@ -310,7 +310,7 @@ namespace PRONTU
             this.cbStatusPagto.FormattingEnabled = true;
             this.cbStatusPagto.Location = new System.Drawing.Point(1028, 70);
             this.cbStatusPagto.Name = "cbStatusPagto";
-            this.cbStatusPagto.Size = new System.Drawing.Size(103, 25);
+            this.cbStatusPagto.Size = new System.Drawing.Size(103, 26);
             this.cbStatusPagto.TabIndex = 15;
             // 
             // label9
@@ -318,17 +318,17 @@ namespace PRONTU
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(975, 75);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 18);
+            this.label9.Size = new System.Drawing.Size(55, 18);
             this.label9.TabIndex = 14;
             this.label9.Text = "Pago:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(351, 75);
+            this.label7.Location = new System.Drawing.Point(333, 76);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 18);
+            this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 10;
             this.label7.Text = "Convênio:";
             // 

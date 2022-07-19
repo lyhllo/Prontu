@@ -40,22 +40,25 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(678, 6);
+            this.btnPesquisar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPesquisar.Location = new System.Drawing.Point(1029, 12);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(115, 37);
+            this.btnPesquisar.Size = new System.Drawing.Size(149, 48);
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // lblDataInicio
             // 
             this.lblDataInicio.AutoSize = true;
-            this.lblDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataInicio.Location = new System.Drawing.Point(22, 12);
+            this.lblDataInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataInicio.Location = new System.Drawing.Point(26, 29);
             this.lblDataInicio.Name = "lblDataInicio";
-            this.lblDataInicio.Size = new System.Drawing.Size(109, 25);
+            this.lblDataInicio.Size = new System.Drawing.Size(105, 18);
             this.lblDataInicio.TabIndex = 5;
             this.lblDataInicio.Text = "Data Início:";
             // 
@@ -77,35 +80,35 @@
             this.dgHistorico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHistorico.ColumnHeadersVisible = false;
-            this.dgHistorico.Location = new System.Drawing.Point(27, 57);
+            this.dgHistorico.Location = new System.Drawing.Point(27, 77);
             this.dgHistorico.MultiSelect = false;
             this.dgHistorico.Name = "dgHistorico";
             this.dgHistorico.ReadOnly = true;
             this.dgHistorico.RowHeadersWidth = 51;
             this.dgHistorico.RowTemplate.Height = 24;
             this.dgHistorico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHistorico.Size = new System.Drawing.Size(1163, 634);
+            this.dgHistorico.Size = new System.Drawing.Size(1151, 603);
             this.dgHistorico.TabIndex = 7;
             this.dgHistorico.DoubleClick += new System.EventHandler(this.DetalharAtendimento);
             // 
             // txtDataInicio
             // 
-            this.txtDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataInicio.Location = new System.Drawing.Point(137, 9);
+            this.txtDataInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataInicio.Location = new System.Drawing.Point(137, 26);
             this.txtDataInicio.Mask = "00/00/0000";
             this.txtDataInicio.Name = "txtDataInicio";
-            this.txtDataInicio.Size = new System.Drawing.Size(128, 30);
+            this.txtDataInicio.Size = new System.Drawing.Size(110, 27);
             this.txtDataInicio.TabIndex = 9;
             this.txtDataInicio.ValidatingType = typeof(System.DateTime);
             this.txtDataInicio.Leave += new System.EventHandler(this.ValidaDataInicio);
             // 
             // txtDataFim
             // 
-            this.txtDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataFim.Location = new System.Drawing.Point(483, 9);
+            this.txtDataFim.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataFim.Location = new System.Drawing.Point(422, 26);
             this.txtDataFim.Mask = "00/00/0000";
             this.txtDataFim.Name = "txtDataFim";
-            this.txtDataFim.Size = new System.Drawing.Size(123, 30);
+            this.txtDataFim.Size = new System.Drawing.Size(110, 27);
             this.txtDataFim.TabIndex = 10;
             this.txtDataFim.ValidatingType = typeof(System.DateTime);
             this.txtDataFim.Leave += new System.EventHandler(this.ValidaDataFim);
@@ -113,10 +116,10 @@
             // lblDataFim
             // 
             this.lblDataFim.AutoSize = true;
-            this.lblDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataFim.Location = new System.Drawing.Point(379, 12);
+            this.lblDataFim.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataFim.Location = new System.Drawing.Point(327, 29);
             this.lblDataFim.Name = "lblDataFim";
-            this.lblDataFim.Size = new System.Drawing.Size(96, 25);
+            this.lblDataFim.Size = new System.Drawing.Size(89, 18);
             this.lblDataFim.TabIndex = 11;
             this.lblDataFim.Text = "Data Fim:";
             // 

@@ -52,7 +52,7 @@
             // 
             this.panelCabecalho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCabecalho.BackColor = System.Drawing.Color.Goldenrod;
+            this.panelCabecalho.BackColor = System.Drawing.Color.SeaGreen;
             this.panelCabecalho.Controls.Add(this.lblData);
             this.panelCabecalho.Controls.Add(this.lblUsuario);
             this.panelCabecalho.Controls.Add(this.label3);
@@ -68,11 +68,11 @@
             // 
             this.lblData.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(713, 7);
+            this.lblData.Location = new System.Drawing.Point(1250, 13);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(90, 17);
+            this.lblData.Size = new System.Drawing.Size(118, 18);
             this.lblData.TabIndex = 8;
             this.lblData.Text = "12/06/2022";
             this.lblData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,13 +80,13 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(276, 7);
+            this.lblUsuario.Location = new System.Drawing.Point(208, 10);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(64, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(79, 22);
             this.lblUsuario.TabIndex = 7;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "Usuário";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -94,7 +94,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(205, 0);
+            this.label3.Location = new System.Drawing.Point(112, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 29);
             this.label3.TabIndex = 6;
@@ -104,11 +104,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(28, 0);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 26);
+            this.label2.Size = new System.Drawing.Size(94, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "PRONTU";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,7 +160,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 43);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(301, 745);
+            this.panelMenu.Size = new System.Drawing.Size(309, 745);
             this.panelMenu.TabIndex = 3;
             // 
             // btnRelatorios
@@ -172,13 +172,13 @@
             this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelatorios.ForeColor = System.Drawing.Color.White;
             this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
             this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.Location = new System.Drawing.Point(34, 449);
+            this.btnRelatorios.Location = new System.Drawing.Point(58, 411);
             this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(271, 70);
+            this.btnRelatorios.Size = new System.Drawing.Size(218, 70);
             this.btnRelatorios.TabIndex = 2;
             this.btnRelatorios.Text = "   RELATÓRIOS";
             this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -195,7 +195,7 @@
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.Location = new System.Drawing.Point(115, 88);
+            this.btnHome.Location = new System.Drawing.Point(103, 66);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(90, 90);
             this.btnHome.TabIndex = 4;
@@ -211,13 +211,13 @@
             this.btnAjustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAjustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.Image = ((System.Drawing.Image)(resources.GetObject("btnAjustes.Image")));
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(34, 679);
+            this.btnAjustes.Location = new System.Drawing.Point(58, 613);
             this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(271, 70);
+            this.btnAjustes.Size = new System.Drawing.Size(204, 70);
             this.btnAjustes.TabIndex = 3;
             this.btnAjustes.Text = "   AJUSTES";
             this.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -233,13 +233,13 @@
             this.btnUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(34, 564);
+            this.btnUsuario.Location = new System.Drawing.Point(58, 514);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(271, 70);
+            this.btnUsuario.Size = new System.Drawing.Size(185, 70);
             this.btnUsuario.TabIndex = 3;
             this.btnUsuario.Text = "   USUÁRIO";
             this.btnUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -255,13 +255,13 @@
             this.btnAgenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnAgenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgenda.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgenda.ForeColor = System.Drawing.Color.White;
             this.btnAgenda.Image = ((System.Drawing.Image)(resources.GetObject("btnAgenda.Image")));
             this.btnAgenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgenda.Location = new System.Drawing.Point(34, 334);
+            this.btnAgenda.Location = new System.Drawing.Point(58, 310);
             this.btnAgenda.Name = "btnAgenda";
-            this.btnAgenda.Size = new System.Drawing.Size(271, 70);
+            this.btnAgenda.Size = new System.Drawing.Size(190, 70);
             this.btnAgenda.TabIndex = 1;
             this.btnAgenda.Text = "   AGENDA";
             this.btnAgenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -277,13 +277,13 @@
             this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPacientes.Font = new System.Drawing.Font("Verdana", 12F);
             this.btnPacientes.ForeColor = System.Drawing.Color.White;
             this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
             this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacientes.Location = new System.Drawing.Point(34, 219);
+            this.btnPacientes.Location = new System.Drawing.Point(58, 205);
             this.btnPacientes.Name = "btnPacientes";
-            this.btnPacientes.Size = new System.Drawing.Size(271, 70);
+            this.btnPacientes.Size = new System.Drawing.Size(199, 70);
             this.btnPacientes.TabIndex = 0;
             this.btnPacientes.Text = "   PACIENTES";
             this.btnPacientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

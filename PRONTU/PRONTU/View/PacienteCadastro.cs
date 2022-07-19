@@ -282,5 +282,9 @@ namespace PRONTU
             cbUF.Enabled = _info;
         }
 
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
