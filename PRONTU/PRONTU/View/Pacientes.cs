@@ -343,7 +343,7 @@ namespace PRONTU.View
 
         private void AbrirPacientesCadastro(CadastroModel _cadastroPaciente)
         {
-            FormataBotoes(situacaoCadastro);
+            //FormataBotoes(situacaoCadastro);
             formularioCadastro = panelPaciente.Controls.OfType<PacienteCadastro>().FirstOrDefault();
 
             if (formularioCadastro == null)

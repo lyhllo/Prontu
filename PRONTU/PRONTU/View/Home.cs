@@ -42,6 +42,8 @@ namespace PRONTU
             UsuarioModel _usuario = UsuarioController.BuscaDadosUsuario();
             AjustesController _con = new AjustesController();
             ajustesUsuario = _con.BuscarAjustesUsuario(_usuario.Id_usuario);
+            lblData.Text = DateTime.Today.Date.ToShortDateString();
+            lblUsuario.Text = _usuario.Nome.ToString();
         }
 
         public void AbrirFormNoPanel<Forms>() where Forms : Form, new()

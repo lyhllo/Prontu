@@ -26,7 +26,7 @@ namespace PRONTU.View
 
         public void CarregarPacientes(int _idPaciente)
         {
-            pacientesReferencia.FormataBotoes("historico");
+            //pacientesReferencia.FormataBotoes("historico");
             pacientesReferencia.btnSelecionar.Visible = false;
             dt.Clear();
 

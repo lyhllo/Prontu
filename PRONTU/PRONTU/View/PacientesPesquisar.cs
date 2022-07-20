@@ -37,7 +37,7 @@ namespace PRONTU
 
         public void CarregarPacientes()
         {
-            pacientesReferencia.FormataBotoes("pesquisar");
+            //pacientesReferencia.FormataBotoes("pesquisar");
             dt.Clear();
             cadastro = controller.BuscaCadastrosPacientes();
 

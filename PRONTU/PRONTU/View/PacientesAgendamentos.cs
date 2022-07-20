@@ -26,7 +26,7 @@ namespace PRONTU.View
 
         public void CarregarAtendimentos(int _idPaciente)
         {
-            pacientesReferencia.FormataBotoes("agendamentos");
+            //pacientesReferencia.FormataBotoes("agendamentos");
             pacientesReferencia.btnSelecionar.Visible = false;
             dt.Clear();
 

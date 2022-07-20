@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendario = new System.Windows.Forms.MonthCalendar();
+            this.btnCadastro = new System.Windows.Forms.Button();
             this.btnRemoverAgendamento = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
@@ -75,7 +76,7 @@
             this.btnCadastro.Text = "Editar Cadastro";
             this.btnCadastro.UseVisualStyleBackColor = false;
             this.btnCadastro.Visible = false;
-            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
+            //this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
             // btnRemoverAgendamento
             // 
@@ -177,14 +178,14 @@
             this.clConvenio,
             this.clObs});
             this.dgHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgHorarios.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgHorarios.Location = new System.Drawing.Point(338, 41);
             this.dgHorarios.MultiSelect = false;
             this.dgHorarios.Name = "dgHorarios";
@@ -278,6 +279,7 @@
             this.Controls.Add(this.dgHorarios);
             this.Controls.Add(this.btnFalta);
             this.Controls.Add(this.btnAtender);
+            this.Controls.Add(this.btnCadastro);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.btnRemoverAgendamento);
             this.Controls.Add(this.calendario);
@@ -290,13 +292,15 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.MonthCalendar calendario;
+        private System.Windows.Forms.Button btnCadastro;
         private System.Windows.Forms.Button btnRemoverAgendamento;
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnFalta;
         private System.Windows.Forms.Label lblValor;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.DataGridView dgHorarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn clIdPcte;
         private System.Windows.Forms.DataGridViewTextBoxColumn clHora;
@@ -304,6 +308,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn clConvenio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clObs;
-        private System.Windows.Forms.TextBox txtValor;
     }
 }
