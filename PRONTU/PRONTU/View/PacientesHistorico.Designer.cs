@@ -58,7 +58,7 @@
             this.lblDataInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataInicio.Location = new System.Drawing.Point(26, 29);
             this.lblDataInicio.Name = "lblDataInicio";
-            this.lblDataInicio.Size = new System.Drawing.Size(105, 18);
+            this.lblDataInicio.Size = new System.Drawing.Size(130, 25);
             this.lblDataInicio.TabIndex = 5;
             this.lblDataInicio.Text = "Data Início:";
             // 
@@ -79,7 +79,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgHistorico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgHistorico.ColumnHeadersVisible = false;
             this.dgHistorico.Location = new System.Drawing.Point(27, 77);
             this.dgHistorico.MultiSelect = false;
             this.dgHistorico.Name = "dgHistorico";
@@ -97,7 +96,7 @@
             this.txtDataInicio.Location = new System.Drawing.Point(137, 26);
             this.txtDataInicio.Mask = "00/00/0000";
             this.txtDataInicio.Name = "txtDataInicio";
-            this.txtDataInicio.Size = new System.Drawing.Size(110, 27);
+            this.txtDataInicio.Size = new System.Drawing.Size(110, 32);
             this.txtDataInicio.TabIndex = 9;
             this.txtDataInicio.ValidatingType = typeof(System.DateTime);
             this.txtDataInicio.Leave += new System.EventHandler(this.ValidaDataInicio);
@@ -108,7 +107,7 @@
             this.txtDataFim.Location = new System.Drawing.Point(422, 26);
             this.txtDataFim.Mask = "00/00/0000";
             this.txtDataFim.Name = "txtDataFim";
-            this.txtDataFim.Size = new System.Drawing.Size(110, 27);
+            this.txtDataFim.Size = new System.Drawing.Size(110, 32);
             this.txtDataFim.TabIndex = 10;
             this.txtDataFim.ValidatingType = typeof(System.DateTime);
             this.txtDataFim.Leave += new System.EventHandler(this.ValidaDataFim);
@@ -119,7 +118,7 @@
             this.lblDataFim.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataFim.Location = new System.Drawing.Point(327, 29);
             this.lblDataFim.Name = "lblDataFim";
-            this.lblDataFim.Size = new System.Drawing.Size(89, 18);
+            this.lblDataFim.Size = new System.Drawing.Size(112, 25);
             this.lblDataFim.TabIndex = 11;
             this.lblDataFim.Text = "Data Fim:";
             // 
